@@ -8,20 +8,6 @@ import * as Vapi from "../../../index";
  * These are the options for the assistant's transcriber.
  */
 export type UpdateAssistantDtoTranscriber =
-    | Vapi.UpdateAssistantDtoTranscriber.Deepgram
-    | Vapi.UpdateAssistantDtoTranscriber.Gladia
-    | Vapi.UpdateAssistantDtoTranscriber.Talkscriber;
-
-export declare namespace UpdateAssistantDtoTranscriber {
-    interface Deepgram extends Vapi.DeepgramTranscriber {
-        provider: "deepgram";
-    }
-
-    interface Gladia extends Vapi.GladiaTranscriber {
-        provider: "gladia";
-    }
-
-    interface Talkscriber extends Vapi.TalkscriberTranscriber {
-        provider: "talkscriber";
-    }
-}
+    | Vapi.DeepgramTranscriber
+    | Vapi.GladiaTranscriber
+    | Vapi.TalkscriberTranscriber;

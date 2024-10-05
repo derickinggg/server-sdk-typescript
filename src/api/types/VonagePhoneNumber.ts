@@ -15,6 +15,7 @@ export interface VonagePhoneNumber {
      * If this is not set and above conditions are met, the inbound call is hung up with an error message.
      */
     fallbackDestination?: Vapi.VonagePhoneNumberFallbackDestination;
+    provider: "vonage";
     /** This is the unique identifier for the phone number. */
     id: string;
     /** This is the unique identifier for the org that this phone number belongs to. */

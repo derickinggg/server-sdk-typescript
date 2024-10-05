@@ -8,20 +8,6 @@ import * as Vapi from "../index";
  * These are the messages that can be sent from client-side SDKs to control the call.
  */
 export type ClientInboundMessageMessage =
-    | Vapi.ClientInboundMessageMessage.AddMessage
-    | Vapi.ClientInboundMessageMessage.Control
-    | Vapi.ClientInboundMessageMessage.Say;
-
-export declare namespace ClientInboundMessageMessage {
-    interface AddMessage extends Vapi.ClientInboundMessageAddMessage {
-        type: "add-message";
-    }
-
-    interface Control extends Vapi.ClientInboundMessageControl {
-        type: "control";
-    }
-
-    interface Say extends Vapi.ClientInboundMessageSay {
-        type: "say";
-    }
-}
+    | Vapi.ClientInboundMessageAddMessage
+    | Vapi.ClientInboundMessageControl
+    | Vapi.ClientInboundMessageSay;

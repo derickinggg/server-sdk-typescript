@@ -7,6 +7,8 @@ import * as Vapi from "../index";
 export interface BlockStartMessage {
     /** This is an optional array of conditions that must be met for this message to be triggered. */
     conditions?: Vapi.BlockStartMessageConditionsItem[];
+    /** This is the message type that is triggered when the block starts. */
+    type: "block-start";
     /** This is the content that the assistant will say when this message is triggered. */
     content: string;
 }

@@ -13,16 +13,4 @@ import * as Vapi from "../index";
  *
  * If this is not set and above conditions are met, the inbound call is hung up with an error message.
  */
-export type VapiPhoneNumberFallbackDestination =
-    | Vapi.VapiPhoneNumberFallbackDestination.Number
-    | Vapi.VapiPhoneNumberFallbackDestination.Sip;
-
-export declare namespace VapiPhoneNumberFallbackDestination {
-    interface Number extends Vapi.TransferDestinationNumber {
-        type: "number";
-    }
-
-    interface Sip extends Vapi.TransferDestinationSip {
-        type: "sip";
-    }
-}
+export type VapiPhoneNumberFallbackDestination = Vapi.TransferDestinationNumber | Vapi.TransferDestinationSip;

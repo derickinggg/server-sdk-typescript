@@ -14,6 +14,8 @@ export interface ServerMessageLanguageChanged {
      * - `call.phoneNumberId`.
      */
     phoneNumber?: Vapi.ServerMessageLanguageChangedPhoneNumber;
+    /** This is the type of the message. "language-switched" is sent when the transcriber is automatically switched based on the detected language. */
+    type: "language-changed";
     /** This is the ISO-8601 formatted timestamp of when the message was sent. */
     timestamp?: string;
     /**

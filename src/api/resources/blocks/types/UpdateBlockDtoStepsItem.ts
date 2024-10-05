@@ -4,14 +4,4 @@
 
 import * as Vapi from "../../../index";
 
-export type UpdateBlockDtoStepsItem = Vapi.UpdateBlockDtoStepsItem.Handoff | Vapi.UpdateBlockDtoStepsItem.Callback;
-
-export declare namespace UpdateBlockDtoStepsItem {
-    interface Handoff extends Vapi.HandoffStep {
-        type: "handoff";
-    }
-
-    interface Callback extends Vapi.CallbackStep {
-        type: "callback";
-    }
-}
+export type UpdateBlockDtoStepsItem = Vapi.HandoffStep | Vapi.CallbackStep;

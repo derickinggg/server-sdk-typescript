@@ -19,6 +19,8 @@ export interface OpenAiModel {
      * Both `tools` and `toolIds` can be used together.
      */
     toolIds?: string[];
+    /** This is the provider that will be used for the model. */
+    provider: "openai";
     /** This is the OpenAI model that will be used. */
     model: Vapi.OpenAiModelModel;
     /** These are the fallback models that will be used if the primary model fails. This shouldn't be specified unless you have a specific reason to do so. Vapi will automatically find the fastest fallbacks that make sense. */

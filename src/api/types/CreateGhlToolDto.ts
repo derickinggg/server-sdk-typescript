@@ -21,6 +21,7 @@ export interface CreateGhlToolDto {
      * For some tools, this is auto-filled based on special fields like `tool.destinations`. For others like the function tool, these can be custom configured.
      */
     messages?: Vapi.CreateGhlToolDtoMessagesItem[];
+    type: "ghl";
     metadata: Vapi.GhlToolMetadata;
     /**
      * This is the function definition of the tool.

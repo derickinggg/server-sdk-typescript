@@ -5,25 +5,7 @@
 import * as Vapi from "../index";
 
 export type FunctionToolWithToolCallMessagesItem =
-    | Vapi.FunctionToolWithToolCallMessagesItem.RequestStart
-    | Vapi.FunctionToolWithToolCallMessagesItem.RequestComplete
-    | Vapi.FunctionToolWithToolCallMessagesItem.RequestFailed
-    | Vapi.FunctionToolWithToolCallMessagesItem.RequestResponseDelayed;
-
-export declare namespace FunctionToolWithToolCallMessagesItem {
-    interface RequestStart extends Vapi.ToolMessageStart {
-        type: "request-start";
-    }
-
-    interface RequestComplete extends Vapi.ToolMessageComplete {
-        type: "request-complete";
-    }
-
-    interface RequestFailed extends Vapi.ToolMessageFailed {
-        type: "request-failed";
-    }
-
-    interface RequestResponseDelayed extends Vapi.ToolMessageDelayed {
-        type: "request-response-delayed";
-    }
-}
+    | Vapi.ToolMessageStart
+    | Vapi.ToolMessageComplete
+    | Vapi.ToolMessageFailed
+    | Vapi.ToolMessageDelayed;

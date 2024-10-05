@@ -5,6 +5,8 @@
 import * as Vapi from "../index";
 
 export interface ClientMessageTranscript {
+    /** This is the type of the message. "transcript" is sent as transcriber outputs partial or final transcript. */
+    type: "transcript";
     /** This is the role for which the transcript is for. */
     role: Vapi.ClientMessageTranscriptRole;
     /** This is the type of the transcript. */

@@ -3,6 +3,7 @@
  */
 
 export interface TransferDestinationNumber {
+    type: "number";
     /**
      * This is the flag to toggle the E164 check for the `number` field. This is an advanced property which should be used if you know your use case requires it.
      *

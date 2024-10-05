@@ -19,6 +19,7 @@ export interface TogetherAiModel {
      * Both `tools` and `toolIds` can be used together.
      */
     toolIds?: string[];
+    provider: "together-ai";
     /** This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b */
     model: string;
     /** This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency. */

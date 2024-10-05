@@ -5,6 +5,7 @@
 import * as Vapi from "../index";
 
 export interface TransferDestinationAssistant {
+    type: "assistant";
     /**
      * This is the mode to use for the transfer. Default is `rolling-history`.
      *
@@ -51,7 +52,7 @@ export interface TransferDestinationAssistant {
      *   assistant: (destination.message)
      *   assistant: assistant2 first message (or model generated if firstMessageMode is set to `assistant-speaks-first-with-model-generated-message`)
      */
-    transferMode?: Vapi.TransferDestinationAssistantTransferMode;
+    transferMode?: Vapi.TransferMode;
     /** This is the assistant to transfer the call to. */
     assistantName: string;
     /**

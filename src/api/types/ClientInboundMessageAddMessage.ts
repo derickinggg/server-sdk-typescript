@@ -5,6 +5,8 @@
 import * as Vapi from "../index";
 
 export interface ClientInboundMessageAddMessage {
+    /** This is the type of the message. Send "add-message" message to add a message to the conversation history. */
+    type: "add-message";
     /** This is the message to add to the conversation. */
     message: Vapi.OpenAiMessage;
 }

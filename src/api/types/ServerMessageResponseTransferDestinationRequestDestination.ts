@@ -8,25 +8,7 @@ import * as Vapi from "../index";
  * This is the destination you'd like the call to be transferred to.
  */
 export type ServerMessageResponseTransferDestinationRequestDestination =
-    | Vapi.ServerMessageResponseTransferDestinationRequestDestination.Assistant
-    | Vapi.ServerMessageResponseTransferDestinationRequestDestination.Step
-    | Vapi.ServerMessageResponseTransferDestinationRequestDestination.Number
-    | Vapi.ServerMessageResponseTransferDestinationRequestDestination.Sip;
-
-export declare namespace ServerMessageResponseTransferDestinationRequestDestination {
-    interface Assistant extends Vapi.TransferDestinationAssistant {
-        type: "assistant";
-    }
-
-    interface Step extends Vapi.TransferDestinationStep {
-        type: "step";
-    }
-
-    interface Number extends Vapi.TransferDestinationNumber {
-        type: "number";
-    }
-
-    interface Sip extends Vapi.TransferDestinationSip {
-        type: "sip";
-    }
-}
+    | Vapi.TransferDestinationAssistant
+    | Vapi.TransferDestinationStep
+    | Vapi.TransferDestinationNumber
+    | Vapi.TransferDestinationSip;

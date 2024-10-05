@@ -15,6 +15,7 @@ export interface CreateVonagePhoneNumberDto {
      * If this is not set and above conditions are met, the inbound call is hung up with an error message.
      */
     fallbackDestination?: Vapi.CreateVonagePhoneNumberDtoFallbackDestination;
+    provider: "vonage";
     /** These are the digits of the phone number you own on your Vonage. */
     number: string;
     /** This is the credential that is used to make outgoing calls, and do operations like call transfer and hang up. */

@@ -3,6 +3,8 @@
  */
 
 export interface VoiceCost {
+    /** This is the type of cost, always 'voice' for this class. */
+    type: "voice";
     /**
      * This is the voice that was used during the call.
      *

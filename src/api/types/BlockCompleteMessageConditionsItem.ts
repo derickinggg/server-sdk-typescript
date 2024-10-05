@@ -4,16 +4,4 @@
 
 import * as Vapi from "../index";
 
-export type BlockCompleteMessageConditionsItem =
-    | Vapi.BlockCompleteMessageConditionsItem.ModelBased
-    | Vapi.BlockCompleteMessageConditionsItem.RuleBased;
-
-export declare namespace BlockCompleteMessageConditionsItem {
-    interface ModelBased extends Vapi.ModelBasedCondition {
-        type: "model-based";
-    }
-
-    interface RuleBased extends Vapi.RuleBasedCondition {
-        type: "rule-based";
-    }
-}
+export type BlockCompleteMessageConditionsItem = Vapi.ModelBasedCondition | Vapi.RuleBasedCondition;

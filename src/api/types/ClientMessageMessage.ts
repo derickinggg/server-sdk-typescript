@@ -8,60 +8,14 @@ import * as Vapi from "../index";
  * These are all the messages that can be sent to the client-side SDKs during the call. Configure the messages you'd like to receive in `assistant.clientMessages`.
  */
 export type ClientMessageMessage =
-    | Vapi.ClientMessageMessage.ConversationUpdate
-    | Vapi.ClientMessageMessage.Hang
-    | Vapi.ClientMessageMessage.Metadata
-    | Vapi.ClientMessageMessage.ModelOutput
-    | Vapi.ClientMessageMessage.SpeechUpdate
-    | Vapi.ClientMessageMessage.Transcript
-    | Vapi.ClientMessageMessage.ToolCalls
-    | Vapi.ClientMessageMessage.ToolCallsResult
-    | Vapi.ClientMessageMessage.UserInterrupted
-    | Vapi.ClientMessageMessage.LanguageChanged
-    | Vapi.ClientMessageMessage.VoiceInput;
-
-export declare namespace ClientMessageMessage {
-    interface ConversationUpdate extends Vapi.ClientMessageConversationUpdate {
-        type: "conversation-update";
-    }
-
-    interface Hang extends Vapi.ClientMessageHang {
-        type: "hang";
-    }
-
-    interface Metadata extends Vapi.ClientMessageMetadata {
-        type: "metadata";
-    }
-
-    interface ModelOutput extends Vapi.ClientMessageModelOutput {
-        type: "model-output";
-    }
-
-    interface SpeechUpdate extends Vapi.ClientMessageSpeechUpdate {
-        type: "speech-update";
-    }
-
-    interface Transcript extends Vapi.ClientMessageTranscript {
-        type: "transcript";
-    }
-
-    interface ToolCalls extends Vapi.ClientMessageToolCalls {
-        type: "tool-calls";
-    }
-
-    interface ToolCallsResult extends Vapi.ClientMessageToolCallsResult {
-        type: "tool-calls-result";
-    }
-
-    interface UserInterrupted extends Vapi.ClientMessageUserInterrupted {
-        type: "user-interrupted";
-    }
-
-    interface LanguageChanged extends Vapi.ClientMessageLanguageChanged {
-        type: "language-changed";
-    }
-
-    interface VoiceInput extends Vapi.ClientMessageVoiceInput {
-        type: "voice-input";
-    }
-}
+    | Vapi.ClientMessageConversationUpdate
+    | Vapi.ClientMessageHang
+    | Vapi.ClientMessageMetadata
+    | Vapi.ClientMessageModelOutput
+    | Vapi.ClientMessageSpeechUpdate
+    | Vapi.ClientMessageTranscript
+    | Vapi.ClientMessageToolCalls
+    | Vapi.ClientMessageToolCallsResult
+    | Vapi.ClientMessageUserInterrupted
+    | Vapi.ClientMessageLanguageChanged
+    | Vapi.ClientMessageVoiceInput;

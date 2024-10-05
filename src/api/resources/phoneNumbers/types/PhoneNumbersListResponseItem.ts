@@ -5,25 +5,7 @@
 import * as Vapi from "../../../index";
 
 export type PhoneNumbersListResponseItem =
-    | Vapi.PhoneNumbersListResponseItem.ByoPhoneNumber
-    | Vapi.PhoneNumbersListResponseItem.Twilio
-    | Vapi.PhoneNumbersListResponseItem.Vonage
-    | Vapi.PhoneNumbersListResponseItem.Vapi;
-
-export declare namespace PhoneNumbersListResponseItem {
-    interface ByoPhoneNumber extends Vapi.ByoPhoneNumber {
-        provider: "byo-phone-number";
-    }
-
-    interface Twilio extends Vapi.TwilioPhoneNumber {
-        provider: "twilio";
-    }
-
-    interface Vonage extends Vapi.VonagePhoneNumber {
-        provider: "vonage";
-    }
-
-    interface Vapi extends Vapi.VapiPhoneNumber {
-        provider: "vapi";
-    }
-}
+    | Vapi.ByoPhoneNumber
+    | Vapi.TwilioPhoneNumber
+    | Vapi.VonagePhoneNumber
+    | Vapi.VapiPhoneNumber;

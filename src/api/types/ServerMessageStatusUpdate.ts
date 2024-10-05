@@ -14,6 +14,8 @@ export interface ServerMessageStatusUpdate {
      * - `call.phoneNumberId`.
      */
     phoneNumber?: Vapi.ServerMessageStatusUpdatePhoneNumber;
+    /** This is the type of the message. "status-update" is sent whenever the `call.status` changes. */
+    type: "status-update";
     /** This is the status of the call. */
     status: Vapi.ServerMessageStatusUpdateStatus;
     /** This is the reason the call ended. This is only sent if the status is "ended". */

@@ -14,6 +14,8 @@ export interface ServerMessageToolCalls {
      * - `call.phoneNumberId`.
      */
     phoneNumber?: Vapi.ServerMessageToolCallsPhoneNumber;
+    /** This is the type of the message. "tool-calls" is sent to call a tool. */
+    type?: "tool-calls";
     /** This is the list of tools calls that the model is requesting along with the original tool configuration. */
     toolWithToolCallList: Vapi.ServerMessageToolCallsToolWithToolCallListItem[];
     /** This is the ISO-8601 formatted timestamp of when the message was sent. */

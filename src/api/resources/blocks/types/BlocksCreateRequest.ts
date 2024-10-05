@@ -5,20 +5,6 @@
 import * as Vapi from "../../../index";
 
 export type BlocksCreateRequest =
-    | Vapi.BlocksCreateRequest.Conversation
-    | Vapi.BlocksCreateRequest.ToolCall
-    | Vapi.BlocksCreateRequest.Workflow;
-
-export declare namespace BlocksCreateRequest {
-    interface Conversation extends Vapi.CreateConversationBlockDto {
-        type: "conversation";
-    }
-
-    interface ToolCall extends Vapi.CreateToolCallBlockDto {
-        type: "tool-call";
-    }
-
-    interface Workflow extends Vapi.CreateWorkflowBlockDto {
-        type: "workflow";
-    }
-}
+    | Vapi.CreateConversationBlockDto
+    | Vapi.CreateToolCallBlockDto
+    | Vapi.CreateWorkflowBlockDto;

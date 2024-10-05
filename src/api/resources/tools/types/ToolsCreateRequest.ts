@@ -5,40 +5,10 @@
 import * as Vapi from "../../../index";
 
 export type ToolsCreateRequest =
-    | Vapi.ToolsCreateRequest.Dtmf
-    | Vapi.ToolsCreateRequest.EndCall
-    | Vapi.ToolsCreateRequest.Function
-    | Vapi.ToolsCreateRequest.Ghl
-    | Vapi.ToolsCreateRequest.Make
-    | Vapi.ToolsCreateRequest.TransferCall
-    | Vapi.ToolsCreateRequest.Output;
-
-export declare namespace ToolsCreateRequest {
-    interface Dtmf extends Vapi.CreateDtmfToolDto {
-        type: "dtmf";
-    }
-
-    interface EndCall extends Vapi.CreateEndCallToolDto {
-        type: "endCall";
-    }
-
-    interface Function extends Vapi.CreateFunctionToolDto {
-        type: "function";
-    }
-
-    interface Ghl extends Vapi.CreateGhlToolDto {
-        type: "ghl";
-    }
-
-    interface Make extends Vapi.CreateMakeToolDto {
-        type: "make";
-    }
-
-    interface TransferCall extends Vapi.CreateTransferCallToolDto {
-        type: "transferCall";
-    }
-
-    interface Output extends Vapi.CreateOutputToolDto {
-        type: "output";
-    }
-}
+    | Vapi.CreateDtmfToolDto
+    | Vapi.CreateEndCallToolDto
+    | Vapi.CreateFunctionToolDto
+    | Vapi.CreateGhlToolDto
+    | Vapi.CreateMakeToolDto
+    | Vapi.CreateTransferCallToolDto
+    | Vapi.CreateOutputToolDto;

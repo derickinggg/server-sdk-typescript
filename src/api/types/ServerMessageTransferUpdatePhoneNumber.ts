@@ -13,25 +13,7 @@ import * as Vapi from "../index";
  * - `call.phoneNumberId`.
  */
 export type ServerMessageTransferUpdatePhoneNumber =
-    | Vapi.ServerMessageTransferUpdatePhoneNumber.ByoPhoneNumber
-    | Vapi.ServerMessageTransferUpdatePhoneNumber.Twilio
-    | Vapi.ServerMessageTransferUpdatePhoneNumber.Vonage
-    | Vapi.ServerMessageTransferUpdatePhoneNumber.Vapi;
-
-export declare namespace ServerMessageTransferUpdatePhoneNumber {
-    interface ByoPhoneNumber extends Vapi.CreateByoPhoneNumberDto {
-        provider: "byo-phone-number";
-    }
-
-    interface Twilio extends Vapi.CreateTwilioPhoneNumberDto {
-        provider: "twilio";
-    }
-
-    interface Vonage extends Vapi.CreateVonagePhoneNumberDto {
-        provider: "vonage";
-    }
-
-    interface Vapi extends Vapi.CreateVapiPhoneNumberDto {
-        provider: "vapi";
-    }
-}
+    | Vapi.CreateByoPhoneNumberDto
+    | Vapi.CreateTwilioPhoneNumberDto
+    | Vapi.CreateVonagePhoneNumberDto
+    | Vapi.CreateVapiPhoneNumberDto;

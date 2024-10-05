@@ -3,6 +3,8 @@
  */
 
 export interface TransportCost {
+    /** This is the type of cost, always 'transport' for this class. */
+    type: "transport";
     /** This is the minutes of `transport` usage. This should match `call.endedAt` - `call.startedAt`. */
     minutes: number;
     /** This is the cost of the component in USD. */

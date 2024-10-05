@@ -3,6 +3,8 @@
  */
 
 export interface ClientMessageLanguageChanged {
+    /** This is the type of the message. "language-switched" is sent when the transcriber is automatically switched based on the detected language. */
+    type: "language-changed";
     /** This is the language the transcriber is switched to. */
     language: string;
 }

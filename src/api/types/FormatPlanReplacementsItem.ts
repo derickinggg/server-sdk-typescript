@@ -4,14 +4,4 @@
 
 import * as Vapi from "../index";
 
-export type FormatPlanReplacementsItem = Vapi.FormatPlanReplacementsItem.Exact | Vapi.FormatPlanReplacementsItem.Regex;
-
-export declare namespace FormatPlanReplacementsItem {
-    interface Exact extends Vapi.ExactReplacement {
-        type: "exact";
-    }
-
-    interface Regex extends Vapi.RegexReplacement {
-        type: "regex";
-    }
-}
+export type FormatPlanReplacementsItem = Vapi.ExactReplacement | Vapi.RegexReplacement;

@@ -3,6 +3,7 @@
  */
 
 export interface TransferDestinationSip {
+    type: "sip";
     /** This is the SIP URI to transfer the call to. */
     sipUri: string;
     /**

@@ -5,25 +5,7 @@
 import * as Vapi from "../index";
 
 export type CreateMakeToolDtoMessagesItem =
-    | Vapi.CreateMakeToolDtoMessagesItem.RequestStart
-    | Vapi.CreateMakeToolDtoMessagesItem.RequestComplete
-    | Vapi.CreateMakeToolDtoMessagesItem.RequestFailed
-    | Vapi.CreateMakeToolDtoMessagesItem.RequestResponseDelayed;
-
-export declare namespace CreateMakeToolDtoMessagesItem {
-    interface RequestStart extends Vapi.ToolMessageStart {
-        type: "request-start";
-    }
-
-    interface RequestComplete extends Vapi.ToolMessageComplete {
-        type: "request-complete";
-    }
-
-    interface RequestFailed extends Vapi.ToolMessageFailed {
-        type: "request-failed";
-    }
-
-    interface RequestResponseDelayed extends Vapi.ToolMessageDelayed {
-        type: "request-response-delayed";
-    }
-}
+    | Vapi.ToolMessageStart
+    | Vapi.ToolMessageComplete
+    | Vapi.ToolMessageFailed
+    | Vapi.ToolMessageDelayed;

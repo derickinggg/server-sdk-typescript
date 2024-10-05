@@ -5,40 +5,10 @@
 import * as Vapi from "../index";
 
 export type AnyscaleModelToolsItem =
-    | Vapi.AnyscaleModelToolsItem.Dtmf
-    | Vapi.AnyscaleModelToolsItem.EndCall
-    | Vapi.AnyscaleModelToolsItem.Voicemail
-    | Vapi.AnyscaleModelToolsItem.Function
-    | Vapi.AnyscaleModelToolsItem.Ghl
-    | Vapi.AnyscaleModelToolsItem.Make
-    | Vapi.AnyscaleModelToolsItem.TransferCall;
-
-export declare namespace AnyscaleModelToolsItem {
-    interface Dtmf extends Vapi.CreateDtmfToolDto {
-        type: "dtmf";
-    }
-
-    interface EndCall extends Vapi.CreateEndCallToolDto {
-        type: "endCall";
-    }
-
-    interface Voicemail extends Vapi.CreateVoicemailToolDto {
-        type: "voicemail";
-    }
-
-    interface Function extends Vapi.CreateFunctionToolDto {
-        type: "function";
-    }
-
-    interface Ghl extends Vapi.CreateGhlToolDto {
-        type: "ghl";
-    }
-
-    interface Make extends Vapi.CreateMakeToolDto {
-        type: "make";
-    }
-
-    interface TransferCall extends Vapi.CreateTransferCallToolDto {
-        type: "transferCall";
-    }
-}
+    | Vapi.CreateDtmfToolDto
+    | Vapi.CreateEndCallToolDto
+    | Vapi.CreateVoicemailToolDto
+    | Vapi.CreateFunctionToolDto
+    | Vapi.CreateGhlToolDto
+    | Vapi.CreateMakeToolDto
+    | Vapi.CreateTransferCallToolDto;

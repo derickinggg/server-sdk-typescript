@@ -5,25 +5,7 @@
 import * as Vapi from "../index";
 
 export type CreateGhlToolDtoMessagesItem =
-    | Vapi.CreateGhlToolDtoMessagesItem.RequestStart
-    | Vapi.CreateGhlToolDtoMessagesItem.RequestComplete
-    | Vapi.CreateGhlToolDtoMessagesItem.RequestFailed
-    | Vapi.CreateGhlToolDtoMessagesItem.RequestResponseDelayed;
-
-export declare namespace CreateGhlToolDtoMessagesItem {
-    interface RequestStart extends Vapi.ToolMessageStart {
-        type: "request-start";
-    }
-
-    interface RequestComplete extends Vapi.ToolMessageComplete {
-        type: "request-complete";
-    }
-
-    interface RequestFailed extends Vapi.ToolMessageFailed {
-        type: "request-failed";
-    }
-
-    interface RequestResponseDelayed extends Vapi.ToolMessageDelayed {
-        type: "request-response-delayed";
-    }
-}
+    | Vapi.ToolMessageStart
+    | Vapi.ToolMessageComplete
+    | Vapi.ToolMessageFailed
+    | Vapi.ToolMessageDelayed;

@@ -8,25 +8,7 @@ import * as Vapi from "../index";
  * This is the destination of the transfer.
  */
 export type ServerMessageTransferUpdateDestination =
-    | Vapi.ServerMessageTransferUpdateDestination.Assistant
-    | Vapi.ServerMessageTransferUpdateDestination.Step
-    | Vapi.ServerMessageTransferUpdateDestination.Number
-    | Vapi.ServerMessageTransferUpdateDestination.Sip;
-
-export declare namespace ServerMessageTransferUpdateDestination {
-    interface Assistant extends Vapi.TransferDestinationAssistant {
-        type: "assistant";
-    }
-
-    interface Step extends Vapi.TransferDestinationStep {
-        type: "step";
-    }
-
-    interface Number extends Vapi.TransferDestinationNumber {
-        type: "number";
-    }
-
-    interface Sip extends Vapi.TransferDestinationSip {
-        type: "sip";
-    }
-}
+    | Vapi.TransferDestinationAssistant
+    | Vapi.TransferDestinationStep
+    | Vapi.TransferDestinationNumber
+    | Vapi.TransferDestinationSip;

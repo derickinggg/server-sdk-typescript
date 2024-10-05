@@ -7,14 +7,4 @@ import * as Vapi from "../index";
 /**
  * This is the destination where the call ended up being transferred to. If the call was not transferred, this will be empty.
  */
-export type CallDestination = Vapi.CallDestination.Number | Vapi.CallDestination.Sip;
-
-export declare namespace CallDestination {
-    interface Number extends Vapi.TransferDestinationNumber {
-        type: "number";
-    }
-
-    interface Sip extends Vapi.TransferDestinationSip {
-        type: "sip";
-    }
-}
+export type CallDestination = Vapi.TransferDestinationNumber | Vapi.TransferDestinationSip;

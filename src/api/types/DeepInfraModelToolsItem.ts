@@ -5,40 +5,10 @@
 import * as Vapi from "../index";
 
 export type DeepInfraModelToolsItem =
-    | Vapi.DeepInfraModelToolsItem.Dtmf
-    | Vapi.DeepInfraModelToolsItem.EndCall
-    | Vapi.DeepInfraModelToolsItem.Voicemail
-    | Vapi.DeepInfraModelToolsItem.Function
-    | Vapi.DeepInfraModelToolsItem.Ghl
-    | Vapi.DeepInfraModelToolsItem.Make
-    | Vapi.DeepInfraModelToolsItem.TransferCall;
-
-export declare namespace DeepInfraModelToolsItem {
-    interface Dtmf extends Vapi.CreateDtmfToolDto {
-        type: "dtmf";
-    }
-
-    interface EndCall extends Vapi.CreateEndCallToolDto {
-        type: "endCall";
-    }
-
-    interface Voicemail extends Vapi.CreateVoicemailToolDto {
-        type: "voicemail";
-    }
-
-    interface Function extends Vapi.CreateFunctionToolDto {
-        type: "function";
-    }
-
-    interface Ghl extends Vapi.CreateGhlToolDto {
-        type: "ghl";
-    }
-
-    interface Make extends Vapi.CreateMakeToolDto {
-        type: "make";
-    }
-
-    interface TransferCall extends Vapi.CreateTransferCallToolDto {
-        type: "transferCall";
-    }
-}
+    | Vapi.CreateDtmfToolDto
+    | Vapi.CreateEndCallToolDto
+    | Vapi.CreateVoicemailToolDto
+    | Vapi.CreateFunctionToolDto
+    | Vapi.CreateGhlToolDto
+    | Vapi.CreateMakeToolDto
+    | Vapi.CreateTransferCallToolDto;

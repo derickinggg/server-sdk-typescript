@@ -3,6 +3,8 @@
  */
 
 export interface TranscriberCost {
+    /** This is the type of cost, always 'transcriber' for this class. */
+    type: "transcriber";
     /**
      * This is the transcriber that was used during the call.
      *

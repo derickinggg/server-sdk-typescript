@@ -3,6 +3,8 @@
  */
 
 export interface ClientMessageToolCallsResult {
+    /** This is the type of the message. "tool-calls-result" is sent to forward the result of a tool call to the client. */
+    type: "tool-calls-result";
     /** This is the result of the tool call. */
     toolCallResult: Record<string, unknown>;
 }

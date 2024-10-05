@@ -4,16 +4,4 @@
 
 import * as Vapi from "../index";
 
-export type StepDestinationConditionsItem =
-    | Vapi.StepDestinationConditionsItem.ModelBased
-    | Vapi.StepDestinationConditionsItem.RuleBased;
-
-export declare namespace StepDestinationConditionsItem {
-    interface ModelBased extends Vapi.ModelBasedCondition {
-        type: "model-based";
-    }
-
-    interface RuleBased extends Vapi.RuleBasedCondition {
-        type: "rule-based";
-    }
-}
+export type StepDestinationConditionsItem = Vapi.ModelBasedCondition | Vapi.RuleBasedCondition;

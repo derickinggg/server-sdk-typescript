@@ -5,25 +5,7 @@
 import * as Vapi from "../index";
 
 export type CreateTransferCallToolDtoDestinationsItem =
-    | Vapi.CreateTransferCallToolDtoDestinationsItem.Assistant
-    | Vapi.CreateTransferCallToolDtoDestinationsItem.Step
-    | Vapi.CreateTransferCallToolDtoDestinationsItem.Number
-    | Vapi.CreateTransferCallToolDtoDestinationsItem.Sip;
-
-export declare namespace CreateTransferCallToolDtoDestinationsItem {
-    interface Assistant extends Vapi.TransferDestinationAssistant {
-        type: "assistant";
-    }
-
-    interface Step extends Vapi.TransferDestinationStep {
-        type: "step";
-    }
-
-    interface Number extends Vapi.TransferDestinationNumber {
-        type: "number";
-    }
-
-    interface Sip extends Vapi.TransferDestinationSip {
-        type: "sip";
-    }
-}
+    | Vapi.TransferDestinationAssistant
+    | Vapi.TransferDestinationStep
+    | Vapi.TransferDestinationNumber
+    | Vapi.TransferDestinationSip;

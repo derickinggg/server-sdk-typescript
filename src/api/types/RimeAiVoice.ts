@@ -11,6 +11,8 @@ export interface RimeAiVoice {
      * Default `false` because you can achieve better results with prompting the model.
      */
     fillerInjectionEnabled?: boolean;
+    /** This is the voice provider that will be used. */
+    provider: "rime-ai";
     /** This is the provider-specific ID that will be used. */
     voiceId: Vapi.RimeAiVoiceVoiceId;
     /** This is the model that will be used. Defaults to 'v1' when not specified. */

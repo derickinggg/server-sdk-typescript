@@ -4,21 +4,4 @@
 
 import * as Vapi from "../../../index";
 
-export type BlocksGetResponse =
-    | Vapi.BlocksGetResponse.Conversation
-    | Vapi.BlocksGetResponse.ToolCall
-    | Vapi.BlocksGetResponse.Workflow;
-
-export declare namespace BlocksGetResponse {
-    interface Conversation extends Vapi.ConversationBlock {
-        type: "conversation";
-    }
-
-    interface ToolCall extends Vapi.ToolCallBlock {
-        type: "tool-call";
-    }
-
-    interface Workflow extends Vapi.WorkflowBlock {
-        type: "workflow";
-    }
-}
+export type BlocksGetResponse = Vapi.ConversationBlock | Vapi.ToolCallBlock | Vapi.WorkflowBlock;

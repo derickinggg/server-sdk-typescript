@@ -21,6 +21,8 @@ export interface FunctionToolWithToolCall {
      * For some tools, this is auto-filled based on special fields like `tool.destinations`. For others like the function tool, these can be custom configured.
      */
     messages?: Vapi.FunctionToolWithToolCallMessagesItem[];
+    /** The type of tool. "function" for Function tool. */
+    type: "function";
     toolCall: Vapi.ToolCall;
     /**
      * This is the function definition of the tool.

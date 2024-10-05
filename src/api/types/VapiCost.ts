@@ -3,6 +3,8 @@
  */
 
 export interface VapiCost {
+    /** This is the type of cost, always 'vapi' for this class. */
+    type: "vapi";
     /** This is the minutes of Vapi usage. This should match `call.endedAt` - `call.startedAt`. */
     minutes: number;
     /** This is the cost of the component in USD. */

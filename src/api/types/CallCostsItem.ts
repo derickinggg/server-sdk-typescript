@@ -5,35 +5,9 @@
 import * as Vapi from "../index";
 
 export type CallCostsItem =
-    | Vapi.CallCostsItem.Transport
-    | Vapi.CallCostsItem.Transcriber
-    | Vapi.CallCostsItem.Model
-    | Vapi.CallCostsItem.Voice
-    | Vapi.CallCostsItem.Vapi
-    | Vapi.CallCostsItem.Analysis;
-
-export declare namespace CallCostsItem {
-    interface Transport extends Vapi.TransportCost {
-        type: "transport";
-    }
-
-    interface Transcriber extends Vapi.TranscriberCost {
-        type: "transcriber";
-    }
-
-    interface Model extends Vapi.ModelCost {
-        type: "model";
-    }
-
-    interface Voice extends Vapi.VoiceCost {
-        type: "voice";
-    }
-
-    interface Vapi extends Vapi.VapiCost {
-        type: "vapi";
-    }
-
-    interface Analysis extends Vapi.AnalysisCost {
-        type: "analysis";
-    }
-}
+    | Vapi.TransportCost
+    | Vapi.TranscriberCost
+    | Vapi.ModelCost
+    | Vapi.VoiceCost
+    | Vapi.VapiCost
+    | Vapi.AnalysisCost;

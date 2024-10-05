@@ -14,6 +14,12 @@ export interface ServerMessagePhoneCallControl {
      * - `call.phoneNumberId`.
      */
     phoneNumber?: Vapi.ServerMessagePhoneCallControlPhoneNumber;
+    /**
+     * This is the type of the message. "phone-call-control" is an advanced type of message.
+     *
+     * When it is requested in `assistant.serverMessages`, the hangup and forwarding responsibilities are delegated to your server. Vapi will no longer do the actual transfer and hangup.
+     */
+    type: "phone-call-control";
     /** This is the request to control the phone call. */
     request: Vapi.ServerMessagePhoneCallControlRequest;
     /** This is the destination to forward the call to if the request is "forward". */

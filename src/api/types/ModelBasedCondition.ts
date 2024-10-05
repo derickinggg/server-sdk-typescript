@@ -3,6 +3,8 @@
  */
 
 export interface ModelBasedCondition {
+    /** This condition is based on a model. */
+    type: "model-based";
     /**
      * This is the instruction which should output a boolean value when passed to a model.
      *

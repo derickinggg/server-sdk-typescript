@@ -39,7 +39,7 @@ export interface ChunkPlan {
      *
      * Default is automatically set to balance the trade-off between quality and latency based on the provider.
      */
-    punctuationBoundaries?: Vapi.ChunkPlanPunctuationBoundariesItem[];
+    punctuationBoundaries?: Vapi.PunctuationBoundary[];
     /** This is the plan for formatting the chunk before it is sent to the voice provider. */
     formatPlan?: Vapi.FormatPlan;
 }

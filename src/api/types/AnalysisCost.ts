@@ -5,6 +5,8 @@
 import * as Vapi from "../index";
 
 export interface AnalysisCost {
+    /** This is the type of cost, always 'analysis' for this class. */
+    type: "analysis";
     /** This is the type of analysis performed. */
     analysisType: Vapi.AnalysisCostAnalysisType;
     /** This is the model that was used to perform the analysis. */

@@ -7,6 +7,14 @@ import * as Vapi from "../index";
 export interface CallbackStep {
     /** This is the block to use. To use an existing block, use `blockId`. */
     block?: Vapi.CallbackStepBlock;
+    /**
+     * This is a step that calls back to the previous step after it's done. This effectively means we're spawning a new conversation thread. The previous conversation thread will resume where it left off once this step is done.
+     *
+     * Use case:
+     *
+     * - You are collecting a customer's order and while they were on one item, they start a new item or try to modify a previous one. You would make a OrderUpdate block which calls the same block repeatedly when a new update starts.
+     */
+    type: "callback";
     /** This is the mutations to apply to the context after the step is done. */
     mutations?: Vapi.AssignmentMutation[];
     /** This is the name of the step. */

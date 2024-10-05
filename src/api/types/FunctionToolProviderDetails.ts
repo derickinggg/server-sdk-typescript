@@ -8,4 +8,6 @@ export interface FunctionToolProviderDetails {
     /** This is the Template URL or the Snapshot URL corresponding to the Template. */
     templateUrl?: string;
     setupInstructions?: Vapi.ToolTemplateSetup[];
+    /** The type of tool. "function" for Function tool. */
+    type: "function";
 }

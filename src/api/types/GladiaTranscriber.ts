@@ -5,6 +5,8 @@
 import * as Vapi from "../index";
 
 export interface GladiaTranscriber {
+    /** This is the transcription provider that will be used. */
+    provider: "gladia";
     model?: Vapi.GladiaTranscriberModel;
     languageBehaviour?: Vapi.GladiaTranscriberLanguageBehaviour;
     /** Defines the language to use for the transcription. Required when languageBehaviour is 'manual'. */

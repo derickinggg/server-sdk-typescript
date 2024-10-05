@@ -4,16 +4,4 @@
 
 import * as Vapi from "../index";
 
-export type ToolCallResultMessageItem =
-    | Vapi.ToolCallResultMessageItem.RequestComplete
-    | Vapi.ToolCallResultMessageItem.RequestFailed;
-
-export declare namespace ToolCallResultMessageItem {
-    interface RequestComplete extends Vapi.ToolMessageComplete {
-        type: "request-complete";
-    }
-
-    interface RequestFailed extends Vapi.ToolMessageFailed {
-        type: "request-failed";
-    }
-}
+export type ToolCallResultMessageItem = Vapi.ToolMessageComplete | Vapi.ToolMessageFailed;

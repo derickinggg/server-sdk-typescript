@@ -4,16 +4,4 @@
 
 import * as Vapi from "../index";
 
-export type AssignmentMutationConditionsItem =
-    | Vapi.AssignmentMutationConditionsItem.ModelBased
-    | Vapi.AssignmentMutationConditionsItem.RuleBased;
-
-export declare namespace AssignmentMutationConditionsItem {
-    interface ModelBased extends Vapi.ModelBasedCondition {
-        type: "model-based";
-    }
-
-    interface RuleBased extends Vapi.RuleBasedCondition {
-        type: "rule-based";
-    }
-}
+export type AssignmentMutationConditionsItem = Vapi.ModelBasedCondition | Vapi.RuleBasedCondition;

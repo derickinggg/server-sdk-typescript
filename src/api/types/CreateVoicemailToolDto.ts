@@ -21,6 +21,8 @@ export interface CreateVoicemailToolDto {
      * For some tools, this is auto-filled based on special fields like `tool.destinations`. For others like the function tool, these can be custom configured.
      */
     messages?: Vapi.CreateVoicemailToolDtoMessagesItem[];
+    /** The type of tool. "voicemail". This uses the model itself to determine if a voicemil was reached. Can be used alternatively/alongside with TwilioVoicemailDetection */
+    type: "voicemail";
     /**
      * This is the function definition of the tool.
      *

@@ -7,21 +7,4 @@ import * as Vapi from "../index";
 /**
  * These are the options for the assistant's transcriber.
  */
-export type AssistantTranscriber =
-    | Vapi.AssistantTranscriber.Deepgram
-    | Vapi.AssistantTranscriber.Gladia
-    | Vapi.AssistantTranscriber.Talkscriber;
-
-export declare namespace AssistantTranscriber {
-    interface Deepgram extends Vapi.DeepgramTranscriber {
-        provider: "deepgram";
-    }
-
-    interface Gladia extends Vapi.GladiaTranscriber {
-        provider: "gladia";
-    }
-
-    interface Talkscriber extends Vapi.TalkscriberTranscriber {
-        provider: "talkscriber";
-    }
-}
+export type AssistantTranscriber = Vapi.DeepgramTranscriber | Vapi.GladiaTranscriber | Vapi.TalkscriberTranscriber;

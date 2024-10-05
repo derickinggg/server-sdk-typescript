@@ -97,8 +97,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha0",
-                "User-Agent": "vapi/0.0.0-alpha0",
+                "X-Fern-SDK-Version": "0.0.0-alpha2",
+                "User-Agent": "vapi/0.0.0-alpha2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -141,8 +141,7 @@ export class Tools {
      *
      * @example
      *     await client.tools.create({
-     *         type: "output",
-     *         async: false
+     *         type: "dtmf"
      *     })
      */
     public async create(
@@ -159,8 +158,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha0",
-                "User-Agent": "vapi/0.0.0-alpha0",
+                "X-Fern-SDK-Version": "0.0.0-alpha2",
+                "User-Agent": "vapi/0.0.0-alpha2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -215,8 +214,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha0",
-                "User-Agent": "vapi/0.0.0-alpha0",
+                "X-Fern-SDK-Version": "0.0.0-alpha2",
+                "User-Agent": "vapi/0.0.0-alpha2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -270,8 +269,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha0",
-                "User-Agent": "vapi/0.0.0-alpha0",
+                "X-Fern-SDK-Version": "0.0.0-alpha2",
+                "User-Agent": "vapi/0.0.0-alpha2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -330,8 +329,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha0",
-                "User-Agent": "vapi/0.0.0-alpha0",
+                "X-Fern-SDK-Version": "0.0.0-alpha2",
+                "User-Agent": "vapi/0.0.0-alpha2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

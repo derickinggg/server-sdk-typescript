@@ -3,6 +3,8 @@
  */
 
 export interface ClientMessageModelOutput {
+    /** This is the type of the message. "model-output" is sent as the model outputs tokens. */
+    type: "model-output";
     /** This is the output of the model. It can be a token or tool call. */
     output: Record<string, unknown>;
 }

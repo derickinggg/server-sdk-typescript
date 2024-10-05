@@ -31,6 +31,7 @@ export interface CreateWorkflowBlockDto {
      * 2. a workflow can execute a block multiple times. example, if a step is called multiple times or if a block is used in multiple steps. {{blockName.output.propertyName}} will reference the latest usage of the block. this liquid variable is just provided for convenience when creating blocks outside of a workflow with steps.
      */
     outputSchema?: Vapi.JsonSchema;
+    type: "workflow";
     /** These are the steps in the workflow. */
     steps?: Vapi.CreateWorkflowBlockDtoStepsItem[];
     /** This is the name of the block. This is just for your reference. */

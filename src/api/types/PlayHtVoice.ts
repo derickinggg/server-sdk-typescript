@@ -11,6 +11,8 @@ export interface PlayHtVoice {
      * Default `false` because you can achieve better results with prompting the model.
      */
     fillerInjectionEnabled?: boolean;
+    /** This is the voice provider that will be used. */
+    provider: "playht";
     /** This is the provider-specific ID that will be used. */
     voiceId: Vapi.PlayHtVoiceVoiceId;
     /** This is the speed multiplier that will be used. */

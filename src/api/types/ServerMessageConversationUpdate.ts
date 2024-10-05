@@ -14,6 +14,8 @@ export interface ServerMessageConversationUpdate {
      * - `call.phoneNumberId`.
      */
     phoneNumber?: Vapi.ServerMessageConversationUpdatePhoneNumber;
+    /** This is the type of the message. "conversation-update" is sent when an update is committed to the conversation history. */
+    type: "conversation-update";
     /** This is the most up-to-date conversation history at the time the message is sent. */
     messages?: Vapi.ServerMessageConversationUpdateMessagesItem[];
     /** This is the most up-to-date conversation history at the time the message is sent, formatted for OpenAI. */

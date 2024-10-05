@@ -3,6 +3,8 @@
  */
 
 export interface ClientMessageVoiceInput {
+    /** This is the type of the message. "voice-input" is sent when a generation is requested from voice provider. */
+    type: "voice-input";
     /** This is the voice input content */
     input: string;
 }

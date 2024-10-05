@@ -19,6 +19,8 @@ export interface CustomLlmModel {
      * Both `tools` and `toolIds` can be used together.
      */
     toolIds?: string[];
+    /** This is the provider that will be used for the model. Any service, including your own server, that is compatible with the OpenAI API can be used. */
+    provider: "custom-llm";
     /**
      * This determines whether metadata is sent in requests to the custom provider.
      *

@@ -14,6 +14,8 @@ export interface ServerMessageTransferUpdate {
      * - `call.phoneNumberId`.
      */
     phoneNumber?: Vapi.ServerMessageTransferUpdatePhoneNumber;
+    /** This is the type of the message. "transfer-update" is sent whenever a transfer happens. */
+    type: "transfer-update";
     /** This is the destination of the transfer. */
     destination?: Vapi.ServerMessageTransferUpdateDestination;
     /** This is the ISO-8601 formatted timestamp of when the message was sent. */

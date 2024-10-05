@@ -5,6 +5,8 @@
 import * as Vapi from "../index";
 
 export interface RuleBasedCondition {
+    /** This condition is based on a strict rule. */
+    type: "rule-based";
     /**
      * This is the operator you want to use to compare the left side and right side.
      *

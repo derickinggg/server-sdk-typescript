@@ -4,16 +4,4 @@
 
 import * as Vapi from "../index";
 
-export type WorkflowBlockMessagesItem =
-    | Vapi.WorkflowBlockMessagesItem.BlockStart
-    | Vapi.WorkflowBlockMessagesItem.BlockComplete;
-
-export declare namespace WorkflowBlockMessagesItem {
-    interface BlockStart extends Vapi.BlockStartMessage {
-        type: "block-start";
-    }
-
-    interface BlockComplete extends Vapi.BlockCompleteMessage {
-        type: "block-complete";
-    }
-}
+export type WorkflowBlockMessagesItem = Vapi.BlockStartMessage | Vapi.BlockCompleteMessage;

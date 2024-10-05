@@ -5,20 +5,6 @@
 import * as Vapi from "../index";
 
 export type UpdateToolTemplateDtoProviderDetails =
-    | Vapi.UpdateToolTemplateDtoProviderDetails.Make
-    | Vapi.UpdateToolTemplateDtoProviderDetails.Ghl
-    | Vapi.UpdateToolTemplateDtoProviderDetails.Function;
-
-export declare namespace UpdateToolTemplateDtoProviderDetails {
-    interface Make extends Vapi.MakeToolProviderDetails {
-        type: "make";
-    }
-
-    interface Ghl extends Vapi.GhlToolProviderDetails {
-        type: "ghl";
-    }
-
-    interface Function extends Vapi.FunctionToolProviderDetails {
-        type: "function";
-    }
-}
+    | Vapi.MakeToolProviderDetails
+    | Vapi.GhlToolProviderDetails
+    | Vapi.FunctionToolProviderDetails;

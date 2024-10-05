@@ -564,8 +564,8 @@ await client.phoneNumbers.list();
 
 ```typescript
 await client.phoneNumbers.create({
-    provider: "vapi",
-    sipUri: "string",
+    provider: "byo-phone-number",
+    credentialId: "credentialId",
 });
 ```
 
@@ -1071,7 +1071,8 @@ await client.blocks.list();
 
 ```typescript
 await client.blocks.create({
-    type: "workflow",
+    type: "conversation",
+    instruction: "instruction",
 });
 ```
 
@@ -1323,8 +1324,7 @@ await client.tools.list();
 
 ```typescript
 await client.tools.create({
-    type: "output",
-    async: false,
+    type: "dtmf",
 });
 ```
 

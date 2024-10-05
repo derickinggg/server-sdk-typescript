@@ -3,6 +3,8 @@
  */
 
 export interface ModelCost {
+    /** This is the type of cost, always 'model' for this class. */
+    type: "model";
     /**
      * This is the model that was used during the call.
      *

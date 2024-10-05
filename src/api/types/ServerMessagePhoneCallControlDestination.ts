@@ -7,16 +7,4 @@ import * as Vapi from "../index";
 /**
  * This is the destination to forward the call to if the request is "forward".
  */
-export type ServerMessagePhoneCallControlDestination =
-    | Vapi.ServerMessagePhoneCallControlDestination.Number
-    | Vapi.ServerMessagePhoneCallControlDestination.Sip;
-
-export declare namespace ServerMessagePhoneCallControlDestination {
-    interface Number extends Vapi.TransferDestinationNumber {
-        type: "number";
-    }
-
-    interface Sip extends Vapi.TransferDestinationSip {
-        type: "sip";
-    }
-}
+export type ServerMessagePhoneCallControlDestination = Vapi.TransferDestinationNumber | Vapi.TransferDestinationSip;

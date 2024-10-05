@@ -14,6 +14,8 @@ export interface ServerMessageAssistantRequest {
      * - `call.phoneNumberId`.
      */
     phoneNumber?: Vapi.ServerMessageAssistantRequestPhoneNumber;
+    /** This is the type of the message. "assistant-request" is sent to fetch assistant configuration for an incoming call. */
+    type: "assistant-request";
     /** This is the ISO-8601 formatted timestamp of when the message was sent. */
     timestamp?: string;
     /**

@@ -4,14 +4,4 @@
 
 import * as Vapi from "../index";
 
-export type VapiModelStepsItem = Vapi.VapiModelStepsItem.Handoff | Vapi.VapiModelStepsItem.Callback;
-
-export declare namespace VapiModelStepsItem {
-    interface Handoff extends Vapi.HandoffStep {
-        type: "handoff";
-    }
-
-    interface Callback extends Vapi.CallbackStep {
-        type: "callback";
-    }
-}
+export type VapiModelStepsItem = Vapi.HandoffStep | Vapi.CallbackStep;

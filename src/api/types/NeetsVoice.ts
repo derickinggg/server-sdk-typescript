@@ -11,6 +11,8 @@ export interface NeetsVoice {
      * Default `false` because you can achieve better results with prompting the model.
      */
     fillerInjectionEnabled?: boolean;
+    /** This is the voice provider that will be used. */
+    provider: "neets";
     /** This is the provider-specific ID that will be used. */
     voiceId: Vapi.NeetsVoiceVoiceId;
     /** This is the plan for chunking the model output before it is sent to the voice provider. */

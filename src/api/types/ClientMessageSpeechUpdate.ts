@@ -5,6 +5,8 @@
 import * as Vapi from "../index";
 
 export interface ClientMessageSpeechUpdate {
+    /** This is the type of the message. "speech-update" is sent whenever assistant or user start or stop speaking. */
+    type: "speech-update";
     /** This is the status of the speech update. */
     status: Vapi.ClientMessageSpeechUpdateStatus;
     /** This is the role which the speech update is for. */

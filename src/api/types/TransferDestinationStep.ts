@@ -3,6 +3,7 @@
  */
 
 export interface TransferDestinationStep {
+    type: "step";
     /** This is the step to transfer to. */
     stepName: string;
     /**

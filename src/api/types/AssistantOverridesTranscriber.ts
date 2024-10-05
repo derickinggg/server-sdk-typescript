@@ -8,20 +8,6 @@ import * as Vapi from "../index";
  * These are the options for the assistant's transcriber.
  */
 export type AssistantOverridesTranscriber =
-    | Vapi.AssistantOverridesTranscriber.Deepgram
-    | Vapi.AssistantOverridesTranscriber.Gladia
-    | Vapi.AssistantOverridesTranscriber.Talkscriber;
-
-export declare namespace AssistantOverridesTranscriber {
-    interface Deepgram extends Vapi.DeepgramTranscriber {
-        provider: "deepgram";
-    }
-
-    interface Gladia extends Vapi.GladiaTranscriber {
-        provider: "gladia";
-    }
-
-    interface Talkscriber extends Vapi.TalkscriberTranscriber {
-        provider: "talkscriber";
-    }
-}
+    | Vapi.DeepgramTranscriber
+    | Vapi.GladiaTranscriber
+    | Vapi.TalkscriberTranscriber;

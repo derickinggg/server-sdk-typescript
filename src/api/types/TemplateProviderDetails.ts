@@ -5,20 +5,6 @@
 import * as Vapi from "../index";
 
 export type TemplateProviderDetails =
-    | Vapi.TemplateProviderDetails.Make
-    | Vapi.TemplateProviderDetails.Ghl
-    | Vapi.TemplateProviderDetails.Function;
-
-export declare namespace TemplateProviderDetails {
-    interface Make extends Vapi.MakeToolProviderDetails {
-        type: "make";
-    }
-
-    interface Ghl extends Vapi.GhlToolProviderDetails {
-        type: "ghl";
-    }
-
-    interface Function extends Vapi.FunctionToolProviderDetails {
-        type: "function";
-    }
-}
+    | Vapi.MakeToolProviderDetails
+    | Vapi.GhlToolProviderDetails
+    | Vapi.FunctionToolProviderDetails;

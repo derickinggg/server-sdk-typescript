@@ -14,6 +14,8 @@ export interface ServerMessageModelOutput {
      * - `call.phoneNumberId`.
      */
     phoneNumber?: Vapi.ServerMessageModelOutputPhoneNumber;
+    /** This is the type of the message. "model-output" is sent as the model outputs tokens. */
+    type: "model-output";
     /** This is the ISO-8601 formatted timestamp of when the message was sent. */
     timestamp?: string;
     /**

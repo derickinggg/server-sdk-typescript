@@ -5,20 +5,6 @@
 import * as Vapi from "../index";
 
 export type ClientMessageToolCallsToolWithToolCallListItem =
-    | Vapi.ClientMessageToolCallsToolWithToolCallListItem.Function
-    | Vapi.ClientMessageToolCallsToolWithToolCallListItem.Ghl
-    | Vapi.ClientMessageToolCallsToolWithToolCallListItem.Make;
-
-export declare namespace ClientMessageToolCallsToolWithToolCallListItem {
-    interface Function extends Vapi.FunctionToolWithToolCall {
-        type: "function";
-    }
-
-    interface Ghl extends Vapi.GhlToolWithToolCall {
-        type: "ghl";
-    }
-
-    interface Make extends Vapi.MakeToolWithToolCall {
-        type: "make";
-    }
-}
+    | Vapi.FunctionToolWithToolCall
+    | Vapi.GhlToolWithToolCall
+    | Vapi.MakeToolWithToolCall;

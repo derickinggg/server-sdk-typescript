@@ -10,15 +10,5 @@ import * as Vapi from "../index";
  * If this is sent, `assistantId`, `assistant`, `squadId`, and `squad` are ignored.
  */
 export type ServerMessageResponseAssistantRequestDestination =
-    | Vapi.ServerMessageResponseAssistantRequestDestination.Number
-    | Vapi.ServerMessageResponseAssistantRequestDestination.Sip;
-
-export declare namespace ServerMessageResponseAssistantRequestDestination {
-    interface Number extends Vapi.TransferDestinationNumber {
-        type: "number";
-    }
-
-    interface Sip extends Vapi.TransferDestinationSip {
-        type: "sip";
-    }
-}
+    | Vapi.TransferDestinationNumber
+    | Vapi.TransferDestinationSip;

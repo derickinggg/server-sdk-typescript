@@ -15,6 +15,7 @@ export interface CreateVapiPhoneNumberDto {
      * If this is not set and above conditions are met, the inbound call is hung up with an error message.
      */
     fallbackDestination?: Vapi.CreateVapiPhoneNumberDtoFallbackDestination;
+    provider: "vapi";
     /**
      * This is the SIP URI of the phone number. You can SIP INVITE this. The assistant attached to this number will answer.
      *

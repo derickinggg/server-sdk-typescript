@@ -7,16 +7,4 @@ import * as Vapi from "../index";
 /**
  * This is the destination the call is being transferred to. This is only sent if the status is "forwarding".
  */
-export type ServerMessageStatusUpdateDestination =
-    | Vapi.ServerMessageStatusUpdateDestination.Number
-    | Vapi.ServerMessageStatusUpdateDestination.Sip;
-
-export declare namespace ServerMessageStatusUpdateDestination {
-    interface Number extends Vapi.TransferDestinationNumber {
-        type: "number";
-    }
-
-    interface Sip extends Vapi.TransferDestinationSip {
-        type: "sip";
-    }
-}
+export type ServerMessageStatusUpdateDestination = Vapi.TransferDestinationNumber | Vapi.TransferDestinationSip;

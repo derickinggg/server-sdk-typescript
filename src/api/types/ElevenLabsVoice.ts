@@ -11,6 +11,8 @@ export interface ElevenLabsVoice {
      * Default `false` because you can achieve better results with prompting the model.
      */
     fillerInjectionEnabled?: boolean;
+    /** This is the voice provider that will be used. */
+    provider: "11labs";
     /** This is the provider-specific ID that will be used. Ensure the Voice is present in your 11Labs Voice Library. */
     voiceId: Vapi.ElevenLabsVoiceVoiceId;
     /** Defines the stability for voice settings. */

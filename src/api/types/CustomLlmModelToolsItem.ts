@@ -5,40 +5,10 @@
 import * as Vapi from "../index";
 
 export type CustomLlmModelToolsItem =
-    | Vapi.CustomLlmModelToolsItem.Dtmf
-    | Vapi.CustomLlmModelToolsItem.EndCall
-    | Vapi.CustomLlmModelToolsItem.Voicemail
-    | Vapi.CustomLlmModelToolsItem.Function
-    | Vapi.CustomLlmModelToolsItem.Ghl
-    | Vapi.CustomLlmModelToolsItem.Make
-    | Vapi.CustomLlmModelToolsItem.TransferCall;
-
-export declare namespace CustomLlmModelToolsItem {
-    interface Dtmf extends Vapi.CreateDtmfToolDto {
-        type: "dtmf";
-    }
-
-    interface EndCall extends Vapi.CreateEndCallToolDto {
-        type: "endCall";
-    }
-
-    interface Voicemail extends Vapi.CreateVoicemailToolDto {
-        type: "voicemail";
-    }
-
-    interface Function extends Vapi.CreateFunctionToolDto {
-        type: "function";
-    }
-
-    interface Ghl extends Vapi.CreateGhlToolDto {
-        type: "ghl";
-    }
-
-    interface Make extends Vapi.CreateMakeToolDto {
-        type: "make";
-    }
-
-    interface TransferCall extends Vapi.CreateTransferCallToolDto {
-        type: "transferCall";
-    }
-}
+    | Vapi.CreateDtmfToolDto
+    | Vapi.CreateEndCallToolDto
+    | Vapi.CreateVoicemailToolDto
+    | Vapi.CreateFunctionToolDto
+    | Vapi.CreateGhlToolDto
+    | Vapi.CreateMakeToolDto
+    | Vapi.CreateTransferCallToolDto;

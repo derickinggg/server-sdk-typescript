@@ -8,6 +8,8 @@ export interface GhlToolProviderDetails {
     /** This is the Template URL or the Snapshot URL corresponding to the Template. */
     templateUrl?: string;
     setupInstructions?: Vapi.ToolTemplateSetup[];
+    /** The type of tool. "ghl" for GHL tool. */
+    type: "ghl";
     workflowId?: string;
     workflowName?: string;
     webhookHookId?: string;

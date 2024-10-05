@@ -4,16 +4,4 @@
 
 import * as Vapi from "../index";
 
-export type ConversationBlockMessagesItem =
-    | Vapi.ConversationBlockMessagesItem.BlockStart
-    | Vapi.ConversationBlockMessagesItem.BlockComplete;
-
-export declare namespace ConversationBlockMessagesItem {
-    interface BlockStart extends Vapi.BlockStartMessage {
-        type: "block-start";
-    }
-
-    interface BlockComplete extends Vapi.BlockCompleteMessage {
-        type: "block-complete";
-    }
-}
+export type ConversationBlockMessagesItem = Vapi.BlockStartMessage | Vapi.BlockCompleteMessage;

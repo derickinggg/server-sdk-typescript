@@ -14,6 +14,8 @@ export interface ServerMessageEndOfCallReport {
      * - `call.phoneNumberId`.
      */
     phoneNumber?: Vapi.ServerMessageEndOfCallReportPhoneNumber;
+    /** This is the type of the message. "end-of-call-report" is sent when the call ends and post-processing is complete. */
+    type: "end-of-call-report";
     /** This is the reason the call ended. This can also be found at `call.endedReason` on GET /call/:id. */
     endedReason: Vapi.ServerMessageEndOfCallReportEndedReason;
     /** This is the cost of the call in USD. This can also be found at `call.cost` on GET /call/:id. */

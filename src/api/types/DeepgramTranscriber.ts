@@ -5,6 +5,8 @@
 import * as Vapi from "../index";
 
 export interface DeepgramTranscriber {
+    /** This is the transcription provider that will be used. */
+    provider: "deepgram";
     /** This is the Deepgram model that will be used. A list of models can be found here: https://developers.deepgram.com/docs/models-languages-overview */
     model?: Vapi.DeepgramTranscriberModel;
     /** This is the language that will be set for the transcription. The list of languages Deepgram supports can be found here: https://developers.deepgram.com/docs/models-languages-overview */

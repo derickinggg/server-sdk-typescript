@@ -8,22 +8,8 @@ import * as Vapi from "../index";
  * This is the block to use. To use an existing block, use `blockId`.
  */
 export type HandoffStepBlock =
-    | Vapi.HandoffStepBlock.Conversation
-    | Vapi.HandoffStepBlock.ToolCall
+    | Vapi.CreateConversationBlockDto
+    | Vapi.CreateToolCallBlockDto
     /**
      * This is the CreateWorkflowBlockDTO object but Swagger does not display nested schemas correctly. */
-    | Vapi.HandoffStepBlock.Workflow;
-
-export declare namespace HandoffStepBlock {
-    interface Conversation extends Vapi.CreateConversationBlockDto {
-        type: "conversation";
-    }
-
-    interface ToolCall extends Vapi.CreateToolCallBlockDto {
-        type: "tool-call";
-    }
-
-    interface Workflow extends Vapi.CreateWorkflowBlockDto {
-        type: "workflow";
-    }
-}
+    | Vapi.CreateWorkflowBlockDto;

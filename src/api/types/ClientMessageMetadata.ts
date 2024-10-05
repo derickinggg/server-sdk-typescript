@@ -3,6 +3,8 @@
  */
 
 export interface ClientMessageMetadata {
+    /** This is the type of the message. "metadata" is sent to forward metadata to the client. */
+    type: "metadata";
     /** This is the metadata content */
     metadata: string;
 }

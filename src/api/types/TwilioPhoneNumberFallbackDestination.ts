@@ -13,16 +13,4 @@ import * as Vapi from "../index";
  *
  * If this is not set and above conditions are met, the inbound call is hung up with an error message.
  */
-export type TwilioPhoneNumberFallbackDestination =
-    | Vapi.TwilioPhoneNumberFallbackDestination.Number
-    | Vapi.TwilioPhoneNumberFallbackDestination.Sip;
-
-export declare namespace TwilioPhoneNumberFallbackDestination {
-    interface Number extends Vapi.TransferDestinationNumber {
-        type: "number";
-    }
-
-    interface Sip extends Vapi.TransferDestinationSip {
-        type: "sip";
-    }
-}
+export type TwilioPhoneNumberFallbackDestination = Vapi.TransferDestinationNumber | Vapi.TransferDestinationSip;

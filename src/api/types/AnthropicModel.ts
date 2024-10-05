@@ -21,6 +21,7 @@ export interface AnthropicModel {
     toolIds?: string[];
     /** This is the Anthropic/Claude models that will be used. */
     model: Vapi.AnthropicModelModel;
+    provider: "anthropic";
     /** This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency. */
     temperature?: number;
     /** These are the options for the knowledge base. */
