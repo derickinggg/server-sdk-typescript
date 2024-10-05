@@ -1,6 +1,6 @@
 {
     "name": "vapi",
-    "version": "0.0.0-alpha3",
+    "version": "0.0.0-alpha4",
     "private": false,
     "repository": "https://github.com/fern-demo/vapi-typescript-sdk",
     "main": "./index.js",

@@ -31,6 +31,9 @@ export class Blocks {
     /**
      * @param {Vapi.BlocksListRequest} request
      * @param {Blocks.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.blocks.list()
      */
     public async list(
         request: Vapi.BlocksListRequest = {},
@@ -94,8 +97,8 @@ export class Blocks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -135,6 +138,12 @@ export class Blocks {
     /**
      * @param {Vapi.BlocksCreateRequest} request
      * @param {Blocks.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.blocks.create({
+     *         type: "conversation",
+     *         instruction: "instruction"
+     *     })
      */
     public async create(
         request: Vapi.BlocksCreateRequest,
@@ -150,8 +159,8 @@ export class Blocks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -191,6 +200,9 @@ export class Blocks {
     /**
      * @param {string} id
      * @param {Blocks.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.blocks.get("id")
      */
     public async get(id: string, requestOptions?: Blocks.RequestOptions): Promise<Vapi.BlocksGetResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -203,8 +215,8 @@ export class Blocks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -243,6 +255,9 @@ export class Blocks {
     /**
      * @param {string} id
      * @param {Blocks.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.blocks.delete("id")
      */
     public async delete(id: string, requestOptions?: Blocks.RequestOptions): Promise<Vapi.BlocksDeleteResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -255,8 +270,8 @@ export class Blocks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -296,6 +311,9 @@ export class Blocks {
      * @param {string} id
      * @param {Vapi.UpdateBlockDto} request
      * @param {Blocks.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.blocks.update("id")
      */
     public async update(
         id: string,
@@ -312,8 +330,8 @@ export class Blocks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

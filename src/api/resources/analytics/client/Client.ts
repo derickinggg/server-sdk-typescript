@@ -31,6 +31,18 @@ export class Analytics {
     /**
      * @param {Vapi.AnalyticsQueryDto} request
      * @param {Analytics.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.analytics.get({
+     *         queries: [{
+     *                 table: "call",
+     *                 name: "name",
+     *                 operations: [{
+     *                         operation: "sum",
+     *                         column: "id"
+     *                     }]
+     *             }]
+     *     })
      */
     public async get(
         request: Vapi.AnalyticsQueryDto,
@@ -46,8 +58,8 @@ export class Analytics {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

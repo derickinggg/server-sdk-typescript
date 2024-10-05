@@ -31,6 +31,9 @@ export class Calls {
     /**
      * @param {Vapi.CallsListRequest} request
      * @param {Calls.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.calls.list()
      */
     public async list(
         request: Vapi.CallsListRequest = {},
@@ -99,8 +102,8 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -140,6 +143,9 @@ export class Calls {
     /**
      * @param {Vapi.CreateCallDto} request
      * @param {Calls.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.calls.create()
      */
     public async create(request: Vapi.CreateCallDto = {}, requestOptions?: Calls.RequestOptions): Promise<Vapi.Call> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -152,8 +158,8 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -193,6 +199,9 @@ export class Calls {
     /**
      * @param {string} id
      * @param {Calls.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.calls.get("id")
      */
     public async get(id: string, requestOptions?: Calls.RequestOptions): Promise<Vapi.Call> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -205,8 +214,8 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -245,6 +254,9 @@ export class Calls {
     /**
      * @param {string} id
      * @param {Calls.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.calls.delete("id")
      */
     public async delete(id: string, requestOptions?: Calls.RequestOptions): Promise<Vapi.Call> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -257,8 +269,8 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -298,6 +310,9 @@ export class Calls {
      * @param {string} id
      * @param {Vapi.UpdateCallDto} request
      * @param {Calls.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.calls.update("id")
      */
     public async update(
         id: string,
@@ -314,8 +329,8 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

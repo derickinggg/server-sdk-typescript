@@ -4,6 +4,10 @@
 
 import * as Vapi from "../../../../index";
 
+/**
+ * @example
+ *     {}
+ */
 export interface UpdatePhoneNumberDto {
     /**
      * This is the fallback destination an inbound call will be transferred to if:

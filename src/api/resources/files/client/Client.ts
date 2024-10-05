@@ -32,6 +32,9 @@ export class Files {
 
     /**
      * @param {Files.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.files.list()
      */
     public async list(requestOptions?: Files.RequestOptions): Promise<Vapi.File_[]> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -44,8 +47,8 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -86,6 +89,9 @@ export class Files {
      * @param {Files.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @throws {@link Vapi.BadRequestError}
+     *
+     * @example
+     *     await client.files.create(fs.createReadStream("/path/to/your/file"))
      */
     public async create(file: File | fs.ReadStream | Blob, requestOptions?: Files.RequestOptions): Promise<Vapi.File_> {
         const _request = await core.newFormData();
@@ -101,8 +107,8 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ..._maybeEncodedRequest.headers,
@@ -148,6 +154,9 @@ export class Files {
     /**
      * @param {string} id
      * @param {Files.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.files.get("id")
      */
     public async get(id: string, requestOptions?: Files.RequestOptions): Promise<Vapi.File_> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -160,8 +169,8 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -200,6 +209,9 @@ export class Files {
     /**
      * @param {string} id
      * @param {Files.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.files.delete("id")
      */
     public async delete(id: string, requestOptions?: Files.RequestOptions): Promise<Vapi.File_> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -212,8 +224,8 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -253,6 +265,9 @@ export class Files {
      * @param {string} id
      * @param {Vapi.UpdateFileDto} request
      * @param {Files.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.files.update("id")
      */
     public async update(
         id: string,
@@ -269,8 +284,8 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

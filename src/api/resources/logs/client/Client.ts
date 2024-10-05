@@ -31,6 +31,9 @@ export class Logs {
     /**
      * @param {Vapi.LogsGetRequest} request
      * @param {Logs.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.logs.get()
      */
     public async get(
         request: Vapi.LogsGetRequest = {},
@@ -122,8 +125,8 @@ export class Logs {
                     Authorization: await this._getAuthorizationHeader(),
                     "X-Fern-Language": "JavaScript",
                     "X-Fern-SDK-Name": "vapi",
-                    "X-Fern-SDK-Version": "0.0.0-alpha3",
-                    "User-Agent": "vapi/0.0.0-alpha3",
+                    "X-Fern-SDK-Version": "0.0.0-alpha4",
+                    "User-Agent": "vapi/0.0.0-alpha4",
                     "X-Fern-Runtime": core.RUNTIME.type,
                     "X-Fern-Runtime-Version": core.RUNTIME.version,
                 },

@@ -31,6 +31,9 @@ export class Tools {
     /**
      * @param {Vapi.ToolsListRequest} request
      * @param {Tools.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.tools.list()
      */
     public async list(
         request: Vapi.ToolsListRequest = {},
@@ -94,8 +97,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -135,6 +138,11 @@ export class Tools {
     /**
      * @param {Vapi.ToolsCreateRequest} request
      * @param {Tools.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.tools.create({
+     *         type: "dtmf"
+     *     })
      */
     public async create(
         request: Vapi.ToolsCreateRequest,
@@ -150,8 +158,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -191,6 +199,9 @@ export class Tools {
     /**
      * @param {string} id
      * @param {Tools.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.tools.get("id")
      */
     public async get(id: string, requestOptions?: Tools.RequestOptions): Promise<Vapi.ToolsGetResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -203,8 +214,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -243,6 +254,9 @@ export class Tools {
     /**
      * @param {string} id
      * @param {Tools.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.tools.delete("id")
      */
     public async delete(id: string, requestOptions?: Tools.RequestOptions): Promise<Vapi.ToolsDeleteResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -255,8 +269,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -296,6 +310,9 @@ export class Tools {
      * @param {string} id
      * @param {Vapi.UpdateToolDto} request
      * @param {Tools.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.tools.update("id")
      */
     public async update(
         id: string,
@@ -312,8 +329,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha3",
-                "User-Agent": "vapi/0.0.0-alpha3",
+                "X-Fern-SDK-Version": "0.0.0-alpha4",
+                "User-Agent": "vapi/0.0.0-alpha4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

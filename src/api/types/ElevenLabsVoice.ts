@@ -14,7 +14,7 @@ export interface ElevenLabsVoice {
     /** This is the voice provider that will be used. */
     provider: "11labs";
     /** This is the provider-specific ID that will be used. Ensure the Voice is present in your 11Labs Voice Library. */
-    voiceId: Vapi.ElevenLabsVoiceId;
+    voiceId: Vapi.ElevenLabsVoiceVoiceId;
     /** Defines the stability for voice settings. */
     stability?: number;
     /** Defines the similarity boost for voice settings. */

@@ -14,7 +14,7 @@ export interface NeetsVoice {
     /** This is the voice provider that will be used. */
     provider: "neets";
     /** This is the provider-specific ID that will be used. */
-    voiceId: Vapi.NeetsVoiceId;
+    voiceId: Vapi.NeetsVoiceVoiceId;
     /** This is the plan for chunking the model output before it is sent to the voice provider. */
     chunkPlan?: Vapi.ChunkPlan;
 }

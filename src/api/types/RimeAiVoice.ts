@@ -14,7 +14,7 @@ export interface RimeAiVoice {
     /** This is the voice provider that will be used. */
     provider: "rime-ai";
     /** This is the provider-specific ID that will be used. */
-    voiceId: Vapi.RimeAiVoiceId;
+    voiceId: Vapi.RimeAiVoiceVoiceId;
     /** This is the model that will be used. Defaults to 'v1' when not specified. */
     model?: Vapi.RimeAiVoiceModel;
     /** This is the speed multiplier that will be used. */

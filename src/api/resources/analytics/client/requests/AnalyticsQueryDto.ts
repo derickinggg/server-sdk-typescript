@@ -4,6 +4,19 @@
 
 import * as Vapi from "../../../../index";
 
+/**
+ * @example
+ *     {
+ *         queries: [{
+ *                 table: "call",
+ *                 name: "name",
+ *                 operations: [{
+ *                         operation: "sum",
+ *                         column: "id"
+ *                     }]
+ *             }]
+ *     }
+ */
 export interface AnalyticsQueryDto {
     /** This is the list of metric queries you want to perform. */
     queries: Vapi.AnalyticsQuery[];
