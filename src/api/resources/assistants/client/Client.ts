@@ -31,9 +31,6 @@ export class Assistants {
     /**
      * @param {Vapi.AssistantsListRequest} request
      * @param {Assistants.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.assistants.list()
      */
     public async list(
         request: Vapi.AssistantsListRequest = {},
@@ -97,8 +94,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha2",
-                "User-Agent": "vapi/0.0.0-alpha2",
+                "X-Fern-SDK-Version": "0.0.0-alpha3",
+                "User-Agent": "vapi/0.0.0-alpha3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -138,9 +135,6 @@ export class Assistants {
     /**
      * @param {Vapi.CreateAssistantDto} request
      * @param {Assistants.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.assistants.create({})
      */
     public async create(
         request: Vapi.CreateAssistantDto,
@@ -156,8 +150,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha2",
-                "User-Agent": "vapi/0.0.0-alpha2",
+                "X-Fern-SDK-Version": "0.0.0-alpha3",
+                "User-Agent": "vapi/0.0.0-alpha3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -197,9 +191,6 @@ export class Assistants {
     /**
      * @param {string} id
      * @param {Assistants.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.assistants.get("id")
      */
     public async get(id: string, requestOptions?: Assistants.RequestOptions): Promise<Vapi.Assistant> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -212,8 +203,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha2",
-                "User-Agent": "vapi/0.0.0-alpha2",
+                "X-Fern-SDK-Version": "0.0.0-alpha3",
+                "User-Agent": "vapi/0.0.0-alpha3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -252,9 +243,6 @@ export class Assistants {
     /**
      * @param {string} id
      * @param {Assistants.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.assistants.delete("id")
      */
     public async delete(id: string, requestOptions?: Assistants.RequestOptions): Promise<Vapi.Assistant> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -267,8 +255,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha2",
-                "User-Agent": "vapi/0.0.0-alpha2",
+                "X-Fern-SDK-Version": "0.0.0-alpha3",
+                "User-Agent": "vapi/0.0.0-alpha3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -308,9 +296,6 @@ export class Assistants {
      * @param {string} id
      * @param {Vapi.UpdateAssistantDto} request
      * @param {Assistants.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.assistants.update("id")
      */
     public async update(
         id: string,
@@ -327,8 +312,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha2",
-                "User-Agent": "vapi/0.0.0-alpha2",
+                "X-Fern-SDK-Version": "0.0.0-alpha3",
+                "User-Agent": "vapi/0.0.0-alpha3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

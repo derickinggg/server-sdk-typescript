@@ -31,9 +31,6 @@ export class Squads {
     /**
      * @param {Vapi.SquadsListRequest} request
      * @param {Squads.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.squads.list()
      */
     public async list(
         request: Vapi.SquadsListRequest = {},
@@ -97,8 +94,8 @@ export class Squads {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha2",
-                "User-Agent": "vapi/0.0.0-alpha2",
+                "X-Fern-SDK-Version": "0.0.0-alpha3",
+                "User-Agent": "vapi/0.0.0-alpha3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -138,11 +135,6 @@ export class Squads {
     /**
      * @param {Vapi.CreateSquadDto} request
      * @param {Squads.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.squads.create({
-     *         members: [{}]
-     *     })
      */
     public async create(request: Vapi.CreateSquadDto, requestOptions?: Squads.RequestOptions): Promise<Vapi.Squad> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -155,8 +147,8 @@ export class Squads {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha2",
-                "User-Agent": "vapi/0.0.0-alpha2",
+                "X-Fern-SDK-Version": "0.0.0-alpha3",
+                "User-Agent": "vapi/0.0.0-alpha3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -196,9 +188,6 @@ export class Squads {
     /**
      * @param {string} id
      * @param {Squads.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.squads.get("id")
      */
     public async get(id: string, requestOptions?: Squads.RequestOptions): Promise<Vapi.Squad> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -211,8 +200,8 @@ export class Squads {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha2",
-                "User-Agent": "vapi/0.0.0-alpha2",
+                "X-Fern-SDK-Version": "0.0.0-alpha3",
+                "User-Agent": "vapi/0.0.0-alpha3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -251,9 +240,6 @@ export class Squads {
     /**
      * @param {string} id
      * @param {Squads.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.squads.delete("id")
      */
     public async delete(id: string, requestOptions?: Squads.RequestOptions): Promise<Vapi.Squad> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -266,8 +252,8 @@ export class Squads {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha2",
-                "User-Agent": "vapi/0.0.0-alpha2",
+                "X-Fern-SDK-Version": "0.0.0-alpha3",
+                "User-Agent": "vapi/0.0.0-alpha3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -307,11 +293,6 @@ export class Squads {
      * @param {string} id
      * @param {Vapi.UpdateSquadDto} request
      * @param {Squads.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.squads.update("id", {
-     *         members: [{}]
-     *     })
      */
     public async update(
         id: string,
@@ -328,8 +309,8 @@ export class Squads {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "vapi",
-                "X-Fern-SDK-Version": "0.0.0-alpha2",
-                "User-Agent": "vapi/0.0.0-alpha2",
+                "X-Fern-SDK-Version": "0.0.0-alpha3",
+                "User-Agent": "vapi/0.0.0-alpha3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

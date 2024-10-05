@@ -7,4 +7,4 @@ import * as Vapi from "../index";
 /**
  * This is the provider-specific ID that will be used.
  */
-export type PlayHtVoiceVoiceId = Vapi.PlayHtVoiceVoiceId | string;
+export type NeetsVoiceId = Vapi.NeetsVoiceIdEnum | string;

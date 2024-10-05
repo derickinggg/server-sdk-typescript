@@ -4,10 +4,6 @@
 
 import * as Vapi from "../../../../index";
 
-/**
- * @example
- *     {}
- */
 export interface CreateCallDto {
     /** This is the name of the call. This is just for your own reference. */
     name?: string;
