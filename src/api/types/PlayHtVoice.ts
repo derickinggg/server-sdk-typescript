@@ -14,7 +14,7 @@ export interface PlayHtVoice {
     /** This is the voice provider that will be used. */
     provider: "playht";
     /** This is the provider-specific ID that will be used. */
-    voiceId: Vapi.PlayHtVoiceVoiceId;
+    voiceId: Vapi.PlayHtVoiceId;
     /** This is the speed multiplier that will be used. */
     speed?: number;
     /** A floating point number between 0, exclusive, and 2, inclusive. If equal to null or not provided, the model's default temperature will be used. The temperature parameter controls variance. Lower temperatures result in more predictable results, higher temperatures allow each run to vary more, so the voice may sound less like the baseline voice. */

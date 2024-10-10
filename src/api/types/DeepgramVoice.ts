@@ -14,7 +14,7 @@ export interface DeepgramVoice {
     /** This is the voice provider that will be used. */
     provider: "deepgram";
     /** This is the provider-specific ID that will be used. */
-    voiceId: Vapi.DeepgramVoiceVoiceId;
+    voiceId: Vapi.DeepgramVoiceId;
     /** This is the plan for chunking the model output before it is sent to the voice provider. */
     chunkPlan?: Vapi.ChunkPlan;
 }

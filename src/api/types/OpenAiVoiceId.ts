@@ -5,9 +5,9 @@
 /**
  * This is the provider-specific ID that will be used.
  */
-export type OpenAiVoiceVoiceId = "alloy" | "echo" | "fable" | "onyx" | "nova" | "shimmer";
+export type OpenAiVoiceId = "alloy" | "echo" | "fable" | "onyx" | "nova" | "shimmer";
 
-export const OpenAiVoiceVoiceId = {
+export const OpenAiVoiceId = {
     Alloy: "alloy",
     Echo: "echo",
     Fable: "fable",

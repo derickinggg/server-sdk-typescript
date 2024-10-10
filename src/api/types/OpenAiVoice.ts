@@ -14,7 +14,7 @@ export interface OpenAiVoice {
     /** This is the voice provider that will be used. */
     provider: "openai";
     /** This is the provider-specific ID that will be used. */
-    voiceId: Vapi.OpenAiVoiceVoiceId;
+    voiceId: Vapi.OpenAiVoiceId;
     /** This is the speed multiplier that will be used. */
     speed?: number;
     /** This is the plan for chunking the model output before it is sent to the voice provider. */
