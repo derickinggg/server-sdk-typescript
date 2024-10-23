@@ -57,9 +57,9 @@ export class Analytics {
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
-                "X-Fern-SDK-Name": "@vapi/server-sdk",
-                "X-Fern-SDK-Version": "0.0.0-alpha8",
-                "User-Agent": "@vapi/server-sdk/0.0.0-alpha8",
+                "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
+                "X-Fern-SDK-Version": "0.0.0-alpha9",
+                "User-Agent": "@vapi-ai/server-sdk/0.0.0-alpha9",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

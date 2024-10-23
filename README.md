@@ -1,14 +1,14 @@
 # Vapi TypeScript Library
 
 [![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-Built%20with%20Fern-brightgreen)](https://buildwithfern.com?utm_source=github&utm_medium=github&utm_campaign=readme&utm_source=https%3A%2F%2Fgithub.com%2FVapiAI%2Fserver-sdk-typescript)
-[![npm shield](https://img.shields.io/npm/v/@vapi/server-sdk)](https://www.npmjs.com/package/@vapi/server-sdk)
+[![npm shield](https://img.shields.io/npm/v/@vapi-ai/server-sdk)](https://www.npmjs.com/package/@vapi-ai/server-sdk)
 
 The Vapi TypeScript library provides convenient access to the Vapi API from TypeScript.
 
 ## Installation
 
 ```sh
-npm i -s @vapi/server-sdk
+npm i -s @vapi-ai/server-sdk
 ```
 
 ## Usage
@@ -16,7 +16,7 @@ npm i -s @vapi/server-sdk
 Instantiate and use the client with the following:
 
 ```typescript
-import { VapiClient } from "@vapi/server-sdk";
+import { VapiClient } from "@vapi-ai/server-sdk";
 
 const client = new VapiClient({ token: "YOUR_TOKEN" });
 await client.calls.create();
@@ -28,7 +28,7 @@ The SDK exports all request and response types as TypeScript interfaces. Simply 
 following namespace:
 
 ```typescript
-import { Vapi } from "@vapi/server-sdk";
+import { Vapi } from "@vapi-ai/server-sdk";
 
 const request: Vapi.CallsListRequest = {
     ...
@@ -41,7 +41,7 @@ When the API returns a non-success status code (4xx or 5xx response), a subclass
 will be thrown.
 
 ```typescript
-import { VapiError } from "@vapi/server-sdk";
+import { VapiError } from "@vapi-ai/server-sdk";
 
 try {
     await client.calls.create(...);
@@ -116,7 +116,7 @@ The SDK provides a way for your to customize the underlying HTTP client / Fetch 
 unsupported environment, this provides a way for you to break glass and ensure the SDK works.
 
 ```typescript
-import { VapiClient } from "@vapi/server-sdk";
+import { VapiClient } from "@vapi-ai/server-sdk";
 
 const client = new VapiClient({
     ...

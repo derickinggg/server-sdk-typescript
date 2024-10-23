@@ -1,6 +1,6 @@
 {
-    "name": "@vapi/server-sdk",
-    "version": "0.0.0-alpha8",
+    "name": "@vapi-ai/server-sdk",
+    "version": "0.0.0-alpha9",
     "private": false,
     "repository": "https://github.com/VapiAI/server-sdk-typescript",
     "main": "./index.js",
