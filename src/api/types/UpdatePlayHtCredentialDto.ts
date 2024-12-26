@@ -7,4 +7,6 @@ export interface UpdatePlayHtCredentialDto {
     /** This is not returned in the API. */
     apiKey: string;
     userId: string;
+    /** This is the name of credential. This is just for your reference. */
+    name?: string;
 }

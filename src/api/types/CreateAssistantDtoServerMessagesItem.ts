@@ -8,6 +8,7 @@ export type CreateAssistantDtoServerMessagesItem =
     | "function-call"
     | "hang"
     | "language-changed"
+    | "language-change-detected"
     | "model-output"
     | "phone-call-control"
     | "speech-update"
@@ -25,6 +26,7 @@ export const CreateAssistantDtoServerMessagesItem = {
     FunctionCall: "function-call",
     Hang: "hang",
     LanguageChanged: "language-changed",
+    LanguageChangeDetected: "language-change-detected",
     ModelOutput: "model-output",
     PhoneCallControl: "phone-call-control",
     SpeechUpdate: "speech-update",

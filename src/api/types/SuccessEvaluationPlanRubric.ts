@@ -6,7 +6,6 @@
  * This enforces the rubric of the evaluation. The output is stored in `call.analysis.successEvaluation`.
  *
  * Options include:
- *
  * - 'NumericScale': A scale of 1 to 10.
  * - 'DescriptiveScale': A scale of Excellent, Good, Fair, Poor.
  * - 'Checklist': A checklist of criteria and their status.

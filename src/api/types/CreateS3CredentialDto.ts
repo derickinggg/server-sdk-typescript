@@ -15,4 +15,6 @@ export interface CreateS3CredentialDto {
     s3BucketName: string;
     /** The path prefix for the uploaded recording. Ex. "recordings/" */
     s3PathPrefix: string;
+    /** This is the name of credential. This is just for your reference. */
+    name?: string;
 }

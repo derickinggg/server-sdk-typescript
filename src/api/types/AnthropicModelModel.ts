@@ -9,11 +9,15 @@ export type AnthropicModelModel =
     | "claude-3-opus-20240229"
     | "claude-3-sonnet-20240229"
     | "claude-3-haiku-20240307"
-    | "claude-3-5-sonnet-20240620";
+    | "claude-3-5-sonnet-20240620"
+    | "claude-3-5-sonnet-20241022"
+    | "claude-3-5-haiku-20241022";
 
 export const AnthropicModelModel = {
     Claude3Opus20240229: "claude-3-opus-20240229",
     Claude3Sonnet20240229: "claude-3-sonnet-20240229",
     Claude3Haiku20240307: "claude-3-haiku-20240307",
     Claude35Sonnet20240620: "claude-3-5-sonnet-20240620",
+    Claude35Sonnet20241022: "claude-3-5-sonnet-20241022",
+    Claude35Haiku20241022: "claude-3-5-haiku-20241022",
 } as const;

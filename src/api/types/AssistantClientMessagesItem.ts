@@ -15,6 +15,7 @@ export type AssistantClientMessagesItem =
     | "transcript"
     | "tool-calls"
     | "tool-calls-result"
+    | "transfer-update"
     | "user-interrupted"
     | "voice-input";
 
@@ -31,6 +32,7 @@ export const AssistantClientMessagesItem = {
     Transcript: "transcript",
     ToolCalls: "tool-calls",
     ToolCallsResult: "tool-calls-result",
+    TransferUpdate: "transfer-update",
     UserInterrupted: "user-interrupted",
     VoiceInput: "voice-input",
 } as const;

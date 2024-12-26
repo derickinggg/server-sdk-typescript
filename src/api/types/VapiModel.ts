@@ -19,14 +19,16 @@ export interface VapiModel {
      * Both `tools` and `toolIds` can be used together.
      */
     toolIds?: string[];
+    /** These are the options for the knowledge base. */
+    knowledgeBase?: Vapi.CreateCustomKnowledgeBaseDto;
+    /** This is the ID of the knowledge base the model will use. */
+    knowledgeBaseId?: string;
     steps?: Vapi.VapiModelStepsItem[];
     provider: "vapi";
     /** This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b */
     model: string;
     /** This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency. */
     temperature?: number;
-    /** These are the options for the knowledge base. */
-    knowledgeBase?: Vapi.KnowledgeBase;
     /** This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250. */
     maxTokens?: number;
     /**

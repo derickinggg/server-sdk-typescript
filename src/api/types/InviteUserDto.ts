@@ -5,6 +5,6 @@
 import * as Vapi from "../index";
 
 export interface InviteUserDto {
-    email: string;
+    emails: string[];
     role: Vapi.InviteUserDtoRole;
 }

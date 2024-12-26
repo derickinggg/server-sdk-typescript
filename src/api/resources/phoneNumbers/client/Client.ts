@@ -11,7 +11,7 @@ import * as errors from "../../../../errors/index";
 export declare namespace PhoneNumbers {
     interface Options {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
-        token: core.Supplier<core.BearerToken>;
+        token?: core.Supplier<core.BearerToken | undefined>;
         fetcher?: core.FetchFunction;
     }
 
@@ -22,18 +22,17 @@ export declare namespace PhoneNumbers {
         maxRetries?: number;
         /** A hook to abort the request. */
         abortSignal?: AbortSignal;
+        /** Additional headers to include in the request. */
+        headers?: Record<string, string>;
     }
 }
 
 export class PhoneNumbers {
-    constructor(protected readonly _options: PhoneNumbers.Options) {}
+    constructor(protected readonly _options: PhoneNumbers.Options = {}) {}
 
     /**
      * @param {Vapi.PhoneNumbersListRequest} request
      * @param {PhoneNumbers.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.phoneNumbers.list()
      */
     public async list(
         request: Vapi.PhoneNumbersListRequest = {},
@@ -97,10 +96,11 @@ export class PhoneNumbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -127,7 +127,7 @@ export class PhoneNumbers {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /phone-number.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -138,12 +138,6 @@ export class PhoneNumbers {
     /**
      * @param {Vapi.PhoneNumbersCreateRequest} request
      * @param {PhoneNumbers.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.phoneNumbers.create({
-     *         provider: "byo-phone-number",
-     *         credentialId: "credentialId"
-     *     })
      */
     public async create(
         request: Vapi.PhoneNumbersCreateRequest,
@@ -159,10 +153,11 @@ export class PhoneNumbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -189,7 +184,7 @@ export class PhoneNumbers {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling POST /phone-number.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -200,9 +195,6 @@ export class PhoneNumbers {
     /**
      * @param {string} id
      * @param {PhoneNumbers.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.phoneNumbers.get("id")
      */
     public async get(id: string, requestOptions?: PhoneNumbers.RequestOptions): Promise<Vapi.PhoneNumbersGetResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -215,10 +207,11 @@ export class PhoneNumbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -244,7 +237,7 @@ export class PhoneNumbers {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /phone-number/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -255,9 +248,6 @@ export class PhoneNumbers {
     /**
      * @param {string} id
      * @param {PhoneNumbers.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.phoneNumbers.delete("id")
      */
     public async delete(
         id: string,
@@ -273,10 +263,11 @@ export class PhoneNumbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -302,7 +293,7 @@ export class PhoneNumbers {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling DELETE /phone-number/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -314,9 +305,6 @@ export class PhoneNumbers {
      * @param {string} id
      * @param {Vapi.UpdatePhoneNumberDto} request
      * @param {PhoneNumbers.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.phoneNumbers.update("id")
      */
     public async update(
         id: string,
@@ -333,10 +321,11 @@ export class PhoneNumbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -363,7 +352,7 @@ export class PhoneNumbers {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling PATCH /phone-number/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -371,7 +360,12 @@ export class PhoneNumbers {
         }
     }
 
-    protected async _getAuthorizationHeader(): Promise<string> {
-        return `Bearer ${await core.Supplier.get(this._options.token)}`;
+    protected async _getAuthorizationHeader(): Promise<string | undefined> {
+        const bearer = await core.Supplier.get(this._options.token);
+        if (bearer != null) {
+            return `Bearer ${bearer}`;
+        }
+
+        return undefined;
     }
 }

@@ -4,10 +4,6 @@
 
 import * as Vapi from "../../../../index";
 
-/**
- * @example
- *     {}
- */
 export interface UpdateBlockDto {
     /** These are the pre-configured messages that will be spoken to the user while the block is running. */
     messages?: Vapi.UpdateBlockDtoMessagesItem[];

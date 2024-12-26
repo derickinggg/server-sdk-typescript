@@ -7,7 +7,6 @@ import * as Vapi from "../index";
 export interface CreateByoPhoneNumberDto {
     /**
      * This is the fallback destination an inbound call will be transferred to if:
-     *
      * 1. `assistantId` is not set
      * 2. `squadId` is not set
      * 3. and, `assistant-request` message to the `serverUrl` fails
@@ -20,7 +19,6 @@ export interface CreateByoPhoneNumberDto {
      * This is the flag to toggle the E164 check for the `number` field. This is an advanced property which should be used if you know your use case requires it.
      *
      * Use cases:
-     *
      * - `false`: To allow non-E164 numbers like `+001234567890`, `1234`, or `abc`. This is useful for dialing out to non-E164 numbers on your SIP trunks.
      * - `true` (default): To allow only E164 numbers like `+14155551234`. This is standard for PSTN calls.
      *

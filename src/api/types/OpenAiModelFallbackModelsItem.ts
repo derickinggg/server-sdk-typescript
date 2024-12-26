@@ -3,11 +3,13 @@
  */
 
 export type OpenAiModelFallbackModelsItem =
+    | "gpt-4o-realtime-preview-2024-10-01"
     | "gpt-4o-mini"
     | "gpt-4o-mini-2024-07-18"
     | "gpt-4o"
     | "gpt-4o-2024-05-13"
     | "gpt-4o-2024-08-06"
+    | "gpt-4o-2024-11-20"
     | "gpt-4-turbo"
     | "gpt-4-turbo-2024-04-09"
     | "gpt-4-turbo-preview"
@@ -22,11 +24,13 @@ export type OpenAiModelFallbackModelsItem =
     | "gpt-3.5-turbo-0613";
 
 export const OpenAiModelFallbackModelsItem = {
+    Gpt4ORealtimePreview20241001: "gpt-4o-realtime-preview-2024-10-01",
     Gpt4OMini: "gpt-4o-mini",
     Gpt4OMini20240718: "gpt-4o-mini-2024-07-18",
     Gpt4O: "gpt-4o",
     Gpt4O20240513: "gpt-4o-2024-05-13",
     Gpt4O20240806: "gpt-4o-2024-08-06",
+    Gpt4O20241120: "gpt-4o-2024-11-20",
     Gpt4Turbo: "gpt-4-turbo",
     Gpt4Turbo20240409: "gpt-4-turbo-2024-04-09",
     Gpt4TurboPreview: "gpt-4-turbo-preview",

@@ -9,7 +9,6 @@ export interface VoiceCost {
      * This is the voice that was used during the call.
      *
      * This matches one of the following:
-     *
      * - `call.assistant.voice`,
      * - `call.assistantId->voice`,
      * - `call.squad[n].assistant.voice`,

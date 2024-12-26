@@ -4,14 +4,13 @@
 
 import * as environments from "../../../../environments";
 import * as core from "../../../../core";
-import * as Vapi from "../../../index";
 import urlJoin from "url-join";
 import * as errors from "../../../../errors/index";
 
 export declare namespace Analytics {
     interface Options {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
-        token: core.Supplier<core.BearerToken>;
+        token?: core.Supplier<core.BearerToken | undefined>;
         fetcher?: core.FetchFunction;
     }
 
@@ -22,32 +21,18 @@ export declare namespace Analytics {
         maxRetries?: number;
         /** A hook to abort the request. */
         abortSignal?: AbortSignal;
+        /** Additional headers to include in the request. */
+        headers?: Record<string, string>;
     }
 }
 
 export class Analytics {
-    constructor(protected readonly _options: Analytics.Options) {}
+    constructor(protected readonly _options: Analytics.Options = {}) {}
 
     /**
-     * @param {Vapi.AnalyticsQueryDto} request
      * @param {Analytics.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.analytics.get({
-     *         queries: [{
-     *                 table: "call",
-     *                 name: "name",
-     *                 operations: [{
-     *                         operation: "sum",
-     *                         column: "id"
-     *                     }]
-     *             }]
-     *     })
      */
-    public async get(
-        request: Vapi.AnalyticsQueryDto,
-        requestOptions?: Analytics.RequestOptions
-    ): Promise<Vapi.AnalyticsQueryResult[]> {
+    public async get(requestOptions?: Analytics.RequestOptions): Promise<void> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
@@ -58,20 +43,20 @@ export class Analytics {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
-            body: request,
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.AnalyticsQueryResult[];
+            return;
         }
 
         if (_response.error.reason === "status-code") {
@@ -88,7 +73,7 @@ export class Analytics {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling POST /analytics.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -96,7 +81,12 @@ export class Analytics {
         }
     }
 
-    protected async _getAuthorizationHeader(): Promise<string> {
-        return `Bearer ${await core.Supplier.get(this._options.token)}`;
+    protected async _getAuthorizationHeader(): Promise<string | undefined> {
+        const bearer = await core.Supplier.get(this._options.token);
+        if (bearer != null) {
+            return `Bearer ${bearer}`;
+        }
+
+        return undefined;
     }
 }

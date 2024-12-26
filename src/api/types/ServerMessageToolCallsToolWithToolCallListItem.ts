@@ -7,4 +7,7 @@ import * as Vapi from "../index";
 export type ServerMessageToolCallsToolWithToolCallListItem =
     | Vapi.FunctionToolWithToolCall
     | Vapi.GhlToolWithToolCall
-    | Vapi.MakeToolWithToolCall;
+    | Vapi.MakeToolWithToolCall
+    | unknown
+    | unknown
+    | unknown;

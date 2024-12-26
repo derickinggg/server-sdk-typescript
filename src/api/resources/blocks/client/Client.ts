@@ -11,7 +11,7 @@ import * as errors from "../../../../errors/index";
 export declare namespace Blocks {
     interface Options {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
-        token: core.Supplier<core.BearerToken>;
+        token?: core.Supplier<core.BearerToken | undefined>;
         fetcher?: core.FetchFunction;
     }
 
@@ -22,18 +22,17 @@ export declare namespace Blocks {
         maxRetries?: number;
         /** A hook to abort the request. */
         abortSignal?: AbortSignal;
+        /** Additional headers to include in the request. */
+        headers?: Record<string, string>;
     }
 }
 
 export class Blocks {
-    constructor(protected readonly _options: Blocks.Options) {}
+    constructor(protected readonly _options: Blocks.Options = {}) {}
 
     /**
      * @param {Vapi.BlocksListRequest} request
      * @param {Blocks.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.blocks.list()
      */
     public async list(
         request: Vapi.BlocksListRequest = {},
@@ -97,10 +96,11 @@ export class Blocks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -127,7 +127,7 @@ export class Blocks {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /block.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -138,12 +138,6 @@ export class Blocks {
     /**
      * @param {Vapi.BlocksCreateRequest} request
      * @param {Blocks.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.blocks.create({
-     *         type: "conversation",
-     *         instruction: "instruction"
-     *     })
      */
     public async create(
         request: Vapi.BlocksCreateRequest,
@@ -159,10 +153,11 @@ export class Blocks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -189,7 +184,7 @@ export class Blocks {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling POST /block.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -200,9 +195,6 @@ export class Blocks {
     /**
      * @param {string} id
      * @param {Blocks.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.blocks.get("id")
      */
     public async get(id: string, requestOptions?: Blocks.RequestOptions): Promise<Vapi.BlocksGetResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -215,10 +207,11 @@ export class Blocks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -244,7 +237,7 @@ export class Blocks {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /block/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -255,9 +248,6 @@ export class Blocks {
     /**
      * @param {string} id
      * @param {Blocks.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.blocks.delete("id")
      */
     public async delete(id: string, requestOptions?: Blocks.RequestOptions): Promise<Vapi.BlocksDeleteResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -270,10 +260,11 @@ export class Blocks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -299,7 +290,7 @@ export class Blocks {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling DELETE /block/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -311,9 +302,6 @@ export class Blocks {
      * @param {string} id
      * @param {Vapi.UpdateBlockDto} request
      * @param {Blocks.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.blocks.update("id")
      */
     public async update(
         id: string,
@@ -330,10 +318,11 @@ export class Blocks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -360,7 +349,7 @@ export class Blocks {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling PATCH /block/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -368,7 +357,12 @@ export class Blocks {
         }
     }
 
-    protected async _getAuthorizationHeader(): Promise<string> {
-        return `Bearer ${await core.Supplier.get(this._options.token)}`;
+    protected async _getAuthorizationHeader(): Promise<string | undefined> {
+        const bearer = await core.Supplier.get(this._options.token);
+        if (bearer != null) {
+            return `Bearer ${bearer}`;
+        }
+
+        return undefined;
     }
 }

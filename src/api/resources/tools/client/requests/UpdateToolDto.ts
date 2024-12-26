@@ -4,10 +4,6 @@
 
 import * as Vapi from "../../../../index";
 
-/**
- * @example
- *     {}
- */
 export interface UpdateToolDto {
     /**
      * This determines if the tool is async.

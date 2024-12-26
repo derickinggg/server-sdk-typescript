@@ -23,4 +23,6 @@ export interface S3Credential {
     createdAt: string;
     /** This is the ISO 8601 date-time string of when the assistant was last updated. */
     updatedAt: string;
+    /** This is the name of credential. This is just for your reference. */
+    name?: string;
 }

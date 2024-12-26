@@ -4,10 +4,6 @@
 
 import * as Vapi from "../../../../index";
 
-/**
- * @example
- *     {}
- */
 export interface UpdateAssistantDto {
     /** These are the options for the assistant's transcriber. */
     transcriber?: Vapi.UpdateAssistantDtoTranscriber;
@@ -15,6 +11,12 @@ export interface UpdateAssistantDto {
     model?: Vapi.UpdateAssistantDtoModel;
     /** These are the options for the assistant's voice. */
     voice?: Vapi.UpdateAssistantDtoVoice;
+    /**
+     * This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).
+     *
+     * If unspecified, assistant will wait for user to speak and use the model to respond once they speak.
+     */
+    firstMessage?: string;
     /**
      * This is the mode for the first message. Default is 'assistant-speaks-first'.
      *
@@ -28,7 +30,7 @@ export interface UpdateAssistantDto {
     firstMessageMode?: Vapi.UpdateAssistantDtoFirstMessageMode;
     /** When this is enabled, no logs, recordings, or transcriptions will be stored. At the end of the call, you will still receive an end-of-call-report message to store on your server. Defaults to false. */
     hipaaEnabled?: boolean;
-    /** These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transcript,tool-calls,user-interrupted,voice-input. You can check the shape of the messages in ClientMessage schema. */
+    /** These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input. You can check the shape of the messages in ClientMessage schema. */
     clientMessages?: Vapi.UpdateAssistantDtoClientMessagesItem[];
     /** These are the messages that will be sent to your Server URL. Default is conversation-update,end-of-call-report,function-call,hang,speech-update,status-update,tool-calls,transfer-destination-request,user-interrupted. You can check the shape of the messages in ServerMessage schema. */
     serverMessages?: Vapi.UpdateAssistantDtoServerMessagesItem[];
@@ -46,14 +48,6 @@ export interface UpdateAssistantDto {
     maxDurationSeconds?: number;
     /** This is the background sound in the call. Default for phone calls is 'office' and default for web calls is 'off'. */
     backgroundSound?: Vapi.UpdateAssistantDtoBackgroundSound;
-    /**
-     * This determines whether the model says 'mhmm', 'ahem' etc. while user is speaking.
-     *
-     * Default `false` while in beta.
-     *
-     * @default false
-     */
-    backchannelingEnabled?: boolean;
     /**
      * This enables filtering of noise and background speech while the user is talking.
      *
@@ -79,12 +73,6 @@ export interface UpdateAssistantDto {
      */
     name?: string;
     /**
-     * This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).
-     *
-     * If unspecified, assistant will wait for user to speak and use the model to respond once they speak.
-     */
-    firstMessage?: string;
-    /**
      * These are the settings to configure or disable voicemail detection. Alternatively, voicemail detection can be configured using the model.tools=[VoicemailTool].
      * This uses Twilio's built-in detection while the VoicemailTool relies on the model to detect if a voicemail was reached.
      * You can use neither of them, one of them, or both of them. By default, Twilio built-in detection is enabled while VoicemailTool is not.
@@ -106,20 +94,6 @@ export interface UpdateAssistantDto {
     endCallPhrases?: string[];
     /** This is for metadata you want to store on the assistant. */
     metadata?: Record<string, unknown>;
-    /**
-     * This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.
-     *
-     * All requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.
-     *
-     * This overrides the serverUrl set on the org and the phoneNumber. Order of precedence: tool.server.url > assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl
-     */
-    serverUrl?: string;
-    /**
-     * This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.
-     *
-     * Same precedence logic as serverUrl.
-     */
-    serverUrlSecret?: string;
     /** This is the plan for analysis of assistant's calls. Stored in `call.analysis`. */
     analysisPlan?: Vapi.AnalysisPlan;
     /**
@@ -166,4 +140,14 @@ export interface UpdateAssistantDto {
     monitorPlan?: Vapi.MonitorPlan;
     /** These are the credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can provide a subset using this. */
     credentialIds?: string[];
+    /**
+     * This is where Vapi will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+     *
+     * The order of precedence is:
+     *
+     * 1. assistant.server.url
+     * 2. phoneNumber.serverUrl
+     * 3. org.serverUrl
+     */
+    server?: Vapi.Server;
 }

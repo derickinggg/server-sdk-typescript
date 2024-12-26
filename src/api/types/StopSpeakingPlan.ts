@@ -21,7 +21,6 @@ export interface StopSpeakingPlan {
      * This is the seconds customer has to speak before the assistant stops talking. This uses the VAD (Voice Activity Detection) spike to determine if the customer has started speaking.
      *
      * Considerations:
-     *
      * - A lower value might be more responsive but could potentially pick up non-speech sounds.
      * - A higher value reduces false positives but might slightly delay the detection of speech onset.
      *

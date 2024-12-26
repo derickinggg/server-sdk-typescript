@@ -4,12 +4,6 @@
 
 import * as Vapi from "../../../../index";
 
-/**
- * @example
- *     {
- *         members: [{}]
- *     }
- */
 export interface UpdateSquadDto {
     /** This is the name of the squad. */
     name?: string;

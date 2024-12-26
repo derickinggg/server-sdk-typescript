@@ -11,4 +11,7 @@ export type ToolsCreateRequest =
     | Vapi.CreateGhlToolDto
     | Vapi.CreateMakeToolDto
     | Vapi.CreateTransferCallToolDto
-    | Vapi.CreateOutputToolDto;
+    | Vapi.CreateOutputToolDto
+    | Vapi.CreateBashToolDto
+    | Vapi.CreateComputerToolDto
+    | Vapi.CreateTextEditorToolDto;

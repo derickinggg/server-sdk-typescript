@@ -7,4 +7,6 @@ export interface UpdateVonageCredentialDto {
     /** This is not returned in the API. */
     apiSecret: string;
     apiKey: string;
+    /** This is the name of credential. This is just for your reference. */
+    name?: string;
 }

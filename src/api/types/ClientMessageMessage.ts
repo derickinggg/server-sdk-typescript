@@ -16,6 +16,7 @@ export type ClientMessageMessage =
     | Vapi.ClientMessageTranscript
     | Vapi.ClientMessageToolCalls
     | Vapi.ClientMessageToolCallsResult
+    | Vapi.ClientMessageTransferUpdate
     | Vapi.ClientMessageUserInterrupted
-    | Vapi.ClientMessageLanguageChanged
+    | Vapi.ClientMessageLanguageChangeDetected
     | Vapi.ClientMessageVoiceInput;

@@ -12,9 +12,12 @@ export type AssistantOverridesModel =
     | Vapi.AnthropicModel
     | Vapi.CustomLlmModel
     | Vapi.DeepInfraModel
+    | Vapi.GoogleModel
     | Vapi.GroqModel
+    | Vapi.InflectionAiModel
     | Vapi.OpenAiModel
     | Vapi.OpenRouterModel
     | Vapi.PerplexityAiModel
     | Vapi.TogetherAiModel
-    | Vapi.VapiModel;
+    | Vapi.VapiModel
+    | Vapi.XaiModel;

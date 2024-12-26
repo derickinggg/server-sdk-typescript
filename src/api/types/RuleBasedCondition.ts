@@ -17,7 +17,6 @@ export interface RuleBasedCondition {
      * This is the left side of the operation.
      *
      * You can reference any variable in the context of the current block execution (step):
-     *
      * - "{{output.your-property-name}}" for current step's output
      * - "{{input.your-property-name}}" for current step's input
      * - "{{your-step-name.output.your-property-name}}" for another step's output (in the same workflow; read caveat #1)
@@ -28,18 +27,15 @@ export interface RuleBasedCondition {
      * - "{{global.your-property-name}}" for the global context
      *
      * Or, you can use a constant:
-     *
      * - "1"
      * - "text"
      * - "true"
      * - "false"
      *
      * Or, you can mix and match with string interpolation:
-     *
      * - "{{your-property-name}}-{{input.your-property-name-2}}-1"
      *
      * Caveats:
-     *
      * 1. a workflow can execute a step multiple times. example, if a loop is used in the graph. {{stepName.input/output.propertyName}} will reference the latest usage of the step.
      * 2. a workflow can execute a block multiple times. example, if a step is called multiple times or if a block is used in multiple steps. {{blockName.input/output.propertyName}} will reference the latest usage of the block. this liquid variable is just provided for convenience when creating blocks outside of a workflow with steps.
      */
@@ -48,7 +44,6 @@ export interface RuleBasedCondition {
      * This is the right side of the operation.
      *
      * You can reference any variable in the context of the current block execution (step):
-     *
      * - "{{output.your-property-name}}" for current step's output
      * - "{{input.your-property-name}}" for current step's input
      * - "{{your-step-name.output.your-property-name}}" for another step's output (in the same workflow; read caveat #1)
@@ -59,18 +54,15 @@ export interface RuleBasedCondition {
      * - "{{global.your-property-name}}" for the global context
      *
      * Or, you can use a constant:
-     *
      * - "1"
      * - "text"
      * - "true"
      * - "false"
      *
      * Or, you can mix and match with string interpolation:
-     *
      * - "{{your-property-name}}-{{input.your-property-name-2}}-1"
      *
      * Caveats:
-     *
      * 1. a workflow can execute a step multiple times. example, if a loop is used in the graph. {{stepName.input/output.propertyName}} will reference the latest usage of the step.
      * 2. a workflow can execute a block multiple times. example, if a step is called multiple times or if a block is used in multiple steps. {{blockName.input/output.propertyName}} will reference the latest usage of the block. this liquid variable is just provided for convenience when creating blocks outside of a workflow with steps.
      */

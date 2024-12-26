@@ -4,10 +4,6 @@
 
 import * as Vapi from "../../../../index";
 
-/**
- * @example
- *     {}
- */
 export interface LogsGetRequest {
     /**
      * This is the unique identifier for the org that this log belongs to.
@@ -17,6 +13,10 @@ export interface LogsGetRequest {
      * This is the type of the log.
      */
     type?: Vapi.LogsGetRequestType;
+    /**
+     * This is the type of the webhook, given the log is from a webhook.
+     */
+    webhookType?: string;
     /**
      * This is the ID of the assistant.
      */

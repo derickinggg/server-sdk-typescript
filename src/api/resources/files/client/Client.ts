@@ -13,7 +13,7 @@ import { Blob } from "buffer";
 export declare namespace Files {
     interface Options {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
-        token: core.Supplier<core.BearerToken>;
+        token?: core.Supplier<core.BearerToken | undefined>;
         fetcher?: core.FetchFunction;
     }
 
@@ -24,17 +24,16 @@ export declare namespace Files {
         maxRetries?: number;
         /** A hook to abort the request. */
         abortSignal?: AbortSignal;
+        /** Additional headers to include in the request. */
+        headers?: Record<string, string>;
     }
 }
 
 export class Files {
-    constructor(protected readonly _options: Files.Options) {}
+    constructor(protected readonly _options: Files.Options = {}) {}
 
     /**
      * @param {Files.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.files.list()
      */
     public async list(requestOptions?: Files.RequestOptions): Promise<Vapi.File_[]> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -47,10 +46,11 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -76,7 +76,7 @@ export class Files {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /file.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -89,9 +89,6 @@ export class Files {
      * @param {Files.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @throws {@link Vapi.BadRequestError}
-     *
-     * @example
-     *     await client.files.create(fs.createReadStream("/path/to/your/file"))
      */
     public async create(file: File | fs.ReadStream | Blob, requestOptions?: Files.RequestOptions): Promise<Vapi.File_> {
         const _request = await core.newFormData();
@@ -107,11 +104,12 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ..._maybeEncodedRequest.headers,
+                ...requestOptions?.headers,
             },
             requestType: "file",
             duplex: _maybeEncodedRequest.duplex,
@@ -143,7 +141,7 @@ export class Files {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling POST /file.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -154,9 +152,6 @@ export class Files {
     /**
      * @param {string} id
      * @param {Files.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.files.get("id")
      */
     public async get(id: string, requestOptions?: Files.RequestOptions): Promise<Vapi.File_> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -169,10 +164,11 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -198,7 +194,7 @@ export class Files {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /file/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -209,9 +205,6 @@ export class Files {
     /**
      * @param {string} id
      * @param {Files.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.files.delete("id")
      */
     public async delete(id: string, requestOptions?: Files.RequestOptions): Promise<Vapi.File_> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -224,10 +217,11 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -253,7 +247,7 @@ export class Files {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling DELETE /file/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -265,9 +259,6 @@ export class Files {
      * @param {string} id
      * @param {Vapi.UpdateFileDto} request
      * @param {Files.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.files.update("id")
      */
     public async update(
         id: string,
@@ -284,10 +275,11 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -314,7 +306,7 @@ export class Files {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling PATCH /file/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -322,7 +314,12 @@ export class Files {
         }
     }
 
-    protected async _getAuthorizationHeader(): Promise<string> {
-        return `Bearer ${await core.Supplier.get(this._options.token)}`;
+    protected async _getAuthorizationHeader(): Promise<string | undefined> {
+        const bearer = await core.Supplier.get(this._options.token);
+        if (bearer != null) {
+            return `Bearer ${bearer}`;
+        }
+
+        return undefined;
     }
 }

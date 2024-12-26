@@ -14,7 +14,7 @@ export interface GcpCredential {
     createdAt: string;
     /** This is the ISO 8601 date-time string of when the assistant was last updated. */
     updatedAt: string;
-    /** This is the name of the GCP credential. This is just for your reference. */
+    /** This is the name of credential. This is just for your reference. */
     name?: string;
     /**
      * This is the GCP key. This is the JSON that can be generated in the Google Cloud Console at https://console.cloud.google.com/iam-admin/serviceaccounts/details/<service-account-id>/keys.

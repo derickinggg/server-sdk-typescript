@@ -4,8 +4,20 @@
 
 /**
  * This is the provider-specific ID that will be used.
+ * Please note that ash, ballad, coral, sage, and verse may only be used with the `gpt-4o-realtime-preview-2024-10-01` model.
  */
-export type OpenAiVoiceId = "alloy" | "echo" | "fable" | "onyx" | "nova" | "shimmer";
+export type OpenAiVoiceId =
+    | "alloy"
+    | "echo"
+    | "fable"
+    | "onyx"
+    | "nova"
+    | "shimmer"
+    | "ash"
+    | "ballad"
+    | "coral"
+    | "sage"
+    | "verse";
 
 export const OpenAiVoiceId = {
     Alloy: "alloy",
@@ -14,4 +26,9 @@ export const OpenAiVoiceId = {
     Onyx: "onyx",
     Nova: "nova",
     Shimmer: "shimmer",
+    Ash: "ash",
+    Ballad: "ballad",
+    Coral: "coral",
+    Sage: "sage",
+    Verse: "verse",
 } as const;

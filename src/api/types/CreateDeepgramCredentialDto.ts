@@ -8,4 +8,6 @@ export interface CreateDeepgramCredentialDto {
     apiKey: string;
     /** This can be used to point to an onprem Deepgram instance. Defaults to api.deepgram.com. */
     apiUrl?: string;
+    /** This is the name of credential. This is just for your reference. */
+    name?: string;
 }

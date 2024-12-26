@@ -9,14 +9,12 @@ export interface ServerMessageHang {
      * This is the phone number associated with the call.
      *
      * This matches one of the following:
-     *
      * - `call.phoneNumber`,
      * - `call.phoneNumberId`.
      */
     phoneNumber?: Vapi.ServerMessageHangPhoneNumber;
     /**
      * This is the type of the message. "hang" is sent when the assistant is hanging due to a delay. The delay can be caused by many factors, such as:
-     *
      * - the model is too slow to respond
      * - the voice is too slow to respond
      * - the tool call is still waiting for a response from your server
@@ -35,7 +33,6 @@ export interface ServerMessageHang {
      * This is the assistant that is currently active. This is provided for convenience.
      *
      * This matches one of the following:
-     *
      * - `call.assistant`,
      * - `call.assistantId`,
      * - `call.squad[n].assistant`,
@@ -48,7 +45,6 @@ export interface ServerMessageHang {
      * This is the customer associated with the call.
      *
      * This matches one of the following:
-     *
      * - `call.customer`,
      * - `call.customerId`.
      */

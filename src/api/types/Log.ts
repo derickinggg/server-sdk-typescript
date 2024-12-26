@@ -6,11 +6,13 @@ import * as Vapi from "../index";
 
 export interface Log {
     /** This is the timestamp at which the log was written. */
-    time: number;
+    time: string;
     /** This is the unique identifier for the org that this log belongs to. */
     orgId: string;
     /** This is the type of the log. */
     type: Vapi.LogType;
+    /** This is the type of the webhook, given the log is from a webhook. */
+    webhookType?: string;
     /** This is the specific resource, relevant only to API logs. */
     resource?: Vapi.LogResource;
     /** 'This is how long the request took. */

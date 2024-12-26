@@ -5,12 +5,6 @@
 import * as Vapi from "../index";
 
 export interface PlayHtVoice {
-    /**
-     * This determines whether fillers are injected into the model output before inputting it into the voice provider.
-     *
-     * Default `false` because you can achieve better results with prompting the model.
-     */
-    fillerInjectionEnabled?: boolean;
     /** This is the voice provider that will be used. */
     provider: "playht";
     /** This is the provider-specific ID that will be used. */
@@ -27,6 +21,12 @@ export interface PlayHtVoice {
     styleGuidance?: number;
     /** A number between 1 and 2. This number influences how closely the generated speech adheres to the input text. Use lower values to create more fluid speech, but with a higher chance of deviating from the input text. Higher numbers will make the generated speech more accurate to the input text, ensuring that the words spoken align closely with the provided text. */
     textGuidance?: number;
+    /** Playht voice model/engine to use. */
+    model?: Vapi.PlayHtVoiceModel;
+    /** The language to use for the speech. */
+    language?: Vapi.PlayHtVoiceLanguage;
     /** This is the plan for chunking the model output before it is sent to the voice provider. */
     chunkPlan?: Vapi.ChunkPlan;
+    /** This is the plan for voice provider fallbacks in the event that the primary voice provider fails. */
+    fallbackPlan?: Vapi.FallbackPlan;
 }

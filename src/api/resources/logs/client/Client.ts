@@ -11,7 +11,7 @@ import * as errors from "../../../../errors/index";
 export declare namespace Logs {
     interface Options {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
-        token: core.Supplier<core.BearerToken>;
+        token?: core.Supplier<core.BearerToken | undefined>;
         fetcher?: core.FetchFunction;
     }
 
@@ -22,18 +22,17 @@ export declare namespace Logs {
         maxRetries?: number;
         /** A hook to abort the request. */
         abortSignal?: AbortSignal;
+        /** Additional headers to include in the request. */
+        headers?: Record<string, string>;
     }
 }
 
 export class Logs {
-    constructor(protected readonly _options: Logs.Options) {}
+    constructor(protected readonly _options: Logs.Options = {}) {}
 
     /**
      * @param {Vapi.LogsGetRequest} request
      * @param {Logs.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.logs.get()
      */
     public async get(
         request: Vapi.LogsGetRequest = {},
@@ -43,6 +42,7 @@ export class Logs {
             const {
                 orgId,
                 type: type_,
+                webhookType,
                 assistantId,
                 phoneNumberId,
                 customerId,
@@ -66,6 +66,9 @@ export class Logs {
             }
             if (type_ != null) {
                 _queryParams["type"] = type_;
+            }
+            if (webhookType != null) {
+                _queryParams["webhookType"] = webhookType;
             }
             if (assistantId != null) {
                 _queryParams["assistantId"] = assistantId;
@@ -125,10 +128,11 @@ export class Logs {
                     Authorization: await this._getAuthorizationHeader(),
                     "X-Fern-Language": "JavaScript",
                     "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                    "X-Fern-SDK-Version": "0.1.0",
-                    "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                    "X-Fern-SDK-Version": "0.2.0",
+                    "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                     "X-Fern-Runtime": core.RUNTIME.type,
                     "X-Fern-Runtime-Version": core.RUNTIME.version,
+                    ...requestOptions?.headers,
                 },
                 contentType: "application/json",
                 queryParameters: _queryParams,
@@ -153,7 +157,7 @@ export class Logs {
                         body: _response.error.rawBody,
                     });
                 case "timeout":
-                    throw new errors.VapiTimeoutError();
+                    throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /logs.");
                 case "unknown":
                     throw new errors.VapiError({
                         message: _response.error.errorMessage,
@@ -172,7 +176,12 @@ export class Logs {
         });
     }
 
-    protected async _getAuthorizationHeader(): Promise<string> {
-        return `Bearer ${await core.Supplier.get(this._options.token)}`;
+    protected async _getAuthorizationHeader(): Promise<string | undefined> {
+        const bearer = await core.Supplier.get(this._options.token);
+        if (bearer != null) {
+            return `Bearer ${bearer}`;
+        }
+
+        return undefined;
     }
 }

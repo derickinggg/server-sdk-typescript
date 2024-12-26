@@ -11,4 +11,7 @@ export type ToolsGetResponse =
     | Vapi.GhlTool
     | Vapi.MakeTool
     | Vapi.TransferCallTool
-    | Vapi.OutputTool;
+    | Vapi.OutputTool
+    | Vapi.BashTool
+    | Vapi.ComputerTool
+    | Vapi.TextEditorTool;

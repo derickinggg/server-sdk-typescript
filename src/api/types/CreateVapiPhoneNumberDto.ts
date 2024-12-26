@@ -7,7 +7,6 @@ import * as Vapi from "../index";
 export interface CreateVapiPhoneNumberDto {
     /**
      * This is the fallback destination an inbound call will be transferred to if:
-     *
      * 1. `assistantId` is not set
      * 2. `squadId` is not set
      * 3. and, `assistant-request` message to the `serverUrl` fails
@@ -22,6 +21,12 @@ export interface CreateVapiPhoneNumberDto {
      * This is case-insensitive.
      */
     sipUri: string;
+    /**
+     * This enables authentication for incoming SIP INVITE requests to the `sipUri`.
+     *
+     * If not set, any username/password to the 401 challenge of the SIP INVITE will be accepted.
+     */
+    authentication?: Vapi.SipAuthentication;
     /** This is the name of the phone number. This is just for your own reference. */
     name?: string;
     /**

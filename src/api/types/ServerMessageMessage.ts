@@ -19,6 +19,7 @@ export type ServerMessageMessage =
     | Vapi.ServerMessageConversationUpdate
     | Vapi.ServerMessageEndOfCallReport
     | Vapi.ServerMessageHang
+    | Vapi.ServerMessageKnowledgeBaseRequest
     | Vapi.ServerMessageModelOutput
     | Vapi.ServerMessagePhoneCallControl
     | Vapi.ServerMessageSpeechUpdate
@@ -28,6 +29,6 @@ export type ServerMessageMessage =
     | Vapi.ServerMessageTransferUpdate
     | Vapi.ServerMessageTranscript
     | Vapi.ServerMessageUserInterrupted
-    | Vapi.ServerMessageLanguageChanged
+    | Vapi.ServerMessageLanguageChangeDetected
     | Vapi.ServerMessageVoiceInput
     | Vapi.ServerMessageVoiceRequest;

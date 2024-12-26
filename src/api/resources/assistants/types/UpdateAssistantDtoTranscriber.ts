@@ -8,6 +8,8 @@ import * as Vapi from "../../../index";
  * These are the options for the assistant's transcriber.
  */
 export type UpdateAssistantDtoTranscriber =
+    | Vapi.AssemblyAiTranscriber
+    | Vapi.CustomTranscriber
     | Vapi.DeepgramTranscriber
     | Vapi.GladiaTranscriber
     | Vapi.TalkscriberTranscriber;

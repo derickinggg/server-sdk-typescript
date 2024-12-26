@@ -17,4 +17,10 @@ export interface Server {
      * Same precedence logic as server.
      */
     secret?: string;
+    /**
+     * These are the custom headers to include in the request sent to your server.
+     *
+     * Each key-value pair represents a header name and its value.
+     */
+    headers?: Record<string, unknown>;
 }

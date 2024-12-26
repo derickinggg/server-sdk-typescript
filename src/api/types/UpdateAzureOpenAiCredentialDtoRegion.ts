@@ -10,6 +10,7 @@ export type UpdateAzureOpenAiCredentialDtoRegion =
     | "france"
     | "india"
     | "japan"
+    | "uaenorth"
     | "northcentralus"
     | "norway"
     | "southcentralus"
@@ -27,6 +28,7 @@ export const UpdateAzureOpenAiCredentialDtoRegion = {
     France: "france",
     India: "india",
     Japan: "japan",
+    Uaenorth: "uaenorth",
     Northcentralus: "northcentralus",
     Norway: "norway",
     Southcentralus: "southcentralus",

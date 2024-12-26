@@ -52,6 +52,8 @@ export interface Call {
     monitor?: Vapi.Monitor;
     /** These are the artifacts created from the call. Configure in `assistant.artifactPlan`. */
     artifact?: Vapi.Artifact;
+    /** This is the transport used for the call. */
+    transport?: Vapi.Transport;
     /**
      * The ID of the call as provided by the phone number service. callSid in Twilio. conversationUuid in Vonage.
      *

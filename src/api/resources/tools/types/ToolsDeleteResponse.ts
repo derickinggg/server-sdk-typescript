@@ -11,4 +11,7 @@ export type ToolsDeleteResponse =
     | Vapi.GhlTool
     | Vapi.MakeTool
     | Vapi.TransferCallTool
-    | Vapi.OutputTool;
+    | Vapi.OutputTool
+    | Vapi.BashTool
+    | Vapi.ComputerTool
+    | Vapi.TextEditorTool;

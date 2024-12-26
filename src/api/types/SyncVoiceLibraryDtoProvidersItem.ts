@@ -12,7 +12,8 @@ export type SyncVoiceLibraryDtoProvidersItem =
     | "neets"
     | "openai"
     | "playht"
-    | "rime-ai";
+    | "rime-ai"
+    | "tavus";
 
 export const SyncVoiceLibraryDtoProvidersItem = {
     ElevenLabs: "11labs",
@@ -25,4 +26,5 @@ export const SyncVoiceLibraryDtoProvidersItem = {
     Openai: "openai",
     Playht: "playht",
     RimeAi: "rime-ai",
+    Tavus: "tavus",
 } as const;

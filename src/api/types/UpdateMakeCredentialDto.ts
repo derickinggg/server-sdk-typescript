@@ -10,4 +10,6 @@ export interface UpdateMakeCredentialDto {
     region: string;
     /** This is not returned in the API. */
     apiKey: string;
+    /** This is the name of credential. This is just for your reference. */
+    name?: string;
 }

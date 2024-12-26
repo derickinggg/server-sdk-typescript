@@ -8,6 +8,7 @@ import { Calls } from "./api/resources/calls/client/Client";
 import { Assistants } from "./api/resources/assistants/client/Client";
 import { PhoneNumbers } from "./api/resources/phoneNumbers/client/Client";
 import { Squads } from "./api/resources/squads/client/Client";
+import { KnowledgeBases } from "./api/resources/knowledgeBases/client/Client";
 import { Blocks } from "./api/resources/blocks/client/Client";
 import { Tools } from "./api/resources/tools/client/Client";
 import { Files } from "./api/resources/files/client/Client";
@@ -17,7 +18,7 @@ import { Logs } from "./api/resources/logs/client/Client";
 export declare namespace VapiClient {
     interface Options {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
-        token: core.Supplier<core.BearerToken>;
+        token?: core.Supplier<core.BearerToken | undefined>;
         fetcher?: core.FetchFunction;
     }
 
@@ -28,11 +29,13 @@ export declare namespace VapiClient {
         maxRetries?: number;
         /** A hook to abort the request. */
         abortSignal?: AbortSignal;
+        /** Additional headers to include in the request. */
+        headers?: Record<string, string>;
     }
 }
 
 export class VapiClient {
-    constructor(protected readonly _options: VapiClient.Options) {}
+    constructor(protected readonly _options: VapiClient.Options = {}) {}
 
     protected _calls: Calls | undefined;
 
@@ -56,6 +59,12 @@ export class VapiClient {
 
     public get squads(): Squads {
         return (this._squads ??= new Squads(this._options));
+    }
+
+    protected _knowledgeBases: KnowledgeBases | undefined;
+
+    public get knowledgeBases(): KnowledgeBases {
+        return (this._knowledgeBases ??= new KnowledgeBases(this._options));
     }
 
     protected _blocks: Blocks | undefined;

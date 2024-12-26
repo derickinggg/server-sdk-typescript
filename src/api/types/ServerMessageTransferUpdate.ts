@@ -9,7 +9,6 @@ export interface ServerMessageTransferUpdate {
      * This is the phone number associated with the call.
      *
      * This matches one of the following:
-     *
      * - `call.phoneNumber`,
      * - `call.phoneNumberId`.
      */
@@ -30,7 +29,6 @@ export interface ServerMessageTransferUpdate {
      * This is the assistant that is currently active. This is provided for convenience.
      *
      * This matches one of the following:
-     *
      * - `call.assistant`,
      * - `call.assistantId`,
      * - `call.squad[n].assistant`,
@@ -43,7 +41,6 @@ export interface ServerMessageTransferUpdate {
      * This is the customer associated with the call.
      *
      * This matches one of the following:
-     *
      * - `call.customer`,
      * - `call.customerId`.
      */
@@ -60,4 +57,8 @@ export interface ServerMessageTransferUpdate {
     toAssistant?: Vapi.CreateAssistantDto;
     /** This is the assistant that the call is being transferred from. This is only sent if `destination.type` is "assistant". */
     fromAssistant?: Vapi.CreateAssistantDto;
+    /** This is the step that the conversation moved to. */
+    toStepRecord?: Record<string, unknown>;
+    /** This is the step that the conversation moved from. = */
+    fromStepRecord?: Record<string, unknown>;
 }

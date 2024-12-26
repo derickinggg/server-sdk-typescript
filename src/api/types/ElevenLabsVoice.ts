@@ -5,12 +5,6 @@
 import * as Vapi from "../index";
 
 export interface ElevenLabsVoice {
-    /**
-     * This determines whether fillers are injected into the model output before inputting it into the voice provider.
-     *
-     * Default `false` because you can achieve better results with prompting the model.
-     */
-    fillerInjectionEnabled?: boolean;
     /** This is the voice provider that will be used. */
     provider: "11labs";
     /** This is the provider-specific ID that will be used. Ensure the Voice is present in your 11Labs Voice Library. */
@@ -33,8 +27,10 @@ export interface ElevenLabsVoice {
     enableSsmlParsing?: boolean;
     /** This is the model that will be used. Defaults to 'eleven_turbo_v2' if not specified. */
     model?: Vapi.ElevenLabsVoiceModel;
-    /** This is the language (ISO 639-1) that is enforced for the model. Currently only Turbo v2.5 supports language enforcement. For other models, an error will be returned if language code is provided. */
-    language?: string;
     /** This is the plan for chunking the model output before it is sent to the voice provider. */
     chunkPlan?: Vapi.ChunkPlan;
+    /** This is the language (ISO 639-1) that is enforced for the model. Currently only Turbo v2.5 supports language enforcement. For other models, an error will be returned if language code is provided. */
+    language?: string;
+    /** This is the plan for voice provider fallbacks in the event that the primary voice provider fails. */
+    fallbackPlan?: Vapi.FallbackPlan;
 }

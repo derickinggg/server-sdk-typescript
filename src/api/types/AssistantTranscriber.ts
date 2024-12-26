@@ -7,4 +7,9 @@ import * as Vapi from "../index";
 /**
  * These are the options for the assistant's transcriber.
  */
-export type AssistantTranscriber = Vapi.DeepgramTranscriber | Vapi.GladiaTranscriber | Vapi.TalkscriberTranscriber;
+export type AssistantTranscriber =
+    | Vapi.AssemblyAiTranscriber
+    | Vapi.CustomTranscriber
+    | Vapi.DeepgramTranscriber
+    | Vapi.GladiaTranscriber
+    | Vapi.TalkscriberTranscriber;

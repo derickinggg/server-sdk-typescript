@@ -5,12 +5,36 @@
 /**
  * This is the specific resource, relevant only to API logs.
  */
-export type LogResource = "assistant" | "phone-number" | "tool" | "squad" | "call" | "file" | "metric" | "log";
+export type LogResource =
+    | "org"
+    | "assistant"
+    | "analytics"
+    | "credential"
+    | "phone-number"
+    | "block"
+    | "voice-library"
+    | "provider"
+    | "tool"
+    | "token"
+    | "template"
+    | "squad"
+    | "call"
+    | "file"
+    | "metric"
+    | "log";
 
 export const LogResource = {
+    Org: "org",
     Assistant: "assistant",
+    Analytics: "analytics",
+    Credential: "credential",
     PhoneNumber: "phone-number",
+    Block: "block",
+    VoiceLibrary: "voice-library",
+    Provider: "provider",
     Tool: "tool",
+    Token: "token",
+    Template: "template",
     Squad: "squad",
     Call: "call",
     File: "file",

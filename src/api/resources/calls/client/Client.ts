@@ -11,7 +11,7 @@ import * as errors from "../../../../errors/index";
 export declare namespace Calls {
     interface Options {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
-        token: core.Supplier<core.BearerToken>;
+        token?: core.Supplier<core.BearerToken | undefined>;
         fetcher?: core.FetchFunction;
     }
 
@@ -22,25 +22,26 @@ export declare namespace Calls {
         maxRetries?: number;
         /** A hook to abort the request. */
         abortSignal?: AbortSignal;
+        /** Additional headers to include in the request. */
+        headers?: Record<string, string>;
     }
 }
 
 export class Calls {
-    constructor(protected readonly _options: Calls.Options) {}
+    constructor(protected readonly _options: Calls.Options = {}) {}
 
     /**
      * @param {Vapi.CallsListRequest} request
      * @param {Calls.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.calls.list()
      */
     public async list(
         request: Vapi.CallsListRequest = {},
         requestOptions?: Calls.RequestOptions
     ): Promise<Vapi.Call[]> {
         const {
+            id,
             assistantId,
+            phoneNumberId,
             limit,
             createdAtGt,
             createdAtLt,
@@ -52,8 +53,16 @@ export class Calls {
             updatedAtLe,
         } = request;
         const _queryParams: Record<string, string | string[] | object | object[]> = {};
+        if (id != null) {
+            _queryParams["id"] = id;
+        }
+
         if (assistantId != null) {
             _queryParams["assistantId"] = assistantId;
+        }
+
+        if (phoneNumberId != null) {
+            _queryParams["phoneNumberId"] = phoneNumberId;
         }
 
         if (limit != null) {
@@ -102,10 +111,11 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -132,7 +142,7 @@ export class Calls {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /call.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -143,9 +153,6 @@ export class Calls {
     /**
      * @param {Vapi.CreateCallDto} request
      * @param {Calls.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.calls.create()
      */
     public async create(request: Vapi.CreateCallDto = {}, requestOptions?: Calls.RequestOptions): Promise<Vapi.Call> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -158,10 +165,11 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -188,7 +196,7 @@ export class Calls {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling POST /call.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -199,9 +207,6 @@ export class Calls {
     /**
      * @param {string} id
      * @param {Calls.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.calls.get("id")
      */
     public async get(id: string, requestOptions?: Calls.RequestOptions): Promise<Vapi.Call> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -214,10 +219,11 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -243,7 +249,7 @@ export class Calls {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /call/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -254,9 +260,6 @@ export class Calls {
     /**
      * @param {string} id
      * @param {Calls.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.calls.delete("id")
      */
     public async delete(id: string, requestOptions?: Calls.RequestOptions): Promise<Vapi.Call> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -269,10 +272,11 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -298,7 +302,7 @@ export class Calls {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling DELETE /call/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -310,9 +314,6 @@ export class Calls {
      * @param {string} id
      * @param {Vapi.UpdateCallDto} request
      * @param {Calls.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.calls.update("id")
      */
     public async update(
         id: string,
@@ -329,10 +330,11 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -359,7 +361,7 @@ export class Calls {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling PATCH /call/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -367,7 +369,12 @@ export class Calls {
         }
     }
 
-    protected async _getAuthorizationHeader(): Promise<string> {
-        return `Bearer ${await core.Supplier.get(this._options.token)}`;
+    protected async _getAuthorizationHeader(): Promise<string | undefined> {
+        const bearer = await core.Supplier.get(this._options.token);
+        if (bearer != null) {
+            return `Bearer ${bearer}`;
+        }
+
+        return undefined;
     }
 }

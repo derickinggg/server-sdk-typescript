@@ -11,7 +11,7 @@ import * as errors from "../../../../errors/index";
 export declare namespace Tools {
     interface Options {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
-        token: core.Supplier<core.BearerToken>;
+        token?: core.Supplier<core.BearerToken | undefined>;
         fetcher?: core.FetchFunction;
     }
 
@@ -22,18 +22,17 @@ export declare namespace Tools {
         maxRetries?: number;
         /** A hook to abort the request. */
         abortSignal?: AbortSignal;
+        /** Additional headers to include in the request. */
+        headers?: Record<string, string>;
     }
 }
 
 export class Tools {
-    constructor(protected readonly _options: Tools.Options) {}
+    constructor(protected readonly _options: Tools.Options = {}) {}
 
     /**
      * @param {Vapi.ToolsListRequest} request
      * @param {Tools.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.tools.list()
      */
     public async list(
         request: Vapi.ToolsListRequest = {},
@@ -97,10 +96,11 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -127,7 +127,7 @@ export class Tools {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /tool.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -138,11 +138,6 @@ export class Tools {
     /**
      * @param {Vapi.ToolsCreateRequest} request
      * @param {Tools.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.tools.create({
-     *         type: "dtmf"
-     *     })
      */
     public async create(
         request: Vapi.ToolsCreateRequest,
@@ -158,10 +153,11 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -188,7 +184,7 @@ export class Tools {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling POST /tool.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -199,9 +195,6 @@ export class Tools {
     /**
      * @param {string} id
      * @param {Tools.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.tools.get("id")
      */
     public async get(id: string, requestOptions?: Tools.RequestOptions): Promise<Vapi.ToolsGetResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -214,10 +207,11 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -243,7 +237,7 @@ export class Tools {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /tool/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -254,9 +248,6 @@ export class Tools {
     /**
      * @param {string} id
      * @param {Tools.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.tools.delete("id")
      */
     public async delete(id: string, requestOptions?: Tools.RequestOptions): Promise<Vapi.ToolsDeleteResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -269,10 +260,11 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -298,7 +290,7 @@ export class Tools {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling DELETE /tool/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -310,9 +302,6 @@ export class Tools {
      * @param {string} id
      * @param {Vapi.UpdateToolDto} request
      * @param {Tools.RequestOptions} requestOptions - Request-specific configuration.
-     *
-     * @example
-     *     await client.tools.update("id")
      */
     public async update(
         id: string,
@@ -329,10 +318,11 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.1.0",
+                "X-Fern-SDK-Version": "0.2.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.2.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
@@ -359,7 +349,7 @@ export class Tools {
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.VapiTimeoutError();
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling PATCH /tool/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
@@ -367,7 +357,12 @@ export class Tools {
         }
     }
 
-    protected async _getAuthorizationHeader(): Promise<string> {
-        return `Bearer ${await core.Supplier.get(this._options.token)}`;
+    protected async _getAuthorizationHeader(): Promise<string | undefined> {
+        const bearer = await core.Supplier.get(this._options.token);
+        if (bearer != null) {
+            return `Bearer ${bearer}`;
+        }
+
+        return undefined;
     }
 }

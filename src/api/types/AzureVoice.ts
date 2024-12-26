@@ -5,18 +5,14 @@
 import * as Vapi from "../index";
 
 export interface AzureVoice {
-    /**
-     * This determines whether fillers are injected into the model output before inputting it into the voice provider.
-     *
-     * Default `false` because you can achieve better results with prompting the model.
-     */
-    fillerInjectionEnabled?: boolean;
     /** This is the voice provider that will be used. */
     provider: "azure";
     /** This is the provider-specific ID that will be used. */
     voiceId: Vapi.AzureVoiceId;
-    /** This is the speed multiplier that will be used. */
-    speed?: number;
     /** This is the plan for chunking the model output before it is sent to the voice provider. */
     chunkPlan?: Vapi.ChunkPlan;
+    /** This is the speed multiplier that will be used. */
+    speed?: number;
+    /** This is the plan for voice provider fallbacks in the event that the primary voice provider fails. */
+    fallbackPlan?: Vapi.FallbackPlan;
 }

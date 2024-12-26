@@ -11,6 +11,7 @@ import * as Vapi from "../index";
  */
 export type ServerMessageResponseMessageResponse =
     | Vapi.ServerMessageResponseAssistantRequest
+    | Vapi.ServerMessageResponseKnowledgeBaseRequest
     | Vapi.ServerMessageResponseToolCalls
     | Vapi.ServerMessageResponseTransferDestinationRequest
     | Vapi.ServerMessageResponseVoiceRequest;

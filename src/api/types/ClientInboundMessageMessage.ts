@@ -10,4 +10,5 @@ import * as Vapi from "../index";
 export type ClientInboundMessageMessage =
     | Vapi.ClientInboundMessageAddMessage
     | Vapi.ClientInboundMessageControl
-    | Vapi.ClientInboundMessageSay;
+    | Vapi.ClientInboundMessageSay
+    | Vapi.ClientInboundMessageTransfer;
