@@ -96,8 +96,8 @@ export class KnowledgeBases {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.2.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.2.2",
+                "X-Fern-SDK-Version": "0.3.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.3.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -153,8 +153,8 @@ export class KnowledgeBases {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.2.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.2.2",
+                "X-Fern-SDK-Version": "0.3.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.3.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -210,8 +210,8 @@ export class KnowledgeBases {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.2.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.2.2",
+                "X-Fern-SDK-Version": "0.3.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.3.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -266,8 +266,8 @@ export class KnowledgeBases {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.2.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.2.2",
+                "X-Fern-SDK-Version": "0.3.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.3.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -306,10 +306,12 @@ export class KnowledgeBases {
 
     /**
      * @param {string} id
+     * @param {Vapi.KnowledgeBasesUpdateRequest} request
      * @param {KnowledgeBases.RequestOptions} requestOptions - Request-specific configuration.
      */
     public async update(
         id: string,
+        request: Vapi.KnowledgeBasesUpdateRequest,
         requestOptions?: KnowledgeBases.RequestOptions
     ): Promise<Vapi.KnowledgeBasesUpdateResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -322,14 +324,15 @@ export class KnowledgeBases {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.2.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.2.2",
+                "X-Fern-SDK-Version": "0.3.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.3.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
+            body: request,
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
             abortSignal: requestOptions?.abortSignal,

@@ -10,6 +10,8 @@ export interface CreateAzureOpenAiCredentialDto {
     models: Vapi.CreateAzureOpenAiCredentialDtoModelsItem[];
     /** This is not returned in the API. */
     openAIKey: string;
+    /** This is not returned in the API. */
+    ocpApimSubscriptionKey?: string;
     openAIEndpoint: string;
     /** This is the name of credential. This is just for your reference. */
     name?: string;

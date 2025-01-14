@@ -14,7 +14,7 @@ export type AzureOpenAiCredentialRegion =
     | "northcentralus"
     | "norway"
     | "southcentralus"
-    | "sweden"
+    | "swedencentral"
     | "switzerland"
     | "uk"
     | "westus"
@@ -32,7 +32,7 @@ export const AzureOpenAiCredentialRegion = {
     Northcentralus: "northcentralus",
     Norway: "norway",
     Southcentralus: "southcentralus",
-    Sweden: "sweden",
+    Swedencentral: "swedencentral",
     Switzerland: "switzerland",
     Uk: "uk",
     Westus: "westus",

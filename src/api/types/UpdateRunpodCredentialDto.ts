@@ -3,9 +3,8 @@
  */
 
 export interface UpdateRunpodCredentialDto {
-    provider: "runpod";
     /** This is not returned in the API. */
-    apiKey: string;
+    apiKey?: string;
     /** This is the name of credential. This is just for your reference. */
     name?: string;
 }

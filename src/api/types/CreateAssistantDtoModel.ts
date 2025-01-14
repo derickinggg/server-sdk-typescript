@@ -15,6 +15,7 @@ export type CreateAssistantDtoModel =
     | Vapi.GoogleModel
     | Vapi.GroqModel
     | Vapi.InflectionAiModel
+    | Vapi.DeepSeekModel
     | Vapi.OpenAiModel
     | Vapi.OpenRouterModel
     | Vapi.PerplexityAiModel

@@ -17,7 +17,7 @@ export type CreateAzureCredentialDtoRegion =
     | "northcentralus"
     | "norway"
     | "southcentralus"
-    | "sweden"
+    | "swedencentral"
     | "switzerland"
     | "uk"
     | "westus"
@@ -35,7 +35,7 @@ export const CreateAzureCredentialDtoRegion = {
     Northcentralus: "northcentralus",
     Norway: "norway",
     Southcentralus: "southcentralus",
-    Sweden: "sweden",
+    Swedencentral: "swedencentral",
     Switzerland: "switzerland",
     Uk: "uk",
     Westus: "westus",

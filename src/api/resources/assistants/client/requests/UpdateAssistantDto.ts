@@ -66,6 +66,8 @@ export interface UpdateAssistantDto {
     modelOutputInMessagesEnabled?: boolean;
     /** These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. You can store multiple configurations for different transport providers. For a call, only the configuration matching the call transport provider is used. */
     transportConfigurations?: Vapi.TransportConfigurationTwilio[];
+    /** These are dynamic credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can supplement an additional credentials using this. Dynamic credentials override existing credentials. */
+    credentials?: Vapi.UpdateAssistantDtoCredentialsItem[];
     /**
      * This is the name of the assistant.
      *

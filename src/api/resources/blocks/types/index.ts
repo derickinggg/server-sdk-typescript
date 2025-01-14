@@ -3,7 +3,5 @@ export * from "./BlocksCreateRequest";
 export * from "./BlocksCreateResponse";
 export * from "./BlocksGetResponse";
 export * from "./BlocksDeleteResponse";
-export * from "./UpdateBlockDtoMessagesItem";
-export * from "./UpdateBlockDtoTool";
-export * from "./UpdateBlockDtoStepsItem";
+export * from "./BlocksUpdateRequest";
 export * from "./BlocksUpdateResponse";

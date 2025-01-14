@@ -6,6 +6,8 @@
  * This is the Google model that will be used.
  */
 export type GoogleModelModel =
+    | "gemini-2.0-flash-exp"
+    | "gemini-2.0-flash-realtime-exp"
     | "gemini-1.5-flash"
     | "gemini-1.5-flash-002"
     | "gemini-1.5-pro"
@@ -13,6 +15,8 @@ export type GoogleModelModel =
     | "gemini-1.0-pro";
 
 export const GoogleModelModel = {
+    Gemini20FlashExp: "gemini-2.0-flash-exp",
+    Gemini20FlashRealtimeExp: "gemini-2.0-flash-realtime-exp",
     Gemini15Flash: "gemini-1.5-flash",
     Gemini15Flash002: "gemini-1.5-flash-002",
     Gemini15Pro: "gemini-1.5-pro",

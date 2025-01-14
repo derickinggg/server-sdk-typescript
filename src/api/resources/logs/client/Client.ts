@@ -128,8 +128,8 @@ export class Logs {
                     Authorization: await this._getAuthorizationHeader(),
                     "X-Fern-Language": "JavaScript",
                     "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                    "X-Fern-SDK-Version": "0.2.2",
-                    "User-Agent": "@vapi-ai/server-sdk/0.2.2",
+                    "X-Fern-SDK-Version": "0.3.0",
+                    "User-Agent": "@vapi-ai/server-sdk/0.3.0",
                     "X-Fern-Runtime": core.RUNTIME.type,
                     "X-Fern-Runtime-Version": core.RUNTIME.version,
                     ...requestOptions?.headers,
@@ -174,6 +174,89 @@ export class Logs {
                 return list(core.setObjectProperty(request, "page", _offset));
             },
         });
+    }
+
+    /**
+     * @param {Vapi.LoggingControllerLogsDeleteQueryRequest} request
+     * @param {Logs.RequestOptions} requestOptions - Request-specific configuration.
+     */
+    public async loggingControllerLogsDeleteQuery(
+        request: Vapi.LoggingControllerLogsDeleteQueryRequest = {},
+        requestOptions?: Logs.RequestOptions
+    ): Promise<void> {
+        const { orgId, assistantId, phoneNumberId, customerId, squadId, callId } = request;
+        const _queryParams: Record<string, string | string[] | object | object[]> = {};
+        if (orgId != null) {
+            _queryParams["orgId"] = orgId;
+        }
+
+        if (assistantId != null) {
+            _queryParams["assistantId"] = assistantId;
+        }
+
+        if (phoneNumberId != null) {
+            _queryParams["phoneNumberId"] = phoneNumberId;
+        }
+
+        if (customerId != null) {
+            _queryParams["customerId"] = customerId;
+        }
+
+        if (squadId != null) {
+            _queryParams["squadId"] = squadId;
+        }
+
+        if (callId != null) {
+            _queryParams["callId"] = callId;
+        }
+
+        const _response = await (this._options.fetcher ?? core.fetcher)({
+            url: urlJoin(
+                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
+                "logs"
+            ),
+            method: "DELETE",
+            headers: {
+                Authorization: await this._getAuthorizationHeader(),
+                "X-Fern-Language": "JavaScript",
+                "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
+                "X-Fern-SDK-Version": "0.3.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.3.0",
+                "X-Fern-Runtime": core.RUNTIME.type,
+                "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
+            },
+            contentType: "application/json",
+            queryParameters: _queryParams,
+            requestType: "json",
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+        });
+        if (_response.ok) {
+            return;
+        }
+
+        if (_response.error.reason === "status-code") {
+            throw new errors.VapiError({
+                statusCode: _response.error.statusCode,
+                body: _response.error.body,
+            });
+        }
+
+        switch (_response.error.reason) {
+            case "non-json":
+                throw new errors.VapiError({
+                    statusCode: _response.error.statusCode,
+                    body: _response.error.rawBody,
+                });
+            case "timeout":
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling DELETE /logs.");
+            case "unknown":
+                throw new errors.VapiError({
+                    message: _response.error.errorMessage,
+                });
+        }
     }
 
     protected async _getAuthorizationHeader(): Promise<string | undefined> {

@@ -10,6 +10,8 @@ export interface AzureOpenAiCredential {
     models: Vapi.AzureOpenAiCredentialModelsItem[];
     /** This is not returned in the API. */
     openAIKey: string;
+    /** This is not returned in the API. */
+    ocpApimSubscriptionKey?: string;
     /** This is the unique identifier for the credential. */
     id: string;
     /** This is the unique identifier for the org that this credential belongs to. */

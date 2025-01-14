@@ -96,8 +96,8 @@ export class Blocks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.2.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.2.2",
+                "X-Fern-SDK-Version": "0.3.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.3.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -153,8 +153,8 @@ export class Blocks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.2.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.2.2",
+                "X-Fern-SDK-Version": "0.3.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.3.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -207,8 +207,8 @@ export class Blocks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.2.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.2.2",
+                "X-Fern-SDK-Version": "0.3.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.3.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -260,8 +260,8 @@ export class Blocks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.2.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.2.2",
+                "X-Fern-SDK-Version": "0.3.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.3.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -300,12 +300,12 @@ export class Blocks {
 
     /**
      * @param {string} id
-     * @param {Vapi.UpdateBlockDto} request
+     * @param {Vapi.BlocksUpdateRequest} request
      * @param {Blocks.RequestOptions} requestOptions - Request-specific configuration.
      */
     public async update(
         id: string,
-        request: Vapi.UpdateBlockDto = {},
+        request: Vapi.BlocksUpdateRequest,
         requestOptions?: Blocks.RequestOptions
     ): Promise<Vapi.BlocksUpdateResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -318,8 +318,8 @@ export class Blocks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.2.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.2.2",
+                "X-Fern-SDK-Version": "0.3.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.3.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,

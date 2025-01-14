@@ -15,4 +15,5 @@ export type FallbackPlanVoicesItem =
     | Vapi.FallbackOpenAiVoice
     | Vapi.FallbackPlayHtVoice
     | Vapi.FallbackRimeAiVoice
+    | Vapi.FallbackSmallestAiVoice
     | Vapi.FallbackTavusVoice;

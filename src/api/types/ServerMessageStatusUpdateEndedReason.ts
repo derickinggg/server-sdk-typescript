@@ -6,46 +6,6 @@
  * This is the reason the call ended. This is only sent if the status is "ended".
  */
 export type ServerMessageStatusUpdateEndedReason =
-    | "pipeline-error-openai-voice-failed"
-    | "pipeline-error-cartesia-voice-failed"
-    | "pipeline-error-deepgram-voice-failed"
-    | "pipeline-error-eleven-labs-voice-failed"
-    | "pipeline-error-playht-voice-failed"
-    | "pipeline-error-lmnt-voice-failed"
-    | "pipeline-error-azure-voice-failed"
-    | "pipeline-error-rime-ai-voice-failed"
-    | "pipeline-error-neets-voice-failed"
-    | "db-error"
-    | "assistant-not-found"
-    | "license-check-failed"
-    | "pipeline-error-vapi-llm-failed"
-    | "pipeline-error-vapi-400-bad-request-validation-failed"
-    | "pipeline-error-vapi-401-unauthorized"
-    | "pipeline-error-vapi-403-model-access-denied"
-    | "pipeline-error-vapi-429-exceeded-quota"
-    | "pipeline-error-vapi-500-server-error"
-    | "pipeline-no-available-model"
-    | "worker-shutdown"
-    | "unknown-error"
-    | "vonage-disconnected"
-    | "vonage-failed-to-connect-call"
-    | "phone-call-provider-bypass-enabled-but-no-call-received"
-    | "vapifault-phone-call-worker-setup-socket-error"
-    | "vapifault-phone-call-worker-worker-setup-socket-timeout"
-    | "vapifault-phone-call-worker-could-not-find-call"
-    | "vapifault-transport-never-connected"
-    | "vapifault-web-call-worker-setup-failed"
-    | "vapifault-transport-connected-but-call-not-active"
-    | "vapifault-call-started-but-connection-to-transport-missing"
-    | "pipeline-error-deepgram-transcriber-failed"
-    | "pipeline-error-gladia-transcriber-failed"
-    | "pipeline-error-assembly-ai-transcriber-failed"
-    | "pipeline-error-openai-llm-failed"
-    | "pipeline-error-azure-openai-llm-failed"
-    | "pipeline-error-groq-llm-failed"
-    | "pipeline-error-google-llm-failed"
-    | "pipeline-error-xai-llm-failed"
-    | "pipeline-error-inflection-ai-llm-failed"
     | "assistant-not-invalid"
     | "assistant-not-provided"
     | "call-start-error-neither-assistant-nor-server-set"
@@ -67,6 +27,51 @@ export type ServerMessageStatusUpdateEndedReason =
     | "exceeded-max-duration"
     | "manually-canceled"
     | "phone-call-provider-closed-websocket"
+    | "db-error"
+    | "assistant-not-found"
+    | "license-check-failed"
+    | "pipeline-error-openai-voice-failed"
+    | "pipeline-error-cartesia-voice-failed"
+    | "pipeline-error-deepgram-voice-failed"
+    | "pipeline-error-eleven-labs-voice-failed"
+    | "pipeline-error-playht-voice-failed"
+    | "pipeline-error-lmnt-voice-failed"
+    | "pipeline-error-azure-voice-failed"
+    | "pipeline-error-rime-ai-voice-failed"
+    | "pipeline-error-neets-voice-failed"
+    | "pipeline-error-smallest-ai-voice-failed"
+    | "pipeline-error-deepgram-transcriber-failed"
+    | "pipeline-error-gladia-transcriber-failed"
+    | "pipeline-error-assembly-ai-transcriber-failed"
+    | "pipeline-error-talkscriber-transcriber-failed"
+    | "pipeline-error-azure-speech-transcriber-failed"
+    | "pipeline-error-vapi-llm-failed"
+    | "pipeline-error-vapi-400-bad-request-validation-failed"
+    | "pipeline-error-vapi-401-unauthorized"
+    | "pipeline-error-vapi-403-model-access-denied"
+    | "pipeline-error-vapi-429-exceeded-quota"
+    | "pipeline-error-vapi-500-server-error"
+    | "pipeline-no-available-model"
+    | "worker-shutdown"
+    | "unknown-error"
+    | "vonage-disconnected"
+    | "vonage-failed-to-connect-call"
+    | "phone-call-provider-bypass-enabled-but-no-call-received"
+    | "vapifault-phone-call-worker-setup-socket-error"
+    | "vapifault-phone-call-worker-worker-setup-socket-timeout"
+    | "vapifault-phone-call-worker-could-not-find-call"
+    | "vapifault-transport-never-connected"
+    | "vapifault-web-call-worker-setup-failed"
+    | "vapifault-transport-connected-but-call-not-active"
+    | "vapifault-call-started-but-connection-to-transport-missing"
+    | "pipeline-error-openai-llm-failed"
+    | "pipeline-error-azure-openai-llm-failed"
+    | "pipeline-error-groq-llm-failed"
+    | "pipeline-error-google-llm-failed"
+    | "pipeline-error-xai-llm-failed"
+    | "pipeline-error-inflection-ai-llm-failed"
+    | "pipeline-error-cerebras-llm-failed"
+    | "pipeline-error-deep-seek-llm-failed"
     | "pipeline-error-openai-400-bad-request-validation-failed"
     | "pipeline-error-openai-401-unauthorized"
     | "pipeline-error-openai-403-model-access-denied"
@@ -87,6 +92,11 @@ export type ServerMessageStatusUpdateEndedReason =
     | "pipeline-error-inflection-ai-403-model-access-denied"
     | "pipeline-error-inflection-ai-429-exceeded-quota"
     | "pipeline-error-inflection-ai-500-server-error"
+    | "pipeline-error-deep-seek-400-bad-request-validation-failed"
+    | "pipeline-error-deep-seek-401-unauthorized"
+    | "pipeline-error-deep-seek-403-model-access-denied"
+    | "pipeline-error-deep-seek-429-exceeded-quota"
+    | "pipeline-error-deep-seek-500-server-error"
     | "pipeline-error-azure-openai-400-bad-request-validation-failed"
     | "pipeline-error-azure-openai-401-unauthorized"
     | "pipeline-error-azure-openai-403-model-access-denied"
@@ -97,6 +107,11 @@ export type ServerMessageStatusUpdateEndedReason =
     | "pipeline-error-groq-403-model-access-denied"
     | "pipeline-error-groq-429-exceeded-quota"
     | "pipeline-error-groq-500-server-error"
+    | "pipeline-error-cerebras-400-bad-request-validation-failed"
+    | "pipeline-error-cerebras-401-unauthorized"
+    | "pipeline-error-cerebras-403-model-access-denied"
+    | "pipeline-error-cerebras-429-exceeded-quota"
+    | "pipeline-error-cerebras-500-server-error"
     | "pipeline-error-anthropic-400-bad-request-validation-failed"
     | "pipeline-error-anthropic-401-unauthorized"
     | "pipeline-error-anthropic-403-model-access-denied"
@@ -184,6 +199,8 @@ export type ServerMessageStatusUpdateEndedReason =
     | "pipeline-error-playht-429-exceeded-quota"
     | "pipeline-error-playht-502-gateway-error"
     | "pipeline-error-playht-504-gateway-error"
+    | "pipeline-error-tavus-video-failed"
+    | "pipeline-error-custom-transcriber-failed"
     | "pipeline-error-deepgram-returning-403-model-access-denied"
     | "pipeline-error-deepgram-returning-401-invalid-credentials"
     | "pipeline-error-deepgram-returning-404-not-found"
@@ -191,8 +208,6 @@ export type ServerMessageStatusUpdateEndedReason =
     | "pipeline-error-deepgram-returning-500-invalid-json"
     | "pipeline-error-deepgram-returning-502-network-error"
     | "pipeline-error-deepgram-returning-502-bad-gateway-ehostunreach"
-    | "pipeline-error-tavus-video-failed"
-    | "pipeline-error-custom-transcriber-failed"
     | "silence-timed-out"
     | "sip-gateway-failed-to-connect-call"
     | "twilio-failed-to-connect-call"
@@ -201,46 +216,6 @@ export type ServerMessageStatusUpdateEndedReason =
     | "voicemail";
 
 export const ServerMessageStatusUpdateEndedReason = {
-    PipelineErrorOpenaiVoiceFailed: "pipeline-error-openai-voice-failed",
-    PipelineErrorCartesiaVoiceFailed: "pipeline-error-cartesia-voice-failed",
-    PipelineErrorDeepgramVoiceFailed: "pipeline-error-deepgram-voice-failed",
-    PipelineErrorElevenLabsVoiceFailed: "pipeline-error-eleven-labs-voice-failed",
-    PipelineErrorPlayhtVoiceFailed: "pipeline-error-playht-voice-failed",
-    PipelineErrorLmntVoiceFailed: "pipeline-error-lmnt-voice-failed",
-    PipelineErrorAzureVoiceFailed: "pipeline-error-azure-voice-failed",
-    PipelineErrorRimeAiVoiceFailed: "pipeline-error-rime-ai-voice-failed",
-    PipelineErrorNeetsVoiceFailed: "pipeline-error-neets-voice-failed",
-    DbError: "db-error",
-    AssistantNotFound: "assistant-not-found",
-    LicenseCheckFailed: "license-check-failed",
-    PipelineErrorVapiLlmFailed: "pipeline-error-vapi-llm-failed",
-    PipelineErrorVapi400BadRequestValidationFailed: "pipeline-error-vapi-400-bad-request-validation-failed",
-    PipelineErrorVapi401Unauthorized: "pipeline-error-vapi-401-unauthorized",
-    PipelineErrorVapi403ModelAccessDenied: "pipeline-error-vapi-403-model-access-denied",
-    PipelineErrorVapi429ExceededQuota: "pipeline-error-vapi-429-exceeded-quota",
-    PipelineErrorVapi500ServerError: "pipeline-error-vapi-500-server-error",
-    PipelineNoAvailableModel: "pipeline-no-available-model",
-    WorkerShutdown: "worker-shutdown",
-    UnknownError: "unknown-error",
-    VonageDisconnected: "vonage-disconnected",
-    VonageFailedToConnectCall: "vonage-failed-to-connect-call",
-    PhoneCallProviderBypassEnabledButNoCallReceived: "phone-call-provider-bypass-enabled-but-no-call-received",
-    VapifaultPhoneCallWorkerSetupSocketError: "vapifault-phone-call-worker-setup-socket-error",
-    VapifaultPhoneCallWorkerWorkerSetupSocketTimeout: "vapifault-phone-call-worker-worker-setup-socket-timeout",
-    VapifaultPhoneCallWorkerCouldNotFindCall: "vapifault-phone-call-worker-could-not-find-call",
-    VapifaultTransportNeverConnected: "vapifault-transport-never-connected",
-    VapifaultWebCallWorkerSetupFailed: "vapifault-web-call-worker-setup-failed",
-    VapifaultTransportConnectedButCallNotActive: "vapifault-transport-connected-but-call-not-active",
-    VapifaultCallStartedButConnectionToTransportMissing: "vapifault-call-started-but-connection-to-transport-missing",
-    PipelineErrorDeepgramTranscriberFailed: "pipeline-error-deepgram-transcriber-failed",
-    PipelineErrorGladiaTranscriberFailed: "pipeline-error-gladia-transcriber-failed",
-    PipelineErrorAssemblyAiTranscriberFailed: "pipeline-error-assembly-ai-transcriber-failed",
-    PipelineErrorOpenaiLlmFailed: "pipeline-error-openai-llm-failed",
-    PipelineErrorAzureOpenaiLlmFailed: "pipeline-error-azure-openai-llm-failed",
-    PipelineErrorGroqLlmFailed: "pipeline-error-groq-llm-failed",
-    PipelineErrorGoogleLlmFailed: "pipeline-error-google-llm-failed",
-    PipelineErrorXaiLlmFailed: "pipeline-error-xai-llm-failed",
-    PipelineErrorInflectionAiLlmFailed: "pipeline-error-inflection-ai-llm-failed",
     AssistantNotInvalid: "assistant-not-invalid",
     AssistantNotProvided: "assistant-not-provided",
     CallStartErrorNeitherAssistantNorServerSet: "call-start-error-neither-assistant-nor-server-set",
@@ -262,6 +237,51 @@ export const ServerMessageStatusUpdateEndedReason = {
     ExceededMaxDuration: "exceeded-max-duration",
     ManuallyCanceled: "manually-canceled",
     PhoneCallProviderClosedWebsocket: "phone-call-provider-closed-websocket",
+    DbError: "db-error",
+    AssistantNotFound: "assistant-not-found",
+    LicenseCheckFailed: "license-check-failed",
+    PipelineErrorOpenaiVoiceFailed: "pipeline-error-openai-voice-failed",
+    PipelineErrorCartesiaVoiceFailed: "pipeline-error-cartesia-voice-failed",
+    PipelineErrorDeepgramVoiceFailed: "pipeline-error-deepgram-voice-failed",
+    PipelineErrorElevenLabsVoiceFailed: "pipeline-error-eleven-labs-voice-failed",
+    PipelineErrorPlayhtVoiceFailed: "pipeline-error-playht-voice-failed",
+    PipelineErrorLmntVoiceFailed: "pipeline-error-lmnt-voice-failed",
+    PipelineErrorAzureVoiceFailed: "pipeline-error-azure-voice-failed",
+    PipelineErrorRimeAiVoiceFailed: "pipeline-error-rime-ai-voice-failed",
+    PipelineErrorNeetsVoiceFailed: "pipeline-error-neets-voice-failed",
+    PipelineErrorSmallestAiVoiceFailed: "pipeline-error-smallest-ai-voice-failed",
+    PipelineErrorDeepgramTranscriberFailed: "pipeline-error-deepgram-transcriber-failed",
+    PipelineErrorGladiaTranscriberFailed: "pipeline-error-gladia-transcriber-failed",
+    PipelineErrorAssemblyAiTranscriberFailed: "pipeline-error-assembly-ai-transcriber-failed",
+    PipelineErrorTalkscriberTranscriberFailed: "pipeline-error-talkscriber-transcriber-failed",
+    PipelineErrorAzureSpeechTranscriberFailed: "pipeline-error-azure-speech-transcriber-failed",
+    PipelineErrorVapiLlmFailed: "pipeline-error-vapi-llm-failed",
+    PipelineErrorVapi400BadRequestValidationFailed: "pipeline-error-vapi-400-bad-request-validation-failed",
+    PipelineErrorVapi401Unauthorized: "pipeline-error-vapi-401-unauthorized",
+    PipelineErrorVapi403ModelAccessDenied: "pipeline-error-vapi-403-model-access-denied",
+    PipelineErrorVapi429ExceededQuota: "pipeline-error-vapi-429-exceeded-quota",
+    PipelineErrorVapi500ServerError: "pipeline-error-vapi-500-server-error",
+    PipelineNoAvailableModel: "pipeline-no-available-model",
+    WorkerShutdown: "worker-shutdown",
+    UnknownError: "unknown-error",
+    VonageDisconnected: "vonage-disconnected",
+    VonageFailedToConnectCall: "vonage-failed-to-connect-call",
+    PhoneCallProviderBypassEnabledButNoCallReceived: "phone-call-provider-bypass-enabled-but-no-call-received",
+    VapifaultPhoneCallWorkerSetupSocketError: "vapifault-phone-call-worker-setup-socket-error",
+    VapifaultPhoneCallWorkerWorkerSetupSocketTimeout: "vapifault-phone-call-worker-worker-setup-socket-timeout",
+    VapifaultPhoneCallWorkerCouldNotFindCall: "vapifault-phone-call-worker-could-not-find-call",
+    VapifaultTransportNeverConnected: "vapifault-transport-never-connected",
+    VapifaultWebCallWorkerSetupFailed: "vapifault-web-call-worker-setup-failed",
+    VapifaultTransportConnectedButCallNotActive: "vapifault-transport-connected-but-call-not-active",
+    VapifaultCallStartedButConnectionToTransportMissing: "vapifault-call-started-but-connection-to-transport-missing",
+    PipelineErrorOpenaiLlmFailed: "pipeline-error-openai-llm-failed",
+    PipelineErrorAzureOpenaiLlmFailed: "pipeline-error-azure-openai-llm-failed",
+    PipelineErrorGroqLlmFailed: "pipeline-error-groq-llm-failed",
+    PipelineErrorGoogleLlmFailed: "pipeline-error-google-llm-failed",
+    PipelineErrorXaiLlmFailed: "pipeline-error-xai-llm-failed",
+    PipelineErrorInflectionAiLlmFailed: "pipeline-error-inflection-ai-llm-failed",
+    PipelineErrorCerebrasLlmFailed: "pipeline-error-cerebras-llm-failed",
+    PipelineErrorDeepSeekLlmFailed: "pipeline-error-deep-seek-llm-failed",
     PipelineErrorOpenai400BadRequestValidationFailed: "pipeline-error-openai-400-bad-request-validation-failed",
     PipelineErrorOpenai401Unauthorized: "pipeline-error-openai-401-unauthorized",
     PipelineErrorOpenai403ModelAccessDenied: "pipeline-error-openai-403-model-access-denied",
@@ -283,6 +303,11 @@ export const ServerMessageStatusUpdateEndedReason = {
     PipelineErrorInflectionAi403ModelAccessDenied: "pipeline-error-inflection-ai-403-model-access-denied",
     PipelineErrorInflectionAi429ExceededQuota: "pipeline-error-inflection-ai-429-exceeded-quota",
     PipelineErrorInflectionAi500ServerError: "pipeline-error-inflection-ai-500-server-error",
+    PipelineErrorDeepSeek400BadRequestValidationFailed: "pipeline-error-deep-seek-400-bad-request-validation-failed",
+    PipelineErrorDeepSeek401Unauthorized: "pipeline-error-deep-seek-401-unauthorized",
+    PipelineErrorDeepSeek403ModelAccessDenied: "pipeline-error-deep-seek-403-model-access-denied",
+    PipelineErrorDeepSeek429ExceededQuota: "pipeline-error-deep-seek-429-exceeded-quota",
+    PipelineErrorDeepSeek500ServerError: "pipeline-error-deep-seek-500-server-error",
     PipelineErrorAzureOpenai400BadRequestValidationFailed:
         "pipeline-error-azure-openai-400-bad-request-validation-failed",
     PipelineErrorAzureOpenai401Unauthorized: "pipeline-error-azure-openai-401-unauthorized",
@@ -294,6 +319,11 @@ export const ServerMessageStatusUpdateEndedReason = {
     PipelineErrorGroq403ModelAccessDenied: "pipeline-error-groq-403-model-access-denied",
     PipelineErrorGroq429ExceededQuota: "pipeline-error-groq-429-exceeded-quota",
     PipelineErrorGroq500ServerError: "pipeline-error-groq-500-server-error",
+    PipelineErrorCerebras400BadRequestValidationFailed: "pipeline-error-cerebras-400-bad-request-validation-failed",
+    PipelineErrorCerebras401Unauthorized: "pipeline-error-cerebras-401-unauthorized",
+    PipelineErrorCerebras403ModelAccessDenied: "pipeline-error-cerebras-403-model-access-denied",
+    PipelineErrorCerebras429ExceededQuota: "pipeline-error-cerebras-429-exceeded-quota",
+    PipelineErrorCerebras500ServerError: "pipeline-error-cerebras-500-server-error",
     PipelineErrorAnthropic400BadRequestValidationFailed: "pipeline-error-anthropic-400-bad-request-validation-failed",
     PipelineErrorAnthropic401Unauthorized: "pipeline-error-anthropic-401-unauthorized",
     PipelineErrorAnthropic403ModelAccessDenied: "pipeline-error-anthropic-403-model-access-denied",
@@ -393,6 +423,8 @@ export const ServerMessageStatusUpdateEndedReason = {
     PipelineErrorPlayht429ExceededQuota: "pipeline-error-playht-429-exceeded-quota",
     PipelineErrorPlayht502GatewayError: "pipeline-error-playht-502-gateway-error",
     PipelineErrorPlayht504GatewayError: "pipeline-error-playht-504-gateway-error",
+    PipelineErrorTavusVideoFailed: "pipeline-error-tavus-video-failed",
+    PipelineErrorCustomTranscriberFailed: "pipeline-error-custom-transcriber-failed",
     PipelineErrorDeepgramReturning403ModelAccessDenied: "pipeline-error-deepgram-returning-403-model-access-denied",
     PipelineErrorDeepgramReturning401InvalidCredentials: "pipeline-error-deepgram-returning-401-invalid-credentials",
     PipelineErrorDeepgramReturning404NotFound: "pipeline-error-deepgram-returning-404-not-found",
@@ -402,8 +434,6 @@ export const ServerMessageStatusUpdateEndedReason = {
     PipelineErrorDeepgramReturning502NetworkError: "pipeline-error-deepgram-returning-502-network-error",
     PipelineErrorDeepgramReturning502BadGatewayEhostunreach:
         "pipeline-error-deepgram-returning-502-bad-gateway-ehostunreach",
-    PipelineErrorTavusVideoFailed: "pipeline-error-tavus-video-failed",
-    PipelineErrorCustomTranscriberFailed: "pipeline-error-custom-transcriber-failed",
     SilenceTimedOut: "silence-timed-out",
     SipGatewayFailedToConnectCall: "sip-gateway-failed-to-connect-call",
     TwilioFailedToConnectCall: "twilio-failed-to-connect-call",

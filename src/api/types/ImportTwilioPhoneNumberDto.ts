@@ -35,17 +35,13 @@ export interface ImportTwilioPhoneNumberDto {
      */
     squadId?: string;
     /**
-     * This is the server URL where messages will be sent for calls on this number. This includes the `assistant-request` message.
+     * This is where Vapi will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
      *
-     * You can see the shape of the messages sent in `ServerMessage`.
+     * The order of precedence is:
      *
-     * This overrides the `org.serverUrl`. Order of precedence: tool.server.url > assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl.
+     * 1. assistant.server
+     * 2. phoneNumber.server
+     * 3. org.server
      */
-    serverUrl?: string;
-    /**
-     * This is the secret Vapi will send with every message to your server. It's sent as a header called x-vapi-secret.
-     *
-     * Same precedence logic as serverUrl.
-     */
-    serverUrlSecret?: string;
+    server?: Vapi.Server;
 }

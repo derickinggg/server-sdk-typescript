@@ -26,6 +26,11 @@ export interface GoogleModel {
     /** This is the Google model that will be used. */
     model: Vapi.GoogleModelModel;
     provider: "google";
+    /**
+     * This is the session configuration for the Gemini Flash 2.0 Multimodal Live API.
+     * Only applicable if the model `gemini-2.0-flash-realtime-exp` is selected.
+     */
+    realtimeConfig?: Vapi.GoogleRealtimeConfig;
     /** This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency. */
     temperature?: number;
     /** This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250. */

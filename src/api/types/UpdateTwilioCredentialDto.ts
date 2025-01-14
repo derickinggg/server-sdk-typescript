@@ -3,10 +3,9 @@
  */
 
 export interface UpdateTwilioCredentialDto {
-    provider: "twilio";
     /** This is not returned in the API. */
-    authToken: string;
-    accountSid: string;
+    authToken?: string;
     /** This is the name of credential. This is just for your reference. */
     name?: string;
+    accountSid?: string;
 }

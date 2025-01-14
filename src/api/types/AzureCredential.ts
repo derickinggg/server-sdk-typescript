@@ -7,7 +7,7 @@ import * as Vapi from "../index";
 export interface AzureCredential {
     provider: "azure";
     /** This is the service being used in Azure. */
-    service: "speech";
+    service: Vapi.AzureCredentialService;
     /** This is the region of the Azure resource. */
     region?: Vapi.AzureCredentialRegion;
     /** This is not returned in the API. */
@@ -22,4 +22,6 @@ export interface AzureCredential {
     updatedAt: string;
     /** This is the name of credential. This is just for your reference. */
     name?: string;
+    /** This is the bucket plan that can be provided to store call artifacts in Azure Blob Storage. */
+    bucketPlan?: Vapi.AzureBlobStorageBucketPlan;
 }

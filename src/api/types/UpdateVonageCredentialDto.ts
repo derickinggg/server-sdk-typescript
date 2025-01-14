@@ -3,10 +3,9 @@
  */
 
 export interface UpdateVonageCredentialDto {
-    provider: "vonage";
     /** This is not returned in the API. */
-    apiSecret: string;
-    apiKey: string;
+    apiSecret?: string;
     /** This is the name of credential. This is just for your reference. */
     name?: string;
+    apiKey?: string;
 }

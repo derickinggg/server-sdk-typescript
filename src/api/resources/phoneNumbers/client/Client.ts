@@ -96,8 +96,8 @@ export class PhoneNumbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.2.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.2.2",
+                "X-Fern-SDK-Version": "0.3.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.3.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -153,8 +153,8 @@ export class PhoneNumbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.2.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.2.2",
+                "X-Fern-SDK-Version": "0.3.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.3.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -207,8 +207,8 @@ export class PhoneNumbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.2.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.2.2",
+                "X-Fern-SDK-Version": "0.3.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.3.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -263,8 +263,8 @@ export class PhoneNumbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.2.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.2.2",
+                "X-Fern-SDK-Version": "0.3.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.3.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -303,12 +303,12 @@ export class PhoneNumbers {
 
     /**
      * @param {string} id
-     * @param {Vapi.UpdatePhoneNumberDto} request
+     * @param {Vapi.PhoneNumbersUpdateRequest} request
      * @param {PhoneNumbers.RequestOptions} requestOptions - Request-specific configuration.
      */
     public async update(
         id: string,
-        request: Vapi.UpdatePhoneNumberDto = {},
+        request: Vapi.PhoneNumbersUpdateRequest,
         requestOptions?: PhoneNumbers.RequestOptions
     ): Promise<Vapi.PhoneNumbersUpdateResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -321,8 +321,8 @@ export class PhoneNumbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.2.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.2.2",
+                "X-Fern-SDK-Version": "0.3.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.3.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,

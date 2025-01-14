@@ -20,13 +20,15 @@ export interface CreateOrgDto {
     /** This is the monthly billing limit for the org. To go beyond $1000/mo, please contact us at support@vapi.ai. */
     billingLimit?: number;
     /**
-     * This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.
+     * This is where Vapi will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
      *
-     * All requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.
+     * The order of precedence is:
+     *
+     * 1. assistant.server
+     * 2. phoneNumber.server
+     * 3. org.server
      */
-    serverUrl?: string;
-    /** This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret. */
-    serverUrlSecret?: string;
+    server?: Vapi.Server;
     /** This is the concurrency limit for the org. This is the maximum number of calls that can be active at any given time. To go beyond 10, please contact us at support@vapi.ai. */
     concurrencyLimit?: number;
 }

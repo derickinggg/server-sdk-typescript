@@ -3,10 +3,8 @@
  */
 
 export interface UpdateInflectionAiCredentialDto {
-    /** This is the api key for Pi in InflectionAI's console. Get it from here: https://developers.inflection.ai/keys, billing will need to be setup */
-    provider: "inflection-ai";
     /** This is not returned in the API. */
-    apiKey: string;
+    apiKey?: string;
     /** This is the name of credential. This is just for your reference. */
     name?: string;
 }

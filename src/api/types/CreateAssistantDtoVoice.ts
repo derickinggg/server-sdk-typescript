@@ -18,4 +18,5 @@ export type CreateAssistantDtoVoice =
     | Vapi.OpenAiVoice
     | Vapi.PlayHtVoice
     | Vapi.RimeAiVoice
+    | Vapi.SmallestAiVoice
     | Vapi.TavusVoice;

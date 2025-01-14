@@ -8,6 +8,6 @@ import * as Vapi from "../index";
  * This is the message the assistant will deliver to the destination party before connecting the customer.
  *
  * Usage:
- * - Used only when `mode` is `warm-transfer-say-message` or `warm-transfer-wait-for-operator-to-speak-first-and-then-say-message`.
+ * - Used only when `mode` is `blind-transfer-add-summary-to-sip-header`, `warm-transfer-say-message` or `warm-transfer-wait-for-operator-to-speak-first-and-then-say-message`.
  */
 export type TransferPlanMessage = string | Vapi.CustomMessage;

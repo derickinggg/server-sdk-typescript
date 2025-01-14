@@ -3,13 +3,12 @@
  */
 
 export interface UpdateLangfuseCredentialDto {
-    provider: "langfuse";
     /** The public key for Langfuse project. Eg: pk-lf-... */
-    publicKey: string;
+    publicKey?: string;
     /** The secret key for Langfuse project. Eg: sk-lf-... .This is not returned in the API. */
-    apiKey: string;
+    apiKey?: string;
     /** The host URL for Langfuse project. Eg: https://cloud.langfuse.com */
-    apiUrl: string;
+    apiUrl?: string;
     /** This is the name of credential. This is just for your reference. */
     name?: string;
 }

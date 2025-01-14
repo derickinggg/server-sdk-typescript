@@ -3,13 +3,12 @@
  */
 
 export interface UpdateMakeCredentialDto {
-    provider: "make";
     /** Team ID */
-    teamId: string;
+    teamId?: string;
     /** Region of your application. For example: eu1, eu2, us1, us2 */
-    region: string;
+    region?: string;
     /** This is not returned in the API. */
-    apiKey: string;
+    apiKey?: string;
     /** This is the name of credential. This is just for your reference. */
     name?: string;
 }

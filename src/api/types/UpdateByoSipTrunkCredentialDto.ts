@@ -5,10 +5,10 @@
 import * as Vapi from "../index";
 
 export interface UpdateByoSipTrunkCredentialDto {
-    /** This can be used to bring your own SIP trunks or to connect to a Carrier. */
-    provider?: "byo-sip-trunk";
+    /** This is the name of credential. This is just for your reference. */
+    name?: string;
     /** This is the list of SIP trunk's gateways. */
-    gateways: Vapi.SipTrunkGateway[];
+    gateways?: Vapi.SipTrunkGateway[];
     /** This can be used to configure the outbound authentication if required by the SIP trunk. */
     outboundAuthenticationPlan?: Vapi.SipTrunkOutboundAuthenticationPlan;
     /**
@@ -26,6 +26,4 @@ export interface UpdateByoSipTrunkCredentialDto {
     sipDiversionHeader?: string;
     /** This is an advanced configuration for enterprise deployments. This uses the onprem SBC to trunk into the SIP trunk's `gateways`, rather than the managed SBC provided by Vapi. */
     sbcConfiguration?: Vapi.SbcConfiguration;
-    /** This is the name of credential. This is just for your reference. */
-    name?: string;
 }

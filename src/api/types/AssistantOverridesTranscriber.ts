@@ -9,6 +9,7 @@ import * as Vapi from "../index";
  */
 export type AssistantOverridesTranscriber =
     | Vapi.AssemblyAiTranscriber
+    | Vapi.AzureSpeechTranscriber
     | Vapi.CustomTranscriber
     | Vapi.DeepgramTranscriber
     | Vapi.GladiaTranscriber

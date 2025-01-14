@@ -5,9 +5,11 @@
 /**
  * This is the model that will be used. This is optional and will default to the correct model for the voiceId.
  */
-export type FallbackCartesiaVoiceModel = "sonic-english" | "sonic-multilingual";
+export type FallbackCartesiaVoiceModel = "sonic-english" | "sonic-multilingual" | "sonic-preview" | "sonic";
 
 export const FallbackCartesiaVoiceModel = {
     SonicEnglish: "sonic-english",
     SonicMultilingual: "sonic-multilingual",
+    SonicPreview: "sonic-preview",
+    Sonic: "sonic",
 } as const;

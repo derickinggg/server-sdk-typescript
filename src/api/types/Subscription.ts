@@ -57,7 +57,7 @@ export interface Subscription {
      * to detect users who try to abuse our system through multiple sign-ups.
      */
     stripePaymentMethodFingerprint?: string;
-    /** This is the stripe customer's email. */
+    /** This is the customer's email on Stripe. */
     stripeCustomerEmail?: string;
     /** This is the email of the referrer for the subscription. */
     referredByEmail?: string;

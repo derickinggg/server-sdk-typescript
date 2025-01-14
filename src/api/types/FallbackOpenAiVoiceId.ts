@@ -4,7 +4,7 @@
 
 /**
  * This is the provider-specific ID that will be used.
- * Please note that ash, ballad, coral, sage, and verse may only be used with the `gpt-4o-realtime-preview-2024-10-01` model.
+ * Please note that ash, ballad, coral, sage, and verse may only be used with realtime models.
  */
 export type FallbackOpenAiVoiceId =
     | "alloy"

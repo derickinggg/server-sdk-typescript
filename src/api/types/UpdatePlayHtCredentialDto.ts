@@ -3,10 +3,9 @@
  */
 
 export interface UpdatePlayHtCredentialDto {
-    provider: "playht";
     /** This is not returned in the API. */
-    apiKey: string;
-    userId: string;
+    apiKey?: string;
     /** This is the name of credential. This is just for your reference. */
     name?: string;
+    userId?: string;
 }

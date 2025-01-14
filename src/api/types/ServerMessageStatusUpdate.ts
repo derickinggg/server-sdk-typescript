@@ -63,6 +63,8 @@ export interface ServerMessageStatusUpdate {
     call?: Vapi.Call;
     /** This is the transcript of the call. This is only sent if the status is "forwarding". */
     transcript?: string;
+    /** This is the summary of the call. This is only sent if the status is "forwarding". */
+    summary?: string;
     /**
      * This is the inbound phone call debugging artifacts. This is only sent if the status is "ended" and there was an error accepting the inbound phone call.
      *
