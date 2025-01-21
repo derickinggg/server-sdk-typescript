@@ -40,7 +40,6 @@ export class Logs {
     ): Promise<core.Page<Vapi.Log>> {
         const list = async (request: Vapi.LogsGetRequest): Promise<Vapi.LogsPaginatedResponse> => {
             const {
-                orgId,
                 type: type_,
                 webhookType,
                 assistantId,
@@ -61,9 +60,6 @@ export class Logs {
                 updatedAtLe,
             } = request;
             const _queryParams: Record<string, string | string[] | object | object[]> = {};
-            if (orgId != null) {
-                _queryParams["orgId"] = orgId;
-            }
             if (type_ != null) {
                 _queryParams["type"] = type_;
             }
@@ -128,8 +124,8 @@ export class Logs {
                     Authorization: await this._getAuthorizationHeader(),
                     "X-Fern-Language": "JavaScript",
                     "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                    "X-Fern-SDK-Version": "0.3.0",
-                    "User-Agent": "@vapi-ai/server-sdk/0.3.0",
+                    "X-Fern-SDK-Version": "0.4.0",
+                    "User-Agent": "@vapi-ai/server-sdk/0.4.0",
                     "X-Fern-Runtime": core.RUNTIME.type,
                     "X-Fern-Runtime-Version": core.RUNTIME.version,
                     ...requestOptions?.headers,
@@ -184,10 +180,10 @@ export class Logs {
         request: Vapi.LoggingControllerLogsDeleteQueryRequest = {},
         requestOptions?: Logs.RequestOptions
     ): Promise<void> {
-        const { orgId, assistantId, phoneNumberId, customerId, squadId, callId } = request;
+        const { type: type_, assistantId, phoneNumberId, customerId, squadId, callId } = request;
         const _queryParams: Record<string, string | string[] | object | object[]> = {};
-        if (orgId != null) {
-            _queryParams["orgId"] = orgId;
+        if (type_ != null) {
+            _queryParams["type"] = type_;
         }
 
         if (assistantId != null) {
@@ -220,8 +216,8 @@ export class Logs {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.3.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.3.0",
+                "X-Fern-SDK-Version": "0.4.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.4.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,

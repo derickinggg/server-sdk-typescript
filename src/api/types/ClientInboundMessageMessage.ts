@@ -11,4 +11,5 @@ export type ClientInboundMessageMessage =
     | Vapi.ClientInboundMessageAddMessage
     | Vapi.ClientInboundMessageControl
     | Vapi.ClientInboundMessageSay
+    | Vapi.ClientInboundMessageEndCall
     | Vapi.ClientInboundMessageTransfer;

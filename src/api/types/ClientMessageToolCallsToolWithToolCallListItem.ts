@@ -8,6 +8,6 @@ export type ClientMessageToolCallsToolWithToolCallListItem =
     | Vapi.FunctionToolWithToolCall
     | Vapi.GhlToolWithToolCall
     | Vapi.MakeToolWithToolCall
-    | unknown
-    | unknown
-    | unknown;
+    | Vapi.BashToolWithToolCall
+    | Vapi.ComputerToolWithToolCall
+    | Vapi.TextEditorToolWithToolCall;

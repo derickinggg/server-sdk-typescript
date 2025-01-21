@@ -6,10 +6,6 @@ import * as Vapi from "../../../../index";
 
 export interface LogsGetRequest {
     /**
-     * This is the unique identifier for the org that this log belongs to.
-     */
-    orgId?: string;
-    /**
      * This is the type of the log.
      */
     type?: Vapi.LogsGetRequestType;

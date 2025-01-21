@@ -24,8 +24,8 @@ export interface Subscription {
      * Note: This is a string to avoid floating point precision issues.
      */
     credits: string;
-    /** This is the total concurrency limit for the subscription. */
-    concurrencyLimit: number;
+    /** This is the total number of active calls (concurrency) across all orgs under this subscription. */
+    concurrencyCounter: number;
     /** This is the default concurrency limit for the subscription. */
     concurrencyLimitIncluded: number;
     /** This is the purchased add-on concurrency limit for the subscription. */

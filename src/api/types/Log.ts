@@ -16,23 +16,23 @@ export interface Log {
     /** This is the specific resource, relevant only to API logs. */
     resource?: Vapi.LogResource;
     /** 'This is how long the request took. */
-    requestDurationSeconds: number;
+    requestDurationSeconds?: number;
     /** This is the timestamp at which the request began. */
-    requestStartedAt: string;
+    requestStartedAt?: string;
     /** This is the timestamp at which the request finished. */
-    requestFinishedAt: string;
+    requestFinishedAt?: string;
     /** This is the body of the request. */
-    requestBody: Record<string, unknown>;
+    requestBody?: Record<string, unknown>;
     /** This is the request method. */
-    requestHttpMethod: Vapi.LogRequestHttpMethod;
+    requestHttpMethod?: Vapi.LogRequestHttpMethod;
     /** This is the request URL. */
-    requestUrl: string;
+    requestUrl?: string;
     /** This is the request path. */
-    requestPath: string;
+    requestPath?: string;
     /** This is the request query. */
     requestQuery?: string;
     /** This the HTTP status code of the response. */
-    responseHttpCode: number;
+    responseHttpCode?: number;
     /** This is the request IP address. */
     requestIpAddress?: string;
     /** This is the origin of the request */

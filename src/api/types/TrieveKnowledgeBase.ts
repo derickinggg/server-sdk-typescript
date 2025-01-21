@@ -8,18 +8,16 @@ export interface TrieveKnowledgeBase {
     provider: "trieve";
     /** This is the name of the knowledge base. */
     name?: string;
-    /** This is the plan on how to search the vector store while a call is going on. */
-    vectorStoreSearchPlan: Vapi.TrieveKnowledgeBaseVectorStoreSearchPlan;
-    /** This is the plan if you want us to create a new vector store on your behalf. To use an existing vector store from your account, use `vectoreStoreProviderId` */
-    vectorStoreCreatePlan?: Vapi.TrieveKnowledgeBaseVectorStoreCreatePlan;
     /**
-     * This is an vector store that you already have on your account with the provider. To create a new vector store, use vectorStoreCreatePlan.
+     * This is the searching plan used when searching for relevant chunks from the vector store.
      *
-     * Usage:
-     * - To bring your own vector store from Trieve, go to https://trieve.ai
-     * - Create a dataset, and use the datasetId here.
+     * You should configure this if you're running into these issues:
+     * - Too much unnecessary context is being fed as knowledge base context.
+     * - Not enough relevant context is being fed as knowledge base context.
      */
-    vectorStoreProviderId?: string;
+    searchPlan?: Vapi.TrieveKnowledgeBaseSearchPlan;
+    /** This is the plan if you want us to create/import a new vector store using Trieve. */
+    createPlan?: Vapi.TrieveKnowledgeBaseCreatePlan;
     /** This is the id of the knowledge base. */
     id: string;
     /** This is the org id of the knowledge base. */

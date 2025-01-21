@@ -6,7 +6,6 @@ import * as Vapi from "../index";
 
 export interface UpdateCustomKnowledgeBaseDto {
     /**
-     * /**
      * This is where the knowledge base request will be sent.
      *
      * Request Example:

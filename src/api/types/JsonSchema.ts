@@ -37,4 +37,6 @@ export interface JsonSchema {
      * This only makes sense if the type is "object".
      */
     required?: string[];
+    /** This array specifies the allowed values that can be used to restrict the output of the model. */
+    enum?: string[];
 }

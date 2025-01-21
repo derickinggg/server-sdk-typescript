@@ -7,7 +7,6 @@ import * as Vapi from "../index";
 export interface CustomKnowledgeBase {
     provider: "custom-knowledge-base";
     /**
-     * /**
      * This is where the knowledge base request will be sent.
      *
      * Request Example:
