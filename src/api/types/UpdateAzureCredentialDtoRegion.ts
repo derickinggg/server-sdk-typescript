@@ -7,12 +7,14 @@
  */
 export type UpdateAzureCredentialDtoRegion =
     | "australia"
-    | "canada"
+    | "canadaeast"
+    | "canadacentral"
     | "eastus2"
     | "eastus"
     | "france"
     | "india"
-    | "japan"
+    | "japaneast"
+    | "japanwest"
     | "uaenorth"
     | "northcentralus"
     | "norway"
@@ -25,12 +27,14 @@ export type UpdateAzureCredentialDtoRegion =
 
 export const UpdateAzureCredentialDtoRegion = {
     Australia: "australia",
-    Canada: "canada",
+    Canadaeast: "canadaeast",
+    Canadacentral: "canadacentral",
     Eastus2: "eastus2",
     Eastus: "eastus",
     France: "france",
     India: "india",
-    Japan: "japan",
+    Japaneast: "japaneast",
+    Japanwest: "japanwest",
     Uaenorth: "uaenorth",
     Northcentralus: "northcentralus",
     Norway: "norway",

@@ -597,6 +597,8 @@ export * from "./Say";
 export * from "./Gather";
 export * from "./CreateWorkflowDtoNodesItem";
 export * from "./CreateWorkflowDto";
+export * from "./UpdateWorkflowDtoNodesItem";
+export * from "./UpdateWorkflowDto";
 export * from "./ClientMessageConversationUpdateMessagesItem";
 export * from "./ClientMessageConversationUpdate";
 export * from "./ClientMessageHang";
