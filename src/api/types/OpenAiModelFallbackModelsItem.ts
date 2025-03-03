@@ -3,6 +3,8 @@
  */
 
 export type OpenAiModelFallbackModelsItem =
+    | "chatgpt-4o-latest"
+    | "o3-mini"
     | "o1-preview"
     | "o1-preview-2024-09-12"
     | "o1-mini"
@@ -30,6 +32,8 @@ export type OpenAiModelFallbackModelsItem =
     | "gpt-3.5-turbo-0613";
 
 export const OpenAiModelFallbackModelsItem = {
+    Chatgpt4OLatest: "chatgpt-4o-latest",
+    O3Mini: "o3-mini",
     O1Preview: "o1-preview",
     O1Preview20240912: "o1-preview-2024-09-12",
     O1Mini: "o1-mini",

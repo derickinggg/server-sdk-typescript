@@ -3,26 +3,6 @@
  */
 
 export type FallbackRimeAiVoiceIdEnum =
-    | "marsh"
-    | "bayou"
-    | "creek"
-    | "brook"
-    | "flower"
-    | "spore"
-    | "glacier"
-    | "gulch"
-    | "alpine"
-    | "cove"
-    | "lagoon"
-    | "tundra"
-    | "steppe"
-    | "mesa"
-    | "grove"
-    | "rainforest"
-    | "moraine"
-    | "wildflower"
-    | "peak"
-    | "boulder"
     | "abbie"
     | "allison"
     | "ally"
@@ -83,29 +63,31 @@ export type FallbackRimeAiVoiceIdEnum =
     | "tj"
     | "tyler"
     | "viv"
-    | "yadira";
+    | "yadira"
+    | "marsh"
+    | "bayou"
+    | "creek"
+    | "brook"
+    | "flower"
+    | "spore"
+    | "glacier"
+    | "gulch"
+    | "alpine"
+    | "cove"
+    | "lagoon"
+    | "tundra"
+    | "steppe"
+    | "mesa"
+    | "grove"
+    | "rainforest"
+    | "moraine"
+    | "wildflower"
+    | "peak"
+    | "boulder"
+    | "gypsum"
+    | "zest";
 
 export const FallbackRimeAiVoiceIdEnum = {
-    Marsh: "marsh",
-    Bayou: "bayou",
-    Creek: "creek",
-    Brook: "brook",
-    Flower: "flower",
-    Spore: "spore",
-    Glacier: "glacier",
-    Gulch: "gulch",
-    Alpine: "alpine",
-    Cove: "cove",
-    Lagoon: "lagoon",
-    Tundra: "tundra",
-    Steppe: "steppe",
-    Mesa: "mesa",
-    Grove: "grove",
-    Rainforest: "rainforest",
-    Moraine: "moraine",
-    Wildflower: "wildflower",
-    Peak: "peak",
-    Boulder: "boulder",
     Abbie: "abbie",
     Allison: "allison",
     Ally: "ally",
@@ -167,4 +149,26 @@ export const FallbackRimeAiVoiceIdEnum = {
     Tyler: "tyler",
     Viv: "viv",
     Yadira: "yadira",
+    Marsh: "marsh",
+    Bayou: "bayou",
+    Creek: "creek",
+    Brook: "brook",
+    Flower: "flower",
+    Spore: "spore",
+    Glacier: "glacier",
+    Gulch: "gulch",
+    Alpine: "alpine",
+    Cove: "cove",
+    Lagoon: "lagoon",
+    Tundra: "tundra",
+    Steppe: "steppe",
+    Mesa: "mesa",
+    Grove: "grove",
+    Rainforest: "rainforest",
+    Moraine: "moraine",
+    Wildflower: "wildflower",
+    Peak: "peak",
+    Boulder: "boulder",
+    Gypsum: "gypsum",
+    Zest: "zest",
 } as const;

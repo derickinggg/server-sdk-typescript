@@ -25,4 +25,10 @@ export interface MessagePlan {
      * @default 10
      */
     idleTimeoutSeconds?: number;
+    /**
+     * This is the message that the assistant will say if the call ends due to silence.
+     *
+     * If unspecified, it will hang up without saying anything.
+     */
+    silenceTimeoutMessage?: string;
 }

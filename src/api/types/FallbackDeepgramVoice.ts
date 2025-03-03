@@ -9,6 +9,14 @@ export interface FallbackDeepgramVoice {
     provider: "deepgram";
     /** This is the provider-specific ID that will be used. */
     voiceId: Vapi.FallbackDeepgramVoiceId;
+    /**
+     * If set to true, this will add mip_opt_out=true as a query parameter of all API requests. See https://developers.deepgram.com/docs/the-deepgram-model-improvement-partnership-program#want-to-opt-out
+     *
+     * This will only be used if you are using your own Deepgram API key.
+     *
+     * @default false
+     */
+    mipOptOut?: boolean;
     /** This is the plan for chunking the model output before it is sent to the voice provider. */
     chunkPlan?: Vapi.ChunkPlan;
 }

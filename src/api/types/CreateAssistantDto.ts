@@ -28,8 +28,6 @@ export interface CreateAssistantDto {
      * @default 'assistant-speaks-first'
      */
     firstMessageMode?: Vapi.CreateAssistantDtoFirstMessageMode;
-    /** When this is enabled, no logs, recordings, or transcriptions will be stored. At the end of the call, you will still receive an end-of-call-report message to store on your server. Defaults to false. */
-    hipaaEnabled?: boolean;
     /** These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input. You can check the shape of the messages in ClientMessage schema. */
     clientMessages?: Vapi.CreateAssistantDtoClientMessagesItem[];
     /** These are the messages that will be sent to your Server URL. Default is conversation-update,end-of-call-report,function-call,hang,speech-update,status-update,tool-calls,transfer-destination-request,user-interrupted. You can check the shape of the messages in ServerMessage schema. */
@@ -94,6 +92,7 @@ export interface CreateAssistantDto {
     endCallMessage?: string;
     /** This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up. Case insensitive. */
     endCallPhrases?: string[];
+    compliancePlan?: Vapi.CompliancePlan;
     /** This is for metadata you want to store on the assistant. */
     metadata?: Record<string, unknown>;
     /** This is the plan for analysis of assistant's calls. Stored in `call.analysis`. */
@@ -152,4 +151,6 @@ export interface CreateAssistantDto {
      * 3. org.serverUrl
      */
     server?: Vapi.Server;
+    /** This is a set of actions that will be performed on certain events. */
+    hooks?: Vapi.AssistantHooks[];
 }

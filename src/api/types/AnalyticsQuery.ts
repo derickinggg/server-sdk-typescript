@@ -6,7 +6,7 @@ import * as Vapi from "../index";
 
 export interface AnalyticsQuery {
     /** This is the table you want to query. */
-    table: "call";
+    table: Vapi.AnalyticsQueryTable;
     /** This is the list of columns you want to group by. */
     groupBy?: Vapi.AnalyticsQueryGroupByItem[];
     /** This is the name of the query. This will be used to identify the query in the response. */

@@ -10,6 +10,7 @@ export type SyncVoiceLibraryDtoProvidersItem =
     | "deepgram"
     | "lmnt"
     | "neets"
+    | "neuphonic"
     | "openai"
     | "playht"
     | "rime-ai"
@@ -24,6 +25,7 @@ export const SyncVoiceLibraryDtoProvidersItem = {
     Deepgram: "deepgram",
     Lmnt: "lmnt",
     Neets: "neets",
+    Neuphonic: "neuphonic",
     Openai: "openai",
     Playht: "playht",
     RimeAi: "rime-ai",

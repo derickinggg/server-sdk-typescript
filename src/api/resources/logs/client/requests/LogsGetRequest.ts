@@ -38,7 +38,7 @@ export interface LogsGetRequest {
      */
     page?: number;
     /**
-     * This is the sort order for pagination. Defaults to 'ASC'.
+     * This is the sort order for pagination. Defaults to 'DESC'.
      */
     sortOrder?: Vapi.LogsGetRequestSortOrder;
     /**

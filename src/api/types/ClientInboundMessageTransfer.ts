@@ -9,4 +9,6 @@ export interface ClientInboundMessageTransfer {
     type: "transfer";
     /** This is the destination to transfer the call to. */
     destination?: Vapi.ClientInboundMessageTransferDestination;
+    /** This is the content to say. */
+    content?: string;
 }

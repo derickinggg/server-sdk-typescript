@@ -8,4 +8,6 @@ export interface Edge {
     condition?: Vapi.EdgeCondition;
     from: string;
     to: string;
+    /** This is for metadata you want to store on the edge. */
+    metadata?: Record<string, unknown>;
 }

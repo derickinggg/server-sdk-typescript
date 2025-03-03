@@ -23,6 +23,12 @@ export interface ToolMessageStart {
      * If this message is not provided, one of the default filler messages "Hold on a sec", "One moment", "Just a sec", "Give me a moment" or "This'll just take a sec" will be used.
      */
     type: "request-start";
+    /**
+     * This is an optional boolean that if true, the tool call will only trigger after the message is spoken. Default is false.
+     *
+     * @default false
+     */
+    blocking?: boolean;
     /** This is the content that the assistant says when this message is triggered. */
     content?: string;
     /** This is an optional array of conditions that the tool call arguments must meet in order for this message to be triggered. */

@@ -11,7 +11,7 @@ import * as errors from "../../../../errors/index";
 export declare namespace Logs {
     interface Options {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
-        token?: core.Supplier<core.BearerToken | undefined>;
+        token: core.Supplier<core.BearerToken>;
         fetcher?: core.FetchFunction;
     }
 
@@ -28,7 +28,7 @@ export declare namespace Logs {
 }
 
 export class Logs {
-    constructor(protected readonly _options: Logs.Options = {}) {}
+    constructor(protected readonly _options: Logs.Options) {}
 
     /**
      * @param {Vapi.LogsGetRequest} request
@@ -124,8 +124,8 @@ export class Logs {
                     Authorization: await this._getAuthorizationHeader(),
                     "X-Fern-Language": "JavaScript",
                     "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                    "X-Fern-SDK-Version": "0.4.0",
-                    "User-Agent": "@vapi-ai/server-sdk/0.4.0",
+                    "X-Fern-SDK-Version": "0.5.0",
+                    "User-Agent": "@vapi-ai/server-sdk/0.5.0",
                     "X-Fern-Runtime": core.RUNTIME.type,
                     "X-Fern-Runtime-Version": core.RUNTIME.version,
                     ...requestOptions?.headers,
@@ -216,8 +216,8 @@ export class Logs {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.4.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.4.0",
+                "X-Fern-SDK-Version": "0.5.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -255,12 +255,7 @@ export class Logs {
         }
     }
 
-    protected async _getAuthorizationHeader(): Promise<string | undefined> {
-        const bearer = await core.Supplier.get(this._options.token);
-        if (bearer != null) {
-            return `Bearer ${bearer}`;
-        }
-
-        return undefined;
+    protected async _getAuthorizationHeader(): Promise<string> {
+        return `Bearer ${await core.Supplier.get(this._options.token)}`;
     }
 }

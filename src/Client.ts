@@ -14,11 +14,14 @@ import { Tools } from "./api/resources/tools/client/Client";
 import { Files } from "./api/resources/files/client/Client";
 import { Analytics } from "./api/resources/analytics/client/Client";
 import { Logs } from "./api/resources/logs/client/Client";
+import { TestSuites } from "./api/resources/testSuites/client/Client";
+import { TestSuiteTests } from "./api/resources/testSuiteTests/client/Client";
+import { TestSuiteRuns } from "./api/resources/testSuiteRuns/client/Client";
 
 export declare namespace VapiClient {
     interface Options {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
-        token?: core.Supplier<core.BearerToken | undefined>;
+        token: core.Supplier<core.BearerToken>;
         fetcher?: core.FetchFunction;
     }
 
@@ -35,7 +38,7 @@ export declare namespace VapiClient {
 }
 
 export class VapiClient {
-    constructor(protected readonly _options: VapiClient.Options = {}) {}
+    constructor(protected readonly _options: VapiClient.Options) {}
 
     protected _calls: Calls | undefined;
 
@@ -95,5 +98,23 @@ export class VapiClient {
 
     public get logs(): Logs {
         return (this._logs ??= new Logs(this._options));
+    }
+
+    protected _testSuites: TestSuites | undefined;
+
+    public get testSuites(): TestSuites {
+        return (this._testSuites ??= new TestSuites(this._options));
+    }
+
+    protected _testSuiteTests: TestSuiteTests | undefined;
+
+    public get testSuiteTests(): TestSuiteTests {
+        return (this._testSuiteTests ??= new TestSuiteTests(this._options));
+    }
+
+    protected _testSuiteRuns: TestSuiteRuns | undefined;
+
+    public get testSuiteRuns(): TestSuiteRuns {
+        return (this._testSuiteRuns ??= new TestSuiteRuns(this._options));
     }
 }

@@ -19,3 +19,9 @@
 ## Analytics
 
 ## Logs
+
+## TestSuites
+
+## TestSuiteTests
+
+## TestSuiteRuns

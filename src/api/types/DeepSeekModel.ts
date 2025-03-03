@@ -24,7 +24,7 @@ export interface DeepSeekModel {
     /** This is the ID of the knowledge base the model will use. */
     knowledgeBaseId?: string;
     /** This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b */
-    model: "deepseek-chat";
+    model: Vapi.DeepSeekModelModel;
     provider: "deep-seek";
     /** This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency. */
     temperature?: number;

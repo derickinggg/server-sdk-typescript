@@ -15,7 +15,8 @@ export type AnalyticsOperationColumn =
     | "costBreakdown.ttsCharacters"
     | "costBreakdown.llmPromptTokens"
     | "costBreakdown.llmCompletionTokens"
-    | "duration";
+    | "duration"
+    | "concurrency";
 
 export const AnalyticsOperationColumn = {
     Id: "id",
@@ -28,4 +29,5 @@ export const AnalyticsOperationColumn = {
     CostBreakdownLlmPromptTokens: "costBreakdown.llmPromptTokens",
     CostBreakdownLlmCompletionTokens: "costBreakdown.llmCompletionTokens",
     Duration: "duration",
+    Concurrency: "concurrency",
 } as const;

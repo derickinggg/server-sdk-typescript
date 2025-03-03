@@ -15,12 +15,14 @@ export interface CreateVapiPhoneNumberDto {
      */
     fallbackDestination?: Vapi.CreateVapiPhoneNumberDtoFallbackDestination;
     provider: "vapi";
+    /** This is the area code of the phone number to purchase. */
+    numberDesiredAreaCode?: string;
     /**
      * This is the SIP URI of the phone number. You can SIP INVITE this. The assistant attached to this number will answer.
      *
      * This is case-insensitive.
      */
-    sipUri: string;
+    sipUri?: string;
     /**
      * This enables authentication for incoming SIP INVITE requests to the `sipUri`.
      *

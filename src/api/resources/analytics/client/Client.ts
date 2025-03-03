@@ -4,13 +4,14 @@
 
 import * as environments from "../../../../environments";
 import * as core from "../../../../core";
+import * as Vapi from "../../../index";
 import urlJoin from "url-join";
 import * as errors from "../../../../errors/index";
 
 export declare namespace Analytics {
     interface Options {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
-        token?: core.Supplier<core.BearerToken | undefined>;
+        token: core.Supplier<core.BearerToken>;
         fetcher?: core.FetchFunction;
     }
 
@@ -27,12 +28,16 @@ export declare namespace Analytics {
 }
 
 export class Analytics {
-    constructor(protected readonly _options: Analytics.Options = {}) {}
+    constructor(protected readonly _options: Analytics.Options) {}
 
     /**
+     * @param {Vapi.AnalyticsQueryDto} request
      * @param {Analytics.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async get(requestOptions?: Analytics.RequestOptions): Promise<void> {
+    public async get(
+        request: Vapi.AnalyticsQueryDto,
+        requestOptions?: Analytics.RequestOptions
+    ): Promise<Vapi.AnalyticsQueryResult[]> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
@@ -43,20 +48,21 @@ export class Analytics {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.4.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.4.0",
+                "X-Fern-SDK-Version": "0.5.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
+            body: request,
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return;
+            return _response.body as Vapi.AnalyticsQueryResult[];
         }
 
         if (_response.error.reason === "status-code") {
@@ -81,12 +87,7 @@ export class Analytics {
         }
     }
 
-    protected async _getAuthorizationHeader(): Promise<string | undefined> {
-        const bearer = await core.Supplier.get(this._options.token);
-        if (bearer != null) {
-            return `Bearer ${bearer}`;
-        }
-
-        return undefined;
+    protected async _getAuthorizationHeader(): Promise<string> {
+        return `Bearer ${await core.Supplier.get(this._options.token)}`;
     }
 }

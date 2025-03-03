@@ -5,7 +5,6 @@
 import * as Vapi from "../index";
 
 export interface CreateWorkflowDto {
-    type: "workflow";
     nodes: Vapi.CreateWorkflowDtoNodesItem[];
     name: string;
     edges: Vapi.Edge[];

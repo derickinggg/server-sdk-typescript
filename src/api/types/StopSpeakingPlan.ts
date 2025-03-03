@@ -39,4 +39,14 @@ export interface StopSpeakingPlan {
      * @default 1
      */
     backoffSeconds?: number;
+    /**
+     * These are the phrases that will never interrupt the assistant, even if numWords threshold is met.
+     * These are typically acknowledgement or backchanneling phrases.
+     */
+    acknowledgementPhrases?: string[];
+    /**
+     * These are the phrases that will always interrupt the assistant immediately, regardless of numWords.
+     * These are typically phrases indicating disagreement or desire to stop.
+     */
+    interruptionPhrases?: string[];
 }

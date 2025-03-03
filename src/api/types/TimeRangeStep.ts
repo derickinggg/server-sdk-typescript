@@ -8,6 +8,7 @@
  * If not provided, defaults to returning for the entire time range.
  */
 export type TimeRangeStep =
+    | "second"
     | "minute"
     | "hour"
     | "day"
@@ -20,6 +21,7 @@ export type TimeRangeStep =
     | "millennium";
 
 export const TimeRangeStep = {
+    Second: "second",
     Minute: "minute",
     Hour: "hour",
     Day: "day",

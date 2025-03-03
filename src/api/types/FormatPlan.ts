@@ -39,4 +39,11 @@ export interface FormatPlan {
      * @default []
      */
     replacements?: Vapi.FormatPlanReplacementsItem[];
+    /**
+     * List of formatters to apply. If not provided, all default formatters will be applied.
+     * If provided, only the specified formatters will be applied.
+     * Note: Some essential formatters like angle bracket removal will always be applied.
+     * @default undefined
+     */
+    formattersEnabled?: Vapi.FormatPlanFormattersEnabledItem[];
 }

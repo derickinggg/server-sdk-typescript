@@ -28,6 +28,10 @@ export interface Subscription {
     concurrencyCounter: number;
     /** This is the default concurrency limit for the subscription. */
     concurrencyLimitIncluded: number;
+    /** This is the number of free phone numbers the subscription has */
+    phoneNumbersCounter?: number;
+    /** This is the maximum number of free phone numbers the subscription can have */
+    phoneNumbersIncluded?: number;
     /** This is the purchased add-on concurrency limit for the subscription. */
     concurrencyLimitPurchased: number;
     /** This is the ID of the monthly job that charges for subscription add ons and phone numbers. */
@@ -63,10 +67,12 @@ export interface Subscription {
     referredByEmail?: string;
     /** This is the auto reload plan configured for the subscription. */
     autoReloadPlan?: Vapi.AutoReloadPlan;
-    /** The number of minutes included in the subscription. Enterprise only. */
+    /** The number of minutes included in the subscription. */
     minutesIncluded?: number;
-    /** The number of minutes used in the subscription. Enterprise only. */
+    /** The number of minutes used in the subscription. */
     minutesUsed?: number;
+    /** This is the timestamp at which the number of monthly free minutes is scheduled to reset at. */
+    minutesUsedNextResetAt?: string;
     /** The per minute charge on minutes that exceed the included minutes. Enterprise only. */
     minutesOverageCost?: number;
     /** The list of providers included in the subscription. Enterprise only. */

@@ -4,4 +4,4 @@
 
 import * as Vapi from "../index";
 
-export type EdgeCondition = Vapi.SemanticEdgeCondition | Vapi.ProgrammaticEdgeCondition;
+export type EdgeCondition = Vapi.AiEdgeCondition | Vapi.LogicEdgeCondition | Vapi.FailedEdgeCondition;

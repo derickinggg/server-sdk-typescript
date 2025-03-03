@@ -29,7 +29,6 @@ export interface OpenAiModel {
     model: Vapi.OpenAiModelModel;
     /** These are the fallback models that will be used if the primary model fails. This shouldn't be specified unless you have a specific reason to do so. Vapi will automatically find the fastest fallbacks that make sense. */
     fallbackModels?: Vapi.OpenAiModelFallbackModelsItem[];
-    semanticCachingEnabled?: boolean;
     /** This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency. */
     temperature?: number;
     /** This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250. */

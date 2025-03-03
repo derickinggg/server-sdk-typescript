@@ -37,6 +37,12 @@ export interface JsonSchema {
      * This only makes sense if the type is "object".
      */
     required?: string[];
+    /** This is a regex that will be used to validate data in question. */
+    regex?: string;
+    /** This the value that will be used in filling the property. */
+    value?: string;
+    /** This the target variable that will be filled with the value of this property. */
+    target?: string;
     /** This array specifies the allowed values that can be used to restrict the output of the model. */
     enum?: string[];
 }

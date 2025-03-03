@@ -8,6 +8,7 @@ import * as Vapi from "../index";
  * These are all the messages that can be sent to the client-side SDKs during the call. Configure the messages you'd like to receive in `assistant.clientMessages`.
  */
 export type ClientMessageMessage =
+    | Vapi.ClientMessageWorkflowNodeStarted
     | Vapi.ClientMessageConversationUpdate
     | Vapi.ClientMessageHang
     | Vapi.ClientMessageMetadata

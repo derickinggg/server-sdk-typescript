@@ -14,6 +14,7 @@ export type CreateAssistantDtoServerMessagesItem =
     | "speech-update"
     | "status-update"
     | "transcript"
+    | "transcript[transcriptType='final']"
     | "tool-calls"
     | "transfer-destination-request"
     | "transfer-update"
@@ -32,6 +33,7 @@ export const CreateAssistantDtoServerMessagesItem = {
     SpeechUpdate: "speech-update",
     StatusUpdate: "status-update",
     Transcript: "transcript",
+    TranscriptTranscriptTypeFinal: "transcript[transcriptType='final']",
     ToolCalls: "tool-calls",
     TransferDestinationRequest: "transfer-destination-request",
     TransferUpdate: "transfer-update",

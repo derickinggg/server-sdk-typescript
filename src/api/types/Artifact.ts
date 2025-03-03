@@ -19,4 +19,6 @@ export interface Artifact {
     videoRecordingStartDelaySeconds?: number;
     /** This is the transcript of the call. This is derived from `artifact.messages` but provided for convenience. */
     transcript?: string;
+    /** This is the packet capture url for the call. This is only available for `phone` type calls where phone number's provider is `vapi` or `byo-phone-number`. */
+    pcapUrl?: string;
 }

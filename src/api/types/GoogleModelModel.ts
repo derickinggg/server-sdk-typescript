@@ -6,6 +6,10 @@
  * This is the Google model that will be used.
  */
 export type GoogleModelModel =
+    | "gemini-2.0-flash-thinking-exp"
+    | "gemini-2.0-pro-exp-02-05"
+    | "gemini-2.0-flash"
+    | "gemini-2.0-flash-lite-preview-02-05"
     | "gemini-2.0-flash-exp"
     | "gemini-2.0-flash-realtime-exp"
     | "gemini-1.5-flash"
@@ -15,6 +19,10 @@ export type GoogleModelModel =
     | "gemini-1.0-pro";
 
 export const GoogleModelModel = {
+    Gemini20FlashThinkingExp: "gemini-2.0-flash-thinking-exp",
+    Gemini20ProExp0205: "gemini-2.0-pro-exp-02-05",
+    Gemini20Flash: "gemini-2.0-flash",
+    Gemini20FlashLitePreview0205: "gemini-2.0-flash-lite-preview-02-05",
     Gemini20FlashExp: "gemini-2.0-flash-exp",
     Gemini20FlashRealtimeExp: "gemini-2.0-flash-realtime-exp",
     Gemini15Flash: "gemini-1.5-flash",

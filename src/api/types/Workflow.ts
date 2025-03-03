@@ -5,7 +5,6 @@
 import * as Vapi from "../index";
 
 export interface Workflow {
-    type: "workflow";
     nodes: Vapi.WorkflowNodesItem[];
     id: string;
     orgId: string;

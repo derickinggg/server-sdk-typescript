@@ -4,4 +4,7 @@
 
 import * as Vapi from "../index";
 
-export type UpdateWorkflowDtoNodesItem = Vapi.Say | Vapi.Gather | unknown | Vapi.CreateWorkflowDto;
+export interface Hook {
+    on: Vapi.HookOn;
+    do: Vapi.SayHook[];
+}

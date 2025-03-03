@@ -35,6 +35,8 @@ export interface ByoPhoneNumber {
     createdAt: string;
     /** This is the ISO 8601 date-time string of when the phone number was last updated. */
     updatedAt: string;
+    /** This is the status of the phone number. */
+    status?: Vapi.ByoPhoneNumberStatus;
     /** This is the name of the phone number. This is just for your own reference. */
     name?: string;
     /**

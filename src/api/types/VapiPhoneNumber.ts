@@ -23,6 +23,10 @@ export interface VapiPhoneNumber {
     createdAt: string;
     /** This is the ISO 8601 date-time string of when the phone number was last updated. */
     updatedAt: string;
+    /** This is the status of the phone number. */
+    status?: Vapi.VapiPhoneNumberStatus;
+    /** These are the digits of the phone number you purchased from Vapi. */
+    number?: string;
     /** This is the name of the phone number. This is just for your own reference. */
     name?: string;
     /**
@@ -47,12 +51,14 @@ export interface VapiPhoneNumber {
      * 3. org.server
      */
     server?: Vapi.Server;
+    /** This is the area code of the phone number to purchase. */
+    numberDesiredAreaCode?: string;
     /**
      * This is the SIP URI of the phone number. You can SIP INVITE this. The assistant attached to this number will answer.
      *
      * This is case-insensitive.
      */
-    sipUri: string;
+    sipUri?: string;
     /**
      * This enables authentication for incoming SIP INVITE requests to the `sipUri`.
      *

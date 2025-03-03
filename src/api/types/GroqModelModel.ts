@@ -6,6 +6,7 @@
  * This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b
  */
 export type GroqModelModel =
+    | "deepseek-r1-distill-llama-70b"
     | "llama-3.3-70b-versatile"
     | "llama-3.1-405b-reasoning"
     | "llama-3.1-70b-versatile"
@@ -16,6 +17,7 @@ export type GroqModelModel =
     | "gemma2-9b-it";
 
 export const GroqModelModel = {
+    DeepseekR1DistillLlama70B: "deepseek-r1-distill-llama-70b",
     Llama3370BVersatile: "llama-3.3-70b-versatile",
     Llama31405BReasoning: "llama-3.1-405b-reasoning",
     Llama3170BVersatile: "llama-3.1-70b-versatile",

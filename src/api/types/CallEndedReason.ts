@@ -6,7 +6,7 @@
  * This is the explanation for how the call ended.
  */
 export type CallEndedReason =
-    | "assistant-not-invalid"
+    | "assistant-not-valid"
     | "assistant-not-provided"
     | "call-start-error-neither-assistant-nor-server-set"
     | "assistant-request-failed"
@@ -17,6 +17,7 @@ export type CallEndedReason =
     | "assistant-request-returned-forwarding-phone-number"
     | "assistant-ended-call"
     | "assistant-said-end-call-phrase"
+    | "assistant-ended-call-with-hangup-task"
     | "assistant-forwarded-call"
     | "assistant-join-timed-out"
     | "customer-busy"
@@ -40,8 +41,10 @@ export type CallEndedReason =
     | "pipeline-error-rime-ai-voice-failed"
     | "pipeline-error-neets-voice-failed"
     | "pipeline-error-smallest-ai-voice-failed"
+    | "pipeline-error-neuphonic-voice-failed"
     | "pipeline-error-deepgram-transcriber-failed"
     | "pipeline-error-gladia-transcriber-failed"
+    | "pipeline-error-speechmatics-transcriber-failed"
     | "pipeline-error-assembly-ai-transcriber-failed"
     | "pipeline-error-talkscriber-transcriber-failed"
     | "pipeline-error-azure-speech-transcriber-failed"
@@ -69,6 +72,7 @@ export type CallEndedReason =
     | "pipeline-error-groq-llm-failed"
     | "pipeline-error-google-llm-failed"
     | "pipeline-error-xai-llm-failed"
+    | "pipeline-error-mistral-llm-failed"
     | "pipeline-error-inflection-ai-llm-failed"
     | "pipeline-error-cerebras-llm-failed"
     | "pipeline-error-deep-seek-llm-failed"
@@ -87,6 +91,11 @@ export type CallEndedReason =
     | "pipeline-error-xai-403-model-access-denied"
     | "pipeline-error-xai-429-exceeded-quota"
     | "pipeline-error-xai-500-server-error"
+    | "pipeline-error-mistral-400-bad-request-validation-failed"
+    | "pipeline-error-mistral-401-unauthorized"
+    | "pipeline-error-mistral-403-model-access-denied"
+    | "pipeline-error-mistral-429-exceeded-quota"
+    | "pipeline-error-mistral-500-server-error"
     | "pipeline-error-inflection-ai-400-bad-request-validation-failed"
     | "pipeline-error-inflection-ai-401-unauthorized"
     | "pipeline-error-inflection-ai-403-model-access-denied"
@@ -216,7 +225,7 @@ export type CallEndedReason =
     | "voicemail";
 
 export const CallEndedReason = {
-    AssistantNotInvalid: "assistant-not-invalid",
+    AssistantNotValid: "assistant-not-valid",
     AssistantNotProvided: "assistant-not-provided",
     CallStartErrorNeitherAssistantNorServerSet: "call-start-error-neither-assistant-nor-server-set",
     AssistantRequestFailed: "assistant-request-failed",
@@ -227,6 +236,7 @@ export const CallEndedReason = {
     AssistantRequestReturnedForwardingPhoneNumber: "assistant-request-returned-forwarding-phone-number",
     AssistantEndedCall: "assistant-ended-call",
     AssistantSaidEndCallPhrase: "assistant-said-end-call-phrase",
+    AssistantEndedCallWithHangupTask: "assistant-ended-call-with-hangup-task",
     AssistantForwardedCall: "assistant-forwarded-call",
     AssistantJoinTimedOut: "assistant-join-timed-out",
     CustomerBusy: "customer-busy",
@@ -250,8 +260,10 @@ export const CallEndedReason = {
     PipelineErrorRimeAiVoiceFailed: "pipeline-error-rime-ai-voice-failed",
     PipelineErrorNeetsVoiceFailed: "pipeline-error-neets-voice-failed",
     PipelineErrorSmallestAiVoiceFailed: "pipeline-error-smallest-ai-voice-failed",
+    PipelineErrorNeuphonicVoiceFailed: "pipeline-error-neuphonic-voice-failed",
     PipelineErrorDeepgramTranscriberFailed: "pipeline-error-deepgram-transcriber-failed",
     PipelineErrorGladiaTranscriberFailed: "pipeline-error-gladia-transcriber-failed",
+    PipelineErrorSpeechmaticsTranscriberFailed: "pipeline-error-speechmatics-transcriber-failed",
     PipelineErrorAssemblyAiTranscriberFailed: "pipeline-error-assembly-ai-transcriber-failed",
     PipelineErrorTalkscriberTranscriberFailed: "pipeline-error-talkscriber-transcriber-failed",
     PipelineErrorAzureSpeechTranscriberFailed: "pipeline-error-azure-speech-transcriber-failed",
@@ -279,6 +291,7 @@ export const CallEndedReason = {
     PipelineErrorGroqLlmFailed: "pipeline-error-groq-llm-failed",
     PipelineErrorGoogleLlmFailed: "pipeline-error-google-llm-failed",
     PipelineErrorXaiLlmFailed: "pipeline-error-xai-llm-failed",
+    PipelineErrorMistralLlmFailed: "pipeline-error-mistral-llm-failed",
     PipelineErrorInflectionAiLlmFailed: "pipeline-error-inflection-ai-llm-failed",
     PipelineErrorCerebrasLlmFailed: "pipeline-error-cerebras-llm-failed",
     PipelineErrorDeepSeekLlmFailed: "pipeline-error-deep-seek-llm-failed",
@@ -297,6 +310,11 @@ export const CallEndedReason = {
     PipelineErrorXai403ModelAccessDenied: "pipeline-error-xai-403-model-access-denied",
     PipelineErrorXai429ExceededQuota: "pipeline-error-xai-429-exceeded-quota",
     PipelineErrorXai500ServerError: "pipeline-error-xai-500-server-error",
+    PipelineErrorMistral400BadRequestValidationFailed: "pipeline-error-mistral-400-bad-request-validation-failed",
+    PipelineErrorMistral401Unauthorized: "pipeline-error-mistral-401-unauthorized",
+    PipelineErrorMistral403ModelAccessDenied: "pipeline-error-mistral-403-model-access-denied",
+    PipelineErrorMistral429ExceededQuota: "pipeline-error-mistral-429-exceeded-quota",
+    PipelineErrorMistral500ServerError: "pipeline-error-mistral-500-server-error",
     PipelineErrorInflectionAi400BadRequestValidationFailed:
         "pipeline-error-inflection-ai-400-bad-request-validation-failed",
     PipelineErrorInflectionAi401Unauthorized: "pipeline-error-inflection-ai-401-unauthorized",
