@@ -3,11 +3,13 @@
  */
 
 export type SyncVoiceLibraryDtoProvidersItem =
+    | "vapi"
     | "11labs"
     | "azure"
     | "cartesia"
     | "custom-voice"
     | "deepgram"
+    | "hume"
     | "lmnt"
     | "neets"
     | "neuphonic"
@@ -18,11 +20,13 @@ export type SyncVoiceLibraryDtoProvidersItem =
     | "tavus";
 
 export const SyncVoiceLibraryDtoProvidersItem = {
+    Vapi: "vapi",
     ElevenLabs: "11labs",
     Azure: "azure",
     Cartesia: "cartesia",
     CustomVoice: "custom-voice",
     Deepgram: "deepgram",
+    Hume: "hume",
     Lmnt: "lmnt",
     Neets: "neets",
     Neuphonic: "neuphonic",

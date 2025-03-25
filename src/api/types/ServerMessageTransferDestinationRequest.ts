@@ -16,7 +16,7 @@ export interface ServerMessageTransferDestinationRequest {
     /** This is the type of the message. "transfer-destination-request" is sent when the model is requesting transfer but destination is unknown. */
     type: "transfer-destination-request";
     /** This is the ISO-8601 formatted timestamp of when the message was sent. */
-    timestamp?: string;
+    timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.
      *

@@ -14,4 +14,5 @@ export type ToolsDeleteResponse =
     | Vapi.OutputTool
     | Vapi.BashTool
     | Vapi.ComputerTool
-    | Vapi.TextEditorTool;
+    | Vapi.TextEditorTool
+    | Vapi.QueryTool;

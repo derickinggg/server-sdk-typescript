@@ -32,6 +32,7 @@ export type UpdateAssistantDtoCredentialsItem =
     | Vapi.CreateRimeAiCredentialDto
     | Vapi.CreateRunpodCredentialDto
     | Vapi.CreateS3CredentialDto
+    | Vapi.CreateSupabaseCredentialDto
     | Vapi.CreateSmallestAiCredentialDto
     | Vapi.CreateTavusCredentialDto
     | Vapi.CreateTogetherAiCredentialDto

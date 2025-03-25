@@ -16,7 +16,7 @@ export interface ServerMessageUserInterrupted {
     /** This is the type of the message. "user-interrupted" is sent when the user interrupts the assistant. */
     type: "user-interrupted";
     /** This is the ISO-8601 formatted timestamp of when the message was sent. */
-    timestamp?: string;
+    timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.
      *

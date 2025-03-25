@@ -16,7 +16,7 @@ export interface ServerMessageModelOutput {
     /** This is the type of the message. "model-output" is sent as the model outputs tokens. */
     type: "model-output";
     /** This is the ISO-8601 formatted timestamp of when the message was sent. */
-    timestamp?: string;
+    timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.
      *

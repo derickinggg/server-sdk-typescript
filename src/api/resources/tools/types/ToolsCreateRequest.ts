@@ -14,4 +14,5 @@ export type ToolsCreateRequest =
     | Vapi.CreateOutputToolDto
     | Vapi.CreateBashToolDto
     | Vapi.CreateComputerToolDto
-    | Vapi.CreateTextEditorToolDto;
+    | Vapi.CreateTextEditorToolDto
+    | Vapi.CreateQueryToolDto;

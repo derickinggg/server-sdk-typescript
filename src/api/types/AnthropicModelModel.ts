@@ -3,7 +3,7 @@
  */
 
 /**
- * This is the Anthropic/Claude models that will be used.
+ * The specific Anthropic/Claude model that will be used.
  */
 export type AnthropicModelModel =
     | "claude-3-opus-20240229"
@@ -11,7 +11,8 @@ export type AnthropicModelModel =
     | "claude-3-haiku-20240307"
     | "claude-3-5-sonnet-20240620"
     | "claude-3-5-sonnet-20241022"
-    | "claude-3-5-haiku-20241022";
+    | "claude-3-5-haiku-20241022"
+    | "claude-3-7-sonnet-20250219";
 
 export const AnthropicModelModel = {
     Claude3Opus20240229: "claude-3-opus-20240229",
@@ -20,4 +21,5 @@ export const AnthropicModelModel = {
     Claude35Sonnet20240620: "claude-3-5-sonnet-20240620",
     Claude35Sonnet20241022: "claude-3-5-sonnet-20241022",
     Claude35Haiku20241022: "claude-3-5-haiku-20241022",
+    Claude37Sonnet20250219: "claude-3-7-sonnet-20250219",
 } as const;

@@ -22,7 +22,7 @@ export interface ServerMessageEndOfCallReport {
     /** These are the costs of individual components of the call in USD. This can also be found at `call.costs` on GET /call/:id. */
     costs?: Vapi.ServerMessageEndOfCallReportCostsItem[];
     /** This is the ISO-8601 formatted timestamp of when the message was sent. */
-    timestamp?: string;
+    timestamp?: number;
     /** These are the artifacts from the call. This can also be found at `call.artifact` on GET /call/:id. */
     artifact: Vapi.Artifact;
     /**

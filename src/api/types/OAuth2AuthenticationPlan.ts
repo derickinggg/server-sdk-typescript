@@ -10,4 +10,6 @@ export interface OAuth2AuthenticationPlan {
     clientId: string;
     /** This is the OAuth2 client secret. */
     clientSecret: string;
+    /** This is the scope of the OAuth2 token. */
+    scope?: string;
 }

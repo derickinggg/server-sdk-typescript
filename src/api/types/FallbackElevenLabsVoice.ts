@@ -17,6 +17,8 @@ export interface FallbackElevenLabsVoice {
     style?: number;
     /** Defines the use speaker boost for voice settings. */
     useSpeakerBoost?: boolean;
+    /** Defines the speed for voice settings. */
+    speed?: number;
     /** Defines the optimize streaming latency for voice settings. Defaults to 3. */
     optimizeStreamingLatency?: number;
     /**

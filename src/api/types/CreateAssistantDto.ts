@@ -28,6 +28,12 @@ export interface CreateAssistantDto {
      * @default 'assistant-speaks-first'
      */
     firstMessageMode?: Vapi.CreateAssistantDtoFirstMessageMode;
+    /**
+     * These are the settings to configure or disable voicemail detection. Alternatively, voicemail detection can be configured using the model.tools=[VoicemailTool].
+     * This uses Twilio's built-in detection while the VoicemailTool relies on the model to detect if a voicemail was reached.
+     * You can use neither of them, one of them, or both of them. By default, Twilio built-in detection is enabled while VoicemailTool is not.
+     */
+    voicemailDetection?: Record<string, unknown>;
     /** These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input. You can check the shape of the messages in ClientMessage schema. */
     clientMessages?: Vapi.CreateAssistantDtoClientMessagesItem[];
     /** These are the messages that will be sent to your Server URL. Default is conversation-update,end-of-call-report,function-call,hang,speech-update,status-update,tool-calls,transfer-destination-request,user-interrupted. You can check the shape of the messages in ServerMessage schema. */
@@ -72,12 +78,6 @@ export interface CreateAssistantDto {
      * This is required when you want to transfer between assistants in a call.
      */
     name?: string;
-    /**
-     * These are the settings to configure or disable voicemail detection. Alternatively, voicemail detection can be configured using the model.tools=[VoicemailTool].
-     * This uses Twilio's built-in detection while the VoicemailTool relies on the model to detect if a voicemail was reached.
-     * You can use neither of them, one of them, or both of them. By default, Twilio built-in detection is enabled while VoicemailTool is not.
-     */
-    voicemailDetection?: Vapi.TwilioVoicemailDetection;
     /**
      * This is the message that the assistant will say if the call is forwarded to voicemail.
      *
@@ -153,4 +153,5 @@ export interface CreateAssistantDto {
     server?: Vapi.Server;
     /** This is a set of actions that will be performed on certain events. */
     hooks?: Vapi.AssistantHooks[];
+    keypadInputPlan?: Vapi.KeypadInputPlan;
 }

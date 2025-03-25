@@ -10,4 +10,5 @@ export type CallCostsItem =
     | Vapi.ModelCost
     | Vapi.VoiceCost
     | Vapi.VapiCost
+    | Vapi.VoicemailDetectionCost
     | Vapi.AnalysisCost;

@@ -26,7 +26,7 @@ export interface ServerMessageStatusUpdate {
     /** This is the destination the call is being transferred to. This is only sent if the status is "forwarding". */
     destination?: Vapi.ServerMessageStatusUpdateDestination;
     /** This is the ISO-8601 formatted timestamp of when the message was sent. */
-    timestamp?: string;
+    timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.
      *

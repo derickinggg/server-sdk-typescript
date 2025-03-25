@@ -46,7 +46,6 @@ export type GladiaTranscriberLanguage =
     | "id"
     | "it"
     | "ja"
-    | "jp"
     | "jv"
     | "kn"
     | "kk"
@@ -66,7 +65,7 @@ export type GladiaTranscriberLanguage =
     | "mi"
     | "mr"
     | "mn"
-    | "mymr"
+    | "my"
     | "ne"
     | "no"
     | "nn"
@@ -148,7 +147,6 @@ export const GladiaTranscriberLanguage = {
     Id: "id",
     It: "it",
     Ja: "ja",
-    Jp: "jp",
     Jv: "jv",
     Kn: "kn",
     Kk: "kk",
@@ -168,7 +166,7 @@ export const GladiaTranscriberLanguage = {
     Mi: "mi",
     Mr: "mr",
     Mn: "mn",
-    Mymr: "mymr",
+    My: "my",
     Ne: "ne",
     No: "no",
     Nn: "nn",

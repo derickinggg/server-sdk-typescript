@@ -16,7 +16,7 @@ export interface ServerMessageLanguageChangeDetected {
     /** This is the type of the message. "language-change-detected" is sent when the transcriber is automatically switched based on the detected language. */
     type: "language-change-detected";
     /** This is the ISO-8601 formatted timestamp of when the message was sent. */
-    timestamp?: string;
+    timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.
      *

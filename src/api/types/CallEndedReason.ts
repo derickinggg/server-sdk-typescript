@@ -42,6 +42,7 @@ export type CallEndedReason =
     | "pipeline-error-neets-voice-failed"
     | "pipeline-error-smallest-ai-voice-failed"
     | "pipeline-error-neuphonic-voice-failed"
+    | "pipeline-error-hume-voice-failed"
     | "pipeline-error-deepgram-transcriber-failed"
     | "pipeline-error-gladia-transcriber-failed"
     | "pipeline-error-speechmatics-transcriber-failed"
@@ -210,6 +211,7 @@ export type CallEndedReason =
     | "pipeline-error-playht-504-gateway-error"
     | "pipeline-error-tavus-video-failed"
     | "pipeline-error-custom-transcriber-failed"
+    | "pipeline-error-11labs-transcriber-failed"
     | "pipeline-error-deepgram-returning-403-model-access-denied"
     | "pipeline-error-deepgram-returning-401-invalid-credentials"
     | "pipeline-error-deepgram-returning-404-not-found"
@@ -261,6 +263,7 @@ export const CallEndedReason = {
     PipelineErrorNeetsVoiceFailed: "pipeline-error-neets-voice-failed",
     PipelineErrorSmallestAiVoiceFailed: "pipeline-error-smallest-ai-voice-failed",
     PipelineErrorNeuphonicVoiceFailed: "pipeline-error-neuphonic-voice-failed",
+    PipelineErrorHumeVoiceFailed: "pipeline-error-hume-voice-failed",
     PipelineErrorDeepgramTranscriberFailed: "pipeline-error-deepgram-transcriber-failed",
     PipelineErrorGladiaTranscriberFailed: "pipeline-error-gladia-transcriber-failed",
     PipelineErrorSpeechmaticsTranscriberFailed: "pipeline-error-speechmatics-transcriber-failed",
@@ -443,6 +446,7 @@ export const CallEndedReason = {
     PipelineErrorPlayht504GatewayError: "pipeline-error-playht-504-gateway-error",
     PipelineErrorTavusVideoFailed: "pipeline-error-tavus-video-failed",
     PipelineErrorCustomTranscriberFailed: "pipeline-error-custom-transcriber-failed",
+    PipelineError11LabsTranscriberFailed: "pipeline-error-11labs-transcriber-failed",
     PipelineErrorDeepgramReturning403ModelAccessDenied: "pipeline-error-deepgram-returning-403-model-access-denied",
     PipelineErrorDeepgramReturning401InvalidCredentials: "pipeline-error-deepgram-returning-401-invalid-credentials",
     PipelineErrorDeepgramReturning404NotFound: "pipeline-error-deepgram-returning-404-not-found",

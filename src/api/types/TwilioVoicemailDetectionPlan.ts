@@ -4,7 +4,7 @@
 
 import * as Vapi from "../index";
 
-export interface TwilioVoicemailDetection {
+export interface TwilioVoicemailDetectionPlan {
     /** This is the provider to use for voicemail detection. */
     provider: "twilio";
     /**
@@ -12,7 +12,7 @@ export interface TwilioVoicemailDetection {
      *
      * @default {Array} ['machine_end_beep', 'machine_end_silence']
      */
-    voicemailDetectionTypes?: Vapi.TwilioVoicemailDetectionVoicemailDetectionTypesItem[];
+    voicemailDetectionTypes?: Vapi.TwilioVoicemailDetectionPlanVoicemailDetectionTypesItem[];
     /**
      * This sets whether the assistant should detect voicemail. Defaults to true.
      *

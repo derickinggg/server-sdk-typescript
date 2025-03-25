@@ -23,9 +23,16 @@ export interface AnthropicModel {
     knowledgeBase?: Vapi.CreateCustomKnowledgeBaseDto;
     /** This is the ID of the knowledge base the model will use. */
     knowledgeBaseId?: string;
-    /** This is the Anthropic/Claude models that will be used. */
+    /** The specific Anthropic/Claude model that will be used. */
     model: Vapi.AnthropicModelModel;
+    /** The provider identifier for Anthropic. */
     provider: "anthropic";
+    /**
+     * Optional configuration for Anthropic's thinking feature.
+     * Only applicable for claude-3-7-sonnet-20250219 model.
+     * If provided, maxTokens must be greater than thinking.budgetTokens.
+     */
+    thinking?: Vapi.AnthropicThinkingConfig;
     /** This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency. */
     temperature?: number;
     /** This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250. */

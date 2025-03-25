@@ -87,4 +87,6 @@ export interface Subscription {
     couponIds?: string[];
     /** This is the number of credits left obtained from a coupon. */
     couponUsageLeft?: string;
+    /** This is the invoice plan for the subscription. */
+    invoicePlan?: Vapi.InvoicePlan;
 }

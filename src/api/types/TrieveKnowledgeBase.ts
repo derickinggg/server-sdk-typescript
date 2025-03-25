@@ -17,7 +17,7 @@ export interface TrieveKnowledgeBase {
      */
     searchPlan?: Vapi.TrieveKnowledgeBaseSearchPlan;
     /** This is the plan if you want us to create/import a new vector store using Trieve. */
-    createPlan?: Vapi.TrieveKnowledgeBaseCreatePlan;
+    createPlan?: Vapi.TrieveKnowledgeBaseImport;
     /** This is the id of the knowledge base. */
     id: string;
     /** This is the org id of the knowledge base. */

@@ -16,7 +16,7 @@ export interface ServerMessageVoiceInput {
     /** This is the type of the message. "voice-input" is sent when a generation is requested from voice provider. */
     type: "voice-input";
     /** This is the ISO-8601 formatted timestamp of when the message was sent. */
-    timestamp?: string;
+    timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.
      *

@@ -16,5 +16,5 @@ export interface UpdateTrieveKnowledgeBaseDto {
      */
     searchPlan?: Vapi.TrieveKnowledgeBaseSearchPlan;
     /** This is the plan if you want us to create/import a new vector store using Trieve. */
-    createPlan?: Vapi.UpdateTrieveKnowledgeBaseDtoCreatePlan;
+    createPlan?: Vapi.TrieveKnowledgeBaseImport;
 }

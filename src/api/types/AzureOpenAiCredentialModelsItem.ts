@@ -3,7 +3,6 @@
  */
 
 export type AzureOpenAiCredentialModelsItem =
-    | "gpt-4o-2024-08-06-ptu"
     | "gpt-4o-2024-08-06"
     | "gpt-4o-mini-2024-07-18"
     | "gpt-4o-2024-05-13"
@@ -15,7 +14,6 @@ export type AzureOpenAiCredentialModelsItem =
     | "gpt-35-turbo-1106";
 
 export const AzureOpenAiCredentialModelsItem = {
-    Gpt4O20240806Ptu: "gpt-4o-2024-08-06-ptu",
     Gpt4O20240806: "gpt-4o-2024-08-06",
     Gpt4OMini20240718: "gpt-4o-mini-2024-07-18",
     Gpt4O20240513: "gpt-4o-2024-05-13",

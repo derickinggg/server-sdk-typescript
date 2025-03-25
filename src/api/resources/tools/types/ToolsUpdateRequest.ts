@@ -14,4 +14,5 @@ export type ToolsUpdateRequest =
     | Vapi.UpdateOutputToolDto
     | Vapi.UpdateBashToolDto
     | Vapi.UpdateComputerToolDto
-    | Vapi.UpdateTextEditorToolDto;
+    | Vapi.UpdateTextEditorToolDto
+    | Vapi.UpdateQueryToolDto;

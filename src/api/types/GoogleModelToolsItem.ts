@@ -11,4 +11,5 @@ export type GoogleModelToolsItem =
     | Vapi.CreateFunctionToolDto
     | Vapi.CreateGhlToolDto
     | Vapi.CreateMakeToolDto
-    | Vapi.CreateTransferCallToolDto;
+    | Vapi.CreateTransferCallToolDto
+    | Vapi.CreateQueryToolDto;

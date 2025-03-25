@@ -17,6 +17,8 @@ export interface File_ {
     path?: string;
     bucket?: string;
     url?: string;
+    parsedTextUrl?: string;
+    parsedTextBytes?: number;
     metadata?: Record<string, unknown>;
     /** This is the unique identifier for the file. */
     id: string;
