@@ -21,7 +21,6 @@ export type FallbackCartesiaVoiceLanguage =
     | "ru"
     | "sv"
     | "tr";
-
 export const FallbackCartesiaVoiceLanguage = {
     En: "en",
     De: "de",

@@ -3,7 +3,6 @@
  */
 
 export type FallbackLmntVoiceIdEnum = "lily" | "daniel";
-
 export const FallbackLmntVoiceIdEnum = {
     Lily: "lily",
     Daniel: "daniel",

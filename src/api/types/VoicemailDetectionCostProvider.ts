@@ -6,7 +6,6 @@
  * This is the provider that was used to detect the voicemail.
  */
 export type VoicemailDetectionCostProvider = "twilio" | "google" | "openai";
-
 export const VoicemailDetectionCostProvider = {
     Twilio: "twilio",
     Google: "google",

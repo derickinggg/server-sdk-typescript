@@ -6,7 +6,6 @@
  * This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b
  */
 export type DeepSeekModelModel = "deepseek-chat" | "deepseek-reasoner";
-
 export const DeepSeekModelModel = {
     DeepseekChat: "deepseek-chat",
     DeepseekReasoner: "deepseek-reasoner",

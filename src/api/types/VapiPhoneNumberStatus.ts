@@ -6,7 +6,6 @@
  * This is the status of the phone number.
  */
 export type VapiPhoneNumberStatus = "active" | "activating" | "blocked";
-
 export const VapiPhoneNumberStatus = {
     Active: "active",
     Activating: "activating",

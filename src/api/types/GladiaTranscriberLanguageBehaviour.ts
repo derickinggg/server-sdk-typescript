@@ -6,7 +6,6 @@ export type GladiaTranscriberLanguageBehaviour =
     | "manual"
     | "automatic single language"
     | "automatic multiple languages";
-
 export const GladiaTranscriberLanguageBehaviour = {
     Manual: "manual",
     AutomaticSingleLanguage: "automatic single language",

@@ -3,7 +3,6 @@
  */
 
 export type InviteUserDtoRole = "admin" | "editor" | "viewer";
-
 export const InviteUserDtoRole = {
     Admin: "admin",
     Editor: "editor",

@@ -3,7 +3,6 @@
  */
 
 export type LogsGetRequestSortOrder = "ASC" | "DESC";
-
 export const LogsGetRequestSortOrder = {
     Asc: "ASC",
     Desc: "DESC",

@@ -13,7 +13,6 @@ export type PlayHtVoiceIdEnum =
     | "davis"
     | "donna"
     | "michael";
-
 export const PlayHtVoiceIdEnum = {
     Jennifer: "jennifer",
     Melissa: "melissa",

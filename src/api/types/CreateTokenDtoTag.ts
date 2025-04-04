@@ -6,7 +6,6 @@
  * This is the tag for the token. It represents its scope.
  */
 export type CreateTokenDtoTag = "private" | "public";
-
 export const CreateTokenDtoTag = {
     Private: "private",
     Public: "public",

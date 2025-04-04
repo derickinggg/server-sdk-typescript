@@ -16,7 +16,6 @@ export type UpdateAssistantDtoFirstMessageMode =
     | "assistant-speaks-first"
     | "assistant-speaks-first-with-model-generated-message"
     | "assistant-waits-for-user";
-
 export const UpdateAssistantDtoFirstMessageMode = {
     AssistantSpeaksFirst: "assistant-speaks-first",
     AssistantSpeaksFirstWithModelGeneratedMessage: "assistant-speaks-first-with-model-generated-message",

@@ -6,7 +6,7 @@ import * as Vapi from "../index";
 
 export interface TestSuiteTestsPaginatedResponse {
     /** A list of test suite tests. */
-    results: Vapi.TestSuiteTestVoice[];
+    results: Vapi.TestSuiteTestsPaginatedResponseResultsItem[];
     /** Metadata about the pagination. */
     metadata: Vapi.PaginationMeta;
 }

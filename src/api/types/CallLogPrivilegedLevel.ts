@@ -6,7 +6,6 @@
  * This is the level of the log message.
  */
 export type CallLogPrivilegedLevel = "INFO" | "LOG" | "WARN" | "ERROR" | "CHECKPOINT";
-
 export const CallLogPrivilegedLevel = {
     Info: "INFO",
     Log: "LOG",

@@ -5,9 +5,9 @@
 /**
  * This is the status of the call.
  */
-export type CallStatus = "queued" | "ringing" | "in-progress" | "forwarding" | "ended";
-
+export type CallStatus = "scheduled" | "queued" | "ringing" | "in-progress" | "forwarding" | "ended";
 export const CallStatus = {
+    Scheduled: "scheduled",
     Queued: "queued",
     Ringing: "ringing",
     InProgress: "in-progress",

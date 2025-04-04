@@ -19,7 +19,9 @@ export interface ServerMessageSpeechUpdate {
     status: Vapi.ServerMessageSpeechUpdateStatus;
     /** This is the role which the speech update is for. */
     role: Vapi.ServerMessageSpeechUpdateRole;
-    /** This is the ISO-8601 formatted timestamp of when the message was sent. */
+    /** This is the turn number of the speech update (0-indexed). */
+    turn?: number;
+    /** This is the timestamp of when the message was sent in milliseconds since Unix Epoch. */
     timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.

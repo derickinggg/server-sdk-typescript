@@ -14,7 +14,6 @@
  * For `object`, you can define the properties of the object using the `properties` property.
  */
 export type JsonSchemaType = "string" | "number" | "integer" | "boolean" | "array" | "object";
-
 export const JsonSchemaType = {
     String: "string",
     Number: "number",

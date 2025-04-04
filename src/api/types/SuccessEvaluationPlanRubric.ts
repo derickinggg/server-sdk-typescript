@@ -26,7 +26,6 @@ export type SuccessEvaluationPlanRubric =
     | "LikertScale"
     | "AutomaticRubric"
     | "PassFail";
-
 export const SuccessEvaluationPlanRubric = {
     NumericScale: "NumericScale",
     DescriptiveScale: "DescriptiveScale",

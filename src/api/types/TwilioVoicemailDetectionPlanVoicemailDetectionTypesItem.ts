@@ -10,7 +10,6 @@ export type TwilioVoicemailDetectionPlanVoicemailDetectionTypesItem =
     | "machine_end_beep"
     | "machine_end_silence"
     | "machine_end_other";
-
 export const TwilioVoicemailDetectionPlanVoicemailDetectionTypesItem = {
     MachineStart: "machine_start",
     Human: "human",

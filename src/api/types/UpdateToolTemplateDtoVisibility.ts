@@ -3,7 +3,6 @@
  */
 
 export type UpdateToolTemplateDtoVisibility = "public" | "private";
-
 export const UpdateToolTemplateDtoVisibility = {
     Public: "public",
     Private: "private",

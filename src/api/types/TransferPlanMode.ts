@@ -24,7 +24,6 @@ export type TransferPlanMode =
     | "warm-transfer-twiml"
     | "warm-transfer-wait-for-operator-to-speak-first-and-then-say-message"
     | "warm-transfer-wait-for-operator-to-speak-first-and-then-say-summary";
-
 export const TransferPlanMode = {
     BlindTransfer: "blind-transfer",
     BlindTransferAddSummaryToSipHeader: "blind-transfer-add-summary-to-sip-header",

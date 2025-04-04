@@ -5,8 +5,7 @@
 import * as Vapi from "../index";
 
 export interface CreateByoSipTrunkCredentialDto {
-    /** This can be used to bring your own SIP trunks or to connect to a Carrier. */
-    provider?: "byo-sip-trunk";
+    provider: "byo-sip-trunk";
     /** This is the list of SIP trunk's gateways. */
     gateways: Vapi.SipTrunkGateway[];
     /** This can be used to configure the outbound authentication if required by the SIP trunk. */

@@ -12,4 +12,8 @@ export type OpenRouterModelToolsItem =
     | Vapi.CreateGhlToolDto
     | Vapi.CreateMakeToolDto
     | Vapi.CreateTransferCallToolDto
-    | Vapi.CreateQueryToolDto;
+    | Vapi.CreateQueryToolDto
+    | Vapi.CreateGoogleCalendarCreateEventToolDto
+    | Vapi.CreateGoogleSheetsRowAppendToolDto
+    | Vapi.CreateGoogleCalendarCheckAvailabilityToolDto
+    | Vapi.CreateSlackSendMessageToolDto;

@@ -9,13 +9,15 @@ import urlJoin from "url-join";
 import * as errors from "../../../../errors/index";
 
 export declare namespace TestSuiteTests {
-    interface Options {
+    export interface Options {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
+        /** Specify a custom URL to connect the client to. */
+        baseUrl?: core.Supplier<string>;
         token: core.Supplier<core.BearerToken>;
         fetcher?: core.FetchFunction;
     }
 
-    interface RequestOptions {
+    export interface RequestOptions {
         /** The maximum time to wait for a response in seconds. */
         timeoutInSeconds?: number;
         /** The number of times to retry the request. Defaults to 2. */
@@ -38,7 +40,7 @@ export class TestSuiteTests {
     public async testSuiteTestControllerFindAllPaginated(
         testSuiteId: string,
         request: Vapi.TestSuiteTestControllerFindAllPaginatedRequest = {},
-        requestOptions?: TestSuiteTests.RequestOptions
+        requestOptions?: TestSuiteTests.RequestOptions,
     ): Promise<Vapi.TestSuiteTestsPaginatedResponse> {
         const {
             page,
@@ -53,7 +55,7 @@ export class TestSuiteTests {
             updatedAtGe,
             updatedAtLe,
         } = request;
-        const _queryParams: Record<string, string | string[] | object | object[]> = {};
+        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
         if (page != null) {
             _queryParams["page"] = page.toString();
         }
@@ -100,16 +102,18 @@ export class TestSuiteTests {
 
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                `test-suite/${encodeURIComponent(testSuiteId)}/test`
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                `test-suite/${encodeURIComponent(testSuiteId)}/test`,
             ),
             method: "GET",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -149,39 +153,41 @@ export class TestSuiteTests {
 
     /**
      * @param {string} testSuiteId
-     * @param {Vapi.CreateTestSuiteTestVoiceDto} request
+     * @param {Vapi.TestSuiteTestControllerCreateRequest} request
      * @param {TestSuiteTests.RequestOptions} requestOptions - Request-specific configuration.
      */
     public async testSuiteTestControllerCreate(
         testSuiteId: string,
-        request: Vapi.CreateTestSuiteTestVoiceDto,
-        requestOptions?: TestSuiteTests.RequestOptions
-    ): Promise<Vapi.TestSuiteTestVoice> {
+        request: Vapi.TestSuiteTestControllerCreateRequest,
+        requestOptions?: TestSuiteTests.RequestOptions,
+    ): Promise<Vapi.TestSuiteTestControllerCreateResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                `test-suite/${encodeURIComponent(testSuiteId)}/test`
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                `test-suite/${encodeURIComponent(testSuiteId)}/test`,
             ),
             method: "POST",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
             },
             contentType: "application/json",
             requestType: "json",
-            body: { ...request, type: "voice" },
+            body: request,
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.TestSuiteTestVoice;
+            return _response.body as Vapi.TestSuiteTestControllerCreateResponse;
         }
 
         if (_response.error.reason === "status-code") {
@@ -214,20 +220,22 @@ export class TestSuiteTests {
     public async testSuiteTestControllerFindOne(
         testSuiteId: string,
         id: string,
-        requestOptions?: TestSuiteTests.RequestOptions
-    ): Promise<Vapi.TestSuiteTestVoice> {
+        requestOptions?: TestSuiteTests.RequestOptions,
+    ): Promise<Vapi.TestSuiteTestControllerFindOneResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                `test-suite/${encodeURIComponent(testSuiteId)}/test/${encodeURIComponent(id)}`
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                `test-suite/${encodeURIComponent(testSuiteId)}/test/${encodeURIComponent(id)}`,
             ),
             method: "GET",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -239,7 +247,7 @@ export class TestSuiteTests {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.TestSuiteTestVoice;
+            return _response.body as Vapi.TestSuiteTestControllerFindOneResponse;
         }
 
         if (_response.error.reason === "status-code") {
@@ -257,7 +265,7 @@ export class TestSuiteTests {
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError(
-                    "Timeout exceeded when calling GET /test-suite/{testSuiteId}/test/{id}."
+                    "Timeout exceeded when calling GET /test-suite/{testSuiteId}/test/{id}.",
                 );
             case "unknown":
                 throw new errors.VapiError({
@@ -274,20 +282,22 @@ export class TestSuiteTests {
     public async testSuiteTestControllerRemove(
         testSuiteId: string,
         id: string,
-        requestOptions?: TestSuiteTests.RequestOptions
-    ): Promise<Vapi.TestSuiteTestVoice> {
+        requestOptions?: TestSuiteTests.RequestOptions,
+    ): Promise<Vapi.TestSuiteTestControllerRemoveResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                `test-suite/${encodeURIComponent(testSuiteId)}/test/${encodeURIComponent(id)}`
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                `test-suite/${encodeURIComponent(testSuiteId)}/test/${encodeURIComponent(id)}`,
             ),
             method: "DELETE",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -299,7 +309,7 @@ export class TestSuiteTests {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.TestSuiteTestVoice;
+            return _response.body as Vapi.TestSuiteTestControllerRemoveResponse;
         }
 
         if (_response.error.reason === "status-code") {
@@ -317,7 +327,7 @@ export class TestSuiteTests {
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError(
-                    "Timeout exceeded when calling DELETE /test-suite/{testSuiteId}/test/{id}."
+                    "Timeout exceeded when calling DELETE /test-suite/{testSuiteId}/test/{id}.",
                 );
             case "unknown":
                 throw new errors.VapiError({
@@ -329,27 +339,29 @@ export class TestSuiteTests {
     /**
      * @param {string} testSuiteId
      * @param {string} id
-     * @param {Vapi.UpdateTestSuiteTestVoiceDto} request
+     * @param {Vapi.TestSuiteTestControllerUpdateRequest} request
      * @param {TestSuiteTests.RequestOptions} requestOptions - Request-specific configuration.
      */
     public async testSuiteTestControllerUpdate(
         testSuiteId: string,
         id: string,
-        request: Vapi.UpdateTestSuiteTestVoiceDto = {},
-        requestOptions?: TestSuiteTests.RequestOptions
-    ): Promise<Vapi.TestSuiteTestVoice> {
+        request: Vapi.TestSuiteTestControllerUpdateRequest,
+        requestOptions?: TestSuiteTests.RequestOptions,
+    ): Promise<Vapi.TestSuiteTestControllerUpdateResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                `test-suite/${encodeURIComponent(testSuiteId)}/test/${encodeURIComponent(id)}`
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                `test-suite/${encodeURIComponent(testSuiteId)}/test/${encodeURIComponent(id)}`,
             ),
             method: "PATCH",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -362,7 +374,7 @@ export class TestSuiteTests {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.TestSuiteTestVoice;
+            return _response.body as Vapi.TestSuiteTestControllerUpdateResponse;
         }
 
         if (_response.error.reason === "status-code") {
@@ -380,7 +392,7 @@ export class TestSuiteTests {
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError(
-                    "Timeout exceeded when calling PATCH /test-suite/{testSuiteId}/test/{id}."
+                    "Timeout exceeded when calling PATCH /test-suite/{testSuiteId}/test/{id}.",
                 );
             case "unknown":
                 throw new errors.VapiError({

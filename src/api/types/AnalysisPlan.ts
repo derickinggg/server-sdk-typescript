@@ -9,6 +9,8 @@ export interface AnalysisPlan {
     summaryPlan?: Vapi.SummaryPlan;
     /** This is the plan for generating the structured data from the call. This outputs to `call.analysis.structuredData`. */
     structuredDataPlan?: Vapi.StructuredDataPlan;
+    /** This is an array of structured data plan catalogs. Each entry includes a `key` and a `plan` for generating the structured data from the call. This outputs to `call.analysis.structuredDataMulti`. */
+    structuredDataMultiPlan?: Vapi.StructuredDataMultiPlan[];
     /** This is the plan for generating the success evaluation of the call. This outputs to `call.analysis.successEvaluation`. */
     successEvaluationPlan?: Vapi.SuccessEvaluationPlan;
 }

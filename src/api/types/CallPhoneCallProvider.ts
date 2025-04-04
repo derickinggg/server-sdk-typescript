@@ -7,10 +7,10 @@
  *
  * Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type.
  */
-export type CallPhoneCallProvider = "twilio" | "vonage" | "vapi";
-
+export type CallPhoneCallProvider = "twilio" | "vonage" | "vapi" | "telnyx";
 export const CallPhoneCallProvider = {
     Twilio: "twilio",
     Vonage: "vonage",
     Vapi: "vapi",
+    Telnyx: "telnyx",
 } as const;

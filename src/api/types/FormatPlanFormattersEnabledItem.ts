@@ -19,7 +19,6 @@ export type FormatPlanFormattersEnabledItem =
     | "percentage"
     | "phoneNumber"
     | "number";
-
 export const FormatPlanFormattersEnabledItem = {
     Markdown: "markdown",
     Asterisk: "asterisk",

@@ -18,7 +18,6 @@ export type PlayHtVoiceEmotion =
     | "male_fearful"
     | "male_disgust"
     | "male_surprised";
-
 export const PlayHtVoiceEmotion = {
     FemaleHappy: "female_happy",
     FemaleSad: "female_sad",

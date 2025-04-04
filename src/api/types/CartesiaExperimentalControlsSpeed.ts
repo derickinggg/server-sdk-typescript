@@ -3,7 +3,6 @@
  */
 
 export type CartesiaExperimentalControlsSpeed = "slowest" | "slow" | "normal" | "fast" | "fastest";
-
 export const CartesiaExperimentalControlsSpeed = {
     Slowest: "slowest",
     Slow: "slow",

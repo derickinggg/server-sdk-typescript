@@ -31,7 +31,6 @@ export type DeepgramTranscriberModel =
     | "base-conversationalai"
     | "base-voicemail"
     | "base-video";
-
 export const DeepgramTranscriberModel = {
     Nova2: "nova-2",
     Nova2General: "nova-2-general",

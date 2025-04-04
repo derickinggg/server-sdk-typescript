@@ -3,7 +3,6 @@
  */
 
 export type HookOn = "task.start" | "task.output.confirmation" | "task.delayed";
-
 export const HookOn = {
     TaskStart: "task.start",
     TaskOutputConfirmation: "task.output.confirmation",

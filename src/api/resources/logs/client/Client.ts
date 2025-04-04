@@ -9,13 +9,15 @@ import urlJoin from "url-join";
 import * as errors from "../../../../errors/index";
 
 export declare namespace Logs {
-    interface Options {
+    export interface Options {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
+        /** Specify a custom URL to connect the client to. */
+        baseUrl?: core.Supplier<string>;
         token: core.Supplier<core.BearerToken>;
         fetcher?: core.FetchFunction;
     }
 
-    interface RequestOptions {
+    export interface RequestOptions {
         /** The maximum time to wait for a response in seconds. */
         timeoutInSeconds?: number;
         /** The number of times to retry the request. Defaults to 2. */
@@ -36,7 +38,7 @@ export class Logs {
      */
     public async get(
         request: Vapi.LogsGetRequest = {},
-        requestOptions?: Logs.RequestOptions
+        requestOptions?: Logs.RequestOptions,
     ): Promise<core.Page<Vapi.Log>> {
         const list = async (request: Vapi.LogsGetRequest): Promise<Vapi.LogsPaginatedResponse> => {
             const {
@@ -59,7 +61,7 @@ export class Logs {
                 updatedAtGe,
                 updatedAtLe,
             } = request;
-            const _queryParams: Record<string, string | string[] | object | object[]> = {};
+            const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
             if (type_ != null) {
                 _queryParams["type"] = type_;
             }
@@ -116,16 +118,18 @@ export class Logs {
             }
             const _response = await (this._options.fetcher ?? core.fetcher)({
                 url: urlJoin(
-                    (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                    "logs"
+                    (await core.Supplier.get(this._options.baseUrl)) ??
+                        (await core.Supplier.get(this._options.environment)) ??
+                        environments.VapiEnvironment.Default,
+                    "logs",
                 ),
                 method: "GET",
                 headers: {
                     Authorization: await this._getAuthorizationHeader(),
                     "X-Fern-Language": "JavaScript",
                     "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                    "X-Fern-SDK-Version": "0.5.1",
-                    "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                    "X-Fern-SDK-Version": "0.5.2",
+                    "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                     "X-Fern-Runtime": core.RUNTIME.type,
                     "X-Fern-Runtime-Version": core.RUNTIME.version,
                     ...requestOptions?.headers,
@@ -178,10 +182,10 @@ export class Logs {
      */
     public async loggingControllerLogsDeleteQuery(
         request: Vapi.LoggingControllerLogsDeleteQueryRequest = {},
-        requestOptions?: Logs.RequestOptions
+        requestOptions?: Logs.RequestOptions,
     ): Promise<void> {
         const { type: type_, assistantId, phoneNumberId, customerId, squadId, callId } = request;
-        const _queryParams: Record<string, string | string[] | object | object[]> = {};
+        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
         if (type_ != null) {
             _queryParams["type"] = type_;
         }
@@ -208,16 +212,18 @@ export class Logs {
 
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                "logs"
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                "logs",
             ),
             method: "DELETE",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,

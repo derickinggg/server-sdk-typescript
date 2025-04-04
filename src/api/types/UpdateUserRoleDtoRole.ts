@@ -3,7 +3,6 @@
  */
 
 export type UpdateUserRoleDtoRole = "admin" | "editor" | "viewer";
-
 export const UpdateUserRoleDtoRole = {
     Admin: "admin",
     Editor: "editor",

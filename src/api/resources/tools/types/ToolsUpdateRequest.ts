@@ -15,4 +15,9 @@ export type ToolsUpdateRequest =
     | Vapi.UpdateBashToolDto
     | Vapi.UpdateComputerToolDto
     | Vapi.UpdateTextEditorToolDto
-    | Vapi.UpdateQueryToolDto;
+    | Vapi.UpdateQueryToolDto
+    | Vapi.UpdateGoogleCalendarCreateEventToolDto
+    | Vapi.UpdateGoogleSheetsRowAppendToolDto
+    | Vapi.UpdateGoogleCalendarCheckAvailabilityToolDto
+    | Vapi.UpdateSlackSendMessageToolDto
+    | Vapi.UpdateMcpToolDto;

@@ -48,4 +48,6 @@ export interface CustomTranscriber {
      * ```
      */
     server: Vapi.Server;
+    /** This is the plan for voice provider fallbacks in the event that the primary voice provider fails. */
+    fallbackPlan?: Vapi.FallbackTranscriberPlan;
 }

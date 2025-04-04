@@ -25,7 +25,7 @@ export interface ServerMessageStatusUpdate {
     messagesOpenAIFormatted?: Vapi.OpenAiMessage[];
     /** This is the destination the call is being transferred to. This is only sent if the status is "forwarding". */
     destination?: Vapi.ServerMessageStatusUpdateDestination;
-    /** This is the ISO-8601 formatted timestamp of when the message was sent. */
+    /** This is the timestamp of when the message was sent in milliseconds since Unix Epoch. */
     timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.

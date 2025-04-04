@@ -86,7 +86,6 @@ export type RimeAiVoiceIdEnum =
     | "boulder"
     | "gypsum"
     | "zest";
-
 export const RimeAiVoiceIdEnum = {
     Abbie: "abbie",
     Allison: "allison",

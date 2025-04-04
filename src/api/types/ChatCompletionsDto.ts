@@ -5,7 +5,7 @@
 import * as Vapi from "../index";
 
 export interface ChatCompletionsDto {
-    messages: Vapi.ChatCompletionMessage[];
+    messages: Vapi.ChatCompletionMessageWorkflows[];
     workflowId?: string;
     workflow?: Vapi.CreateWorkflowDto;
 }

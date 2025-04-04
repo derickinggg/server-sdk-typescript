@@ -15,7 +15,7 @@ export interface ServerMessageUserInterrupted {
     phoneNumber?: Vapi.ServerMessageUserInterruptedPhoneNumber;
     /** This is the type of the message. "user-interrupted" is sent when the user interrupts the assistant. */
     type: "user-interrupted";
-    /** This is the ISO-8601 formatted timestamp of when the message was sent. */
+    /** This is the timestamp of when the message was sent in milliseconds since Unix Epoch. */
     timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.

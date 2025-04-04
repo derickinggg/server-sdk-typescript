@@ -10,4 +10,5 @@ export type ServerMessageToolCallsToolWithToolCallListItem =
     | Vapi.MakeToolWithToolCall
     | Vapi.BashToolWithToolCall
     | Vapi.ComputerToolWithToolCall
-    | Vapi.TextEditorToolWithToolCall;
+    | Vapi.TextEditorToolWithToolCall
+    | Vapi.GoogleCalendarCreateEventToolWithToolCall;

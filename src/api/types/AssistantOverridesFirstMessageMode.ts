@@ -16,7 +16,6 @@ export type AssistantOverridesFirstMessageMode =
     | "assistant-speaks-first"
     | "assistant-speaks-first-with-model-generated-message"
     | "assistant-waits-for-user";
-
 export const AssistantOverridesFirstMessageMode = {
     AssistantSpeaksFirst: "assistant-speaks-first",
     AssistantSpeaksFirstWithModelGeneratedMessage: "assistant-speaks-first-with-model-generated-message",

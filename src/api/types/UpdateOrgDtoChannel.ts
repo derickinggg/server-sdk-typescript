@@ -6,7 +6,6 @@
  * This is the channel of the org. There is the cluster the API traffic for the org will be directed.
  */
 export type UpdateOrgDtoChannel = "default" | "weekly";
-
 export const UpdateOrgDtoChannel = {
     Default: "default",
     Weekly: "weekly",

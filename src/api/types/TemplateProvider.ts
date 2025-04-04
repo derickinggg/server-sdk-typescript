@@ -3,7 +3,6 @@
  */
 
 export type TemplateProvider = "make" | "gohighlevel" | "function";
-
 export const TemplateProvider = {
     Make: "make",
     Gohighlevel: "gohighlevel",

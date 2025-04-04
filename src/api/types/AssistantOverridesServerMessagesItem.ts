@@ -20,7 +20,6 @@ export type AssistantOverridesServerMessagesItem =
     | "transfer-update"
     | "user-interrupted"
     | "voice-input";
-
 export const AssistantOverridesServerMessagesItem = {
     ConversationUpdate: "conversation-update",
     EndOfCallReport: "end-of-call-report",

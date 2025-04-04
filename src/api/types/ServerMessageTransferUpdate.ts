@@ -17,7 +17,7 @@ export interface ServerMessageTransferUpdate {
     type: "transfer-update";
     /** This is the destination of the transfer. */
     destination?: Vapi.ServerMessageTransferUpdateDestination;
-    /** This is the ISO-8601 formatted timestamp of when the message was sent. */
+    /** This is the timestamp of when the message was sent in milliseconds since Unix Epoch. */
     timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.

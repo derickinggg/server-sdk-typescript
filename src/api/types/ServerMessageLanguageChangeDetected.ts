@@ -15,7 +15,7 @@ export interface ServerMessageLanguageChangeDetected {
     phoneNumber?: Vapi.ServerMessageLanguageChangeDetectedPhoneNumber;
     /** This is the type of the message. "language-change-detected" is sent when the transcriber is automatically switched based on the detected language. */
     type: "language-change-detected";
-    /** This is the ISO-8601 formatted timestamp of when the message was sent. */
+    /** This is the timestamp of when the message was sent in milliseconds since Unix Epoch. */
     timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.

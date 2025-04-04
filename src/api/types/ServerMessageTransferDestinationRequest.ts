@@ -15,7 +15,7 @@ export interface ServerMessageTransferDestinationRequest {
     phoneNumber?: Vapi.ServerMessageTransferDestinationRequestPhoneNumber;
     /** This is the type of the message. "transfer-destination-request" is sent when the model is requesting transfer but destination is unknown. */
     type: "transfer-destination-request";
-    /** This is the ISO-8601 formatted timestamp of when the message was sent. */
+    /** This is the timestamp of when the message was sent in milliseconds since Unix Epoch. */
     timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.

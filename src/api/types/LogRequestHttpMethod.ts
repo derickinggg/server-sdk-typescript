@@ -6,7 +6,6 @@
  * This is the request method.
  */
 export type LogRequestHttpMethod = "POST" | "GET" | "PUT" | "PATCH" | "DELETE";
-
 export const LogRequestHttpMethod = {
     Post: "POST",
     Get: "GET",

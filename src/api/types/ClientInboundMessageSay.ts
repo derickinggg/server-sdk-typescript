@@ -9,4 +9,6 @@ export interface ClientInboundMessageSay {
     content?: string;
     /** This is the flag to end call after content is spoken. */
     endCallAfterSpoken?: boolean;
+    /** This is the flag for whether the message is interruptible. */
+    interruptionsEnabled?: boolean;
 }

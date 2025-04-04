@@ -6,7 +6,6 @@
  * This is the table you want to query.
  */
 export type AnalyticsQueryTable = "call" | "subscription";
-
 export const AnalyticsQueryTable = {
     Call: "call",
     Subscription: "subscription",

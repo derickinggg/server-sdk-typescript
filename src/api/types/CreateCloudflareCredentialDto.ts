@@ -5,7 +5,6 @@
 import * as Vapi from "../index";
 
 export interface CreateCloudflareCredentialDto {
-    /** Credential provider. Only allowed value is cloudflare */
     provider: "cloudflare";
     /** Cloudflare Account Id. */
     accountId?: string;

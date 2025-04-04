@@ -8,7 +8,6 @@ export type AnalyticsQueryGroupByItem =
     | "endedReason"
     | "analysis.successEvaluation"
     | "status";
-
 export const AnalyticsQueryGroupByItem = {
     Type: "type",
     AssistantId: "assistantId",

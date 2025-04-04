@@ -3,7 +3,6 @@
  */
 
 export interface CreateXAiCredentialDto {
-    /** This is the api key for Grok in XAi's console. Get it from here: https://console.x.ai */
     provider: "xai";
     /** This is not returned in the API. */
     apiKey: string;

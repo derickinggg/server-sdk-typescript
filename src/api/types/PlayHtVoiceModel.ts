@@ -6,7 +6,6 @@
  * Playht voice model/engine to use.
  */
 export type PlayHtVoiceModel = "PlayHT2.0" | "PlayHT2.0-turbo" | "Play3.0-mini" | "PlayDialog";
-
 export const PlayHtVoiceModel = {
     PlayHt20: "PlayHT2.0",
     PlayHt20Turbo: "PlayHT2.0-turbo",

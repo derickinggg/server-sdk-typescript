@@ -7,7 +7,6 @@
  * with past due payments.
  */
 export type SubscriptionStatus = "active" | "frozen";
-
 export const SubscriptionStatus = {
     Active: "active",
     Frozen: "frozen",

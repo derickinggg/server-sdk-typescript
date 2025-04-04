@@ -7,6 +7,8 @@ export interface Analysis {
     summary?: string;
     /** This is the structured data extracted from the call. Customize by setting `assistant.analysisPlan.structuredDataPrompt` and/or `assistant.analysisPlan.structuredDataSchema`. */
     structuredData?: Record<string, unknown>;
+    /** This is the structured data catalog of the call. Customize by setting `assistant.analysisPlan.structuredDataMultiPlan`. */
+    structuredDataMulti?: Record<string, unknown>[];
     /** This is the evaluation of the call. Customize by setting `assistant.analysisPlan.successEvaluationPrompt` and/or `assistant.analysisPlan.successEvaluationRubric`. */
     successEvaluation?: string;
 }

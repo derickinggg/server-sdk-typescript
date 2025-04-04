@@ -21,7 +21,6 @@ export type CartesiaVoiceLanguage =
     | "ru"
     | "sv"
     | "tr";
-
 export const CartesiaVoiceLanguage = {
     En: "en",
     De: "de",

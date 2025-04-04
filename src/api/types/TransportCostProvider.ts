@@ -3,7 +3,6 @@
  */
 
 export type TransportCostProvider = "twilio" | "vonage" | "vapi";
-
 export const TransportCostProvider = {
     Twilio: "twilio",
     Vonage: "vonage",

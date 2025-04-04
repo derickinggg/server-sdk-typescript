@@ -20,4 +20,6 @@ export interface GladiaTranscriber {
     prosody?: boolean;
     /** If true, audio will be pre-processed to improve accuracy but latency will increase. Default value is false. */
     audioEnhancer?: boolean;
+    /** This is the plan for voice provider fallbacks in the event that the primary voice provider fails. */
+    fallbackPlan?: Vapi.FallbackTranscriberPlan;
 }

@@ -3,7 +3,6 @@
  */
 
 export type GladiaTranscriberModel = "fast" | "accurate";
-
 export const GladiaTranscriberModel = {
     Fast: "fast",
     Accurate: "accurate",

@@ -7,4 +7,6 @@ import * as Vapi from "../index";
 export type UpdateToolTemplateDtoProviderDetails =
     | Vapi.MakeToolProviderDetails
     | Vapi.GhlToolProviderDetails
-    | Vapi.FunctionToolProviderDetails;
+    | Vapi.FunctionToolProviderDetails
+    | Vapi.GoogleCalendarCreateEventToolProviderDetails
+    | Vapi.GoogleSheetsRowAppendToolProviderDetails;

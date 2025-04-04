@@ -6,7 +6,6 @@
  * This is the request to control the phone call.
  */
 export type ServerMessagePhoneCallControlRequest = "forward" | "hang-up";
-
 export const ServerMessagePhoneCallControlRequest = {
     Forward: "forward",
     HangUp: "hang-up",

@@ -6,7 +6,6 @@
  * This is the type of the transcript.
  */
 export type ServerMessageTranscriptTranscriptType = "partial" | "final";
-
 export const ServerMessageTranscriptTranscriptType = {
     Partial: "partial",
     Final: "final",

@@ -5,6 +5,6 @@
 import * as Vapi from "../index";
 
 export interface TestSuiteRunTestAttemptCall {
-    /** This is the artifact associated with the call. */
+    /** This is the artifact of the call. */
     artifact: Vapi.Artifact;
 }

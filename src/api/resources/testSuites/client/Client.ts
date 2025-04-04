@@ -9,13 +9,15 @@ import urlJoin from "url-join";
 import * as errors from "../../../../errors/index";
 
 export declare namespace TestSuites {
-    interface Options {
+    export interface Options {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
+        /** Specify a custom URL to connect the client to. */
+        baseUrl?: core.Supplier<string>;
         token: core.Supplier<core.BearerToken>;
         fetcher?: core.FetchFunction;
     }
 
-    interface RequestOptions {
+    export interface RequestOptions {
         /** The maximum time to wait for a response in seconds. */
         timeoutInSeconds?: number;
         /** The number of times to retry the request. Defaults to 2. */
@@ -36,7 +38,7 @@ export class TestSuites {
      */
     public async testSuiteControllerFindAllPaginated(
         request: Vapi.TestSuiteControllerFindAllPaginatedRequest = {},
-        requestOptions?: TestSuites.RequestOptions
+        requestOptions?: TestSuites.RequestOptions,
     ): Promise<Vapi.TestSuitesPaginatedResponse> {
         const {
             page,
@@ -51,7 +53,7 @@ export class TestSuites {
             updatedAtGe,
             updatedAtLe,
         } = request;
-        const _queryParams: Record<string, string | string[] | object | object[]> = {};
+        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
         if (page != null) {
             _queryParams["page"] = page.toString();
         }
@@ -98,16 +100,18 @@ export class TestSuites {
 
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                "test-suite"
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                "test-suite",
             ),
             method: "GET",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -151,20 +155,22 @@ export class TestSuites {
      */
     public async testSuiteControllerCreate(
         request: Vapi.CreateTestSuiteDto = {},
-        requestOptions?: TestSuites.RequestOptions
+        requestOptions?: TestSuites.RequestOptions,
     ): Promise<Vapi.TestSuite> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                "test-suite"
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                "test-suite",
             ),
             method: "POST",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -208,20 +214,22 @@ export class TestSuites {
      */
     public async testSuiteControllerFindOne(
         id: string,
-        requestOptions?: TestSuites.RequestOptions
+        requestOptions?: TestSuites.RequestOptions,
     ): Promise<Vapi.TestSuite> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                `test-suite/${encodeURIComponent(id)}`
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                `test-suite/${encodeURIComponent(id)}`,
             ),
             method: "GET",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -264,20 +272,22 @@ export class TestSuites {
      */
     public async testSuiteControllerRemove(
         id: string,
-        requestOptions?: TestSuites.RequestOptions
+        requestOptions?: TestSuites.RequestOptions,
     ): Promise<Vapi.TestSuite> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                `test-suite/${encodeURIComponent(id)}`
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                `test-suite/${encodeURIComponent(id)}`,
             ),
             method: "DELETE",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -322,20 +332,22 @@ export class TestSuites {
     public async testSuiteControllerUpdate(
         id: string,
         request: Vapi.UpdateTestSuiteDto = {},
-        requestOptions?: TestSuites.RequestOptions
+        requestOptions?: TestSuites.RequestOptions,
     ): Promise<Vapi.TestSuite> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                `test-suite/${encodeURIComponent(id)}`
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                `test-suite/${encodeURIComponent(id)}`,
             ),
             method: "PATCH",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,

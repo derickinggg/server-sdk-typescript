@@ -6,7 +6,6 @@
  * This is the type of analysis performed.
  */
 export type AnalysisCostAnalysisType = "summary" | "structuredData" | "successEvaluation";
-
 export const AnalysisCostAnalysisType = {
     Summary: "summary",
     StructuredData: "structuredData",

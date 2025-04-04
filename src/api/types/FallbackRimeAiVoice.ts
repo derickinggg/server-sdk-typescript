@@ -13,6 +13,14 @@ export interface FallbackRimeAiVoice {
     model?: Vapi.FallbackRimeAiVoiceModel;
     /** This is the speed multiplier that will be used. */
     speed?: number;
+    /** This is a flag that controls whether to add slight pauses using angle brackets. Example: “Hi. <200> I’d love to have a conversation with you.” adds a 200ms pause between the first and second sentences. */
+    pauseBetweenBrackets?: boolean;
+    /** This is a flag that controls whether text inside brackets should be phonemized (converted to phonetic pronunciation) - Example: "{h'El.o} World" will pronounce "Hello" as expected. */
+    phonemizeBetweenBrackets?: boolean;
+    /** This is a flag that controls whether to optimize for reduced latency in streaming. https://docs.rime.ai/api-reference/endpoint/websockets#param-reduce-latency */
+    reduceLatency?: boolean;
+    /** This is a string that allows inline speed control using alpha notation. https://docs.rime.ai/api-reference/endpoint/websockets#param-inline-speed-alpha */
+    inlineSpeedAlpha?: string;
     /** This is the plan for chunking the model output before it is sent to the voice provider. */
     chunkPlan?: Vapi.ChunkPlan;
 }

@@ -55,7 +55,7 @@ export interface Call {
     /** This is the transport used for the call. */
     transport?: Vapi.Transport;
     /**
-     * The ID of the call as provided by the phone number service. callSid in Twilio. conversationUuid in Vonage.
+     * The ID of the call as provided by the phone number service. callSid in Twilio. conversationUuid in Vonage. callControlId in Telnyx.
      *
      * Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type.
      */
@@ -96,4 +96,6 @@ export interface Call {
     customer?: Vapi.CreateCustomerDto;
     /** This is the name of the call. This is just for your own reference. */
     name?: string;
+    /** This is the schedule plan of the call. */
+    schedulePlan?: Vapi.SchedulePlan;
 }

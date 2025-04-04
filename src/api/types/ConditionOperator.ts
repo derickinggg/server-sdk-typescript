@@ -6,7 +6,6 @@
  * This is the operator you want to use to compare the parameter and value.
  */
 export type ConditionOperator = "eq" | "neq" | "gt" | "gte" | "lt" | "lte";
-
 export const ConditionOperator = {
     Eq: "eq",
     Neq: "neq",

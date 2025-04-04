@@ -22,7 +22,6 @@
  * This is useful when you want to provide a hint to the model about what to say next.
  */
 export type ToolMessageCompleteRole = "assistant" | "system";
-
 export const ToolMessageCompleteRole = {
     Assistant: "assistant",
     System: "system",

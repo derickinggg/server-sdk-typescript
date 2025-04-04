@@ -22,7 +22,6 @@ export type LogResource =
     | "file"
     | "metric"
     | "log";
-
 export const LogResource = {
     Org: "org",
     Assistant: "assistant",

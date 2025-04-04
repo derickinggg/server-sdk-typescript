@@ -8,4 +8,5 @@ export type PhoneNumbersUpdateRequest =
     | Vapi.UpdateByoPhoneNumberDto
     | Vapi.UpdateTwilioPhoneNumberDto
     | Vapi.UpdateVonagePhoneNumberDto
-    | Vapi.UpdateVapiPhoneNumberDto;
+    | Vapi.UpdateVapiPhoneNumberDto
+    | Vapi.UpdateTelnyxPhoneNumberDto;

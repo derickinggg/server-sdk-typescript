@@ -28,7 +28,6 @@ export type SmallestAiVoiceIdEnum =
     | "pooja"
     | "saina"
     | "sanya";
-
 export const SmallestAiVoiceIdEnum = {
     Emily: "emily",
     Jasmine: "jasmine",

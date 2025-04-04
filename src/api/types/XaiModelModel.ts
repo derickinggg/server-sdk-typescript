@@ -6,7 +6,6 @@
  * This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b
  */
 export type XaiModelModel = "grok-beta" | "grok-2" | "grok-3";
-
 export const XaiModelModel = {
     GrokBeta: "grok-beta",
     Grok2: "grok-2",

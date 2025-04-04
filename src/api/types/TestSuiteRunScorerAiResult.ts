@@ -6,7 +6,6 @@
  * This is the result of the test suite.
  */
 export type TestSuiteRunScorerAiResult = "pass" | "fail";
-
 export const TestSuiteRunScorerAiResult = {
     Pass: "pass",
     Fail: "fail",

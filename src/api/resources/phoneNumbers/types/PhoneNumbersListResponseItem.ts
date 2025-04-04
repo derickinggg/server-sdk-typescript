@@ -8,4 +8,5 @@ export type PhoneNumbersListResponseItem =
     | Vapi.ByoPhoneNumber
     | Vapi.TwilioPhoneNumber
     | Vapi.VonagePhoneNumber
-    | Vapi.VapiPhoneNumber;
+    | Vapi.VapiPhoneNumber
+    | Vapi.TelnyxPhoneNumber;

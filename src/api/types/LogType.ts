@@ -6,7 +6,6 @@
  * This is the type of the log.
  */
 export type LogType = "API" | "Webhook" | "Call" | "Provider";
-
 export const LogType = {
     Api: "API",
     Webhook: "Webhook",

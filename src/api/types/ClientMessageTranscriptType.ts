@@ -6,7 +6,6 @@
  * This is the type of the message. "transcript" is sent as transcriber outputs partial or final transcript.
  */
 export type ClientMessageTranscriptType = "transcript" | "transcript[transcriptType='final']";
-
 export const ClientMessageTranscriptType = {
     Transcript: "transcript",
     TranscriptTranscriptTypeFinal: "transcript[transcriptType='final']",

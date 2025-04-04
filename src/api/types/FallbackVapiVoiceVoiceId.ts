@@ -5,13 +5,26 @@
 /**
  * The voices provided by Vapi
  */
-export type FallbackVapiVoiceVoiceId = "Jordan" | "Adi" | "Julia" | "Maibri (Web)" | "Maibri (Phone)" | "Ashley";
-
+export type FallbackVapiVoiceVoiceId =
+    | "Elliot"
+    | "Rohan"
+    | "Lily"
+    | "Savannah"
+    | "Hana"
+    | "Neha"
+    | "Cole"
+    | "Harry"
+    | "Paige"
+    | "Spencer";
 export const FallbackVapiVoiceVoiceId = {
-    Jordan: "Jordan",
-    Adi: "Adi",
-    Julia: "Julia",
-    MaibriWeb: "Maibri (Web)",
-    MaibriPhone: "Maibri (Phone)",
-    Ashley: "Ashley",
+    Elliot: "Elliot",
+    Rohan: "Rohan",
+    Lily: "Lily",
+    Savannah: "Savannah",
+    Hana: "Hana",
+    Neha: "Neha",
+    Cole: "Cole",
+    Harry: "Harry",
+    Paige: "Paige",
+    Spencer: "Spencer",
 } as const;

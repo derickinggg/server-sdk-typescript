@@ -12,6 +12,13 @@ export interface OpenAiVoice {
      * Please note that ash, ballad, coral, sage, and verse may only be used with realtime models.
      */
     voiceId: Vapi.OpenAiVoiceId;
+    /** This is the model that will be used for text-to-speech. */
+    model?: Vapi.OpenAiVoiceModel;
+    /**
+     * This is a prompt that allows you to control the voice of your generated audio.
+     * Does not work with 'tts-1' or 'tts-1-hd' models.
+     */
+    instructions?: string;
     /** This is the speed multiplier that will be used. */
     speed?: number;
     /** This is the plan for chunking the model output before it is sent to the voice provider. */

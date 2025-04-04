@@ -3,7 +3,6 @@
  */
 
 export type LmntVoiceIdEnum = "lily" | "daniel";
-
 export const LmntVoiceIdEnum = {
     Lily: "lily",
     Daniel: "daniel",

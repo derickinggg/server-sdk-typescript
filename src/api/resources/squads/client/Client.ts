@@ -9,13 +9,15 @@ import urlJoin from "url-join";
 import * as errors from "../../../../errors/index";
 
 export declare namespace Squads {
-    interface Options {
+    export interface Options {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
+        /** Specify a custom URL to connect the client to. */
+        baseUrl?: core.Supplier<string>;
         token: core.Supplier<core.BearerToken>;
         fetcher?: core.FetchFunction;
     }
 
-    interface RequestOptions {
+    export interface RequestOptions {
         /** The maximum time to wait for a response in seconds. */
         timeoutInSeconds?: number;
         /** The number of times to retry the request. Defaults to 2. */
@@ -36,7 +38,7 @@ export class Squads {
      */
     public async list(
         request: Vapi.SquadsListRequest = {},
-        requestOptions?: Squads.RequestOptions
+        requestOptions?: Squads.RequestOptions,
     ): Promise<Vapi.Squad[]> {
         const {
             limit,
@@ -49,7 +51,7 @@ export class Squads {
             updatedAtGe,
             updatedAtLe,
         } = request;
-        const _queryParams: Record<string, string | string[] | object | object[]> = {};
+        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
         if (limit != null) {
             _queryParams["limit"] = limit.toString();
         }
@@ -88,16 +90,18 @@ export class Squads {
 
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                "squad"
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                "squad",
             ),
             method: "GET",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -142,16 +146,18 @@ export class Squads {
     public async create(request: Vapi.CreateSquadDto, requestOptions?: Squads.RequestOptions): Promise<Vapi.Squad> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                "squad"
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                "squad",
             ),
             method: "POST",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -196,16 +202,18 @@ export class Squads {
     public async get(id: string, requestOptions?: Squads.RequestOptions): Promise<Vapi.Squad> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                `squad/${encodeURIComponent(id)}`
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                `squad/${encodeURIComponent(id)}`,
             ),
             method: "GET",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -249,16 +257,18 @@ export class Squads {
     public async delete(id: string, requestOptions?: Squads.RequestOptions): Promise<Vapi.Squad> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                `squad/${encodeURIComponent(id)}`
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                `squad/${encodeURIComponent(id)}`,
             ),
             method: "DELETE",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -303,20 +313,22 @@ export class Squads {
     public async update(
         id: string,
         request: Vapi.UpdateSquadDto,
-        requestOptions?: Squads.RequestOptions
+        requestOptions?: Squads.RequestOptions,
     ): Promise<Vapi.Squad> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                `squad/${encodeURIComponent(id)}`
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                `squad/${encodeURIComponent(id)}`,
             ),
             method: "PATCH",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,

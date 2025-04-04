@@ -17,8 +17,8 @@ export type UpdateAssistantDtoClientMessagesItem =
     | "tool-calls-result"
     | "transfer-update"
     | "user-interrupted"
-    | "voice-input";
-
+    | "voice-input"
+    | "workflow.node.started";
 export const UpdateAssistantDtoClientMessagesItem = {
     ConversationUpdate: "conversation-update",
     FunctionCall: "function-call",
@@ -35,4 +35,5 @@ export const UpdateAssistantDtoClientMessagesItem = {
     TransferUpdate: "transfer-update",
     UserInterrupted: "user-interrupted",
     VoiceInput: "voice-input",
+    WorkflowNodeStarted: "workflow.node.started",
 } as const;

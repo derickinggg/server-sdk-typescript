@@ -18,7 +18,6 @@ export type FallbackOpenAiVoiceId =
     | "coral"
     | "sage"
     | "verse";
-
 export const FallbackOpenAiVoiceId = {
     Alloy: "alloy",
     Echo: "echo",

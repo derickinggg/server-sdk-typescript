@@ -6,7 +6,6 @@
  * This is the current status of the test suite run.
  */
 export type TestSuiteRunStatus = "queued" | "in-progress" | "completed" | "failed";
-
 export const TestSuiteRunStatus = {
     Queued: "queued",
     InProgress: "in-progress",

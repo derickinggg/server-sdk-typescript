@@ -6,6 +6,8 @@ import * as Vapi from "../index";
 
 export interface Workflow {
     nodes: Vapi.WorkflowNodesItem[];
+    /** These are the options for the workflow's LLM. */
+    model?: Vapi.WorkflowModel;
     id: string;
     orgId: string;
     createdAt: string;

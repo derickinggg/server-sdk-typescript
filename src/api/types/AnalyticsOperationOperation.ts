@@ -6,7 +6,6 @@
  * This is the aggregation operation you want to perform.
  */
 export type AnalyticsOperationOperation = "sum" | "avg" | "count" | "min" | "max" | "history";
-
 export const AnalyticsOperationOperation = {
     Sum: "sum",
     Avg: "avg",

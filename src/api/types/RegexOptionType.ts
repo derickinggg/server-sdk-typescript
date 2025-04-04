@@ -9,7 +9,6 @@
  * - `multi-line`: Matches across multiple lines.
  */
 export type RegexOptionType = "ignore-case" | "whole-word" | "multi-line";
-
 export const RegexOptionType = {
     IgnoreCase: "ignore-case",
     WholeWord: "whole-word",

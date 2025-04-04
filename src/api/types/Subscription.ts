@@ -89,4 +89,11 @@ export interface Subscription {
     couponUsageLeft?: string;
     /** This is the invoice plan for the subscription. */
     invoicePlan?: Vapi.InvoicePlan;
+    /**
+     * This is the PCI enabled flag for the subscription. It determines whether orgs under this
+     * subscription have the option to enable PCI compliance.
+     */
+    pciEnabled?: boolean;
+    /** This is the ID for the Common Paper agreement outlining the PCI contract. */
+    pciCommonPaperAgreementId?: string;
 }

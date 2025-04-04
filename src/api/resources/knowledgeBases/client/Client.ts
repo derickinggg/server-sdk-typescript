@@ -9,13 +9,15 @@ import urlJoin from "url-join";
 import * as errors from "../../../../errors/index";
 
 export declare namespace KnowledgeBases {
-    interface Options {
+    export interface Options {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
+        /** Specify a custom URL to connect the client to. */
+        baseUrl?: core.Supplier<string>;
         token: core.Supplier<core.BearerToken>;
         fetcher?: core.FetchFunction;
     }
 
-    interface RequestOptions {
+    export interface RequestOptions {
         /** The maximum time to wait for a response in seconds. */
         timeoutInSeconds?: number;
         /** The number of times to retry the request. Defaults to 2. */
@@ -36,7 +38,7 @@ export class KnowledgeBases {
      */
     public async list(
         request: Vapi.KnowledgeBasesListRequest = {},
-        requestOptions?: KnowledgeBases.RequestOptions
+        requestOptions?: KnowledgeBases.RequestOptions,
     ): Promise<Vapi.KnowledgeBasesListResponseItem[]> {
         const {
             limit,
@@ -49,7 +51,7 @@ export class KnowledgeBases {
             updatedAtGe,
             updatedAtLe,
         } = request;
-        const _queryParams: Record<string, string | string[] | object | object[]> = {};
+        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
         if (limit != null) {
             _queryParams["limit"] = limit.toString();
         }
@@ -88,16 +90,18 @@ export class KnowledgeBases {
 
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                "knowledge-base"
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                "knowledge-base",
             ),
             method: "GET",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -141,20 +145,22 @@ export class KnowledgeBases {
      */
     public async create(
         request: Vapi.KnowledgeBasesCreateRequest,
-        requestOptions?: KnowledgeBases.RequestOptions
+        requestOptions?: KnowledgeBases.RequestOptions,
     ): Promise<Vapi.KnowledgeBasesCreateResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                "knowledge-base"
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                "knowledge-base",
             ),
             method: "POST",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -198,20 +204,22 @@ export class KnowledgeBases {
      */
     public async get(
         id: string,
-        requestOptions?: KnowledgeBases.RequestOptions
+        requestOptions?: KnowledgeBases.RequestOptions,
     ): Promise<Vapi.KnowledgeBasesGetResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                `knowledge-base/${encodeURIComponent(id)}`
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                `knowledge-base/${encodeURIComponent(id)}`,
             ),
             method: "GET",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -254,20 +262,22 @@ export class KnowledgeBases {
      */
     public async delete(
         id: string,
-        requestOptions?: KnowledgeBases.RequestOptions
+        requestOptions?: KnowledgeBases.RequestOptions,
     ): Promise<Vapi.KnowledgeBasesDeleteResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                `knowledge-base/${encodeURIComponent(id)}`
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                `knowledge-base/${encodeURIComponent(id)}`,
             ),
             method: "DELETE",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -312,20 +322,22 @@ export class KnowledgeBases {
     public async update(
         id: string,
         request: Vapi.KnowledgeBasesUpdateRequest,
-        requestOptions?: KnowledgeBases.RequestOptions
+        requestOptions?: KnowledgeBases.RequestOptions,
     ): Promise<Vapi.KnowledgeBasesUpdateResponse> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.VapiEnvironment.Default,
-                `knowledge-base/${encodeURIComponent(id)}`
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                `knowledge-base/${encodeURIComponent(id)}`,
             ),
             method: "PATCH",
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.5.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.5.1",
+                "X-Fern-SDK-Version": "0.5.2",
+                "User-Agent": "@vapi-ai/server-sdk/0.5.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,

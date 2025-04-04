@@ -6,6 +6,8 @@ import * as Vapi from "../index";
 
 export interface CreateWorkflowDto {
     nodes: Vapi.CreateWorkflowDtoNodesItem[];
+    /** These are the options for the workflow's LLM. */
+    model?: Vapi.CreateWorkflowDtoModel;
     name: string;
     edges: Vapi.Edge[];
 }

@@ -28,7 +28,6 @@ export type FallbackSmallestAiVoiceIdEnum =
     | "pooja"
     | "saina"
     | "sanya";
-
 export const FallbackSmallestAiVoiceIdEnum = {
     Emily: "emily",
     Jasmine: "jasmine",

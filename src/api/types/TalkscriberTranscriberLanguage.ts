@@ -106,7 +106,6 @@ export type TalkscriberTranscriberLanguage =
     | "jw"
     | "su"
     | "yue";
-
 export const TalkscriberTranscriberLanguage = {
     En: "en",
     Zh: "zh",

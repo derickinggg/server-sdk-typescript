@@ -20,19 +20,14 @@ export interface StartSpeakingPlan {
      * @default 0.4
      */
     waitSeconds?: number;
+    smartEndpointingEnabled?: Record<string, unknown>;
     /**
-     * This determines if a customer speech is considered done (endpointing) using a Vapi custom-trained model on customer's speech. This is good for middle-of-thought detection.
+     * This is the plan for smart endpointing. Pick between Vapi smart endpointing or LiveKit smart endpointing (or nothing). We strongly recommend using livekit endpointing when working in English. LiveKit endpointing is not supported in other languages, yet.
      *
-     * Once an endpoint is triggered, the request is sent to `assistant.model`.
-     *
-     * Usage:
-     * - If your conversations are long-form and you want assistant to wait smartly even if customer pauses for a bit to think, you can use this instead.
-     *
-     * This overrides `transcriptionEndpointingPlan`.
-     *
-     * @default false
+     * If this is set, it will override and take precedence over `transcriptionEndpointingPlan`.
+     * This plan will still be overridden by any matching `customEndpointingRules`.
      */
-    smartEndpointingEnabled?: boolean;
+    smartEndpointingPlan?: Vapi.StartSpeakingPlanSmartEndpointingPlan;
     /**
      * These are the custom endpointing rules to set an endpointing timeout based on a regex on the customer's speech or the assistant's last message.
      *
@@ -41,9 +36,14 @@ export interface StartSpeakingPlan {
      * - If you have questions where the customer may pause to look up information like "what's my account number?", you can set a longer timeout.
      * - If you want to wait longer while customer is enumerating a list of numbers, you can set a longer timeout.
      *
-     * These override `transcriptionEndpointingPlan` and `smartEndpointingEnabled` when a rule is matched.
+     * These rules have the highest precedence and will override both `smartEndpointingPlan` and `transcriptionEndpointingPlan` when a rule is matched.
      *
      * The rules are evaluated in order and the first one that matches will be used.
+     *
+     * Order of precedence for endpointing:
+     * 1. customEndpointingRules (if any match)
+     * 2. smartEndpointingPlan (if set)
+     * 3. transcriptionEndpointingPlan
      *
      * @default []
      */
@@ -52,6 +52,9 @@ export interface StartSpeakingPlan {
      * This determines how a customer speech is considered done (endpointing) using the transcription of customer's speech.
      *
      * Once an endpoint is triggered, the request is sent to `assistant.model`.
+     *
+     * Note: This plan is only used if `smartEndpointingPlan` is not set. If both are provided, `smartEndpointingPlan` takes precedence.
+     * This plan will also be overridden by any matching `customEndpointingRules`.
      */
     transcriptionEndpointingPlan?: Vapi.TranscriptionEndpointingPlan;
 }

@@ -13,7 +13,6 @@
  * @default 'mono'
  */
 export type TransportConfigurationTwilioRecordingChannels = "mono" | "dual";
-
 export const TransportConfigurationTwilioRecordingChannels = {
     Mono: "mono",
     Dual: "dual",

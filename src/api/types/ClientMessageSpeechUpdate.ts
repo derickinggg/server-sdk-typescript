@@ -11,4 +11,6 @@ export interface ClientMessageSpeechUpdate {
     status: Vapi.ClientMessageSpeechUpdateStatus;
     /** This is the role which the speech update is for. */
     role: Vapi.ClientMessageSpeechUpdateRole;
+    /** This is the turn number of the speech update (0-indexed). */
+    turn?: number;
 }

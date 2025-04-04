@@ -3,7 +3,6 @@
  */
 
 export type AzureVoiceIdEnum = "andrew" | "brian" | "emma";
-
 export const AzureVoiceIdEnum = {
     Andrew: "andrew",
     Brian: "brian",

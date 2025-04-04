@@ -3,7 +3,6 @@
  */
 
 export type FileStatus = "processing" | "done" | "failed";
-
 export const FileStatus = {
     Processing: "processing",
     Done: "done",

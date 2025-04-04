@@ -13,7 +13,6 @@ export type FallbackPlayHtVoiceIdEnum =
     | "davis"
     | "donna"
     | "michael";
-
 export const FallbackPlayHtVoiceIdEnum = {
     Jennifer: "jennifer",
     Melissa: "melissa",

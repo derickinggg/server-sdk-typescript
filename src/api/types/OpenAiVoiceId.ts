@@ -18,7 +18,6 @@ export type OpenAiVoiceId =
     | "coral"
     | "sage"
     | "verse";
-
 export const OpenAiVoiceId = {
     Alloy: "alloy",
     Echo: "echo",

@@ -48,7 +48,6 @@ export type PunctuationBoundary =
     /**
      * : */
     | ":";
-
 export const PunctuationBoundary = {
     Circle: "\u3002",
     FullWidthComma: "\uFF0C",

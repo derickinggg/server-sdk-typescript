@@ -3,7 +3,6 @@
  */
 
 export type FallbackAzureVoiceVoiceId = "andrew" | "brian" | "emma";
-
 export const FallbackAzureVoiceVoiceId = {
     Andrew: "andrew",
     Brian: "brian",

@@ -6,7 +6,6 @@
  * This is the status of the phone number.
  */
 export type TwilioPhoneNumberStatus = "active" | "activating" | "blocked";
-
 export const TwilioPhoneNumberStatus = {
     Active: "active",
     Activating: "activating",

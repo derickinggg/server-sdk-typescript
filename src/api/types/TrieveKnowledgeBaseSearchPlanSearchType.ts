@@ -6,7 +6,6 @@
  * This is the search method used when searching for relevant chunks from the vector store.
  */
 export type TrieveKnowledgeBaseSearchPlanSearchType = "fulltext" | "semantic" | "hybrid" | "bm25";
-
 export const TrieveKnowledgeBaseSearchPlanSearchType = {
     Fulltext: "fulltext",
     Semantic: "semantic",

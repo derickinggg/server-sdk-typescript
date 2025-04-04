@@ -6,7 +6,6 @@
  * This is the role for which the transcript is for.
  */
 export type ServerMessageTranscriptRole = "assistant" | "user";
-
 export const ServerMessageTranscriptRole = {
     Assistant: "assistant",
     User: "user",

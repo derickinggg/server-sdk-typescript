@@ -10,12 +10,13 @@ import * as Vapi from "../../../index";
 export type UpdateAssistantDtoModel =
     | Vapi.AnyscaleModel
     | Vapi.AnthropicModel
+    | Vapi.CerebrasModel
     | Vapi.CustomLlmModel
     | Vapi.DeepInfraModel
+    | Vapi.DeepSeekModel
     | Vapi.GoogleModel
     | Vapi.GroqModel
     | Vapi.InflectionAiModel
-    | Vapi.DeepSeekModel
     | Vapi.OpenAiModel
     | Vapi.OpenRouterModel
     | Vapi.PerplexityAiModel

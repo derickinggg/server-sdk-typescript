@@ -6,7 +6,6 @@
  * This is the status of the phone number.
  */
 export type ByoPhoneNumberStatus = "active" | "activating" | "blocked";
-
 export const ByoPhoneNumberStatus = {
     Active: "active",
     Activating: "activating",

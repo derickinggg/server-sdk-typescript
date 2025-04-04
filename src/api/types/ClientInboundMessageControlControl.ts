@@ -6,7 +6,6 @@
  * This is the control action
  */
 export type ClientInboundMessageControlControl = "mute-assistant" | "unmute-assistant" | "say-first-message";
-
 export const ClientInboundMessageControlControl = {
     MuteAssistant: "mute-assistant",
     UnmuteAssistant: "unmute-assistant",

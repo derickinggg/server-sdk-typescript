@@ -21,7 +21,6 @@ export type CreateAzureOpenAiCredentialDtoRegion =
     | "uk"
     | "westus"
     | "westus3";
-
 export const CreateAzureOpenAiCredentialDtoRegion = {
     Australia: "australia",
     Canadaeast: "canadaeast",

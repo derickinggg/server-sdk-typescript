@@ -15,7 +15,6 @@ export type DeepgramVoiceIdEnum =
     | "orpheus"
     | "helios"
     | "zeus";
-
 export const DeepgramVoiceIdEnum = {
     Asteria: "asteria",
     Luna: "luna",

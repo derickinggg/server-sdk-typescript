@@ -39,6 +39,8 @@ export interface CustomLlmModel {
     metadataSendMode?: Vapi.CustomLlmModelMetadataSendMode;
     /** These is the URL we'll use for the OpenAI client's `baseURL`. Ex. https://openrouter.ai/api/v1 */
     url: string;
+    /** This sets the timeout for the connection to the custom provider without needing to stream any tokens back. Default is 20 seconds. */
+    timeoutSeconds?: number;
     /** This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b */
     model: string;
     /** This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency. */

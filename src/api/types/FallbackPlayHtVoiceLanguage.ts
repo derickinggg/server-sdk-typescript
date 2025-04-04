@@ -43,7 +43,6 @@ export type FallbackPlayHtVoiceLanguage =
     | "ukrainian"
     | "urdu"
     | "xhosa";
-
 export const FallbackPlayHtVoiceLanguage = {
     Afrikaans: "afrikaans",
     Albanian: "albanian",

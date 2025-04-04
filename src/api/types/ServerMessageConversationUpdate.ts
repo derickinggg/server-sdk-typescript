@@ -19,7 +19,7 @@ export interface ServerMessageConversationUpdate {
     messages?: Vapi.ServerMessageConversationUpdateMessagesItem[];
     /** This is the most up-to-date conversation history at the time the message is sent, formatted for OpenAI. */
     messagesOpenAIFormatted: Vapi.OpenAiMessage[];
-    /** This is the ISO-8601 formatted timestamp of when the message was sent. */
+    /** This is the timestamp of when the message was sent in milliseconds since Unix Epoch. */
     timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.

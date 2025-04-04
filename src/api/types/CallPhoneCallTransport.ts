@@ -8,7 +8,6 @@
  * Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type.
  */
 export type CallPhoneCallTransport = "sip" | "pstn";
-
 export const CallPhoneCallTransport = {
     Sip: "sip",
     Pstn: "pstn",

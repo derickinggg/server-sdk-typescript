@@ -6,7 +6,6 @@
  * This is the role which the speech update is for.
  */
 export type ClientMessageSpeechUpdateRole = "assistant" | "user";
-
 export const ClientMessageSpeechUpdateRole = {
     Assistant: "assistant",
     User: "user",

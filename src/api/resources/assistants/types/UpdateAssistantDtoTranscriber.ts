@@ -12,5 +12,9 @@ export type UpdateAssistantDtoTranscriber =
     | Vapi.AzureSpeechTranscriber
     | Vapi.CustomTranscriber
     | Vapi.DeepgramTranscriber
+    | Vapi.ElevenLabsTranscriber
     | Vapi.GladiaTranscriber
-    | Vapi.TalkscriberTranscriber;
+    | Vapi.SpeechmaticsTranscriber
+    | Vapi.TalkscriberTranscriber
+    | Vapi.GoogleTranscriber
+    | Vapi.OpenAiTranscriber;

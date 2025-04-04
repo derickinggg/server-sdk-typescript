@@ -3,7 +3,6 @@
  */
 
 export type GeminiMultimodalLivePrebuiltVoiceConfigVoiceName = "Puck" | "Charon" | "Kore" | "Fenrir" | "Aoede";
-
 export const GeminiMultimodalLivePrebuiltVoiceConfigVoiceName = {
     Puck: "Puck",
     Charon: "Charon",

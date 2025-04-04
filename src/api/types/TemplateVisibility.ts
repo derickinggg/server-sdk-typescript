@@ -3,7 +3,6 @@
  */
 
 export type TemplateVisibility = "public" | "private";
-
 export const TemplateVisibility = {
     Public: "public",
     Private: "private",

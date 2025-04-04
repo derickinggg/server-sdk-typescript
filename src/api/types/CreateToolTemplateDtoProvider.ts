@@ -3,7 +3,6 @@
  */
 
 export type CreateToolTemplateDtoProvider = "make" | "gohighlevel" | "function";
-
 export const CreateToolTemplateDtoProvider = {
     Make: "make",
     Gohighlevel: "gohighlevel",

@@ -18,6 +18,12 @@ export interface ArtifactPlan {
      */
     recordingEnabled?: boolean;
     /**
+     * This determines the format of the recording. Defaults to `wav;l16`.
+     *
+     * @default 'wav;l16'
+     */
+    recordingFormat?: Vapi.ArtifactPlanRecordingFormat;
+    /**
      * This determines whether the video is recorded during the call. Defaults to false. Only relevant for `webCall` type.
      *
      * You can find the video recording at `call.artifact.videoRecordingUrl` after the call is ended.

@@ -23,7 +23,7 @@ export interface ServerMessagePhoneCallControl {
     request: Vapi.ServerMessagePhoneCallControlRequest;
     /** This is the destination to forward the call to if the request is "forward". */
     destination?: Vapi.ServerMessagePhoneCallControlDestination;
-    /** This is the ISO-8601 formatted timestamp of when the message was sent. */
+    /** This is the timestamp of when the message was sent in milliseconds since Unix Epoch. */
     timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.

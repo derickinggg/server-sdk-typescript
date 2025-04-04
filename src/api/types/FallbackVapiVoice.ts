@@ -9,6 +9,18 @@ export interface FallbackVapiVoice {
     provider: "vapi";
     /** The voices provided by Vapi */
     voiceId: Vapi.FallbackVapiVoiceVoiceId;
+    /**
+     * This is the speed multiplier that will be used.
+     *
+     * @default 1
+     */
+    speed?: number;
+    /**
+     * This is the language code (ISO 639-1) that will be used.
+     *
+     * @default 'en-US'
+     */
+    language?: Vapi.FallbackVapiVoiceLanguage;
     /** This is the plan for chunking the model output before it is sent to the voice provider. */
     chunkPlan?: Vapi.ChunkPlan;
 }

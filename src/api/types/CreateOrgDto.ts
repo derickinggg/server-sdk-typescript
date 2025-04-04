@@ -31,4 +31,13 @@ export interface CreateOrgDto {
     server?: Vapi.Server;
     /** This is the concurrency limit for the org. This is the maximum number of calls that can be active at any given time. To go beyond 10, please contact us at support@vapi.ai. */
     concurrencyLimit?: number;
+    /**
+     * Stores the information about the compliance plan enforced at the organization level. Currently pciEnabled is supported through this field.
+     * When this is enabled, any logs, recordings, or transcriptions will be shipped to the customer endpoints if provided else lost.
+     * At the end of the call, you will receive an end-of-call-report message to store on your server, if webhook is provided.
+     * Defaults to false.
+     * When PCI is enabled, only PCI-compliant Providers will be available for LLM, Voice and transcribers.
+     * This is due to the compliance requirements of PCI. Other providers may not meet these requirements.
+     */
+    compliancePlan?: Vapi.CompliancePlan;
 }

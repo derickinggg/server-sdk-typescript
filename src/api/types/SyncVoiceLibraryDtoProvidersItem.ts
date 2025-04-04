@@ -11,14 +11,13 @@ export type SyncVoiceLibraryDtoProvidersItem =
     | "deepgram"
     | "hume"
     | "lmnt"
-    | "neets"
     | "neuphonic"
     | "openai"
     | "playht"
     | "rime-ai"
     | "smallest-ai"
-    | "tavus";
-
+    | "tavus"
+    | "sesame";
 export const SyncVoiceLibraryDtoProvidersItem = {
     Vapi: "vapi",
     ElevenLabs: "11labs",
@@ -28,11 +27,11 @@ export const SyncVoiceLibraryDtoProvidersItem = {
     Deepgram: "deepgram",
     Hume: "hume",
     Lmnt: "lmnt",
-    Neets: "neets",
     Neuphonic: "neuphonic",
     Openai: "openai",
     Playht: "playht",
     RimeAi: "rime-ai",
     SmallestAi: "smallest-ai",
     Tavus: "tavus",
+    Sesame: "sesame",
 } as const;

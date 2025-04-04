@@ -8,7 +8,6 @@
  * @default udp
  */
 export type SipTrunkGatewayOutboundProtocol = "tls/srtp" | "tcp" | "tls" | "udp";
-
 export const SipTrunkGatewayOutboundProtocol = {
     TlsSrtp: "tls/srtp",
     Tcp: "tcp",

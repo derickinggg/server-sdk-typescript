@@ -6,7 +6,6 @@
  * This is the status of the speech update.
  */
 export type ServerMessageSpeechUpdateStatus = "started" | "stopped";
-
 export const ServerMessageSpeechUpdateStatus = {
     Started: "started",
     Stopped: "stopped",

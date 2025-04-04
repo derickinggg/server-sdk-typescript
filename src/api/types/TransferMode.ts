@@ -3,7 +3,6 @@
  */
 
 export type TransferMode = "rolling-history" | "swap-system-message-in-history";
-
 export const TransferMode = {
     RollingHistory: "rolling-history",
     SwapSystemMessageInHistory: "swap-system-message-in-history",

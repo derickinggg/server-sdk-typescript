@@ -6,7 +6,6 @@
  * This is the status of the phone number.
  */
 export type VonagePhoneNumberStatus = "active" | "activating" | "blocked";
-
 export const VonagePhoneNumberStatus = {
     Active: "active",
     Activating: "activating",

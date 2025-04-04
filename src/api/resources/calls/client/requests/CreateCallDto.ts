@@ -5,8 +5,16 @@
 import * as Vapi from "../../../../index";
 
 export interface CreateCallDto {
+    /**
+     * This is used to issue batch calls to multiple customers.
+     *
+     * Only relevant for `outboundPhoneCall`. To call a single customer, use `customer` instead.
+     */
+    customers?: Vapi.CreateCustomerDto[];
     /** This is the name of the call. This is just for your own reference. */
     name?: string;
+    /** This is the schedule plan of the call. */
+    schedulePlan?: Vapi.SchedulePlan;
     /** This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead. */
     assistantId?: string;
     /** This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead. */

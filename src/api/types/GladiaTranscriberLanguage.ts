@@ -105,7 +105,6 @@ export type GladiaTranscriberLanguage =
     | "cy"
     | "yi"
     | "yo";
-
 export const GladiaTranscriberLanguage = {
     Af: "af",
     Sq: "sq",

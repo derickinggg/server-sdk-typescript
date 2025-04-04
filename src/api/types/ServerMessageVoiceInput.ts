@@ -15,7 +15,7 @@ export interface ServerMessageVoiceInput {
     phoneNumber?: Vapi.ServerMessageVoiceInputPhoneNumber;
     /** This is the type of the message. "voice-input" is sent when a generation is requested from voice provider. */
     type: "voice-input";
-    /** This is the ISO-8601 formatted timestamp of when the message was sent. */
+    /** This is the timestamp of when the message was sent in milliseconds since Unix Epoch. */
     timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.

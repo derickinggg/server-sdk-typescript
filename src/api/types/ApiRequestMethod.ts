@@ -3,7 +3,6 @@
  */
 
 export type ApiRequestMethod = "POST" | "GET";
-
 export const ApiRequestMethod = {
     Post: "POST",
     Get: "GET",

@@ -6,7 +6,6 @@
  * The gender of the voice.
  */
 export type VoiceLibraryGender = "male" | "female";
-
 export const VoiceLibraryGender = {
     Male: "male",
     Female: "female",

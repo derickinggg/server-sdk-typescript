@@ -17,6 +17,7 @@ export interface AssistantOverrides {
      * If unspecified, assistant will wait for user to speak and use the model to respond once they speak.
      */
     firstMessage?: string;
+    firstMessageInterruptionsEnabled?: boolean;
     /**
      * This is the mode for the first message. Default is 'assistant-speaks-first'.
      *
@@ -33,8 +34,8 @@ export interface AssistantOverrides {
      * This uses Twilio's built-in detection while the VoicemailTool relies on the model to detect if a voicemail was reached.
      * You can use neither of them, one of them, or both of them. By default, Twilio built-in detection is enabled while VoicemailTool is not.
      */
-    voicemailDetection?: Record<string, unknown>;
-    /** These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input. You can check the shape of the messages in ClientMessage schema. */
+    voicemailDetection?: Vapi.AssistantOverridesVoicemailDetection;
+    /** These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input,workflow.node.started. You can check the shape of the messages in ClientMessage schema. */
     clientMessages?: Vapi.AssistantOverridesClientMessagesItem[];
     /** These are the messages that will be sent to your Server URL. Default is conversation-update,end-of-call-report,function-call,hang,speech-update,status-update,tool-calls,transfer-destination-request,user-interrupted. You can check the shape of the messages in ServerMessage schema. */
     serverMessages?: Vapi.AssistantOverridesServerMessagesItem[];
@@ -50,7 +51,10 @@ export interface AssistantOverrides {
      * @default 600 (10 minutes)
      */
     maxDurationSeconds?: number;
-    /** This is the background sound in the call. Default for phone calls is 'office' and default for web calls is 'off'. */
+    /**
+     * This is the background sound in the call. Default for phone calls is 'office' and default for web calls is 'off'.
+     * You can also provide a custom sound by providing a URL to an audio file.
+     */
     backgroundSound?: Vapi.AssistantOverridesBackgroundSound;
     /**
      * This enables filtering of noise and background speech while the user is talking.
@@ -70,6 +74,11 @@ export interface AssistantOverrides {
     modelOutputInMessagesEnabled?: boolean;
     /** These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. You can store multiple configurations for different transport providers. For a call, only the configuration matching the call transport provider is used. */
     transportConfigurations?: Vapi.TransportConfigurationTwilio[];
+    /**
+     * This is the plan for observability configuration of assistant's calls.
+     * Currently supports Langfuse for tracing and monitoring.
+     */
+    observabilityPlan?: Vapi.LangfuseObservabilityPlan;
     /** These are dynamic credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can supplement an additional credentials using this. Dynamic credentials override existing credentials. */
     credentials?: Vapi.AssistantOverridesCredentialsItem[];
     /**
@@ -78,7 +87,7 @@ export interface AssistantOverrides {
      *
      * So for example, `{{ name }}` will be replaced with the value of `name` in `variableValues`.
      * `{{"now" | date: "%b %d, %Y, %I:%M %p", "America/New_York"}}` will be replaced with the current date and time in New York.
-     *  Some Vapi reserved defaults:
+     *  Some VAPI reserved defaults:
      *  - *customer* - the customer object
      */
     variableValues?: Record<string, unknown>;

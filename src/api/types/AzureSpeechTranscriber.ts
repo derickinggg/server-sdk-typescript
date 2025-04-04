@@ -9,4 +9,6 @@ export interface AzureSpeechTranscriber {
     provider: "azure";
     /** This is the language that will be set for the transcription. The list of languages Azure supports can be found here: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=stt */
     language?: Vapi.AzureSpeechTranscriberLanguage;
+    /** This is the plan for voice provider fallbacks in the event that the primary voice provider fails. */
+    fallbackPlan?: Vapi.FallbackTranscriberPlan;
 }

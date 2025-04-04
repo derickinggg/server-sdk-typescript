@@ -3,7 +3,6 @@
  */
 
 export interface CreateGoogleCredentialDto {
-    /** This is the key for Gemini in Google AI Studio. Get it from here: https://aistudio.google.com/app/apikey */
     provider: "google";
     /** This is not returned in the API. */
     apiKey: string;

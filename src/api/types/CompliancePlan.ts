@@ -3,8 +3,14 @@
  */
 
 export interface CompliancePlan {
-    /** When this is enabled, no logs, recordings, or transcriptions will be stored. At the end of the call, you will still receive an end-of-call-report message to store on your server. Defaults to false. */
+    /**
+     * When this is enabled, no logs, recordings, or transcriptions will be stored.
+     * At the end of the call, you will still receive an end-of-call-report message to store on your server. Defaults to false.
+     */
     hipaaEnabled?: boolean;
-    /** When this is enabled, the user will be restricted to use PCI-compliant providers, and no logs or transcripts are stored. At the end of the call, you will receive an end-of-call-report message to store on your server. Defaults to false. */
+    /**
+     * When this is enabled, the user will be restricted to use PCI-compliant providers, and no logs or transcripts are stored.
+     * At the end of the call, you will receive an end-of-call-report message to store on your server. Defaults to false.
+     */
     pciEnabled?: boolean;
 }

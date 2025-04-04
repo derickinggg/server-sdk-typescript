@@ -149,7 +149,6 @@ export type AzureSpeechTranscriberLanguage =
     | "zh-HK"
     | "zh-TW"
     | "zu-ZA";
-
 export const AzureSpeechTranscriberLanguage = {
     AfZa: "af-ZA",
     AmEt: "am-ET",

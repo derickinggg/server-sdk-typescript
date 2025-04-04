@@ -13,7 +13,6 @@ export type AnthropicModelModel =
     | "claude-3-5-sonnet-20241022"
     | "claude-3-5-haiku-20241022"
     | "claude-3-7-sonnet-20250219";
-
 export const AnthropicModelModel = {
     Claude3Opus20240229: "claude-3-opus-20240229",
     Claude3Sonnet20240229: "claude-3-sonnet-20240229",

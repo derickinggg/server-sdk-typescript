@@ -18,7 +18,6 @@ export type FallbackPlayHtVoiceEmotion =
     | "male_fearful"
     | "male_disgust"
     | "male_surprised";
-
 export const FallbackPlayHtVoiceEmotion = {
     FemaleHappy: "female_happy",
     FemaleSad: "female_sad",

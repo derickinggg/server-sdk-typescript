@@ -55,6 +55,12 @@ export interface DeepgramTranscriber {
      * @default false
      */
     mipOptOut?: boolean;
+    /**
+     * If set to true, this will cause deepgram to convert spoken numbers to literal numerals. For example, "my phone number is nine-seven-two..." would become "my phone number is 972..."
+     *
+     * @default false
+     */
+    numerals?: boolean;
     /** These keywords are passed to the transcription model to help it pick up use-case specific words. Anything that may not be a common word, like your company name, should be added here. */
     keywords?: string[];
     /** Keyterm Prompting allows you improve Keyword Recall Rate (KRR) for important keyterms or phrases up to 90%. */
@@ -70,4 +76,6 @@ export interface DeepgramTranscriber {
      * @default 10
      */
     endpointing?: number;
+    /** This is the plan for voice provider fallbacks in the event that the primary voice provider fails. */
+    fallbackPlan?: Vapi.FallbackTranscriberPlan;
 }

@@ -3,7 +3,6 @@
  */
 
 export interface CreateS3CredentialDto {
-    /** Credential provider. Only allowed value is s3 */
     provider: "s3";
     /** AWS access key ID. */
     awsAccessKeyId: string;

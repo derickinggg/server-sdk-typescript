@@ -23,7 +23,6 @@ export type CartesiaExperimentalControlsEmotion =
     | "curiosity:low"
     | "curiosity:high"
     | "curiosity:highest";
-
 export const CartesiaExperimentalControlsEmotion = {
     AngerLowest: "anger:lowest",
     AngerLow: "anger:low",

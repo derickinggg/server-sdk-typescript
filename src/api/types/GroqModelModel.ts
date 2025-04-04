@@ -15,7 +15,6 @@ export type GroqModelModel =
     | "llama3-8b-8192"
     | "llama3-70b-8192"
     | "gemma2-9b-it";
-
 export const GroqModelModel = {
     DeepseekR1DistillLlama70B: "deepseek-r1-distill-llama-70b",
     Llama3370BVersatile: "llama-3.3-70b-versatile",

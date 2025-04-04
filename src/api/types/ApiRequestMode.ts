@@ -7,7 +7,6 @@
  * We only support BLOCKING and BACKGROUND for now.
  */
 export type ApiRequestMode = "blocking" | "background";
-
 export const ApiRequestMode = {
     Blocking: "blocking",
     Background: "background",

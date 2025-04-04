@@ -11,4 +11,6 @@ export type CreateToolTemplateDtoDetails =
     | Vapi.CreateFunctionToolDto
     | Vapi.CreateGhlToolDto
     | Vapi.CreateMakeToolDto
-    | Vapi.CreateTransferCallToolDto;
+    | Vapi.CreateTransferCallToolDto
+    | Vapi.CreateGoogleCalendarCreateEventToolDto
+    | Vapi.CreateGoogleSheetsRowAppendToolDto;

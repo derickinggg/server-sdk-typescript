@@ -19,7 +19,6 @@ export type TimeRangeStep =
     | "decade"
     | "century"
     | "millennium";
-
 export const TimeRangeStep = {
     Second: "second",
     Minute: "minute",

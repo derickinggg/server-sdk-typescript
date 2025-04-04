@@ -3,6 +3,7 @@
  */
 
 export type CreateAzureOpenAiCredentialDtoModelsItem =
+    | "gpt-4o-2024-11-20"
     | "gpt-4o-2024-08-06"
     | "gpt-4o-mini-2024-07-18"
     | "gpt-4o-2024-05-13"
@@ -12,8 +13,8 @@ export type CreateAzureOpenAiCredentialDtoModelsItem =
     | "gpt-4-0613"
     | "gpt-35-turbo-0125"
     | "gpt-35-turbo-1106";
-
 export const CreateAzureOpenAiCredentialDtoModelsItem = {
+    Gpt4O20241120: "gpt-4o-2024-11-20",
     Gpt4O20240806: "gpt-4o-2024-08-06",
     Gpt4OMini20240718: "gpt-4o-mini-2024-07-18",
     Gpt4O20240513: "gpt-4o-2024-05-13",

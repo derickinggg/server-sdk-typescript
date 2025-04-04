@@ -34,7 +34,6 @@ export type OpenAiModelModel =
     | "gpt-3.5-turbo-1106"
     | "gpt-3.5-turbo-16k"
     | "gpt-3.5-turbo-0613";
-
 export const OpenAiModelModel = {
     Gpt45Preview: "gpt-4.5-preview",
     Chatgpt4OLatest: "chatgpt-4o-latest",

@@ -6,7 +6,6 @@
  * This is the sub type of the cost.
  */
 export type VapiCostSubType = "normal" | "overage";
-
 export const VapiCostSubType = {
     Normal: "normal",
     Overage: "overage",

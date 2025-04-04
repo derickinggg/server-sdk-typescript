@@ -5,7 +5,6 @@
 import * as Vapi from "../index";
 
 export interface CreateSupabaseCredentialDto {
-    /** This is for supabase storage. */
     provider: "supabase";
     bucketPlan?: Vapi.SupabaseBucketPlan;
     /** This is the name of credential. This is just for your reference. */

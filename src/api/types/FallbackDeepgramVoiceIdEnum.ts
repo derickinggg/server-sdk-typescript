@@ -15,7 +15,6 @@ export type FallbackDeepgramVoiceIdEnum =
     | "orpheus"
     | "helios"
     | "zeus";
-
 export const FallbackDeepgramVoiceIdEnum = {
     Asteria: "asteria",
     Luna: "luna",

@@ -14,7 +14,6 @@
  * Default is `variable`.
  */
 export type CustomLlmModelMetadataSendMode = "off" | "variable" | "destructured";
-
 export const CustomLlmModelMetadataSendMode = {
     Off: "off",
     Variable: "variable",

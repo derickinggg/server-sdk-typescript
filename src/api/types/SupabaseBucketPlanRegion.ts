@@ -24,7 +24,6 @@ export type SupabaseBucketPlanRegion =
     | "ap-northeast-2"
     | "ap-southeast-2"
     | "sa-east-1";
-
 export const SupabaseBucketPlanRegion = {
     UsWest1: "us-west-1",
     UsEast1: "us-east-1",

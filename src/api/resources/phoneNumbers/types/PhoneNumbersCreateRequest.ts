@@ -8,4 +8,5 @@ export type PhoneNumbersCreateRequest =
     | Vapi.CreateByoPhoneNumberDto
     | Vapi.CreateTwilioPhoneNumberDto
     | Vapi.CreateVonagePhoneNumberDto
-    | Vapi.CreateVapiPhoneNumberDto;
+    | Vapi.CreateVapiPhoneNumberDto
+    | Vapi.CreateTelnyxPhoneNumberDto;

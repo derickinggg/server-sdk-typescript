@@ -5,9 +5,15 @@
 /**
  * This is the status of the call.
  */
-export type ServerMessageStatusUpdateStatus = "queued" | "ringing" | "in-progress" | "forwarding" | "ended";
-
+export type ServerMessageStatusUpdateStatus =
+    | "scheduled"
+    | "queued"
+    | "ringing"
+    | "in-progress"
+    | "forwarding"
+    | "ended";
 export const ServerMessageStatusUpdateStatus = {
+    Scheduled: "scheduled",
     Queued: "queued",
     Ringing: "ringing",
     InProgress: "in-progress",

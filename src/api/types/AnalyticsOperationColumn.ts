@@ -18,7 +18,6 @@ export type AnalyticsOperationColumn =
     | "duration"
     | "concurrency"
     | "minutesUsed";
-
 export const AnalyticsOperationColumn = {
     Id: "id",
     Cost: "cost",

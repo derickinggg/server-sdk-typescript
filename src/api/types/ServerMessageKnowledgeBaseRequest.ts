@@ -19,7 +19,7 @@ export interface ServerMessageKnowledgeBaseRequest {
     messages?: Vapi.ServerMessageKnowledgeBaseRequestMessagesItem[];
     /** This is just `messages` formatted for OpenAI. */
     messagesOpenAIFormatted: Vapi.OpenAiMessage[];
-    /** This is the ISO-8601 formatted timestamp of when the message was sent. */
+    /** This is the timestamp of when the message was sent in milliseconds since Unix Epoch. */
     timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.

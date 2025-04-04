@@ -15,7 +15,7 @@ export interface ServerMessageAssistantRequest {
     phoneNumber?: Vapi.ServerMessageAssistantRequestPhoneNumber;
     /** This is the type of the message. "assistant-request" is sent to fetch assistant configuration for an incoming call. */
     type: "assistant-request";
-    /** This is the ISO-8601 formatted timestamp of when the message was sent. */
+    /** This is the timestamp of when the message was sent in milliseconds since Unix Epoch. */
     timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.

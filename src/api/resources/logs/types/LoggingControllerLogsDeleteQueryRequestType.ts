@@ -3,7 +3,6 @@
  */
 
 export type LoggingControllerLogsDeleteQueryRequestType = "API" | "Webhook" | "Call" | "Provider";
-
 export const LoggingControllerLogsDeleteQueryRequestType = {
     Api: "API",
     Webhook: "Webhook",

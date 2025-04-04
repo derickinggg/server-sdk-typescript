@@ -6,7 +6,6 @@
  * This is the type / tier of the subscription.
  */
 export type SubscriptionType = "trial" | "pay-as-you-go" | "enterprise";
-
 export const SubscriptionType = {
     Trial: "trial",
     PayAsYouGo: "pay-as-you-go",

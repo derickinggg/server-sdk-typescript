@@ -15,4 +15,9 @@ export type ToolsGetResponse =
     | Vapi.BashTool
     | Vapi.ComputerTool
     | Vapi.TextEditorTool
-    | Vapi.QueryTool;
+    | Vapi.QueryTool
+    | Vapi.GoogleCalendarCreateEventTool
+    | Vapi.GoogleSheetsRowAppendTool
+    | Vapi.GoogleCalendarCheckAvailabilityTool
+    | Vapi.SlackSendMessageTool
+    | Vapi.McpTool;

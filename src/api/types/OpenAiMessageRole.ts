@@ -3,7 +3,6 @@
  */
 
 export type OpenAiMessageRole = "assistant" | "function" | "user" | "system" | "tool";
-
 export const OpenAiMessageRole = {
     Assistant: "assistant",
     Function: "function",

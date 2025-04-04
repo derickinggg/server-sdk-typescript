@@ -23,7 +23,6 @@ export interface VapiModel {
     knowledgeBase?: Vapi.CreateCustomKnowledgeBaseDto;
     /** This is the ID of the knowledge base the model will use. */
     knowledgeBaseId?: string;
-    steps?: Vapi.VapiModelStepsItem[];
     provider: "vapi";
     /** This is the workflow that will be used for the call. To use a transient workflow, use `workflow` instead. */
     workflowId?: string;

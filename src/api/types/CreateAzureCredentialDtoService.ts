@@ -6,7 +6,6 @@
  * This is the service being used in Azure.
  */
 export type CreateAzureCredentialDtoService = "speech" | "blob_storage";
-
 export const CreateAzureCredentialDtoService = {
     Speech: "speech",
     BlobStorage: "blob_storage",

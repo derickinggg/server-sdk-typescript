@@ -3,7 +3,6 @@
  */
 
 export type TestSuiteTestControllerFindAllPaginatedRequestSortOrder = "ASC" | "DESC";
-
 export const TestSuiteTestControllerFindAllPaginatedRequestSortOrder = {
     Asc: "ASC",
     Desc: "DESC",

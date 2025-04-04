@@ -86,7 +86,6 @@ export type FallbackRimeAiVoiceIdEnum =
     | "boulder"
     | "gypsum"
     | "zest";
-
 export const FallbackRimeAiVoiceIdEnum = {
     Abbie: "abbie",
     Allison: "allison",

@@ -59,7 +59,6 @@ export type DeepgramTranscriberLanguage =
     | "zh-Hans"
     | "zh-Hant"
     | "zh-TW";
-
 export const DeepgramTranscriberLanguage = {
     Bg: "bg",
     Ca: "ca",

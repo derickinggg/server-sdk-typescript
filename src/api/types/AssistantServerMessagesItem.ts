@@ -20,7 +20,6 @@ export type AssistantServerMessagesItem =
     | "transfer-update"
     | "user-interrupted"
     | "voice-input";
-
 export const AssistantServerMessagesItem = {
     ConversationUpdate: "conversation-update",
     EndOfCallReport: "end-of-call-report",

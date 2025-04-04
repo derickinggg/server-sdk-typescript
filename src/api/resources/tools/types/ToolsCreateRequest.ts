@@ -15,4 +15,9 @@ export type ToolsCreateRequest =
     | Vapi.CreateBashToolDto
     | Vapi.CreateComputerToolDto
     | Vapi.CreateTextEditorToolDto
-    | Vapi.CreateQueryToolDto;
+    | Vapi.CreateQueryToolDto
+    | Vapi.CreateGoogleCalendarCreateEventToolDto
+    | Vapi.CreateGoogleSheetsRowAppendToolDto
+    | Vapi.CreateGoogleCalendarCheckAvailabilityToolDto
+    | Vapi.CreateSlackSendMessageToolDto
+    | Vapi.CreateMcpToolDto;

@@ -5,6 +5,7 @@
 import * as Vapi from "../index";
 
 export type CreateAssistantDtoCredentialsItem =
+    | Vapi.CreateElevenLabsCredentialDto
     | Vapi.CreateAnthropicCredentialDto
     | Vapi.CreateAnyscaleCredentialDto
     | Vapi.CreateAssemblyAiCredentialDto
@@ -12,16 +13,18 @@ export type CreateAssistantDtoCredentialsItem =
     | Vapi.CreateAzureCredentialDto
     | Vapi.CreateByoSipTrunkCredentialDto
     | Vapi.CreateCartesiaCredentialDto
+    | Vapi.CreateCerebrasCredentialDto
     | Vapi.CreateCloudflareCredentialDto
     | Vapi.CreateCustomLlmCredentialDto
     | Vapi.CreateDeepgramCredentialDto
     | Vapi.CreateDeepInfraCredentialDto
     | Vapi.CreateDeepSeekCredentialDto
-    | Vapi.CreateElevenLabsCredentialDto
     | Vapi.CreateGcpCredentialDto
     | Vapi.CreateGladiaCredentialDto
     | Vapi.CreateGoHighLevelCredentialDto
+    | Vapi.CreateGoogleCredentialDto
     | Vapi.CreateGroqCredentialDto
+    | Vapi.CreateInflectionAiCredentialDto
     | Vapi.CreateLangfuseCredentialDto
     | Vapi.CreateLmntCredentialDto
     | Vapi.CreateMakeCredentialDto
@@ -39,4 +42,13 @@ export type CreateAssistantDtoCredentialsItem =
     | Vapi.CreateTwilioCredentialDto
     | Vapi.CreateVonageCredentialDto
     | Vapi.CreateWebhookCredentialDto
-    | Vapi.CreateXAiCredentialDto;
+    | Vapi.CreateXAiCredentialDto
+    | Vapi.CreateNeuphonicCredentialDto
+    | Vapi.CreateHumeCredentialDto
+    | Vapi.CreateMistralCredentialDto
+    | Vapi.CreateSpeechmaticsCredentialDto
+    | Vapi.CreateTrieveCredentialDto
+    | Vapi.CreateGoogleCalendarOAuth2ClientCredentialDto
+    | Vapi.CreateGoogleCalendarOAuth2AuthorizationCredentialDto
+    | Vapi.CreateGoogleSheetsOAuth2AuthorizationCredentialDto
+    | Vapi.CreateSlackOAuth2AuthorizationCredentialDto;

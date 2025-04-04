@@ -15,7 +15,7 @@ export interface ServerMessageTranscript {
     phoneNumber?: Vapi.ServerMessageTranscriptPhoneNumber;
     /** This is the type of the message. "transcript" is sent as transcriber outputs partial or final transcript. */
     type: Vapi.ServerMessageTranscriptType;
-    /** This is the ISO-8601 formatted timestamp of when the message was sent. */
+    /** This is the timestamp of when the message was sent in milliseconds since Unix Epoch. */
     timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.

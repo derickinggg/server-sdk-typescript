@@ -3,7 +3,6 @@
  */
 
 export type LogsGetRequestType = "API" | "Webhook" | "Call" | "Provider";
-
 export const LogsGetRequestType = {
     Api: "API",
     Webhook: "Webhook",

@@ -7,7 +7,6 @@
  * Can be '#', '*', or an empty array.
  */
 export type KeypadInputPlanDelimiters = "#" | "*" | "";
-
 export const KeypadInputPlanDelimiters = {
     Hash: "#",
     Asterisk: "*",
