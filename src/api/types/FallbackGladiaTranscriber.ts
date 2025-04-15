@@ -20,4 +20,10 @@ export interface FallbackGladiaTranscriber {
     prosody?: boolean;
     /** If true, audio will be pre-processed to improve accuracy but latency will increase. Default value is false. */
     audioEnhancer?: boolean;
+    /**
+     * Transcripts below this confidence threshold will be discarded.
+     *
+     * @default 0.4
+     */
+    confidenceThreshold?: number;
 }

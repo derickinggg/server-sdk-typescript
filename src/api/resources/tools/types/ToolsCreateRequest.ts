@@ -20,4 +20,5 @@ export type ToolsCreateRequest =
     | Vapi.CreateGoogleSheetsRowAppendToolDto
     | Vapi.CreateGoogleCalendarCheckAvailabilityToolDto
     | Vapi.CreateSlackSendMessageToolDto
+    | Vapi.CreateSmsSendToolDto
     | Vapi.CreateMcpToolDto;

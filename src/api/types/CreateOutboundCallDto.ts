@@ -15,6 +15,8 @@ export interface CreateOutboundCallDto {
     name?: string;
     /** This is the schedule plan of the call. */
     schedulePlan?: Vapi.SchedulePlan;
+    /** This is the transport of the call. */
+    transport?: Record<string, unknown>;
     /** This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead. */
     assistantId?: string;
     /** This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead. */

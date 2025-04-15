@@ -6,6 +6,9 @@
  * This is the OpenAI model that will be used.
  */
 export type OpenAiModelModel =
+    | "gpt-4.1"
+    | "gpt-4.1-mini"
+    | "gpt-4.1-nano"
     | "gpt-4.5-preview"
     | "chatgpt-4o-latest"
     | "o3-mini"
@@ -16,8 +19,8 @@ export type OpenAiModelModel =
     | "gpt-4o-realtime-preview-2024-10-01"
     | "gpt-4o-realtime-preview-2024-12-17"
     | "gpt-4o-mini-realtime-preview-2024-12-17"
-    | "gpt-4o-mini"
     | "gpt-4o-mini-2024-07-18"
+    | "gpt-4o-mini"
     | "gpt-4o"
     | "gpt-4o-2024-05-13"
     | "gpt-4o-2024-08-06"
@@ -35,6 +38,9 @@ export type OpenAiModelModel =
     | "gpt-3.5-turbo-16k"
     | "gpt-3.5-turbo-0613";
 export const OpenAiModelModel = {
+    Gpt41: "gpt-4.1",
+    Gpt41Mini: "gpt-4.1-mini",
+    Gpt41Nano: "gpt-4.1-nano",
     Gpt45Preview: "gpt-4.5-preview",
     Chatgpt4OLatest: "chatgpt-4o-latest",
     O3Mini: "o3-mini",
@@ -45,8 +51,8 @@ export const OpenAiModelModel = {
     Gpt4ORealtimePreview20241001: "gpt-4o-realtime-preview-2024-10-01",
     Gpt4ORealtimePreview20241217: "gpt-4o-realtime-preview-2024-12-17",
     Gpt4OMiniRealtimePreview20241217: "gpt-4o-mini-realtime-preview-2024-12-17",
-    Gpt4OMini: "gpt-4o-mini",
     Gpt4OMini20240718: "gpt-4o-mini-2024-07-18",
+    Gpt4OMini: "gpt-4o-mini",
     Gpt4O: "gpt-4o",
     Gpt4O20240513: "gpt-4o-2024-05-13",
     Gpt4O20240806: "gpt-4o-2024-08-06",

@@ -9,4 +9,6 @@ export interface TargetPlan {
     phoneNumberId?: string;
     /** This is the phone number that is being tested. Only use this if you have not imported the phone number to Vapi. */
     phoneNumber?: Vapi.TestSuitePhoneNumber;
+    /** This is the assistantId that is being tested. */
+    assistantId?: string;
 }

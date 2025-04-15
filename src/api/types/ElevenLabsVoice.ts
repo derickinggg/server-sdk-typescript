@@ -27,6 +27,8 @@ export interface ElevenLabsVoice {
      * @default false
      */
     enableSsmlParsing?: boolean;
+    /** Defines the auto mode for voice settings. Defaults to false. */
+    autoMode?: boolean;
     /** This is the model that will be used. Defaults to 'eleven_turbo_v2' if not specified. */
     model?: Vapi.ElevenLabsVoiceModel;
     /** This is the plan for chunking the model output before it is sent to the voice provider. */

@@ -243,6 +243,34 @@ export type ServerMessageStatusUpdateEndedReason =
     | "call.in-progress.error-vapifault-anthropic-429-exceeded-quota"
     | "call.in-progress.error-providerfault-anthropic-500-server-error"
     | "call.in-progress.error-providerfault-anthropic-503-server-overloaded-error"
+    | "pipeline-error-anthropic-bedrock-400-bad-request-validation-failed"
+    | "pipeline-error-anthropic-bedrock-401-unauthorized"
+    | "pipeline-error-anthropic-bedrock-403-model-access-denied"
+    | "pipeline-error-anthropic-bedrock-429-exceeded-quota"
+    | "pipeline-error-anthropic-bedrock-500-server-error"
+    | "pipeline-error-anthropic-bedrock-503-server-overloaded-error"
+    | "pipeline-error-anthropic-bedrock-llm-failed"
+    | "call.in-progress.error-vapifault-anthropic-bedrock-llm-failed"
+    | "call.in-progress.error-vapifault-anthropic-bedrock-400-bad-request-validation-failed"
+    | "call.in-progress.error-vapifault-anthropic-bedrock-401-unauthorized"
+    | "call.in-progress.error-vapifault-anthropic-bedrock-403-model-access-denied"
+    | "call.in-progress.error-vapifault-anthropic-bedrock-429-exceeded-quota"
+    | "call.in-progress.error-providerfault-anthropic-bedrock-500-server-error"
+    | "call.in-progress.error-providerfault-anthropic-bedrock-503-server-overloaded-error"
+    | "pipeline-error-anthropic-vertex-400-bad-request-validation-failed"
+    | "pipeline-error-anthropic-vertex-401-unauthorized"
+    | "pipeline-error-anthropic-vertex-403-model-access-denied"
+    | "pipeline-error-anthropic-vertex-429-exceeded-quota"
+    | "pipeline-error-anthropic-vertex-500-server-error"
+    | "pipeline-error-anthropic-vertex-503-server-overloaded-error"
+    | "pipeline-error-anthropic-vertex-llm-failed"
+    | "call.in-progress.error-vapifault-anthropic-vertex-llm-failed"
+    | "call.in-progress.error-vapifault-anthropic-vertex-400-bad-request-validation-failed"
+    | "call.in-progress.error-vapifault-anthropic-vertex-401-unauthorized"
+    | "call.in-progress.error-vapifault-anthropic-vertex-403-model-access-denied"
+    | "call.in-progress.error-vapifault-anthropic-vertex-429-exceeded-quota"
+    | "call.in-progress.error-providerfault-anthropic-vertex-500-server-error"
+    | "call.in-progress.error-providerfault-anthropic-vertex-503-server-overloaded-error"
     | "pipeline-error-together-ai-400-bad-request-validation-failed"
     | "pipeline-error-together-ai-401-unauthorized"
     | "pipeline-error-together-ai-403-model-access-denied"
@@ -420,8 +448,8 @@ export type ServerMessageStatusUpdateEndedReason =
     | "call.in-progress.error-providerfault-playht-504-gateway-error"
     | "pipeline-error-custom-transcriber-failed"
     | "call.in-progress.error-vapifault-custom-transcriber-failed"
-    | "pipeline-error-11labs-transcriber-failed"
-    | "call.in-progress.error-vapifault-11labs-transcriber-failed"
+    | "pipeline-error-eleven-labs-transcriber-failed"
+    | "call.in-progress.error-vapifault-eleven-labs-transcriber-failed"
     | "pipeline-error-deepgram-returning-400-no-such-model-language-tier-combination"
     | "pipeline-error-deepgram-returning-401-invalid-credentials"
     | "pipeline-error-deepgram-returning-403-model-access-denied"
@@ -764,6 +792,51 @@ export const ServerMessageStatusUpdateEndedReason = {
         "call.in-progress.error-providerfault-anthropic-500-server-error",
     CallInProgressErrorProviderfaultAnthropic503ServerOverloadedError:
         "call.in-progress.error-providerfault-anthropic-503-server-overloaded-error",
+    PipelineErrorAnthropicBedrock400BadRequestValidationFailed:
+        "pipeline-error-anthropic-bedrock-400-bad-request-validation-failed",
+    PipelineErrorAnthropicBedrock401Unauthorized: "pipeline-error-anthropic-bedrock-401-unauthorized",
+    PipelineErrorAnthropicBedrock403ModelAccessDenied: "pipeline-error-anthropic-bedrock-403-model-access-denied",
+    PipelineErrorAnthropicBedrock429ExceededQuota: "pipeline-error-anthropic-bedrock-429-exceeded-quota",
+    PipelineErrorAnthropicBedrock500ServerError: "pipeline-error-anthropic-bedrock-500-server-error",
+    PipelineErrorAnthropicBedrock503ServerOverloadedError:
+        "pipeline-error-anthropic-bedrock-503-server-overloaded-error",
+    PipelineErrorAnthropicBedrockLlmFailed: "pipeline-error-anthropic-bedrock-llm-failed",
+    CallInProgressErrorVapifaultAnthropicBedrockLlmFailed:
+        "call.in-progress.error-vapifault-anthropic-bedrock-llm-failed",
+    CallInProgressErrorVapifaultAnthropicBedrock400BadRequestValidationFailed:
+        "call.in-progress.error-vapifault-anthropic-bedrock-400-bad-request-validation-failed",
+    CallInProgressErrorVapifaultAnthropicBedrock401Unauthorized:
+        "call.in-progress.error-vapifault-anthropic-bedrock-401-unauthorized",
+    CallInProgressErrorVapifaultAnthropicBedrock403ModelAccessDenied:
+        "call.in-progress.error-vapifault-anthropic-bedrock-403-model-access-denied",
+    CallInProgressErrorVapifaultAnthropicBedrock429ExceededQuota:
+        "call.in-progress.error-vapifault-anthropic-bedrock-429-exceeded-quota",
+    CallInProgressErrorProviderfaultAnthropicBedrock500ServerError:
+        "call.in-progress.error-providerfault-anthropic-bedrock-500-server-error",
+    CallInProgressErrorProviderfaultAnthropicBedrock503ServerOverloadedError:
+        "call.in-progress.error-providerfault-anthropic-bedrock-503-server-overloaded-error",
+    PipelineErrorAnthropicVertex400BadRequestValidationFailed:
+        "pipeline-error-anthropic-vertex-400-bad-request-validation-failed",
+    PipelineErrorAnthropicVertex401Unauthorized: "pipeline-error-anthropic-vertex-401-unauthorized",
+    PipelineErrorAnthropicVertex403ModelAccessDenied: "pipeline-error-anthropic-vertex-403-model-access-denied",
+    PipelineErrorAnthropicVertex429ExceededQuota: "pipeline-error-anthropic-vertex-429-exceeded-quota",
+    PipelineErrorAnthropicVertex500ServerError: "pipeline-error-anthropic-vertex-500-server-error",
+    PipelineErrorAnthropicVertex503ServerOverloadedError: "pipeline-error-anthropic-vertex-503-server-overloaded-error",
+    PipelineErrorAnthropicVertexLlmFailed: "pipeline-error-anthropic-vertex-llm-failed",
+    CallInProgressErrorVapifaultAnthropicVertexLlmFailed:
+        "call.in-progress.error-vapifault-anthropic-vertex-llm-failed",
+    CallInProgressErrorVapifaultAnthropicVertex400BadRequestValidationFailed:
+        "call.in-progress.error-vapifault-anthropic-vertex-400-bad-request-validation-failed",
+    CallInProgressErrorVapifaultAnthropicVertex401Unauthorized:
+        "call.in-progress.error-vapifault-anthropic-vertex-401-unauthorized",
+    CallInProgressErrorVapifaultAnthropicVertex403ModelAccessDenied:
+        "call.in-progress.error-vapifault-anthropic-vertex-403-model-access-denied",
+    CallInProgressErrorVapifaultAnthropicVertex429ExceededQuota:
+        "call.in-progress.error-vapifault-anthropic-vertex-429-exceeded-quota",
+    CallInProgressErrorProviderfaultAnthropicVertex500ServerError:
+        "call.in-progress.error-providerfault-anthropic-vertex-500-server-error",
+    CallInProgressErrorProviderfaultAnthropicVertex503ServerOverloadedError:
+        "call.in-progress.error-providerfault-anthropic-vertex-503-server-overloaded-error",
     PipelineErrorTogetherAi400BadRequestValidationFailed:
         "pipeline-error-together-ai-400-bad-request-validation-failed",
     PipelineErrorTogetherAi401Unauthorized: "pipeline-error-together-ai-401-unauthorized",
@@ -1017,8 +1090,9 @@ export const ServerMessageStatusUpdateEndedReason = {
         "call.in-progress.error-providerfault-playht-504-gateway-error",
     PipelineErrorCustomTranscriberFailed: "pipeline-error-custom-transcriber-failed",
     CallInProgressErrorVapifaultCustomTranscriberFailed: "call.in-progress.error-vapifault-custom-transcriber-failed",
-    PipelineError11LabsTranscriberFailed: "pipeline-error-11labs-transcriber-failed",
-    CallInProgressErrorVapifault11LabsTranscriberFailed: "call.in-progress.error-vapifault-11labs-transcriber-failed",
+    PipelineErrorElevenLabsTranscriberFailed: "pipeline-error-eleven-labs-transcriber-failed",
+    CallInProgressErrorVapifaultElevenLabsTranscriberFailed:
+        "call.in-progress.error-vapifault-eleven-labs-transcriber-failed",
     PipelineErrorDeepgramReturning400NoSuchModelLanguageTierCombination:
         "pipeline-error-deepgram-returning-400-no-such-model-language-tier-combination",
     PipelineErrorDeepgramReturning401InvalidCredentials: "pipeline-error-deepgram-returning-401-invalid-credentials",

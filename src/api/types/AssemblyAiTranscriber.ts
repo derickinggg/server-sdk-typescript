@@ -9,6 +9,12 @@ export interface AssemblyAiTranscriber {
     provider: "assembly-ai";
     /** This is the language that will be set for the transcription. */
     language?: "en";
+    /**
+     * Transcripts below this confidence threshold will be discarded.
+     *
+     * @default 0.4
+     */
+    confidenceThreshold?: number;
     /** The WebSocket URL that the transcriber connects to. */
     realtimeUrl?: string;
     /** Add up to 2500 characters of custom vocabulary. */

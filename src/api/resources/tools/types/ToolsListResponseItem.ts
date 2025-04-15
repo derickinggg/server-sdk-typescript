@@ -20,4 +20,5 @@ export type ToolsListResponseItem =
     | Vapi.GoogleSheetsRowAppendTool
     | Vapi.GoogleCalendarCheckAvailabilityTool
     | Vapi.SlackSendMessageTool
+    | Vapi.SmsSendTool
     | Vapi.McpTool;

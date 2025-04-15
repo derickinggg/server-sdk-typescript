@@ -61,6 +61,12 @@ export interface FallbackDeepgramTranscriber {
      * @default false
      */
     numerals?: boolean;
+    /**
+     * Transcripts below this confidence threshold will be discarded.
+     *
+     * @default 0.4
+     */
+    confidenceThreshold?: number;
     /** These keywords are passed to the transcription model to help it pick up use-case specific words. Anything that may not be a common word, like your company name, should be added here. */
     keywords?: string[];
     /** Keyterm Prompting allows you improve Keyword Recall Rate (KRR) for important keyterms or phrases up to 90%. */

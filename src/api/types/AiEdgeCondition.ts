@@ -4,5 +4,6 @@
 
 export interface AiEdgeCondition {
     type: "ai";
-    matches: string[];
+    /** This is the prompt for the AI edge condition. It should evaluate to a boolean. */
+    prompt: string;
 }

@@ -27,6 +27,8 @@ export interface FallbackElevenLabsVoice {
      * @default false
      */
     enableSsmlParsing?: boolean;
+    /** Defines the auto mode for voice settings. Defaults to false. */
+    autoMode?: boolean;
     /** This is the model that will be used. Defaults to 'eleven_turbo_v2' if not specified. */
     model?: Vapi.FallbackElevenLabsVoiceModel;
     /** This is the language (ISO 639-1) that is enforced for the model. Currently only Turbo v2.5 supports language enforcement. For other models, an error will be returned if language code is provided. */
