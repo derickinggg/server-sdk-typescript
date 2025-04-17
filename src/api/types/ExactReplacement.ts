@@ -14,6 +14,14 @@ export interface ExactReplacement {
      * - Replace a company name with its phonetic pronunciation: { type: 'exact', key: 'Vapi', value: 'Vappy' }
      */
     type: "exact";
+    /**
+     * This option let's you control whether to replace all instances of the key or only the first one. By default, it only replaces the first instance.
+     * Examples:
+     * - For { type: 'exact', key: 'hello', value: 'hi', replaceAllEnabled: false }. Before: "hello world, hello universe" | After: "hi world, hello universe"
+     * - For { type: 'exact', key: 'hello', value: 'hi', replaceAllEnabled: true }. Before: "hello world, hello universe" | After: "hi world, hi universe"
+     * @default false
+     */
+    replaceAllEnabled?: boolean;
     /** This is the key to replace. */
     key: string;
     /** This is the value that will replace the match. */

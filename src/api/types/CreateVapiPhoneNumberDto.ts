@@ -14,6 +14,8 @@ export interface CreateVapiPhoneNumberDto {
      * If this is not set and above conditions are met, the inbound call is hung up with an error message.
      */
     fallbackDestination?: Vapi.CreateVapiPhoneNumberDtoFallbackDestination;
+    /** This is the hooks that will be used for incoming calls to this phone number. */
+    hooks?: unknown[];
     provider: "vapi";
     /** This is the area code of the phone number to purchase. */
     numberDesiredAreaCode?: string;

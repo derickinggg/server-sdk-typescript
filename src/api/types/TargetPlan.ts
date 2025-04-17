@@ -5,10 +5,24 @@
 import * as Vapi from "../index";
 
 export interface TargetPlan {
-    /** This is the phoneNumberId that is being tested. */
+    /**
+     * This is the phone number that is being tested.
+     * During the actual test, it'll be called and the assistant attached to it will pick up and be tested.
+     * To test an assistant directly, send assistantId instead.
+     */
     phoneNumberId?: string;
-    /** This is the phone number that is being tested. Only use this if you have not imported the phone number to Vapi. */
+    /**
+     * This can be any phone number (even not on Vapi).
+     * During the actual test, it'll be called.
+     * To test a Vapi number, send phoneNumberId. To test an assistant directly, send assistantId instead.
+     */
     phoneNumber?: Vapi.TestSuitePhoneNumber;
-    /** This is the assistantId that is being tested. */
+    /**
+     * This is the assistant being tested.
+     * During the actual test, it'll invoked directly.
+     * To test the assistant over phone number, send phoneNumberId instead.
+     */
     assistantId?: string;
+    /** This is the assistant overrides applied to assistantId before it is tested. */
+    assistantOverrides?: Vapi.AssistantOverrides;
 }

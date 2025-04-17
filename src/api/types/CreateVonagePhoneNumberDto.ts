@@ -14,6 +14,8 @@ export interface CreateVonagePhoneNumberDto {
      * If this is not set and above conditions are met, the inbound call is hung up with an error message.
      */
     fallbackDestination?: Vapi.CreateVonagePhoneNumberDtoFallbackDestination;
+    /** This is the hooks that will be used for incoming calls to this phone number. */
+    hooks?: unknown[];
     provider: "vonage";
     /** These are the digits of the phone number you own on your Vonage. */
     number: string;

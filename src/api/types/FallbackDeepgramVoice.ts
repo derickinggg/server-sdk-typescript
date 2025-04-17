@@ -9,6 +9,8 @@ export interface FallbackDeepgramVoice {
     provider: "deepgram";
     /** This is the provider-specific ID that will be used. */
     voiceId: Vapi.FallbackDeepgramVoiceId;
+    /** This is the model that will be used. Defaults to 'aura-2' when not specified. */
+    model?: Vapi.FallbackDeepgramVoiceModel;
     /**
      * If set to true, this will add mip_opt_out=true as a query parameter of all API requests. See https://developers.deepgram.com/docs/the-deepgram-model-improvement-partnership-program#want-to-opt-out
      *

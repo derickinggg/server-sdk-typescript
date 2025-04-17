@@ -484,6 +484,8 @@ export type CallEndedReason =
     | "phone-call-provider-closed-websocket"
     | "silence-timed-out"
     | "call.in-progress.error-sip-telephony-provider-failed-to-connect-call"
+    | "call.ringing.hook-executed-say"
+    | "call.ringing.hook-executed-transfer"
     | "twilio-failed-to-connect-call"
     | "twilio-reported-customer-misdialed"
     | "vonage-rejected"
@@ -1138,6 +1140,8 @@ export const CallEndedReason = {
     SilenceTimedOut: "silence-timed-out",
     CallInProgressErrorSipTelephonyProviderFailedToConnectCall:
         "call.in-progress.error-sip-telephony-provider-failed-to-connect-call",
+    CallRingingHookExecutedSay: "call.ringing.hook-executed-say",
+    CallRingingHookExecutedTransfer: "call.ringing.hook-executed-transfer",
     TwilioFailedToConnectCall: "twilio-failed-to-connect-call",
     TwilioReportedCustomerMisdialed: "twilio-reported-customer-misdialed",
     VonageRejected: "vonage-rejected",

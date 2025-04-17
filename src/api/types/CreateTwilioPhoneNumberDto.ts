@@ -14,6 +14,8 @@ export interface CreateTwilioPhoneNumberDto {
      * If this is not set and above conditions are met, the inbound call is hung up with an error message.
      */
     fallbackDestination?: Vapi.CreateTwilioPhoneNumberDtoFallbackDestination;
+    /** This is the hooks that will be used for incoming calls to this phone number. */
+    hooks?: unknown[];
     provider: "twilio";
     /** These are the digits of the phone number you own on your Twilio. */
     number: string;

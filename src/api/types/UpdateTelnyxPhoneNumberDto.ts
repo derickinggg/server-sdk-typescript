@@ -14,6 +14,8 @@ export interface UpdateTelnyxPhoneNumberDto {
      * If this is not set and above conditions are met, the inbound call is hung up with an error message.
      */
     fallbackDestination?: Vapi.UpdateTelnyxPhoneNumberDtoFallbackDestination;
+    /** This is the hooks that will be used for incoming calls to this phone number. */
+    hooks?: unknown[];
     /** This is the name of the phone number. This is just for your own reference. */
     name?: string;
     /**
