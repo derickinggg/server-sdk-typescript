@@ -5,6 +5,6 @@
 import * as Vapi from "../index";
 
 export interface CartesiaExperimentalControls {
-    speed?: Vapi.CartesiaExperimentalControlsSpeed;
+    speed?: Vapi.CartesiaSpeedControl;
     emotion?: Vapi.CartesiaExperimentalControlsEmotion;
 }

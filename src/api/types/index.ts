@@ -179,6 +179,7 @@ export * from "./AzureVoiceIdEnum";
 export * from "./AzureVoiceId";
 export * from "./AzureVoice";
 export * from "./CartesiaExperimentalControlsSpeed";
+export * from "./CartesiaSpeedControl";
 export * from "./CartesiaExperimentalControlsEmotion";
 export * from "./CartesiaExperimentalControls";
 export * from "./CartesiaVoiceModel";
