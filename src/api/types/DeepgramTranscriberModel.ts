@@ -3,6 +3,9 @@
  */
 
 export type DeepgramTranscriberModel =
+    | "nova-3"
+    | "nova-3-general"
+    | "nova-3-medical"
     | "nova-2"
     | "nova-2-general"
     | "nova-2-meeting"
@@ -32,6 +35,9 @@ export type DeepgramTranscriberModel =
     | "base-voicemail"
     | "base-video";
 export const DeepgramTranscriberModel = {
+    Nova3: "nova-3",
+    Nova3General: "nova-3-general",
+    Nova3Medical: "nova-3-medical",
     Nova2: "nova-2",
     Nova2General: "nova-2-general",
     Nova2Meeting: "nova-2-meeting",
