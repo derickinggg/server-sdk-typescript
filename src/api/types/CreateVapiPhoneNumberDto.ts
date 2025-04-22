@@ -15,7 +15,7 @@ export interface CreateVapiPhoneNumberDto {
      */
     fallbackDestination?: Vapi.CreateVapiPhoneNumberDtoFallbackDestination;
     /** This is the hooks that will be used for incoming calls to this phone number. */
-    hooks?: unknown[];
+    hooks?: Vapi.PhoneNumberHookCallRinging[];
     provider: "vapi";
     /** This is the area code of the phone number to purchase. */
     numberDesiredAreaCode?: string;

@@ -15,7 +15,7 @@ export interface VapiPhoneNumber {
      */
     fallbackDestination?: Vapi.VapiPhoneNumberFallbackDestination;
     /** This is the hooks that will be used for incoming calls to this phone number. */
-    hooks?: unknown[];
+    hooks?: Vapi.PhoneNumberHookCallRinging[];
     provider: "vapi";
     /** This is the unique identifier for the phone number. */
     id: string;

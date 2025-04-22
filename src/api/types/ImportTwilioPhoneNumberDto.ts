@@ -15,7 +15,7 @@ export interface ImportTwilioPhoneNumberDto {
      */
     fallbackDestination?: Vapi.ImportTwilioPhoneNumberDtoFallbackDestination;
     /** This is the hooks that will be used for incoming calls to this phone number. */
-    hooks?: unknown[];
+    hooks?: Vapi.PhoneNumberHookCallRinging[];
     /** These are the digits of the phone number you own on your Twilio. */
     twilioPhoneNumber: string;
     /** This is your Twilio Account SID that will be used to handle this phone number. */

@@ -20,6 +20,12 @@ export interface MessagePlan {
      */
     idleMessageMaxSpokenCount?: number;
     /**
+     * This determines whether the idle message count is reset whenever the user speaks.
+     *
+     * @default false
+     */
+    idleMessageResetCountOnUserSpeechEnabled?: boolean;
+    /**
      * This is the timeout in seconds before a message from `idleMessages` is spoken. The clock starts when the assistant finishes speaking and remains active until the user speaks.
      *
      * @default 10

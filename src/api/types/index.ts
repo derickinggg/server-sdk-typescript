@@ -376,6 +376,8 @@ export * from "./AssistantOverridesCredentialsItem";
 export * from "./AssistantOverrides";
 export * from "./SquadMemberDto";
 export * from "./CreateSquadDto";
+export * from "./PhoneNumberHookCallRingingDoItem";
+export * from "./PhoneNumberHookCallRinging";
 export * from "./ImportTwilioPhoneNumberDtoFallbackDestination";
 export * from "./ImportTwilioPhoneNumberDto";
 export * from "./CreateCustomerDto";

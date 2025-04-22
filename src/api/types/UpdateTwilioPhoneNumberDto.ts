@@ -15,7 +15,7 @@ export interface UpdateTwilioPhoneNumberDto {
      */
     fallbackDestination?: Vapi.UpdateTwilioPhoneNumberDtoFallbackDestination;
     /** This is the hooks that will be used for incoming calls to this phone number. */
-    hooks?: unknown[];
+    hooks?: Vapi.PhoneNumberHookCallRinging[];
     /** This is the name of the phone number. This is just for your own reference. */
     name?: string;
     /**

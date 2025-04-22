@@ -15,7 +15,7 @@ export interface TelnyxPhoneNumber {
      */
     fallbackDestination?: Vapi.TelnyxPhoneNumberFallbackDestination;
     /** This is the hooks that will be used for incoming calls to this phone number. */
-    hooks?: unknown[];
+    hooks?: Vapi.PhoneNumberHookCallRinging[];
     provider: "telnyx";
     /** This is the unique identifier for the phone number. */
     id: string;

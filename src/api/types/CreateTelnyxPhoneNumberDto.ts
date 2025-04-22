@@ -15,7 +15,7 @@ export interface CreateTelnyxPhoneNumberDto {
      */
     fallbackDestination?: Vapi.CreateTelnyxPhoneNumberDtoFallbackDestination;
     /** This is the hooks that will be used for incoming calls to this phone number. */
-    hooks?: unknown[];
+    hooks?: Vapi.PhoneNumberHookCallRinging[];
     provider: "telnyx";
     /** These are the digits of the phone number you own on your Telnyx. */
     number: string;

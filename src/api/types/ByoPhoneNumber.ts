@@ -15,7 +15,7 @@ export interface ByoPhoneNumber {
      */
     fallbackDestination?: Vapi.ByoPhoneNumberFallbackDestination;
     /** This is the hooks that will be used for incoming calls to this phone number. */
-    hooks?: unknown[];
+    hooks?: Vapi.PhoneNumberHookCallRinging[];
     provider: "byo-phone-number";
     /**
      * This is the flag to toggle the E164 check for the `number` field. This is an advanced property which should be used if you know your use case requires it.

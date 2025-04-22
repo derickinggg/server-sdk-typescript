@@ -15,7 +15,7 @@ export interface ImportVonagePhoneNumberDto {
      */
     fallbackDestination?: Vapi.ImportVonagePhoneNumberDtoFallbackDestination;
     /** This is the hooks that will be used for incoming calls to this phone number. */
-    hooks?: unknown[];
+    hooks?: Vapi.PhoneNumberHookCallRinging[];
     /** These are the digits of the phone number you own on your Vonage. */
     vonagePhoneNumber: string;
     /** This is the credential you added in dashboard.vapi.ai/keys. This is used to configure the number to send inbound calls to Vapi, make outbound calls and do live call updates like transfers and hangups. */

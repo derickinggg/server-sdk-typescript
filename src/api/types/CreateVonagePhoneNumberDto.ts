@@ -15,7 +15,7 @@ export interface CreateVonagePhoneNumberDto {
      */
     fallbackDestination?: Vapi.CreateVonagePhoneNumberDtoFallbackDestination;
     /** This is the hooks that will be used for incoming calls to this phone number. */
-    hooks?: unknown[];
+    hooks?: Vapi.PhoneNumberHookCallRinging[];
     provider: "vonage";
     /** These are the digits of the phone number you own on your Vonage. */
     number: string;

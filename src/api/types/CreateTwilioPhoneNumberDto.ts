@@ -15,7 +15,7 @@ export interface CreateTwilioPhoneNumberDto {
      */
     fallbackDestination?: Vapi.CreateTwilioPhoneNumberDtoFallbackDestination;
     /** This is the hooks that will be used for incoming calls to this phone number. */
-    hooks?: unknown[];
+    hooks?: Vapi.PhoneNumberHookCallRinging[];
     provider: "twilio";
     /** These are the digits of the phone number you own on your Twilio. */
     number: string;
