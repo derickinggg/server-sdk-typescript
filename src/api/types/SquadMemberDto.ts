@@ -6,7 +6,7 @@ import * as Vapi from "../index";
 
 export interface SquadMemberDto {
     /** This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead. */
-    assistantId?: string;
+    assistantId?: string | null;
     /** This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead. */
     assistant?: Vapi.CreateAssistantDto;
     /** This can be used to override the assistant's settings and provide values for it's template variables. */

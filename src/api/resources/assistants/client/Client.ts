@@ -36,10 +36,17 @@ export class Assistants {
      * @param {Vapi.AssistantsListRequest} request
      * @param {Assistants.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async list(
+    public list(
         request: Vapi.AssistantsListRequest = {},
         requestOptions?: Assistants.RequestOptions,
-    ): Promise<Vapi.Assistant[]> {
+    ): core.HttpResponsePromise<Vapi.Assistant[]> {
+        return core.HttpResponsePromise.fromPromise(this.__list(request, requestOptions));
+    }
+
+    private async __list(
+        request: Vapi.AssistantsListRequest = {},
+        requestOptions?: Assistants.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.Assistant[]>> {
         const {
             limit,
             createdAtGt,
@@ -52,39 +59,39 @@ export class Assistants {
             updatedAtLe,
         } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (limit != null) {
-            _queryParams["limit"] = limit.toString();
+        if (limit !== undefined) {
+            _queryParams["limit"] = limit?.toString() ?? null;
         }
 
-        if (createdAtGt != null) {
+        if (createdAtGt !== undefined) {
             _queryParams["createdAtGt"] = createdAtGt;
         }
 
-        if (createdAtLt != null) {
+        if (createdAtLt !== undefined) {
             _queryParams["createdAtLt"] = createdAtLt;
         }
 
-        if (createdAtGe != null) {
+        if (createdAtGe !== undefined) {
             _queryParams["createdAtGe"] = createdAtGe;
         }
 
-        if (createdAtLe != null) {
+        if (createdAtLe !== undefined) {
             _queryParams["createdAtLe"] = createdAtLe;
         }
 
-        if (updatedAtGt != null) {
+        if (updatedAtGt !== undefined) {
             _queryParams["updatedAtGt"] = updatedAtGt;
         }
 
-        if (updatedAtLt != null) {
+        if (updatedAtLt !== undefined) {
             _queryParams["updatedAtLt"] = updatedAtLt;
         }
 
-        if (updatedAtGe != null) {
+        if (updatedAtGe !== undefined) {
             _queryParams["updatedAtGe"] = updatedAtGe;
         }
 
-        if (updatedAtLe != null) {
+        if (updatedAtLe !== undefined) {
             _queryParams["updatedAtLe"] = updatedAtLe;
         }
 
@@ -100,8 +107,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -114,13 +121,14 @@ export class Assistants {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.Assistant[];
+            return { data: _response.body as Vapi.Assistant[], rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -129,12 +137,14 @@ export class Assistants {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /assistant.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -143,10 +153,17 @@ export class Assistants {
      * @param {Vapi.CreateAssistantDto} request
      * @param {Assistants.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async create(
+    public create(
         request: Vapi.CreateAssistantDto,
         requestOptions?: Assistants.RequestOptions,
-    ): Promise<Vapi.Assistant> {
+    ): core.HttpResponsePromise<Vapi.Assistant> {
+        return core.HttpResponsePromise.fromPromise(this.__create(request, requestOptions));
+    }
+
+    private async __create(
+        request: Vapi.CreateAssistantDto,
+        requestOptions?: Assistants.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.Assistant>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -159,8 +176,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -173,13 +190,14 @@ export class Assistants {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.Assistant;
+            return { data: _response.body as Vapi.Assistant, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -188,12 +206,14 @@ export class Assistants {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling POST /assistant.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -202,7 +222,14 @@ export class Assistants {
      * @param {string} id
      * @param {Assistants.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async get(id: string, requestOptions?: Assistants.RequestOptions): Promise<Vapi.Assistant> {
+    public get(id: string, requestOptions?: Assistants.RequestOptions): core.HttpResponsePromise<Vapi.Assistant> {
+        return core.HttpResponsePromise.fromPromise(this.__get(id, requestOptions));
+    }
+
+    private async __get(
+        id: string,
+        requestOptions?: Assistants.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.Assistant>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -215,8 +242,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -228,13 +255,14 @@ export class Assistants {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.Assistant;
+            return { data: _response.body as Vapi.Assistant, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -243,12 +271,14 @@ export class Assistants {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /assistant/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -257,7 +287,14 @@ export class Assistants {
      * @param {string} id
      * @param {Assistants.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async delete(id: string, requestOptions?: Assistants.RequestOptions): Promise<Vapi.Assistant> {
+    public delete(id: string, requestOptions?: Assistants.RequestOptions): core.HttpResponsePromise<Vapi.Assistant> {
+        return core.HttpResponsePromise.fromPromise(this.__delete(id, requestOptions));
+    }
+
+    private async __delete(
+        id: string,
+        requestOptions?: Assistants.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.Assistant>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -270,8 +307,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -283,13 +320,14 @@ export class Assistants {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.Assistant;
+            return { data: _response.body as Vapi.Assistant, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -298,12 +336,14 @@ export class Assistants {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling DELETE /assistant/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -313,11 +353,19 @@ export class Assistants {
      * @param {Vapi.UpdateAssistantDto} request
      * @param {Assistants.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async update(
+    public update(
         id: string,
         request: Vapi.UpdateAssistantDto = {},
         requestOptions?: Assistants.RequestOptions,
-    ): Promise<Vapi.Assistant> {
+    ): core.HttpResponsePromise<Vapi.Assistant> {
+        return core.HttpResponsePromise.fromPromise(this.__update(id, request, requestOptions));
+    }
+
+    private async __update(
+        id: string,
+        request: Vapi.UpdateAssistantDto = {},
+        requestOptions?: Assistants.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.Assistant>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -330,8 +378,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -344,13 +392,14 @@ export class Assistants {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.Assistant;
+            return { data: _response.body as Vapi.Assistant, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -359,12 +408,14 @@ export class Assistants {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling PATCH /assistant/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }

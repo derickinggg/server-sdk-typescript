@@ -36,10 +36,17 @@ export class Squads {
      * @param {Vapi.SquadsListRequest} request
      * @param {Squads.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async list(
+    public list(
         request: Vapi.SquadsListRequest = {},
         requestOptions?: Squads.RequestOptions,
-    ): Promise<Vapi.Squad[]> {
+    ): core.HttpResponsePromise<Vapi.Squad[]> {
+        return core.HttpResponsePromise.fromPromise(this.__list(request, requestOptions));
+    }
+
+    private async __list(
+        request: Vapi.SquadsListRequest = {},
+        requestOptions?: Squads.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.Squad[]>> {
         const {
             limit,
             createdAtGt,
@@ -52,39 +59,39 @@ export class Squads {
             updatedAtLe,
         } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (limit != null) {
-            _queryParams["limit"] = limit.toString();
+        if (limit !== undefined) {
+            _queryParams["limit"] = limit?.toString() ?? null;
         }
 
-        if (createdAtGt != null) {
+        if (createdAtGt !== undefined) {
             _queryParams["createdAtGt"] = createdAtGt;
         }
 
-        if (createdAtLt != null) {
+        if (createdAtLt !== undefined) {
             _queryParams["createdAtLt"] = createdAtLt;
         }
 
-        if (createdAtGe != null) {
+        if (createdAtGe !== undefined) {
             _queryParams["createdAtGe"] = createdAtGe;
         }
 
-        if (createdAtLe != null) {
+        if (createdAtLe !== undefined) {
             _queryParams["createdAtLe"] = createdAtLe;
         }
 
-        if (updatedAtGt != null) {
+        if (updatedAtGt !== undefined) {
             _queryParams["updatedAtGt"] = updatedAtGt;
         }
 
-        if (updatedAtLt != null) {
+        if (updatedAtLt !== undefined) {
             _queryParams["updatedAtLt"] = updatedAtLt;
         }
 
-        if (updatedAtGe != null) {
+        if (updatedAtGe !== undefined) {
             _queryParams["updatedAtGe"] = updatedAtGe;
         }
 
-        if (updatedAtLe != null) {
+        if (updatedAtLe !== undefined) {
             _queryParams["updatedAtLe"] = updatedAtLe;
         }
 
@@ -100,8 +107,8 @@ export class Squads {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -114,13 +121,14 @@ export class Squads {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.Squad[];
+            return { data: _response.body as Vapi.Squad[], rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -129,12 +137,14 @@ export class Squads {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /squad.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -143,7 +153,17 @@ export class Squads {
      * @param {Vapi.CreateSquadDto} request
      * @param {Squads.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async create(request: Vapi.CreateSquadDto, requestOptions?: Squads.RequestOptions): Promise<Vapi.Squad> {
+    public create(
+        request: Vapi.CreateSquadDto,
+        requestOptions?: Squads.RequestOptions,
+    ): core.HttpResponsePromise<Vapi.Squad> {
+        return core.HttpResponsePromise.fromPromise(this.__create(request, requestOptions));
+    }
+
+    private async __create(
+        request: Vapi.CreateSquadDto,
+        requestOptions?: Squads.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.Squad>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -156,8 +176,8 @@ export class Squads {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -170,13 +190,14 @@ export class Squads {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.Squad;
+            return { data: _response.body as Vapi.Squad, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -185,12 +206,14 @@ export class Squads {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling POST /squad.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -199,7 +222,11 @@ export class Squads {
      * @param {string} id
      * @param {Squads.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async get(id: string, requestOptions?: Squads.RequestOptions): Promise<Vapi.Squad> {
+    public get(id: string, requestOptions?: Squads.RequestOptions): core.HttpResponsePromise<Vapi.Squad> {
+        return core.HttpResponsePromise.fromPromise(this.__get(id, requestOptions));
+    }
+
+    private async __get(id: string, requestOptions?: Squads.RequestOptions): Promise<core.WithRawResponse<Vapi.Squad>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -212,8 +239,8 @@ export class Squads {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -225,13 +252,14 @@ export class Squads {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.Squad;
+            return { data: _response.body as Vapi.Squad, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -240,12 +268,14 @@ export class Squads {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /squad/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -254,7 +284,14 @@ export class Squads {
      * @param {string} id
      * @param {Squads.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async delete(id: string, requestOptions?: Squads.RequestOptions): Promise<Vapi.Squad> {
+    public delete(id: string, requestOptions?: Squads.RequestOptions): core.HttpResponsePromise<Vapi.Squad> {
+        return core.HttpResponsePromise.fromPromise(this.__delete(id, requestOptions));
+    }
+
+    private async __delete(
+        id: string,
+        requestOptions?: Squads.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.Squad>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -267,8 +304,8 @@ export class Squads {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -280,13 +317,14 @@ export class Squads {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.Squad;
+            return { data: _response.body as Vapi.Squad, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -295,12 +333,14 @@ export class Squads {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling DELETE /squad/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -310,11 +350,19 @@ export class Squads {
      * @param {Vapi.UpdateSquadDto} request
      * @param {Squads.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async update(
+    public update(
         id: string,
         request: Vapi.UpdateSquadDto,
         requestOptions?: Squads.RequestOptions,
-    ): Promise<Vapi.Squad> {
+    ): core.HttpResponsePromise<Vapi.Squad> {
+        return core.HttpResponsePromise.fromPromise(this.__update(id, request, requestOptions));
+    }
+
+    private async __update(
+        id: string,
+        request: Vapi.UpdateSquadDto,
+        requestOptions?: Squads.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.Squad>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -327,8 +375,8 @@ export class Squads {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -341,13 +389,14 @@ export class Squads {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.Squad;
+            return { data: _response.body as Vapi.Squad, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -356,12 +405,14 @@ export class Squads {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling PATCH /squad/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }

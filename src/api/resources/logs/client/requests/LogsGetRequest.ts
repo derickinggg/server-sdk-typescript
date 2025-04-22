@@ -8,73 +8,73 @@ export interface LogsGetRequest {
     /**
      * This is the type of the log.
      */
-    type?: Vapi.LogsGetRequestType;
+    type?: Vapi.LogsGetRequestType | null;
     /**
      * This is the type of the webhook, given the log is from a webhook.
      */
-    webhookType?: string;
+    webhookType?: string | null;
     /**
      * This is the ID of the assistant.
      */
-    assistantId?: string;
+    assistantId?: string | null;
     /**
      * This is the ID of the phone number.
      */
-    phoneNumberId?: string;
+    phoneNumberId?: string | null;
     /**
      * This is the ID of the customer.
      */
-    customerId?: string;
+    customerId?: string | null;
     /**
      * This is the ID of the squad.
      */
-    squadId?: string;
+    squadId?: string | null;
     /**
      * This is the ID of the call.
      */
-    callId?: string;
+    callId?: string | null;
     /**
      * This is the page number to return. Defaults to 1.
      */
-    page?: number;
+    page?: number | null;
     /**
      * This is the sort order for pagination. Defaults to 'DESC'.
      */
-    sortOrder?: Vapi.LogsGetRequestSortOrder;
+    sortOrder?: Vapi.LogsGetRequestSortOrder | null;
     /**
      * This is the maximum number of items to return. Defaults to 100.
      */
-    limit?: number;
+    limit?: number | null;
     /**
      * This will return items where the createdAt is greater than the specified value.
      */
-    createdAtGt?: string;
+    createdAtGt?: string | null;
     /**
      * This will return items where the createdAt is less than the specified value.
      */
-    createdAtLt?: string;
+    createdAtLt?: string | null;
     /**
      * This will return items where the createdAt is greater than or equal to the specified value.
      */
-    createdAtGe?: string;
+    createdAtGe?: string | null;
     /**
      * This will return items where the createdAt is less than or equal to the specified value.
      */
-    createdAtLe?: string;
+    createdAtLe?: string | null;
     /**
      * This will return items where the updatedAt is greater than the specified value.
      */
-    updatedAtGt?: string;
+    updatedAtGt?: string | null;
     /**
      * This will return items where the updatedAt is less than the specified value.
      */
-    updatedAtLt?: string;
+    updatedAtLt?: string | null;
     /**
      * This will return items where the updatedAt is greater than or equal to the specified value.
      */
-    updatedAtGe?: string;
+    updatedAtGe?: string | null;
     /**
      * This will return items where the updatedAt is less than or equal to the specified value.
      */
-    updatedAtLe?: string;
+    updatedAtLe?: string | null;
 }

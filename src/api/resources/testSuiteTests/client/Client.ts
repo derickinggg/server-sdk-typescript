@@ -37,11 +37,21 @@ export class TestSuiteTests {
      * @param {Vapi.TestSuiteTestControllerFindAllPaginatedRequest} request
      * @param {TestSuiteTests.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async testSuiteTestControllerFindAllPaginated(
+    public testSuiteTestControllerFindAllPaginated(
         testSuiteId: string,
         request: Vapi.TestSuiteTestControllerFindAllPaginatedRequest = {},
         requestOptions?: TestSuiteTests.RequestOptions,
-    ): Promise<Vapi.TestSuiteTestsPaginatedResponse> {
+    ): core.HttpResponsePromise<Vapi.TestSuiteTestsPaginatedResponse> {
+        return core.HttpResponsePromise.fromPromise(
+            this.__testSuiteTestControllerFindAllPaginated(testSuiteId, request, requestOptions),
+        );
+    }
+
+    private async __testSuiteTestControllerFindAllPaginated(
+        testSuiteId: string,
+        request: Vapi.TestSuiteTestControllerFindAllPaginatedRequest = {},
+        requestOptions?: TestSuiteTests.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.TestSuiteTestsPaginatedResponse>> {
         const {
             page,
             sortOrder,
@@ -56,47 +66,47 @@ export class TestSuiteTests {
             updatedAtLe,
         } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (page != null) {
-            _queryParams["page"] = page.toString();
+        if (page !== undefined) {
+            _queryParams["page"] = page?.toString() ?? null;
         }
 
-        if (sortOrder != null) {
+        if (sortOrder !== undefined) {
             _queryParams["sortOrder"] = sortOrder;
         }
 
-        if (limit != null) {
-            _queryParams["limit"] = limit.toString();
+        if (limit !== undefined) {
+            _queryParams["limit"] = limit?.toString() ?? null;
         }
 
-        if (createdAtGt != null) {
+        if (createdAtGt !== undefined) {
             _queryParams["createdAtGt"] = createdAtGt;
         }
 
-        if (createdAtLt != null) {
+        if (createdAtLt !== undefined) {
             _queryParams["createdAtLt"] = createdAtLt;
         }
 
-        if (createdAtGe != null) {
+        if (createdAtGe !== undefined) {
             _queryParams["createdAtGe"] = createdAtGe;
         }
 
-        if (createdAtLe != null) {
+        if (createdAtLe !== undefined) {
             _queryParams["createdAtLe"] = createdAtLe;
         }
 
-        if (updatedAtGt != null) {
+        if (updatedAtGt !== undefined) {
             _queryParams["updatedAtGt"] = updatedAtGt;
         }
 
-        if (updatedAtLt != null) {
+        if (updatedAtLt !== undefined) {
             _queryParams["updatedAtLt"] = updatedAtLt;
         }
 
-        if (updatedAtGe != null) {
+        if (updatedAtGe !== undefined) {
             _queryParams["updatedAtGe"] = updatedAtGe;
         }
 
-        if (updatedAtLe != null) {
+        if (updatedAtLe !== undefined) {
             _queryParams["updatedAtLe"] = updatedAtLe;
         }
 
@@ -112,8 +122,8 @@ export class TestSuiteTests {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -126,13 +136,14 @@ export class TestSuiteTests {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.TestSuiteTestsPaginatedResponse;
+            return { data: _response.body as Vapi.TestSuiteTestsPaginatedResponse, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -141,12 +152,14 @@ export class TestSuiteTests {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /test-suite/{testSuiteId}/test.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -156,11 +169,21 @@ export class TestSuiteTests {
      * @param {Vapi.TestSuiteTestControllerCreateRequest} request
      * @param {TestSuiteTests.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async testSuiteTestControllerCreate(
+    public testSuiteTestControllerCreate(
         testSuiteId: string,
         request: Vapi.TestSuiteTestControllerCreateRequest,
         requestOptions?: TestSuiteTests.RequestOptions,
-    ): Promise<Vapi.TestSuiteTestControllerCreateResponse> {
+    ): core.HttpResponsePromise<Vapi.TestSuiteTestControllerCreateResponse> {
+        return core.HttpResponsePromise.fromPromise(
+            this.__testSuiteTestControllerCreate(testSuiteId, request, requestOptions),
+        );
+    }
+
+    private async __testSuiteTestControllerCreate(
+        testSuiteId: string,
+        request: Vapi.TestSuiteTestControllerCreateRequest,
+        requestOptions?: TestSuiteTests.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.TestSuiteTestControllerCreateResponse>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -173,8 +196,8 @@ export class TestSuiteTests {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -187,13 +210,17 @@ export class TestSuiteTests {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.TestSuiteTestControllerCreateResponse;
+            return {
+                data: _response.body as Vapi.TestSuiteTestControllerCreateResponse,
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -202,12 +229,14 @@ export class TestSuiteTests {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling POST /test-suite/{testSuiteId}/test.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -217,11 +246,21 @@ export class TestSuiteTests {
      * @param {string} id
      * @param {TestSuiteTests.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async testSuiteTestControllerFindOne(
+    public testSuiteTestControllerFindOne(
         testSuiteId: string,
         id: string,
         requestOptions?: TestSuiteTests.RequestOptions,
-    ): Promise<Vapi.TestSuiteTestControllerFindOneResponse> {
+    ): core.HttpResponsePromise<Vapi.TestSuiteTestControllerFindOneResponse> {
+        return core.HttpResponsePromise.fromPromise(
+            this.__testSuiteTestControllerFindOne(testSuiteId, id, requestOptions),
+        );
+    }
+
+    private async __testSuiteTestControllerFindOne(
+        testSuiteId: string,
+        id: string,
+        requestOptions?: TestSuiteTests.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.TestSuiteTestControllerFindOneResponse>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -234,8 +273,8 @@ export class TestSuiteTests {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -247,13 +286,17 @@ export class TestSuiteTests {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.TestSuiteTestControllerFindOneResponse;
+            return {
+                data: _response.body as Vapi.TestSuiteTestControllerFindOneResponse,
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -262,6 +305,7 @@ export class TestSuiteTests {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError(
@@ -270,6 +314,7 @@ export class TestSuiteTests {
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -279,11 +324,21 @@ export class TestSuiteTests {
      * @param {string} id
      * @param {TestSuiteTests.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async testSuiteTestControllerRemove(
+    public testSuiteTestControllerRemove(
         testSuiteId: string,
         id: string,
         requestOptions?: TestSuiteTests.RequestOptions,
-    ): Promise<Vapi.TestSuiteTestControllerRemoveResponse> {
+    ): core.HttpResponsePromise<Vapi.TestSuiteTestControllerRemoveResponse> {
+        return core.HttpResponsePromise.fromPromise(
+            this.__testSuiteTestControllerRemove(testSuiteId, id, requestOptions),
+        );
+    }
+
+    private async __testSuiteTestControllerRemove(
+        testSuiteId: string,
+        id: string,
+        requestOptions?: TestSuiteTests.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.TestSuiteTestControllerRemoveResponse>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -296,8 +351,8 @@ export class TestSuiteTests {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -309,13 +364,17 @@ export class TestSuiteTests {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.TestSuiteTestControllerRemoveResponse;
+            return {
+                data: _response.body as Vapi.TestSuiteTestControllerRemoveResponse,
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -324,6 +383,7 @@ export class TestSuiteTests {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError(
@@ -332,6 +392,7 @@ export class TestSuiteTests {
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -342,12 +403,23 @@ export class TestSuiteTests {
      * @param {Vapi.TestSuiteTestControllerUpdateRequest} request
      * @param {TestSuiteTests.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async testSuiteTestControllerUpdate(
+    public testSuiteTestControllerUpdate(
         testSuiteId: string,
         id: string,
         request: Vapi.TestSuiteTestControllerUpdateRequest,
         requestOptions?: TestSuiteTests.RequestOptions,
-    ): Promise<Vapi.TestSuiteTestControllerUpdateResponse> {
+    ): core.HttpResponsePromise<Vapi.TestSuiteTestControllerUpdateResponse> {
+        return core.HttpResponsePromise.fromPromise(
+            this.__testSuiteTestControllerUpdate(testSuiteId, id, request, requestOptions),
+        );
+    }
+
+    private async __testSuiteTestControllerUpdate(
+        testSuiteId: string,
+        id: string,
+        request: Vapi.TestSuiteTestControllerUpdateRequest,
+        requestOptions?: TestSuiteTests.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.TestSuiteTestControllerUpdateResponse>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -360,8 +432,8 @@ export class TestSuiteTests {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -374,13 +446,17 @@ export class TestSuiteTests {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.TestSuiteTestControllerUpdateResponse;
+            return {
+                data: _response.body as Vapi.TestSuiteTestControllerUpdateResponse,
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -389,6 +465,7 @@ export class TestSuiteTests {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError(
@@ -397,6 +474,7 @@ export class TestSuiteTests {
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }

@@ -40,133 +40,141 @@ export class Logs {
         request: Vapi.LogsGetRequest = {},
         requestOptions?: Logs.RequestOptions,
     ): Promise<core.Page<Vapi.Log>> {
-        const list = async (request: Vapi.LogsGetRequest): Promise<Vapi.LogsPaginatedResponse> => {
-            const {
-                type: type_,
-                webhookType,
-                assistantId,
-                phoneNumberId,
-                customerId,
-                squadId,
-                callId,
-                page,
-                sortOrder,
-                limit,
-                createdAtGt,
-                createdAtLt,
-                createdAtGe,
-                createdAtLe,
-                updatedAtGt,
-                updatedAtLt,
-                updatedAtGe,
-                updatedAtLe,
-            } = request;
-            const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-            if (type_ != null) {
-                _queryParams["type"] = type_;
-            }
-            if (webhookType != null) {
-                _queryParams["webhookType"] = webhookType;
-            }
-            if (assistantId != null) {
-                _queryParams["assistantId"] = assistantId;
-            }
-            if (phoneNumberId != null) {
-                _queryParams["phoneNumberId"] = phoneNumberId;
-            }
-            if (customerId != null) {
-                _queryParams["customerId"] = customerId;
-            }
-            if (squadId != null) {
-                _queryParams["squadId"] = squadId;
-            }
-            if (callId != null) {
-                _queryParams["callId"] = callId;
-            }
-            if (page != null) {
-                _queryParams["page"] = page.toString();
-            }
-            if (sortOrder != null) {
-                _queryParams["sortOrder"] = sortOrder;
-            }
-            if (limit != null) {
-                _queryParams["limit"] = limit.toString();
-            }
-            if (createdAtGt != null) {
-                _queryParams["createdAtGt"] = createdAtGt;
-            }
-            if (createdAtLt != null) {
-                _queryParams["createdAtLt"] = createdAtLt;
-            }
-            if (createdAtGe != null) {
-                _queryParams["createdAtGe"] = createdAtGe;
-            }
-            if (createdAtLe != null) {
-                _queryParams["createdAtLe"] = createdAtLe;
-            }
-            if (updatedAtGt != null) {
-                _queryParams["updatedAtGt"] = updatedAtGt;
-            }
-            if (updatedAtLt != null) {
-                _queryParams["updatedAtLt"] = updatedAtLt;
-            }
-            if (updatedAtGe != null) {
-                _queryParams["updatedAtGe"] = updatedAtGe;
-            }
-            if (updatedAtLe != null) {
-                _queryParams["updatedAtLe"] = updatedAtLe;
-            }
-            const _response = await (this._options.fetcher ?? core.fetcher)({
-                url: urlJoin(
-                    (await core.Supplier.get(this._options.baseUrl)) ??
-                        (await core.Supplier.get(this._options.environment)) ??
-                        environments.VapiEnvironment.Default,
-                    "logs",
-                ),
-                method: "GET",
-                headers: {
-                    Authorization: await this._getAuthorizationHeader(),
-                    "X-Fern-Language": "JavaScript",
-                    "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                    "X-Fern-SDK-Version": "0.6.2",
-                    "User-Agent": "@vapi-ai/server-sdk/0.6.2",
-                    "X-Fern-Runtime": core.RUNTIME.type,
-                    "X-Fern-Runtime-Version": core.RUNTIME.version,
-                    ...requestOptions?.headers,
-                },
-                contentType: "application/json",
-                queryParameters: _queryParams,
-                requestType: "json",
-                timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
-                maxRetries: requestOptions?.maxRetries,
-                abortSignal: requestOptions?.abortSignal,
-            });
-            if (_response.ok) {
-                return _response.body as Vapi.LogsPaginatedResponse;
-            }
-            if (_response.error.reason === "status-code") {
-                throw new errors.VapiError({
-                    statusCode: _response.error.statusCode,
-                    body: _response.error.body,
+        const list = core.HttpResponsePromise.interceptFunction(
+            async (request: Vapi.LogsGetRequest): Promise<core.WithRawResponse<Vapi.LogsPaginatedResponse>> => {
+                const {
+                    type: type_,
+                    webhookType,
+                    assistantId,
+                    phoneNumberId,
+                    customerId,
+                    squadId,
+                    callId,
+                    page,
+                    sortOrder,
+                    limit,
+                    createdAtGt,
+                    createdAtLt,
+                    createdAtGe,
+                    createdAtLe,
+                    updatedAtGt,
+                    updatedAtLt,
+                    updatedAtGe,
+                    updatedAtLe,
+                } = request;
+                const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
+                if (type_ !== undefined) {
+                    _queryParams["type"] = type_;
+                }
+                if (webhookType !== undefined) {
+                    _queryParams["webhookType"] = webhookType;
+                }
+                if (assistantId !== undefined) {
+                    _queryParams["assistantId"] = assistantId;
+                }
+                if (phoneNumberId !== undefined) {
+                    _queryParams["phoneNumberId"] = phoneNumberId;
+                }
+                if (customerId !== undefined) {
+                    _queryParams["customerId"] = customerId;
+                }
+                if (squadId !== undefined) {
+                    _queryParams["squadId"] = squadId;
+                }
+                if (callId !== undefined) {
+                    _queryParams["callId"] = callId;
+                }
+                if (page !== undefined) {
+                    _queryParams["page"] = page?.toString() ?? null;
+                }
+                if (sortOrder !== undefined) {
+                    _queryParams["sortOrder"] = sortOrder;
+                }
+                if (limit !== undefined) {
+                    _queryParams["limit"] = limit?.toString() ?? null;
+                }
+                if (createdAtGt !== undefined) {
+                    _queryParams["createdAtGt"] = createdAtGt;
+                }
+                if (createdAtLt !== undefined) {
+                    _queryParams["createdAtLt"] = createdAtLt;
+                }
+                if (createdAtGe !== undefined) {
+                    _queryParams["createdAtGe"] = createdAtGe;
+                }
+                if (createdAtLe !== undefined) {
+                    _queryParams["createdAtLe"] = createdAtLe;
+                }
+                if (updatedAtGt !== undefined) {
+                    _queryParams["updatedAtGt"] = updatedAtGt;
+                }
+                if (updatedAtLt !== undefined) {
+                    _queryParams["updatedAtLt"] = updatedAtLt;
+                }
+                if (updatedAtGe !== undefined) {
+                    _queryParams["updatedAtGe"] = updatedAtGe;
+                }
+                if (updatedAtLe !== undefined) {
+                    _queryParams["updatedAtLe"] = updatedAtLe;
+                }
+                const _response = await (this._options.fetcher ?? core.fetcher)({
+                    url: urlJoin(
+                        (await core.Supplier.get(this._options.baseUrl)) ??
+                            (await core.Supplier.get(this._options.environment)) ??
+                            environments.VapiEnvironment.Default,
+                        "logs",
+                    ),
+                    method: "GET",
+                    headers: {
+                        Authorization: await this._getAuthorizationHeader(),
+                        "X-Fern-Language": "JavaScript",
+                        "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
+                        "X-Fern-SDK-Version": "0.6.3",
+                        "User-Agent": "@vapi-ai/server-sdk/0.6.3",
+                        "X-Fern-Runtime": core.RUNTIME.type,
+                        "X-Fern-Runtime-Version": core.RUNTIME.version,
+                        ...requestOptions?.headers,
+                    },
+                    contentType: "application/json",
+                    queryParameters: _queryParams,
+                    requestType: "json",
+                    timeoutMs:
+                        requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+                    maxRetries: requestOptions?.maxRetries,
+                    abortSignal: requestOptions?.abortSignal,
                 });
-            }
-            switch (_response.error.reason) {
-                case "non-json":
+                if (_response.ok) {
+                    return { data: _response.body as Vapi.LogsPaginatedResponse, rawResponse: _response.rawResponse };
+                }
+                if (_response.error.reason === "status-code") {
                     throw new errors.VapiError({
                         statusCode: _response.error.statusCode,
-                        body: _response.error.rawBody,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
                     });
-                case "timeout":
-                    throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /logs.");
-                case "unknown":
-                    throw new errors.VapiError({
-                        message: _response.error.errorMessage,
-                    });
-            }
-        };
+                }
+                switch (_response.error.reason) {
+                    case "non-json":
+                        throw new errors.VapiError({
+                            statusCode: _response.error.statusCode,
+                            body: _response.error.rawBody,
+                            rawResponse: _response.rawResponse,
+                        });
+                    case "timeout":
+                        throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /logs.");
+                    case "unknown":
+                        throw new errors.VapiError({
+                            message: _response.error.errorMessage,
+                            rawResponse: _response.rawResponse,
+                        });
+                }
+            },
+        );
         let _offset = request?.page != null ? request?.page : 1;
+        const dataWithRawResponse = await list(request).withRawResponse();
         return new core.Pageable<Vapi.LogsPaginatedResponse, Vapi.Log>({
-            response: await list(request),
+            response: dataWithRawResponse.data,
+            rawResponse: dataWithRawResponse.rawResponse,
             hasNextPage: (response) => (response?.results ?? []).length > 0,
             getItems: (response) => response?.results ?? [],
             loadPage: (_response) => {
@@ -180,33 +188,40 @@ export class Logs {
      * @param {Vapi.LoggingControllerLogsDeleteQueryRequest} request
      * @param {Logs.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async loggingControllerLogsDeleteQuery(
+    public loggingControllerLogsDeleteQuery(
         request: Vapi.LoggingControllerLogsDeleteQueryRequest = {},
         requestOptions?: Logs.RequestOptions,
-    ): Promise<void> {
+    ): core.HttpResponsePromise<void> {
+        return core.HttpResponsePromise.fromPromise(this.__loggingControllerLogsDeleteQuery(request, requestOptions));
+    }
+
+    private async __loggingControllerLogsDeleteQuery(
+        request: Vapi.LoggingControllerLogsDeleteQueryRequest = {},
+        requestOptions?: Logs.RequestOptions,
+    ): Promise<core.WithRawResponse<void>> {
         const { type: type_, assistantId, phoneNumberId, customerId, squadId, callId } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (type_ != null) {
+        if (type_ !== undefined) {
             _queryParams["type"] = type_;
         }
 
-        if (assistantId != null) {
+        if (assistantId !== undefined) {
             _queryParams["assistantId"] = assistantId;
         }
 
-        if (phoneNumberId != null) {
+        if (phoneNumberId !== undefined) {
             _queryParams["phoneNumberId"] = phoneNumberId;
         }
 
-        if (customerId != null) {
+        if (customerId !== undefined) {
             _queryParams["customerId"] = customerId;
         }
 
-        if (squadId != null) {
+        if (squadId !== undefined) {
             _queryParams["squadId"] = squadId;
         }
 
-        if (callId != null) {
+        if (callId !== undefined) {
             _queryParams["callId"] = callId;
         }
 
@@ -222,8 +237,8 @@ export class Logs {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -236,13 +251,14 @@ export class Logs {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return;
+            return { data: undefined, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -251,12 +267,14 @@ export class Logs {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling DELETE /logs.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }

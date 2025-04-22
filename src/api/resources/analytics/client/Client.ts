@@ -36,10 +36,17 @@ export class Analytics {
      * @param {Vapi.AnalyticsQueryDto} request
      * @param {Analytics.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async get(
+    public get(
         request: Vapi.AnalyticsQueryDto,
         requestOptions?: Analytics.RequestOptions,
-    ): Promise<Vapi.AnalyticsQueryResult[]> {
+    ): core.HttpResponsePromise<Vapi.AnalyticsQueryResult[]> {
+        return core.HttpResponsePromise.fromPromise(this.__get(request, requestOptions));
+    }
+
+    private async __get(
+        request: Vapi.AnalyticsQueryDto,
+        requestOptions?: Analytics.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.AnalyticsQueryResult[]>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -52,8 +59,8 @@ export class Analytics {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -66,13 +73,14 @@ export class Analytics {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.AnalyticsQueryResult[];
+            return { data: _response.body as Vapi.AnalyticsQueryResult[], rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -81,12 +89,14 @@ export class Analytics {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling POST /analytics.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }

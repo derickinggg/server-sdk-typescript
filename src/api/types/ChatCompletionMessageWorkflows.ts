@@ -6,6 +6,6 @@ import * as Vapi from "../index";
 
 export interface ChatCompletionMessageWorkflows {
     role: Record<string, unknown>;
-    content?: string;
+    content?: string | null;
     metadata?: Vapi.ChatCompletionMessageMetadata;
 }

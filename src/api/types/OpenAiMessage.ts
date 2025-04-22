@@ -5,6 +5,6 @@
 import * as Vapi from "../index";
 
 export interface OpenAiMessage {
-    content?: string;
+    content?: string | null;
     role: Vapi.OpenAiMessageRole;
 }

@@ -8,22 +8,22 @@ export interface LoggingControllerLogsDeleteQueryRequest {
     /**
      * This is the type of the log.
      */
-    type?: Vapi.LoggingControllerLogsDeleteQueryRequestType;
-    assistantId?: string;
+    type?: Vapi.LoggingControllerLogsDeleteQueryRequestType | null;
+    assistantId?: string | null;
     /**
      * This is the ID of the phone number.
      */
-    phoneNumberId?: string;
+    phoneNumberId?: string | null;
     /**
      * This is the ID of the customer.
      */
-    customerId?: string;
+    customerId?: string | null;
     /**
      * This is the ID of the squad.
      */
-    squadId?: string;
+    squadId?: string | null;
     /**
      * This is the ID of the call.
      */
-    callId?: string;
+    callId?: string | null;
 }

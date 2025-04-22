@@ -12,7 +12,7 @@ export interface ServerMessageResponseAssistantRequest {
      */
     destination?: Vapi.ServerMessageResponseAssistantRequestDestination;
     /** This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead. */
-    assistantId?: string;
+    assistantId?: string | null;
     /**
      * This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead.
      *

@@ -35,7 +35,15 @@ export class Workflow {
     /**
      * @param {Workflow.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async workflowControllerFindAll(requestOptions?: Workflow.RequestOptions): Promise<Vapi.Workflow[]> {
+    public workflowControllerFindAll(
+        requestOptions?: Workflow.RequestOptions,
+    ): core.HttpResponsePromise<Vapi.Workflow[]> {
+        return core.HttpResponsePromise.fromPromise(this.__workflowControllerFindAll(requestOptions));
+    }
+
+    private async __workflowControllerFindAll(
+        requestOptions?: Workflow.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.Workflow[]>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -48,8 +56,8 @@ export class Workflow {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -61,13 +69,14 @@ export class Workflow {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.Workflow[];
+            return { data: _response.body as Vapi.Workflow[], rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -76,12 +85,14 @@ export class Workflow {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /workflow.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -90,10 +101,17 @@ export class Workflow {
      * @param {Vapi.CreateWorkflowDto} request
      * @param {Workflow.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async workflowControllerCreate(
+    public workflowControllerCreate(
         request: Vapi.CreateWorkflowDto,
         requestOptions?: Workflow.RequestOptions,
-    ): Promise<Vapi.Workflow> {
+    ): core.HttpResponsePromise<Vapi.Workflow> {
+        return core.HttpResponsePromise.fromPromise(this.__workflowControllerCreate(request, requestOptions));
+    }
+
+    private async __workflowControllerCreate(
+        request: Vapi.CreateWorkflowDto,
+        requestOptions?: Workflow.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.Workflow>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -106,8 +124,8 @@ export class Workflow {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -120,13 +138,14 @@ export class Workflow {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.Workflow;
+            return { data: _response.body as Vapi.Workflow, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -135,12 +154,14 @@ export class Workflow {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling POST /workflow.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -149,10 +170,17 @@ export class Workflow {
      * @param {string} id
      * @param {Workflow.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async workflowControllerFindOne(
+    public workflowControllerFindOne(
         id: string,
         requestOptions?: Workflow.RequestOptions,
-    ): Promise<Vapi.Workflow> {
+    ): core.HttpResponsePromise<Vapi.Workflow> {
+        return core.HttpResponsePromise.fromPromise(this.__workflowControllerFindOne(id, requestOptions));
+    }
+
+    private async __workflowControllerFindOne(
+        id: string,
+        requestOptions?: Workflow.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.Workflow>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -165,8 +193,8 @@ export class Workflow {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -178,13 +206,14 @@ export class Workflow {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.Workflow;
+            return { data: _response.body as Vapi.Workflow, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -193,12 +222,14 @@ export class Workflow {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /workflow/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -207,10 +238,17 @@ export class Workflow {
      * @param {string} id
      * @param {Workflow.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async workflowControllerDelete(
+    public workflowControllerDelete(
         id: string,
         requestOptions?: Workflow.RequestOptions,
-    ): Promise<Vapi.Workflow> {
+    ): core.HttpResponsePromise<Vapi.Workflow> {
+        return core.HttpResponsePromise.fromPromise(this.__workflowControllerDelete(id, requestOptions));
+    }
+
+    private async __workflowControllerDelete(
+        id: string,
+        requestOptions?: Workflow.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.Workflow>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -223,8 +261,8 @@ export class Workflow {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -236,13 +274,14 @@ export class Workflow {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.Workflow;
+            return { data: _response.body as Vapi.Workflow, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -251,12 +290,14 @@ export class Workflow {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling DELETE /workflow/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -266,11 +307,19 @@ export class Workflow {
      * @param {Vapi.UpdateWorkflowDto} request
      * @param {Workflow.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async workflowControllerUpdate(
+    public workflowControllerUpdate(
         id: string,
         request: Vapi.UpdateWorkflowDto = {},
         requestOptions?: Workflow.RequestOptions,
-    ): Promise<Vapi.Workflow> {
+    ): core.HttpResponsePromise<Vapi.Workflow> {
+        return core.HttpResponsePromise.fromPromise(this.__workflowControllerUpdate(id, request, requestOptions));
+    }
+
+    private async __workflowControllerUpdate(
+        id: string,
+        request: Vapi.UpdateWorkflowDto = {},
+        requestOptions?: Workflow.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.Workflow>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -283,8 +332,8 @@ export class Workflow {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -297,13 +346,14 @@ export class Workflow {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.Workflow;
+            return { data: _response.body as Vapi.Workflow, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -312,12 +362,14 @@ export class Workflow {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling PATCH /workflow/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }

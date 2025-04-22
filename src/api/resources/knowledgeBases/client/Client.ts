@@ -36,10 +36,17 @@ export class KnowledgeBases {
      * @param {Vapi.KnowledgeBasesListRequest} request
      * @param {KnowledgeBases.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async list(
+    public list(
         request: Vapi.KnowledgeBasesListRequest = {},
         requestOptions?: KnowledgeBases.RequestOptions,
-    ): Promise<Vapi.KnowledgeBasesListResponseItem[]> {
+    ): core.HttpResponsePromise<Vapi.KnowledgeBasesListResponseItem[]> {
+        return core.HttpResponsePromise.fromPromise(this.__list(request, requestOptions));
+    }
+
+    private async __list(
+        request: Vapi.KnowledgeBasesListRequest = {},
+        requestOptions?: KnowledgeBases.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.KnowledgeBasesListResponseItem[]>> {
         const {
             limit,
             createdAtGt,
@@ -52,39 +59,39 @@ export class KnowledgeBases {
             updatedAtLe,
         } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
-        if (limit != null) {
-            _queryParams["limit"] = limit.toString();
+        if (limit !== undefined) {
+            _queryParams["limit"] = limit?.toString() ?? null;
         }
 
-        if (createdAtGt != null) {
+        if (createdAtGt !== undefined) {
             _queryParams["createdAtGt"] = createdAtGt;
         }
 
-        if (createdAtLt != null) {
+        if (createdAtLt !== undefined) {
             _queryParams["createdAtLt"] = createdAtLt;
         }
 
-        if (createdAtGe != null) {
+        if (createdAtGe !== undefined) {
             _queryParams["createdAtGe"] = createdAtGe;
         }
 
-        if (createdAtLe != null) {
+        if (createdAtLe !== undefined) {
             _queryParams["createdAtLe"] = createdAtLe;
         }
 
-        if (updatedAtGt != null) {
+        if (updatedAtGt !== undefined) {
             _queryParams["updatedAtGt"] = updatedAtGt;
         }
 
-        if (updatedAtLt != null) {
+        if (updatedAtLt !== undefined) {
             _queryParams["updatedAtLt"] = updatedAtLt;
         }
 
-        if (updatedAtGe != null) {
+        if (updatedAtGe !== undefined) {
             _queryParams["updatedAtGe"] = updatedAtGe;
         }
 
-        if (updatedAtLe != null) {
+        if (updatedAtLe !== undefined) {
             _queryParams["updatedAtLe"] = updatedAtLe;
         }
 
@@ -100,8 +107,8 @@ export class KnowledgeBases {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -114,13 +121,17 @@ export class KnowledgeBases {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.KnowledgeBasesListResponseItem[];
+            return {
+                data: _response.body as Vapi.KnowledgeBasesListResponseItem[],
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -129,12 +140,14 @@ export class KnowledgeBases {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /knowledge-base.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -143,10 +156,17 @@ export class KnowledgeBases {
      * @param {Vapi.KnowledgeBasesCreateRequest} request
      * @param {KnowledgeBases.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async create(
+    public create(
         request: Vapi.KnowledgeBasesCreateRequest,
         requestOptions?: KnowledgeBases.RequestOptions,
-    ): Promise<Vapi.KnowledgeBasesCreateResponse> {
+    ): core.HttpResponsePromise<Vapi.KnowledgeBasesCreateResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__create(request, requestOptions));
+    }
+
+    private async __create(
+        request: Vapi.KnowledgeBasesCreateRequest,
+        requestOptions?: KnowledgeBases.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.KnowledgeBasesCreateResponse>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -159,8 +179,8 @@ export class KnowledgeBases {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -173,13 +193,14 @@ export class KnowledgeBases {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.KnowledgeBasesCreateResponse;
+            return { data: _response.body as Vapi.KnowledgeBasesCreateResponse, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -188,12 +209,14 @@ export class KnowledgeBases {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling POST /knowledge-base.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -202,10 +225,17 @@ export class KnowledgeBases {
      * @param {string} id
      * @param {KnowledgeBases.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async get(
+    public get(
         id: string,
         requestOptions?: KnowledgeBases.RequestOptions,
-    ): Promise<Vapi.KnowledgeBasesGetResponse> {
+    ): core.HttpResponsePromise<Vapi.KnowledgeBasesGetResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__get(id, requestOptions));
+    }
+
+    private async __get(
+        id: string,
+        requestOptions?: KnowledgeBases.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.KnowledgeBasesGetResponse>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -218,8 +248,8 @@ export class KnowledgeBases {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -231,13 +261,14 @@ export class KnowledgeBases {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.KnowledgeBasesGetResponse;
+            return { data: _response.body as Vapi.KnowledgeBasesGetResponse, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -246,12 +277,14 @@ export class KnowledgeBases {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /knowledge-base/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -260,10 +293,17 @@ export class KnowledgeBases {
      * @param {string} id
      * @param {KnowledgeBases.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async delete(
+    public delete(
         id: string,
         requestOptions?: KnowledgeBases.RequestOptions,
-    ): Promise<Vapi.KnowledgeBasesDeleteResponse> {
+    ): core.HttpResponsePromise<Vapi.KnowledgeBasesDeleteResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__delete(id, requestOptions));
+    }
+
+    private async __delete(
+        id: string,
+        requestOptions?: KnowledgeBases.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.KnowledgeBasesDeleteResponse>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -276,8 +316,8 @@ export class KnowledgeBases {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -289,13 +329,14 @@ export class KnowledgeBases {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.KnowledgeBasesDeleteResponse;
+            return { data: _response.body as Vapi.KnowledgeBasesDeleteResponse, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -304,12 +345,14 @@ export class KnowledgeBases {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling DELETE /knowledge-base/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -319,11 +362,19 @@ export class KnowledgeBases {
      * @param {Vapi.KnowledgeBasesUpdateRequest} request
      * @param {KnowledgeBases.RequestOptions} requestOptions - Request-specific configuration.
      */
-    public async update(
+    public update(
         id: string,
         request: Vapi.KnowledgeBasesUpdateRequest,
         requestOptions?: KnowledgeBases.RequestOptions,
-    ): Promise<Vapi.KnowledgeBasesUpdateResponse> {
+    ): core.HttpResponsePromise<Vapi.KnowledgeBasesUpdateResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__update(id, request, requestOptions));
+    }
+
+    private async __update(
+        id: string,
+        request: Vapi.KnowledgeBasesUpdateRequest,
+        requestOptions?: KnowledgeBases.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.KnowledgeBasesUpdateResponse>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -336,8 +387,8 @@ export class KnowledgeBases {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.2",
+                "X-Fern-SDK-Version": "0.6.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -350,13 +401,14 @@ export class KnowledgeBases {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return _response.body as Vapi.KnowledgeBasesUpdateResponse;
+            return { data: _response.body as Vapi.KnowledgeBasesUpdateResponse, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
             throw new errors.VapiError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
+                rawResponse: _response.rawResponse,
             });
         }
 
@@ -365,12 +417,14 @@ export class KnowledgeBases {
                 throw new errors.VapiError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling PATCH /knowledge-base/{id}.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }

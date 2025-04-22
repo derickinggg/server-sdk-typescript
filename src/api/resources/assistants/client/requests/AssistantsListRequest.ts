@@ -6,37 +6,37 @@ export interface AssistantsListRequest {
     /**
      * This is the maximum number of items to return. Defaults to 100.
      */
-    limit?: number;
+    limit?: number | null;
     /**
      * This will return items where the createdAt is greater than the specified value.
      */
-    createdAtGt?: string;
+    createdAtGt?: string | null;
     /**
      * This will return items where the createdAt is less than the specified value.
      */
-    createdAtLt?: string;
+    createdAtLt?: string | null;
     /**
      * This will return items where the createdAt is greater than or equal to the specified value.
      */
-    createdAtGe?: string;
+    createdAtGe?: string | null;
     /**
      * This will return items where the createdAt is less than or equal to the specified value.
      */
-    createdAtLe?: string;
+    createdAtLe?: string | null;
     /**
      * This will return items where the updatedAt is greater than the specified value.
      */
-    updatedAtGt?: string;
+    updatedAtGt?: string | null;
     /**
      * This will return items where the updatedAt is less than the specified value.
      */
-    updatedAtLt?: string;
+    updatedAtLt?: string | null;
     /**
      * This will return items where the updatedAt is greater than or equal to the specified value.
      */
-    updatedAtGe?: string;
+    updatedAtGe?: string | null;
     /**
      * This will return items where the updatedAt is less than or equal to the specified value.
      */
-    updatedAtLe?: string;
+    updatedAtLe?: string | null;
 }
