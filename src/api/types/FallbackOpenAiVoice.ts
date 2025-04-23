@@ -5,6 +5,8 @@
 import * as Vapi from "../index";
 
 export interface FallbackOpenAiVoice {
+    /** This is the flag to toggle voice caching for the assistant. */
+    cachingEnabled?: boolean;
     /** This is the voice provider that will be used. */
     provider: "openai";
     /**

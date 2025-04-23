@@ -10,5 +10,5 @@ export interface Condition {
     /** This is the name of the parameter that you want to check. */
     param: string;
     /** This is the value you want to compare against the parameter. */
-    value: Record<string, unknown>;
+    value: string;
 }

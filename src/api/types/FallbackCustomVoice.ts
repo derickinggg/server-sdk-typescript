@@ -5,6 +5,8 @@
 import * as Vapi from "../index";
 
 export interface FallbackCustomVoice {
+    /** This is the flag to toggle voice caching for the assistant. */
+    cachingEnabled?: boolean;
     /** This is the voice provider that will be used. Use `custom-voice` for providers that are not natively supported. */
     provider: "custom-voice";
     /**
