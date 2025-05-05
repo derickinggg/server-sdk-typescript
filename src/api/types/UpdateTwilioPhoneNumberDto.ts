@@ -16,6 +16,15 @@ export interface UpdateTwilioPhoneNumberDto {
     fallbackDestination?: Vapi.UpdateTwilioPhoneNumberDtoFallbackDestination;
     /** This is the hooks that will be used for incoming calls to this phone number. */
     hooks?: Vapi.PhoneNumberHookCallRinging[];
+    /**
+     * Controls whether Vapi sets the messaging webhook URL on the Twilio number during import.
+     *
+     * If set to `false`, Vapi will not update the Twilio messaging URL, leaving it as is.
+     * If `true` or omitted (default), Vapi will configure both the voice and messaging URLs.
+     *
+     * @default true
+     */
+    smsEnabled?: boolean;
     /** This is the name of the phone number. This is just for your own reference. */
     name?: string;
     /**
@@ -46,4 +55,8 @@ export interface UpdateTwilioPhoneNumberDto {
     twilioAccountSid?: string;
     /** This is the Twilio Auth Token for the phone number. */
     twilioAuthToken?: string;
+    /** This is the Twilio API Key for the phone number. */
+    twilioApiKey?: string;
+    /** This is the Twilio API Secret for the phone number. */
+    twilioApiSecret?: string;
 }

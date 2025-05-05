@@ -5,7 +5,11 @@
 export interface CreateTwilioCredentialDto {
     provider: "twilio";
     /** This is not returned in the API. */
-    authToken: string;
+    authToken?: string;
+    /** This is not returned in the API. */
+    apiKey?: string;
+    /** This is not returned in the API. */
+    apiSecret?: string;
     accountSid: string;
     /** This is the name of credential. This is just for your reference. */
     name?: string;

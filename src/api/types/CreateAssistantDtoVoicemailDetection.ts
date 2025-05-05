@@ -12,4 +12,5 @@ import * as Vapi from "../index";
 export type CreateAssistantDtoVoicemailDetection =
     | Vapi.GoogleVoicemailDetectionPlan
     | Vapi.OpenAiVoicemailDetectionPlan
-    | Vapi.TwilioVoicemailDetectionPlan;
+    | Vapi.TwilioVoicemailDetectionPlan
+    | Vapi.VapiVoicemailDetectionPlan;

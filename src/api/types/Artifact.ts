@@ -17,6 +17,8 @@ export interface Artifact {
     videoRecordingUrl?: string;
     /** This is video recording start delay in ms. To enable, set `assistant.artifactPlan.videoRecordingEnabled`. This can be used to align the playback of the recording with artifact.messages timestamps. */
     videoRecordingStartDelaySeconds?: number;
+    /** This is the recording url for the call. To enable, set `assistant.artifactPlan.recordingEnabled`. */
+    recording?: Vapi.Recording;
     /** This is the transcript of the call. This is derived from `artifact.messages` but provided for convenience. */
     transcript?: string;
     /** This is the packet capture url for the call. This is only available for `phone` type calls where phone number's provider is `vapi` or `byo-phone-number`. */

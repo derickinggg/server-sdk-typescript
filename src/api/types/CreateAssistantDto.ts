@@ -37,8 +37,7 @@ export interface CreateAssistantDto {
     voicemailDetection?: Vapi.CreateAssistantDtoVoicemailDetection;
     /** These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input,workflow.node.started. You can check the shape of the messages in ClientMessage schema. */
     clientMessages?: Vapi.CreateAssistantDtoClientMessagesItem[];
-    /** These are the messages that will be sent to your Server URL. Default is conversation-update,end-of-call-report,function-call,hang,speech-update,status-update,tool-calls,transfer-destination-request,user-interrupted. You can check the shape of the messages in ServerMessage schema. */
-    serverMessages?: Vapi.CreateAssistantDtoServerMessagesItem[];
+    serverMessages: Record<string, unknown>[][];
     /**
      * How many seconds of silence to wait before ending the call. Defaults to 30.
      *
@@ -81,6 +80,8 @@ export interface CreateAssistantDto {
     observabilityPlan?: Vapi.LangfuseObservabilityPlan;
     /** These are dynamic credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can supplement an additional credentials using this. Dynamic credentials override existing credentials. */
     credentials?: Vapi.CreateAssistantDtoCredentialsItem[];
+    /** This is a set of actions that will be performed on certain events. */
+    hooks?: Vapi.AssistantHookCallEnding[];
     /**
      * This is the name of the assistant.
      *
@@ -160,7 +161,5 @@ export interface CreateAssistantDto {
      * 3. org.serverUrl
      */
     server?: Vapi.Server;
-    /** This is a set of actions that will be performed on certain events. */
-    hooks?: Vapi.AssistantHooks[];
     keypadInputPlan?: Vapi.KeypadInputPlan;
 }

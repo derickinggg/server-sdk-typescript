@@ -5,7 +5,11 @@
 export interface TwilioCredential {
     provider: "twilio";
     /** This is not returned in the API. */
-    authToken: string;
+    authToken?: string;
+    /** This is not returned in the API. */
+    apiKey?: string;
+    /** This is not returned in the API. */
+    apiSecret?: string;
     /** This is the unique identifier for the credential. */
     id: string;
     /** This is the unique identifier for the org that this credential belongs to. */

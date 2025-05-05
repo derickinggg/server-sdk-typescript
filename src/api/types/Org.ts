@@ -32,6 +32,8 @@ export interface Org {
     stripeSubscriptionStatus?: string;
     /** This is the plan for the org. */
     plan?: Vapi.OrgPlan;
+    /** This is the secret key used for signing JWT tokens for the org. */
+    jwtSecret?: string;
     /** This is the name of the org. This is just for your own reference. */
     name?: string;
     /** This is the channel of the org. There is the cluster the API traffic for the org will be directed. */

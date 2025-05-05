@@ -4,4 +4,11 @@
 
 import * as Vapi from "../../../index";
 
-export type UpdateWorkflowDtoNodesItem = Vapi.Say | Vapi.Gather | Vapi.ApiRequest | Vapi.Hangup | Vapi.Transfer;
+export type UpdateWorkflowDtoNodesItem =
+    | Vapi.Start
+    | Vapi.Assistant
+    | Vapi.Say
+    | Vapi.Gather
+    | Vapi.ApiRequest
+    | Vapi.Hangup
+    | Vapi.Transfer;

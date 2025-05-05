@@ -20,7 +20,7 @@ export interface StartSpeakingPlan {
      * @default 0.4
      */
     waitSeconds?: number;
-    smartEndpointingEnabled?: Record<string, unknown>;
+    smartEndpointingEnabled?: Vapi.StartSpeakingPlanSmartEndpointingEnabled;
     /**
      * This is the plan for smart endpointing. Pick between Vapi smart endpointing or LiveKit smart endpointing (or nothing). We strongly recommend using livekit endpointing when working in English. LiveKit endpointing is not supported in other languages, yet.
      *

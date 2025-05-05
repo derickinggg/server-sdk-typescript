@@ -107,8 +107,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.4",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.4",
+                "X-Fern-SDK-Version": "0.6.5",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.5",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -176,8 +176,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.4",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.4",
+                "X-Fern-SDK-Version": "0.6.5",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.5",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -242,8 +242,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.4",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.4",
+                "X-Fern-SDK-Version": "0.6.5",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.5",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -307,8 +307,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.4",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.4",
+                "X-Fern-SDK-Version": "0.6.5",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.5",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -355,7 +355,7 @@ export class Assistants {
      */
     public update(
         id: string,
-        request: Vapi.UpdateAssistantDto = {},
+        request: Vapi.UpdateAssistantDto,
         requestOptions?: Assistants.RequestOptions,
     ): core.HttpResponsePromise<Vapi.Assistant> {
         return core.HttpResponsePromise.fromPromise(this.__update(id, request, requestOptions));
@@ -363,7 +363,7 @@ export class Assistants {
 
     private async __update(
         id: string,
-        request: Vapi.UpdateAssistantDto = {},
+        request: Vapi.UpdateAssistantDto,
         requestOptions?: Assistants.RequestOptions,
     ): Promise<core.WithRawResponse<Vapi.Assistant>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
@@ -378,8 +378,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.6.4",
-                "User-Agent": "@vapi-ai/server-sdk/0.6.4",
+                "X-Fern-SDK-Version": "0.6.5",
+                "User-Agent": "@vapi-ai/server-sdk/0.6.5",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,

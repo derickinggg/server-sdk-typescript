@@ -17,12 +17,25 @@ export interface CreateTwilioPhoneNumberDto {
     /** This is the hooks that will be used for incoming calls to this phone number. */
     hooks?: Vapi.PhoneNumberHookCallRinging[];
     provider: "twilio";
+    /**
+     * Controls whether Vapi sets the messaging webhook URL on the Twilio number during import.
+     *
+     * If set to `false`, Vapi will not update the Twilio messaging URL, leaving it as is.
+     * If `true` or omitted (default), Vapi will configure both the voice and messaging URLs.
+     *
+     * @default true
+     */
+    smsEnabled?: boolean;
     /** These are the digits of the phone number you own on your Twilio. */
     number: string;
     /** This is the Twilio Account SID for the phone number. */
     twilioAccountSid: string;
     /** This is the Twilio Auth Token for the phone number. */
-    twilioAuthToken: string;
+    twilioAuthToken?: string;
+    /** This is the Twilio API Key for the phone number. */
+    twilioApiKey?: string;
+    /** This is the Twilio API Secret for the phone number. */
+    twilioApiSecret?: string;
     /** This is the name of the phone number. This is just for your own reference. */
     name?: string;
     /**

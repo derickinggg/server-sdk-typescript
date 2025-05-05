@@ -94,6 +94,8 @@ export type CallEndedReason =
     | "vonage-failed-to-connect-call"
     | "vonage-completed"
     | "phone-call-provider-bypass-enabled-but-no-call-received"
+    | "call.in-progress.error-providerfault-transport-never-connected"
+    | "call.in-progress.error-vapifault-worker-not-available"
     | "call.in-progress.error-vapifault-transport-never-connected"
     | "call.in-progress.error-vapifault-transport-connected-but-call-not-active"
     | "call.in-progress.error-vapifault-call-started-but-connection-to-transport-missing"
@@ -482,6 +484,7 @@ export type CallEndedReason =
     | "exceeded-max-duration"
     | "manually-canceled"
     | "phone-call-provider-closed-websocket"
+    | "call.forwarding.operator-busy"
     | "silence-timed-out"
     | "call.in-progress.error-sip-telephony-provider-failed-to-connect-call"
     | "call.ringing.hook-executed-say"
@@ -594,6 +597,9 @@ export const CallEndedReason = {
     VonageFailedToConnectCall: "vonage-failed-to-connect-call",
     VonageCompleted: "vonage-completed",
     PhoneCallProviderBypassEnabledButNoCallReceived: "phone-call-provider-bypass-enabled-but-no-call-received",
+    CallInProgressErrorProviderfaultTransportNeverConnected:
+        "call.in-progress.error-providerfault-transport-never-connected",
+    CallInProgressErrorVapifaultWorkerNotAvailable: "call.in-progress.error-vapifault-worker-not-available",
     CallInProgressErrorVapifaultTransportNeverConnected: "call.in-progress.error-vapifault-transport-never-connected",
     CallInProgressErrorVapifaultTransportConnectedButCallNotActive:
         "call.in-progress.error-vapifault-transport-connected-but-call-not-active",
@@ -1137,6 +1143,7 @@ export const CallEndedReason = {
     ExceededMaxDuration: "exceeded-max-duration",
     ManuallyCanceled: "manually-canceled",
     PhoneCallProviderClosedWebsocket: "phone-call-provider-closed-websocket",
+    CallForwardingOperatorBusy: "call.forwarding.operator-busy",
     SilenceTimedOut: "silence-timed-out",
     CallInProgressErrorSipTelephonyProviderFailedToConnectCall:
         "call.in-progress.error-sip-telephony-provider-failed-to-connect-call",

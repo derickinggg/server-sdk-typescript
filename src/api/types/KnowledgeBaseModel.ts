@@ -6,6 +6,7 @@
  * The model to use for the knowledge base
  */
 export type KnowledgeBaseModel =
+    | "gemini-2.5-flash-preview-04-17"
     | "gemini-2.0-flash-thinking-exp"
     | "gemini-2.0-pro-exp-02-05"
     | "gemini-2.0-flash"
@@ -19,6 +20,7 @@ export type KnowledgeBaseModel =
     | "gemini-1.5-pro-002"
     | "gemini-1.0-pro";
 export const KnowledgeBaseModel = {
+    Gemini25FlashPreview0417: "gemini-2.5-flash-preview-04-17",
     Gemini20FlashThinkingExp: "gemini-2.0-flash-thinking-exp",
     Gemini20ProExp0205: "gemini-2.0-pro-exp-02-05",
     Gemini20Flash: "gemini-2.0-flash",

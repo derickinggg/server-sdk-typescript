@@ -57,4 +57,10 @@ export interface TransferPlan {
      * - Used only when `mode` is `blind-transfer-add-summary-to-sip-header` or `warm-transfer-say-summary` or `warm-transfer-wait-for-operator-to-speak-first-and-then-say-summary`.
      */
     summaryPlan?: Vapi.SummaryPlan;
+    /**
+     * This flag includes the sipHeaders from above in the refer to sip uri as url encoded query params.
+     *
+     * @default false
+     */
+    sipHeadersInReferToEnabled?: boolean;
 }
