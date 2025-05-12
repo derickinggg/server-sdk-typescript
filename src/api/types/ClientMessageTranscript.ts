@@ -5,8 +5,18 @@
 import * as Vapi from "../index";
 
 export interface ClientMessageTranscript {
+    /** This is the phone number that the message is associated with. */
+    phoneNumber?: Vapi.ClientMessageTranscriptPhoneNumber;
     /** This is the type of the message. "transcript" is sent as transcriber outputs partial or final transcript. */
     type: Vapi.ClientMessageTranscriptType;
+    /** This is the timestamp of the message. */
+    timestamp?: number;
+    /** This is the call that the message is associated with. */
+    call?: Vapi.Call;
+    /** This is the customer that the message is associated with. */
+    customer?: Vapi.CustomerUserEditable;
+    /** This is the assistant that the message is associated with. */
+    assistant?: Vapi.AssistantUserEditable;
     /** This is the role for which the transcript is for. */
     role: Vapi.ClientMessageTranscriptRole;
     /** This is the type of the transcript. */

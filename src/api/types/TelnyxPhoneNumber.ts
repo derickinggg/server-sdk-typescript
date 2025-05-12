@@ -32,13 +32,19 @@ export interface TelnyxPhoneNumber {
     /**
      * This is the assistant that will be used for incoming calls to this phone number.
      *
-     * If neither `assistantId` nor `squadId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
+     * If neither `assistantId`, `squadId` nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
      */
     assistantId?: string;
     /**
+     * This is the workflow that will be used for incoming calls to this phone number.
+     *
+     * If neither `assistantId`, `squadId`, nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
+     */
+    workflowId?: string;
+    /**
      * This is the squad that will be used for incoming calls to this phone number.
      *
-     * If neither `assistantId` nor `squadId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
+     * If neither `assistantId`, `squadId`, nor `workflowId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
      */
     squadId?: string;
     /**

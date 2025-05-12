@@ -7,4 +7,6 @@ export interface Oauth2AuthenticationSession {
     accessToken?: string;
     /** This is the OAuth2 access token expiration. */
     expiresAt?: string;
+    /** This is the OAuth2 refresh token. */
+    refreshToken?: string;
 }

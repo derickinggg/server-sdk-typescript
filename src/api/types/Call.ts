@@ -58,16 +58,56 @@ export interface Call {
      * Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type.
      */
     phoneCallProviderId?: string;
-    /** This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead. */
+    /**
+     * This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead.
+     * Usage:
+     *     To start the call with Assistant as entrypoint, use assistant or assistantId
+     *     To start the call with Squad as entrypoint, use squad or squadId
+     *     To start the call with Workflow as entrypoint, use workflow or workflowId
+     */
     assistantId?: string;
-    /** This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead. */
+    /**
+     * This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead.
+     * Usage:
+     *     To start the call with Assistant as entrypoint, use assistant or assistantId
+     *     To start the call with Squad as entrypoint, use squad or squadId
+     *     To start the call with Workflow as entrypoint, use workflow or workflowId
+     */
     assistant?: Vapi.CreateAssistantDto;
     /** These are the overrides for the `assistant` or `assistantId`'s settings and template variables. */
     assistantOverrides?: Vapi.AssistantOverrides;
-    /** This is the squad that will be used for the call. To use a transient squad, use `squad` instead. */
+    /**
+     * This is the squad that will be used for the call. To use a transient squad, use `squad` instead.
+     * Usage:
+     *     To start the call with Assistant as entrypoint, use assistant or assistantId
+     *     To start the call with Squad as entrypoint, use squad or squadId
+     *     To start the call with Workflow as entrypoint, use workflow or workflowId
+     */
     squadId?: string;
-    /** This is a squad that will be used for the call. To use an existing squad, use `squadId` instead. */
+    /**
+     * This is a squad that will be used for the call. To use an existing squad, use `squadId` instead.
+     * Usage:
+     *     To start the call with Assistant as entrypoint, use assistant or assistantId
+     *     To start the call with Squad as entrypoint, use squad or squadId
+     *     To start the call with Workflow as entrypoint, use workflow or workflowId
+     */
     squad?: Vapi.CreateSquadDto;
+    /**
+     * This is the workflow that will be used for the call. To use a transient workflow, use `workflow` instead.
+     * Usage:
+     *     To start the call with Assistant as entrypoint, use assistant or assistantId
+     *     To start the call with Squad as entrypoint, use squad or squadId
+     *     To start the call with Workflow as entrypoint, use workflow or workflowId
+     */
+    workflowId?: string;
+    /**
+     * This is a workflow that will be used for the call. To use an existing workflow, use `workflowId` instead.
+     * Usage:
+     *     To start the call with Assistant as entrypoint, use assistant or assistantId
+     *     To start the call with Squad as entrypoint, use squad or squadId
+     *     To start the call with Workflow as entrypoint, use workflow or workflowId
+     */
+    workflow?: Vapi.CreateWorkflowDto;
     /**
      * This is the phone number that will be used for the call. To use a transient number, use `phoneNumber` instead.
      *

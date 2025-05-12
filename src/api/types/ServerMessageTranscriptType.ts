@@ -5,8 +5,8 @@
 /**
  * This is the type of the message. "transcript" is sent as transcriber outputs partial or final transcript.
  */
-export type ServerMessageTranscriptType = "transcript" | "transcript[transcriptType='final']";
+export type ServerMessageTranscriptType = "transcript" | 'transcript[transcriptType="final"]';
 export const ServerMessageTranscriptType = {
     Transcript: "transcript",
-    TranscriptTranscriptTypeFinal: "transcript[transcriptType='final']",
+    TranscriptTranscriptTypeFinal: 'transcript[transcriptType="final"]',
 } as const;

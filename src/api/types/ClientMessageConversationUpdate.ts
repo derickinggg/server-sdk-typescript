@@ -5,10 +5,20 @@
 import * as Vapi from "../index";
 
 export interface ClientMessageConversationUpdate {
+    /** This is the phone number that the message is associated with. */
+    phoneNumber?: Vapi.ClientMessageConversationUpdatePhoneNumber;
     /** This is the type of the message. "conversation-update" is sent when an update is committed to the conversation history. */
     type: "conversation-update";
     /** This is the most up-to-date conversation history at the time the message is sent. */
     messages?: Vapi.ClientMessageConversationUpdateMessagesItem[];
     /** This is the most up-to-date conversation history at the time the message is sent, formatted for OpenAI. */
     messagesOpenAIFormatted: Vapi.OpenAiMessage[];
+    /** This is the timestamp of the message. */
+    timestamp?: number;
+    /** This is the call that the message is associated with. */
+    call?: Vapi.Call;
+    /** This is the customer that the message is associated with. */
+    customer?: Vapi.CustomerUserEditable;
+    /** This is the assistant that the message is associated with. */
+    assistant?: Vapi.AssistantUserEditable;
 }

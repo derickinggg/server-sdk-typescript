@@ -5,13 +5,7 @@
 import * as Vapi from "../index";
 
 export interface ServerMessageConversationUpdate {
-    /**
-     * This is the phone number associated with the call.
-     *
-     * This matches one of the following:
-     * - `call.phoneNumber`,
-     * - `call.phoneNumberId`.
-     */
+    /** This is the phone number that the message is associated with. */
     phoneNumber?: Vapi.ServerMessageConversationUpdatePhoneNumber;
     /** This is the type of the message. "conversation-update" is sent when an update is committed to the conversation history. */
     type: "conversation-update";
@@ -19,7 +13,7 @@ export interface ServerMessageConversationUpdate {
     messages?: Vapi.ServerMessageConversationUpdateMessagesItem[];
     /** This is the most up-to-date conversation history at the time the message is sent, formatted for OpenAI. */
     messagesOpenAIFormatted: Vapi.OpenAiMessage[];
-    /** This is the timestamp of when the message was sent in milliseconds since Unix Epoch. */
+    /** This is the timestamp of the message. */
     timestamp?: number;
     /**
      * This is a live version of the `call.artifact`.
@@ -27,32 +21,10 @@ export interface ServerMessageConversationUpdate {
      * This matches what is stored on `call.artifact` after the call.
      */
     artifact?: Vapi.Artifact;
-    /**
-     * This is the assistant that is currently active. This is provided for convenience.
-     *
-     * This matches one of the following:
-     * - `call.assistant`,
-     * - `call.assistantId`,
-     * - `call.squad[n].assistant`,
-     * - `call.squad[n].assistantId`,
-     * - `call.squadId->[n].assistant`,
-     * - `call.squadId->[n].assistantId`.
-     */
-    assistant?: Vapi.CreateAssistantDto;
-    /**
-     * This is the customer associated with the call.
-     *
-     * This matches one of the following:
-     * - `call.customer`,
-     * - `call.customerId`.
-     */
-    customer?: Vapi.CreateCustomerDto;
-    /**
-     * This is the call object.
-     *
-     * This matches what was returned in POST /call.
-     *
-     * Note: This might get stale during the call. To get the latest call object, especially after the call is ended, use GET /call/:id.
-     */
+    /** This is the assistant that the message is associated with. */
+    assistant?: Vapi.AssistantUserEditable;
+    /** This is the customer that the message is associated with. */
+    customer?: Vapi.CustomerUserEditable;
+    /** This is the call that the message is associated with. */
     call?: Vapi.Call;
 }

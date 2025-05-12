@@ -27,7 +27,7 @@ export interface VapiModel {
     /** This is the workflow that will be used for the call. To use a transient workflow, use `workflow` instead. */
     workflowId?: string;
     /** This is the workflow that will be used for the call. To use an existing workflow, use `workflowId` instead. */
-    workflow?: Vapi.Workflow;
+    workflow?: Vapi.WorkflowUserEditable;
     /** This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b */
     model: string;
     /** This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency. */

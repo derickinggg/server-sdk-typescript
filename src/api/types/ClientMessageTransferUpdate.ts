@@ -5,10 +5,20 @@
 import * as Vapi from "../index";
 
 export interface ClientMessageTransferUpdate {
+    /** This is the phone number that the message is associated with. */
+    phoneNumber?: Vapi.ClientMessageTransferUpdatePhoneNumber;
     /** This is the type of the message. "transfer-update" is sent whenever a transfer happens. */
     type: "transfer-update";
     /** This is the destination of the transfer. */
     destination?: Vapi.ClientMessageTransferUpdateDestination;
+    /** This is the timestamp of the message. */
+    timestamp?: number;
+    /** This is the call that the message is associated with. */
+    call?: Vapi.Call;
+    /** This is the customer that the message is associated with. */
+    customer?: Vapi.CustomerUserEditable;
+    /** This is the assistant that the message is associated with. */
+    assistant?: Vapi.AssistantUserEditable;
     /** This is the assistant that the call is being transferred to. This is only sent if `destination.type` is "assistant". */
     toAssistant?: Vapi.CreateAssistantDto;
     /** This is the assistant that the call is being transferred from. This is only sent if `destination.type` is "assistant". */

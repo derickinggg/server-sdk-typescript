@@ -4,6 +4,8 @@ export * from "./UpdateAssistantDtoVoice";
 export * from "./UpdateAssistantDtoFirstMessageMode";
 export * from "./UpdateAssistantDtoVoicemailDetection";
 export * from "./UpdateAssistantDtoClientMessagesItem";
+export * from "./UpdateAssistantDtoServerMessagesItem";
 export * from "./UpdateAssistantDtoBackgroundSoundZero";
 export * from "./UpdateAssistantDtoBackgroundSound";
 export * from "./UpdateAssistantDtoCredentialsItem";
+export * from "./UpdateAssistantDtoHooksItem";

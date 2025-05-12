@@ -5,6 +5,8 @@
 import * as Vapi from "../index";
 
 export interface ClientMessageSpeechUpdate {
+    /** This is the phone number that the message is associated with. */
+    phoneNumber?: Vapi.ClientMessageSpeechUpdatePhoneNumber;
     /** This is the type of the message. "speech-update" is sent whenever assistant or user start or stop speaking. */
     type: "speech-update";
     /** This is the status of the speech update. */
@@ -13,4 +15,12 @@ export interface ClientMessageSpeechUpdate {
     role: Vapi.ClientMessageSpeechUpdateRole;
     /** This is the turn number of the speech update (0-indexed). */
     turn?: number;
+    /** This is the timestamp of the message. */
+    timestamp?: number;
+    /** This is the call that the message is associated with. */
+    call?: Vapi.Call;
+    /** This is the customer that the message is associated with. */
+    customer?: Vapi.CustomerUserEditable;
+    /** This is the assistant that the message is associated with. */
+    assistant?: Vapi.AssistantUserEditable;
 }

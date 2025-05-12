@@ -5,13 +5,7 @@
 import * as Vapi from "../index";
 
 export interface ServerMessageEndOfCallReport {
-    /**
-     * This is the phone number associated with the call.
-     *
-     * This matches one of the following:
-     * - `call.phoneNumber`,
-     * - `call.phoneNumberId`.
-     */
+    /** This is the phone number that the message is associated with. */
     phoneNumber?: Vapi.ServerMessageEndOfCallReportPhoneNumber;
     /** This is the type of the message. "end-of-call-report" is sent when the call ends and post-processing is complete. */
     type: "end-of-call-report";
@@ -21,37 +15,15 @@ export interface ServerMessageEndOfCallReport {
     cost?: number;
     /** These are the costs of individual components of the call in USD. This can also be found at `call.costs` on GET /call/:id. */
     costs?: Vapi.ServerMessageEndOfCallReportCostsItem[];
-    /** This is the timestamp of when the message was sent in milliseconds since Unix Epoch. */
+    /** This is the timestamp of the message. */
     timestamp?: number;
     /** These are the artifacts from the call. This can also be found at `call.artifact` on GET /call/:id. */
     artifact: Vapi.Artifact;
-    /**
-     * This is the assistant that is currently active. This is provided for convenience.
-     *
-     * This matches one of the following:
-     * - `call.assistant`,
-     * - `call.assistantId`,
-     * - `call.squad[n].assistant`,
-     * - `call.squad[n].assistantId`,
-     * - `call.squadId->[n].assistant`,
-     * - `call.squadId->[n].assistantId`.
-     */
-    assistant?: Vapi.CreateAssistantDto;
-    /**
-     * This is the customer associated with the call.
-     *
-     * This matches one of the following:
-     * - `call.customer`,
-     * - `call.customerId`.
-     */
-    customer?: Vapi.CreateCustomerDto;
-    /**
-     * This is the call object.
-     *
-     * This matches what was returned in POST /call.
-     *
-     * Note: This might get stale during the call. To get the latest call object, especially after the call is ended, use GET /call/:id.
-     */
+    /** This is the assistant that the message is associated with. */
+    assistant?: Vapi.AssistantUserEditable;
+    /** This is the customer that the message is associated with. */
+    customer?: Vapi.CustomerUserEditable;
+    /** This is the call that the message is associated with. */
     call?: Vapi.Call;
     /** This is the analysis of the call. This can also be found at `call.analysis` on GET /call/:id. */
     analysis: Vapi.Analysis;

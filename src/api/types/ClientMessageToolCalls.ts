@@ -5,10 +5,20 @@
 import * as Vapi from "../index";
 
 export interface ClientMessageToolCalls {
+    /** This is the phone number that the message is associated with. */
+    phoneNumber?: Vapi.ClientMessageToolCallsPhoneNumber;
     /** This is the type of the message. "tool-calls" is sent to call a tool. */
     type?: "tool-calls";
     /** This is the list of tools calls that the model is requesting along with the original tool configuration. */
     toolWithToolCallList: Vapi.ClientMessageToolCallsToolWithToolCallListItem[];
+    /** This is the timestamp of the message. */
+    timestamp?: number;
+    /** This is the call that the message is associated with. */
+    call?: Vapi.Call;
+    /** This is the customer that the message is associated with. */
+    customer?: Vapi.CustomerUserEditable;
+    /** This is the assistant that the message is associated with. */
+    assistant?: Vapi.AssistantUserEditable;
     /** This is the list of tool calls that the model is requesting. */
     toolCallList: Vapi.ToolCall[];
 }

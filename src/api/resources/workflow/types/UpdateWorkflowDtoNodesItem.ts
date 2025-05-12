@@ -11,4 +11,5 @@ export type UpdateWorkflowDtoNodesItem =
     | Vapi.Gather
     | Vapi.ApiRequest
     | Vapi.Hangup
-    | Vapi.Transfer;
+    | Vapi.Transfer
+    | Vapi.Conversation;

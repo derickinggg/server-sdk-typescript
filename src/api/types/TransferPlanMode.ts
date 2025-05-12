@@ -13,6 +13,7 @@
  * - `warm-transfer-wait-for-operator-to-speak-first-and-then-say-message`: The assistant dials the destination, waits for the operator to speak, delivers the `message` to the destination party, and then connects the customer.
  * - `warm-transfer-wait-for-operator-to-speak-first-and-then-say-summary`: The assistant dials the destination, waits for the operator to speak, provides a summary of the call to the destination party, and then connects the customer.
  * - `warm-transfer-twiml`: The assistant dials the destination, executes the twiml instructions on the destination call leg, connects the customer, and leaves the call.
+ * - `warm-transfer-experimental`: The assistant puts the customer on hold, dials the destination, and if the destination answers (and is human), delivers a message or summary before connecting the customer. If the destination is unreachable or not human (e.g., with voicemail detection), the assistant delivers the `fallbackMessage` to the customer and optionally ends the call.
  *
  * @default 'blind-transfer'
  */
@@ -23,7 +24,8 @@ export type TransferPlanMode =
     | "warm-transfer-say-summary"
     | "warm-transfer-twiml"
     | "warm-transfer-wait-for-operator-to-speak-first-and-then-say-message"
-    | "warm-transfer-wait-for-operator-to-speak-first-and-then-say-summary";
+    | "warm-transfer-wait-for-operator-to-speak-first-and-then-say-summary"
+    | "warm-transfer-experimental";
 export const TransferPlanMode = {
     BlindTransfer: "blind-transfer",
     BlindTransferAddSummaryToSipHeader: "blind-transfer-add-summary-to-sip-header",
@@ -34,4 +36,5 @@ export const TransferPlanMode = {
         "warm-transfer-wait-for-operator-to-speak-first-and-then-say-message",
     WarmTransferWaitForOperatorToSpeakFirstAndThenSaySummary:
         "warm-transfer-wait-for-operator-to-speak-first-and-then-say-summary",
+    WarmTransferExperimental: "warm-transfer-experimental",
 } as const;

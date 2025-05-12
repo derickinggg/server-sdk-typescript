@@ -51,4 +51,5 @@ export type CreateAssistantDtoCredentialsItem =
     | Vapi.CreateGoogleCalendarOAuth2ClientCredentialDto
     | Vapi.CreateGoogleCalendarOAuth2AuthorizationCredentialDto
     | Vapi.CreateGoogleSheetsOAuth2AuthorizationCredentialDto
-    | Vapi.CreateSlackOAuth2AuthorizationCredentialDto;
+    | Vapi.CreateSlackOAuth2AuthorizationCredentialDto
+    | Vapi.CreateGoHighLevelMcpCredentialDto;

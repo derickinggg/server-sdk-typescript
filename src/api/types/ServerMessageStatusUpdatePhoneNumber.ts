@@ -5,14 +5,6 @@
 import * as Vapi from "../index";
 
 /**
- * This is the phone number associated with the call.
- *
- * This matches one of the following:
- * - `call.phoneNumber`,
- * - `call.phoneNumberId`.
+ * This is the phone number that the message is associated with.
  */
-export type ServerMessageStatusUpdatePhoneNumber =
-    | Vapi.CreateByoPhoneNumberDto
-    | Vapi.CreateTwilioPhoneNumberDto
-    | Vapi.CreateVonagePhoneNumberDto
-    | Vapi.CreateVapiPhoneNumberDto;
+export type ServerMessageStatusUpdatePhoneNumber = unknown | Vapi.CreateTwilioPhoneNumberDto;

@@ -11,4 +11,5 @@ export type ServerMessageEndOfCallReportCostsItem =
     | Vapi.VoiceCost
     | Vapi.VapiCost
     | Vapi.VoicemailDetectionCost
-    | Vapi.AnalysisCost;
+    | Vapi.AnalysisCost
+    | Vapi.KnowledgeBaseCost;
