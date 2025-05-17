@@ -14,9 +14,9 @@ export interface ClientMessageTranscript {
     /** This is the call that the message is associated with. */
     call?: Vapi.Call;
     /** This is the customer that the message is associated with. */
-    customer?: Vapi.CustomerUserEditable;
+    customer?: Vapi.CreateCustomerDto;
     /** This is the assistant that the message is associated with. */
-    assistant?: Vapi.AssistantUserEditable;
+    assistant?: Vapi.CreateAssistantDto;
     /** This is the role for which the transcript is for. */
     role: Vapi.ClientMessageTranscriptRole;
     /** This is the type of the transcript. */

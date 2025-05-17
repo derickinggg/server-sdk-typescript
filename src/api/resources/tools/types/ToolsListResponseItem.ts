@@ -21,4 +21,8 @@ export type ToolsListResponseItem =
     | Vapi.GoogleCalendarCheckAvailabilityTool
     | Vapi.SlackSendMessageTool
     | Vapi.SmsSendTool
-    | Vapi.McpTool;
+    | Vapi.McpTool
+    | Vapi.GoHighLevelCalendarAvailabilityTool
+    | Vapi.GoHighLevelCalendarEventCreateTool
+    | Vapi.GoHighLevelContactCreateTool
+    | Vapi.GoHighLevelContactGetTool;

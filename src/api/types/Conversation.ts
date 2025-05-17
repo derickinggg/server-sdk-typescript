@@ -13,10 +13,10 @@ export interface Conversation {
     /** These are the options for the assistant's voice. */
     voice?: Vapi.ConversationVoice;
     prompt?: string;
-    messagePlan?: Vapi.MessagePlan;
-    /** This is the plan for the global node. */
     globalNodePlan?: Vapi.GlobalNodePlan;
     name: string;
+    /** This is whether or not the node is the start of the workflow. */
+    isStart?: boolean;
     /** This is for metadata you want to store on the task. */
     metadata?: Record<string, unknown>;
 }

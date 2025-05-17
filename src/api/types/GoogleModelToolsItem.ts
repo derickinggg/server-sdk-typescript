@@ -16,4 +16,8 @@ export type GoogleModelToolsItem =
     | Vapi.CreateGoogleCalendarCreateEventToolDto
     | Vapi.CreateGoogleSheetsRowAppendToolDto
     | Vapi.CreateGoogleCalendarCheckAvailabilityToolDto
-    | Vapi.CreateSlackSendMessageToolDto;
+    | Vapi.CreateSlackSendMessageToolDto
+    | Vapi.CreateGoHighLevelCalendarAvailabilityToolDto
+    | Vapi.CreateGoHighLevelCalendarEventCreateToolDto
+    | Vapi.CreateGoHighLevelContactCreateToolDto
+    | Vapi.CreateGoHighLevelContactGetToolDto;

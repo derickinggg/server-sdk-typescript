@@ -35,6 +35,8 @@ export interface ApiRequest {
     /** This is the schema for the outputs of the Api Request. */
     output?: Vapi.JsonSchema;
     name: string;
+    /** This is whether or not the node is the start of the workflow. */
+    isStart?: boolean;
     /** This is for metadata you want to store on the task. */
     metadata?: Record<string, unknown>;
 }

@@ -7,4 +7,9 @@ import * as Vapi from "../index";
 /**
  * This is the phone number that the message is associated with.
  */
-export type ServerMessageToolCallsPhoneNumber = unknown | Vapi.CreateTwilioPhoneNumberDto;
+export type ServerMessageToolCallsPhoneNumber =
+    | Vapi.CreateByoPhoneNumberDto
+    | Vapi.CreateTwilioPhoneNumberDto
+    | Vapi.CreateVonagePhoneNumberDto
+    | Vapi.CreateVapiPhoneNumberDto
+    | Vapi.CreateTelnyxPhoneNumberDto;

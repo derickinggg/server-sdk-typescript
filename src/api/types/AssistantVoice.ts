@@ -7,7 +7,7 @@ import * as Vapi from "../index";
 /**
  * These are the options for the assistant's voice.
  */
-export type AssistantUserEditableVoice =
+export type AssistantVoice =
     | Vapi.AzureVoice
     | Vapi.CartesiaVoice
     | Vapi.CustomVoice

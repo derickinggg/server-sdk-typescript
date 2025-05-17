@@ -8,4 +8,4 @@ import * as Vapi from "../index";
  * This is the background sound in the call. Default for phone calls is 'office' and default for web calls is 'off'.
  * You can also provide a custom sound by providing a URL to an audio file.
  */
-export type AssistantUserEditableBackgroundSound = Vapi.AssistantUserEditableBackgroundSoundZero | string;
+export type AssistantBackgroundSound = Vapi.AssistantBackgroundSoundZero | string;

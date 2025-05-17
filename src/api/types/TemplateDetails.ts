@@ -13,4 +13,8 @@ export type TemplateDetails =
     | Vapi.CreateMakeToolDto
     | Vapi.CreateTransferCallToolDto
     | Vapi.CreateGoogleCalendarCreateEventToolDto
-    | Vapi.CreateGoogleSheetsRowAppendToolDto;
+    | Vapi.CreateGoogleSheetsRowAppendToolDto
+    | Vapi.CreateGoHighLevelCalendarAvailabilityToolDto
+    | Vapi.CreateGoHighLevelCalendarEventCreateToolDto
+    | Vapi.CreateGoHighLevelContactCreateToolDto
+    | Vapi.CreateGoHighLevelContactGetToolDto;

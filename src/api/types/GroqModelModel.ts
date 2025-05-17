@@ -9,20 +9,26 @@ export type GroqModelModel =
     | "deepseek-r1-distill-llama-70b"
     | "llama-3.3-70b-versatile"
     | "llama-3.1-405b-reasoning"
-    | "llama-3.1-70b-versatile"
     | "llama-3.1-8b-instant"
-    | "mixtral-8x7b-32768"
     | "llama3-8b-8192"
     | "llama3-70b-8192"
-    | "gemma2-9b-it";
+    | "gemma2-9b-it"
+    | "meta-llama/llama-4-maverick-17b-128e-instruct"
+    | "meta-llama/llama-4-scout-17b-16e-instruct"
+    | "mistral-saba-24b"
+    | "compound-beta"
+    | "compound-beta-mini";
 export const GroqModelModel = {
     DeepseekR1DistillLlama70B: "deepseek-r1-distill-llama-70b",
     Llama3370BVersatile: "llama-3.3-70b-versatile",
     Llama31405BReasoning: "llama-3.1-405b-reasoning",
-    Llama3170BVersatile: "llama-3.1-70b-versatile",
     Llama318BInstant: "llama-3.1-8b-instant",
-    Mixtral8X7B32768: "mixtral-8x7b-32768",
     Llama38B8192: "llama3-8b-8192",
     Llama370B8192: "llama3-70b-8192",
     Gemma29BIt: "gemma2-9b-it",
+    MetaLlamaLlama4Maverick17B128EInstruct: "meta-llama/llama-4-maverick-17b-128e-instruct",
+    MetaLlamaLlama4Scout17B16EInstruct: "meta-llama/llama-4-scout-17b-16e-instruct",
+    MistralSaba24B: "mistral-saba-24b",
+    CompoundBeta: "compound-beta",
+    CompoundBetaMini: "compound-beta-mini",
 } as const;

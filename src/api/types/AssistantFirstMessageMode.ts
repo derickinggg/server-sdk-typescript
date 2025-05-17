@@ -12,11 +12,11 @@
  *
  * @default 'assistant-speaks-first'
  */
-export type AssistantUserEditableFirstMessageMode =
+export type AssistantFirstMessageMode =
     | "assistant-speaks-first"
     | "assistant-speaks-first-with-model-generated-message"
     | "assistant-waits-for-user";
-export const AssistantUserEditableFirstMessageMode = {
+export const AssistantFirstMessageMode = {
     AssistantSpeaksFirst: "assistant-speaks-first",
     AssistantSpeaksFirstWithModelGeneratedMessage: "assistant-speaks-first-with-model-generated-message",
     AssistantWaitsForUser: "assistant-waits-for-user",

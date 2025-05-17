@@ -20,6 +20,8 @@ export interface Gather {
     /** This is a liquid templating string. On the first call to Gather, the template will be filled out with variables from the context, and will be spoken verbatim to the user. An example would be "Base on your zipcode, it looks like you could be in one of these counties: {{ counties | join: ", " }}. Which one do you live in?" */
     literalTemplate?: string;
     name: string;
+    /** This is whether or not the node is the start of the workflow. */
+    isStart?: boolean;
     /** This is for metadata you want to store on the task. */
     metadata?: Record<string, unknown>;
 }

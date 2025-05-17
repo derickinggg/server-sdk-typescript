@@ -9,4 +9,8 @@ export type TemplateProviderDetails =
     | Vapi.GhlToolProviderDetails
     | Vapi.FunctionToolProviderDetails
     | Vapi.GoogleCalendarCreateEventToolProviderDetails
-    | Vapi.GoogleSheetsRowAppendToolProviderDetails;
+    | Vapi.GoogleSheetsRowAppendToolProviderDetails
+    | Vapi.GoHighLevelCalendarAvailabilityToolProviderDetails
+    | Vapi.GoHighLevelCalendarEventCreateToolProviderDetails
+    | Vapi.GoHighLevelContactCreateToolProviderDetails
+    | Vapi.GoHighLevelContactGetToolProviderDetails;

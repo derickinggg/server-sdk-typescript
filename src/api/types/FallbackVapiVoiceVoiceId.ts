@@ -7,6 +7,7 @@
  */
 export type FallbackVapiVoiceVoiceId =
     | "Elliot"
+    | "Kylie"
     | "Rohan"
     | "Lily"
     | "Savannah"
@@ -18,6 +19,7 @@ export type FallbackVapiVoiceVoiceId =
     | "Spencer";
 export const FallbackVapiVoiceVoiceId = {
     Elliot: "Elliot",
+    Kylie: "Kylie",
     Rohan: "Rohan",
     Lily: "Lily",
     Savannah: "Savannah",

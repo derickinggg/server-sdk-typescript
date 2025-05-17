@@ -20,9 +20,9 @@ export interface ServerMessageEndOfCallReport {
     /** These are the artifacts from the call. This can also be found at `call.artifact` on GET /call/:id. */
     artifact: Vapi.Artifact;
     /** This is the assistant that the message is associated with. */
-    assistant?: Vapi.AssistantUserEditable;
+    assistant?: Vapi.CreateAssistantDto;
     /** This is the customer that the message is associated with. */
-    customer?: Vapi.CustomerUserEditable;
+    customer?: Vapi.CreateCustomerDto;
     /** This is the call that the message is associated with. */
     call?: Vapi.Call;
     /** This is the analysis of the call. This can also be found at `call.analysis` on GET /call/:id. */

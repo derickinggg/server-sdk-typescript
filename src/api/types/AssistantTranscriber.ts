@@ -7,7 +7,7 @@ import * as Vapi from "../index";
 /**
  * These are the options for the assistant's transcriber.
  */
-export type AssistantUserEditableTranscriber =
+export type AssistantTranscriber =
     | Vapi.AssemblyAiTranscriber
     | Vapi.AzureSpeechTranscriber
     | Vapi.CustomTranscriber

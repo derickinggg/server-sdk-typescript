@@ -21,4 +21,8 @@ export type ToolsUpdateRequest =
     | Vapi.UpdateGoogleCalendarCheckAvailabilityToolDto
     | Vapi.UpdateSlackSendMessageToolDto
     | Vapi.UpdateSmsSendToolDto
-    | Vapi.UpdateMcpToolDto;
+    | Vapi.UpdateMcpToolDto
+    | Vapi.UpdateGoHighLevelCalendarAvailabilityToolDto
+    | Vapi.UpdateGoHighLevelCalendarEventCreateToolDto
+    | Vapi.UpdateGoHighLevelContactCreateToolDto
+    | Vapi.UpdateGoHighLevelContactGetToolDto;

@@ -6,7 +6,7 @@ import * as Vapi from "../index";
 
 export type WorkflowNodesItem =
     | Vapi.Start
-    | Vapi.Assistant
+    | Vapi.WorkflowAssistant
     | Vapi.Say
     | Vapi.Gather
     | Vapi.ApiRequest

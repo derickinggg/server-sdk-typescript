@@ -7,7 +7,7 @@ import * as Vapi from "../index";
 /**
  * These are the options for the assistant's LLM.
  */
-export type AssistantUserEditableModel =
+export type AssistantModel =
     | Vapi.AnyscaleModel
     | Vapi.AnthropicModel
     | Vapi.CerebrasModel

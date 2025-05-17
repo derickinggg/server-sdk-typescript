@@ -9,7 +9,7 @@ import * as Vapi from "../index";
  * This uses Twilio's built-in detection while the VoicemailTool relies on the model to detect if a voicemail was reached.
  * You can use neither of them, one of them, or both of them. By default, Twilio built-in detection is enabled while VoicemailTool is not.
  */
-export type AssistantUserEditableVoicemailDetection =
+export type AssistantVoicemailDetection =
     | Vapi.GoogleVoicemailDetectionPlan
     | Vapi.OpenAiVoicemailDetectionPlan
     | Vapi.TwilioVoicemailDetectionPlan

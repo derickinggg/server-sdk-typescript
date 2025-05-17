@@ -7,6 +7,7 @@
  */
 export type VapiVoiceVoiceId =
     | "Elliot"
+    | "Kylie"
     | "Rohan"
     | "Lily"
     | "Savannah"
@@ -18,6 +19,7 @@ export type VapiVoiceVoiceId =
     | "Spencer";
 export const VapiVoiceVoiceId = {
     Elliot: "Elliot",
+    Kylie: "Kylie",
     Rohan: "Rohan",
     Lily: "Lily",
     Savannah: "Savannah",

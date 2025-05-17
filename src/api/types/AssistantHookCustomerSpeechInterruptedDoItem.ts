@@ -7,4 +7,4 @@ import * as Vapi from "../index";
 export type AssistantHookCustomerSpeechInterruptedDoItem =
     | Vapi.TransferAssistantHookAction
     | Vapi.FunctionCallAssistantHookAction
-    | unknown;
+    | Vapi.SayAssistantHookAction;

@@ -14,14 +14,14 @@ export interface SummaryPlan {
      *   },
      *   {
      *     "role": "user",
-     *     "content": "Here is the transcript:\n\n{{transcript}}\n\n"
+     *     "content": "Here is the transcript:\n\n{{transcript}}\n\n. Here is the ended reason of the call:\n\n{{endedReason}}\n\n"
      *   }
      * ]```
      *
      * You can customize by providing any messages you want.
      *
      * Here are the template variables available:
-     * - {{transcript}}: The transcript of the call from `call.artifact.transcript`- {{systemPrompt}}: The system prompt of the call from `assistant.model.messages[type=system].content`
+     * - {{transcript}}: The transcript of the call from `call.artifact.transcript`- {{systemPrompt}}: The system prompt of the call from `assistant.model.messages[type=system].content`- {{endedReason}}: The ended reason of the call from `call.endedReason`
      */
     messages?: Record<string, unknown>[];
     /**

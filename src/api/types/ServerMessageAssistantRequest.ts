@@ -18,9 +18,9 @@ export interface ServerMessageAssistantRequest {
      */
     artifact?: Vapi.Artifact;
     /** This is the assistant that the message is associated with. */
-    assistant?: Vapi.AssistantUserEditable;
+    assistant?: Vapi.CreateAssistantDto;
     /** This is the customer that the message is associated with. */
-    customer?: Vapi.CustomerUserEditable;
+    customer?: Vapi.CreateCustomerDto;
     /** This is the call that the message is associated with. */
     call?: Vapi.Call;
 }

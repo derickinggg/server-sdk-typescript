@@ -6,6 +6,8 @@ export interface Transfer {
     type: "transfer";
     destination: Record<string, unknown>;
     name: string;
+    /** This is whether or not the node is the start of the workflow. */
+    isStart?: boolean;
     /** This is for metadata you want to store on the task. */
     metadata?: Record<string, unknown>;
 }

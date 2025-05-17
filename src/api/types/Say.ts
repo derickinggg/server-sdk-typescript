@@ -7,6 +7,8 @@ export interface Say {
     exact?: string;
     prompt?: string;
     name: string;
+    /** This is whether or not the node is the start of the workflow. */
+    isStart?: boolean;
     /** This is for metadata you want to store on the task. */
     metadata?: Record<string, unknown>;
 }

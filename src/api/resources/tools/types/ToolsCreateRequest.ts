@@ -21,4 +21,8 @@ export type ToolsCreateRequest =
     | Vapi.CreateGoogleCalendarCheckAvailabilityToolDto
     | Vapi.CreateSlackSendMessageToolDto
     | Vapi.CreateSmsSendToolDto
-    | Vapi.CreateMcpToolDto;
+    | Vapi.CreateMcpToolDto
+    | Vapi.CreateGoHighLevelCalendarAvailabilityToolDto
+    | Vapi.CreateGoHighLevelCalendarEventCreateToolDto
+    | Vapi.CreateGoHighLevelContactCreateToolDto
+    | Vapi.CreateGoHighLevelContactGetToolDto;

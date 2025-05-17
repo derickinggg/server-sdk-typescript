@@ -4,7 +4,7 @@
 
 import * as Vapi from "../index";
 
-export type AssistantUserEditableHooksItem =
+export type AssistantHooksItem =
     | Vapi.AssistantHookCallEnding
     | Vapi.AssistantHookAssistantSpeechInterrupted
     | Vapi.AssistantHookCustomerSpeechInterrupted;

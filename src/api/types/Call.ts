@@ -93,6 +93,8 @@ export interface Call {
      */
     squad?: Vapi.CreateSquadDto;
     /**
+     * [BETA] This feature is in active development. The API and behavior are subject to change as we refine it based on user feedback.
+     *
      * This is the workflow that will be used for the call. To use a transient workflow, use `workflow` instead.
      * Usage:
      *     To start the call with Assistant as entrypoint, use assistant or assistantId
@@ -101,6 +103,8 @@ export interface Call {
      */
     workflowId?: string;
     /**
+     * [BETA] This feature is in active development. The API and behavior are subject to change as we refine it based on user feedback.
+     *
      * This is a workflow that will be used for the call. To use an existing workflow, use `workflowId` instead.
      * Usage:
      *     To start the call with Assistant as entrypoint, use assistant or assistantId

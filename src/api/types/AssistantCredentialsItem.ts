@@ -4,7 +4,7 @@
 
 import * as Vapi from "../index";
 
-export type AssistantUserEditableCredentialsItem =
+export type AssistantCredentialsItem =
     | Vapi.CreateElevenLabsCredentialDto
     | Vapi.CreateAnthropicCredentialDto
     | Vapi.CreateAnyscaleCredentialDto

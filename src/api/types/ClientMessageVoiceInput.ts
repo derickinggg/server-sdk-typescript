@@ -14,9 +14,9 @@ export interface ClientMessageVoiceInput {
     /** This is the call that the message is associated with. */
     call?: Vapi.Call;
     /** This is the customer that the message is associated with. */
-    customer?: Vapi.CustomerUserEditable;
+    customer?: Vapi.CreateCustomerDto;
     /** This is the assistant that the message is associated with. */
-    assistant?: Vapi.AssistantUserEditable;
+    assistant?: Vapi.CreateAssistantDto;
     /** This is the voice input content */
     input: string;
 }

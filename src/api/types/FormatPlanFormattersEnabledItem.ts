@@ -18,7 +18,8 @@ export type FormatPlanFormattersEnabledItem =
     | "unit"
     | "percentage"
     | "phoneNumber"
-    | "number";
+    | "number"
+    | "stripAsterisk";
 export const FormatPlanFormattersEnabledItem = {
     Markdown: "markdown",
     Asterisk: "asterisk",
@@ -36,4 +37,5 @@ export const FormatPlanFormattersEnabledItem = {
     Percentage: "percentage",
     PhoneNumber: "phoneNumber",
     Number: "number",
+    StripAsterisk: "stripAsterisk",
 } as const;
