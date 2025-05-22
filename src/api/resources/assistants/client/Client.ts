@@ -35,6 +35,9 @@ export class Assistants {
     /**
      * @param {Vapi.AssistantsListRequest} request
      * @param {Assistants.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.assistants.list()
      */
     public list(
         request: Vapi.AssistantsListRequest = {},
@@ -107,8 +110,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -152,6 +155,9 @@ export class Assistants {
     /**
      * @param {Vapi.CreateAssistantDto} request
      * @param {Assistants.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.assistants.create({})
      */
     public create(
         request: Vapi.CreateAssistantDto,
@@ -176,8 +182,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -221,6 +227,9 @@ export class Assistants {
     /**
      * @param {string} id
      * @param {Assistants.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.assistants.get("id")
      */
     public get(id: string, requestOptions?: Assistants.RequestOptions): core.HttpResponsePromise<Vapi.Assistant> {
         return core.HttpResponsePromise.fromPromise(this.__get(id, requestOptions));
@@ -242,8 +251,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -286,6 +295,9 @@ export class Assistants {
     /**
      * @param {string} id
      * @param {Assistants.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.assistants.delete("id")
      */
     public delete(id: string, requestOptions?: Assistants.RequestOptions): core.HttpResponsePromise<Vapi.Assistant> {
         return core.HttpResponsePromise.fromPromise(this.__delete(id, requestOptions));
@@ -307,8 +319,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -352,6 +364,9 @@ export class Assistants {
      * @param {string} id
      * @param {Vapi.UpdateAssistantDto} request
      * @param {Assistants.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.assistants.update("id")
      */
     public update(
         id: string,
@@ -378,8 +393,8 @@ export class Assistants {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,

@@ -5,19 +5,22 @@
 import * as Vapi from "../index";
 
 export type GroqModelToolsItem =
+    | Vapi.CreateApiRequestToolDto
+    | Vapi.CreateBashToolDto
+    | Vapi.CreateComputerToolDto
     | Vapi.CreateDtmfToolDto
     | Vapi.CreateEndCallToolDto
-    | Vapi.CreateVoicemailToolDto
     | Vapi.CreateFunctionToolDto
-    | Vapi.CreateGhlToolDto
-    | Vapi.CreateMakeToolDto
-    | Vapi.CreateTransferCallToolDto
-    | Vapi.CreateQueryToolDto
-    | Vapi.CreateGoogleCalendarCreateEventToolDto
-    | Vapi.CreateGoogleSheetsRowAppendToolDto
-    | Vapi.CreateGoogleCalendarCheckAvailabilityToolDto
-    | Vapi.CreateSlackSendMessageToolDto
     | Vapi.CreateGoHighLevelCalendarAvailabilityToolDto
     | Vapi.CreateGoHighLevelCalendarEventCreateToolDto
     | Vapi.CreateGoHighLevelContactCreateToolDto
-    | Vapi.CreateGoHighLevelContactGetToolDto;
+    | Vapi.CreateGoHighLevelContactGetToolDto
+    | Vapi.CreateGoogleCalendarCheckAvailabilityToolDto
+    | Vapi.CreateGoogleCalendarCreateEventToolDto
+    | Vapi.CreateGoogleSheetsRowAppendToolDto
+    | Vapi.CreateMcpToolDto
+    | Vapi.CreateQueryToolDto
+    | Vapi.CreateSlackSendMessageToolDto
+    | Vapi.CreateSmsToolDto
+    | Vapi.CreateTextEditorToolDto
+    | Vapi.CreateTransferCallToolDto;

@@ -7,14 +7,14 @@ import * as Vapi from "../index";
 /**
  * These are the options for the assistant's transcriber.
  */
-export type ConversationTranscriber =
+export type ConversationNodeTranscriber =
     | Vapi.AssemblyAiTranscriber
     | Vapi.AzureSpeechTranscriber
     | Vapi.CustomTranscriber
     | Vapi.DeepgramTranscriber
     | Vapi.ElevenLabsTranscriber
     | Vapi.GladiaTranscriber
+    | Vapi.GoogleTranscriber
     | Vapi.SpeechmaticsTranscriber
     | Vapi.TalkscriberTranscriber
-    | Vapi.GoogleTranscriber
     | Vapi.OpenAiTranscriber;

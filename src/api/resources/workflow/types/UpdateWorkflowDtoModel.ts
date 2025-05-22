@@ -7,18 +7,4 @@ import * as Vapi from "../../../index";
 /**
  * These are the options for the workflow's LLM.
  */
-export type UpdateWorkflowDtoModel =
-    | Vapi.AnthropicModel
-    | Vapi.AnyscaleModel
-    | Vapi.CerebrasModel
-    | Vapi.CustomLlmModel
-    | Vapi.DeepInfraModel
-    | Vapi.DeepSeekModel
-    | Vapi.GoogleModel
-    | Vapi.GroqModel
-    | Vapi.InflectionAiModel
-    | Vapi.OpenAiModel
-    | Vapi.OpenRouterModel
-    | Vapi.PerplexityAiModel
-    | Vapi.TogetherAiModel
-    | Vapi.XaiModel;
+export type UpdateWorkflowDtoModel = Vapi.WorkflowOpenAiModel | Vapi.WorkflowAnthropicModel;

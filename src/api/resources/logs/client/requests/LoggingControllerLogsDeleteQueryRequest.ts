@@ -4,6 +4,10 @@
 
 import * as Vapi from "../../../../index";
 
+/**
+ * @example
+ *     {}
+ */
 export interface LoggingControllerLogsDeleteQueryRequest {
     /**
      * This is the type of the log.

@@ -11,20 +11,66 @@ export interface ServerMessageResponseAssistantRequest {
      * If this is sent, `assistantId`, `assistant`, `squadId`, and `squad` are ignored.
      */
     destination?: Vapi.ServerMessageResponseAssistantRequestDestination;
-    /** This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead. */
-    assistantId?: string | null;
+    /**
+     * This is the assistant ID that will be used for the call. To use a transient assistant, use `assistant` instead.
+     *
+     * To start a call with:
+     * - Assistant, use `assistantId` or `assistant`
+     * - Squad, use `squadId` or `squad`
+     * - Workflow, use `workflowId` or `workflow`
+     */
+    assistantId?: string;
     /**
      * This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead.
      *
-     * If you're unsure why you're getting an invalid assistant, try logging your response and send the JSON blob to POST /assistant which will return the validation errors.
+     * To start a call with:
+     * - Assistant, use `assistant`
+     * - Squad, use `squad`
+     * - Workflow, use `workflow`
      */
     assistant?: Vapi.CreateAssistantDto;
     /** These are the overrides for the `assistant` or `assistantId`'s settings and template variables. */
     assistantOverrides?: Vapi.AssistantOverrides;
-    /** This is the squad that will be used for the call. To use a transient squad, use `squad` instead. */
+    /**
+     * This is the squad that will be used for the call. To use a transient squad, use `squad` instead.
+     *
+     * To start a call with:
+     * - Assistant, use `assistant` or `assistantId`
+     * - Squad, use `squad` or `squadId`
+     * - Workflow, use `workflow` or `workflowId`
+     */
     squadId?: string;
-    /** This is a squad that will be used for the call. To use an existing squad, use `squadId` instead. */
+    /**
+     * This is a squad that will be used for the call. To use an existing squad, use `squadId` instead.
+     *
+     * To start a call with:
+     * - Assistant, use `assistant` or `assistantId`
+     * - Squad, use `squad` or `squadId`
+     * - Workflow, use `workflow` or `workflowId`
+     */
     squad?: Vapi.CreateSquadDto;
+    /**
+     * [BETA] This feature is in active development. The API and behavior are subject to change as we refine it based on user feedback.
+     *
+     * This is the workflow that will be used for the call. To use a transient workflow, use `workflow` instead.
+     *
+     * To start a call with:
+     * - Assistant, use `assistant` or `assistantId`
+     * - Squad, use `squad` or `squadId`
+     * - Workflow, use `workflow` or `workflowId`
+     */
+    workflowId?: string;
+    /**
+     * [BETA] This feature is in active development. The API and behavior are subject to change as we refine it based on user feedback.
+     *
+     * This is a workflow that will be used for the call. To use an existing workflow, use `workflowId` instead.
+     *
+     * To start a call with:
+     * - Assistant, use `assistant` or `assistantId`
+     * - Squad, use `squad` or `squadId`
+     * - Workflow, use `workflow` or `workflowId`
+     */
+    workflow?: Vapi.CreateWorkflowDto;
     /**
      * This is the error if the call shouldn't be accepted. This is spoken to the customer.
      *

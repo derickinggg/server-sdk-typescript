@@ -3,7 +3,7 @@
  */
 
 /**
- * This is the specific Anthropic/Claude model that will be used.
+ * This is the specific model that will be used.
  */
 export type WorkflowAnthropicModelModel =
     | "claude-3-opus-20240229"

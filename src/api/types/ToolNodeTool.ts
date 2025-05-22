@@ -4,7 +4,10 @@
 
 import * as Vapi from "../index";
 
-export type AnyscaleModelToolsItem =
+/**
+ * This is the tool to call. To use an existing tool, send `toolId` instead.
+ */
+export type ToolNodeTool =
     | Vapi.CreateApiRequestToolDto
     | Vapi.CreateBashToolDto
     | Vapi.CreateComputerToolDto

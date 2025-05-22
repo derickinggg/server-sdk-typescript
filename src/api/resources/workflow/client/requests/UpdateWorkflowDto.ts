@@ -4,6 +4,10 @@
 
 import * as Vapi from "../../../../index";
 
+/**
+ * @example
+ *     {}
+ */
 export interface UpdateWorkflowDto {
     nodes?: Vapi.UpdateWorkflowDtoNodesItem[];
     /** These are the options for the workflow's LLM. */

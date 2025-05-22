@@ -36,6 +36,9 @@ export class Files {
 
     /**
      * @param {Files.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.files.list()
      */
     public list(requestOptions?: Files.RequestOptions): core.HttpResponsePromise<Vapi.File_[]> {
         return core.HttpResponsePromise.fromPromise(this.__list(requestOptions));
@@ -54,8 +57,8 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -100,6 +103,9 @@ export class Files {
      * @param {Files.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @throws {@link Vapi.BadRequestError}
+     *
+     * @example
+     *     await client.files.create(fs.createReadStream("/path/to/your/file"))
      */
     public create(
         file: File | fs.ReadStream | Blob,
@@ -127,8 +133,8 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ..._maybeEncodedRequest.headers,
@@ -178,6 +184,9 @@ export class Files {
     /**
      * @param {string} id
      * @param {Files.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.files.get("id")
      */
     public get(id: string, requestOptions?: Files.RequestOptions): core.HttpResponsePromise<Vapi.File_> {
         return core.HttpResponsePromise.fromPromise(this.__get(id, requestOptions));
@@ -196,8 +205,8 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -240,6 +249,9 @@ export class Files {
     /**
      * @param {string} id
      * @param {Files.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.files.delete("id")
      */
     public delete(id: string, requestOptions?: Files.RequestOptions): core.HttpResponsePromise<Vapi.File_> {
         return core.HttpResponsePromise.fromPromise(this.__delete(id, requestOptions));
@@ -261,8 +273,8 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -306,6 +318,9 @@ export class Files {
      * @param {string} id
      * @param {Vapi.UpdateFileDto} request
      * @param {Files.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.files.update("id")
      */
     public update(
         id: string,
@@ -332,8 +347,8 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,

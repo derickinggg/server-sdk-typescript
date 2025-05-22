@@ -8,8 +8,8 @@ import * as Vapi from "../index";
  * These are the options for the assistant's LLM.
  */
 export type CreateAssistantDtoModel =
-    | Vapi.AnyscaleModel
     | Vapi.AnthropicModel
+    | Vapi.AnyscaleModel
     | Vapi.CerebrasModel
     | Vapi.CustomLlmModel
     | Vapi.DeepInfraModel
@@ -21,5 +21,4 @@ export type CreateAssistantDtoModel =
     | Vapi.OpenRouterModel
     | Vapi.PerplexityAiModel
     | Vapi.TogetherAiModel
-    | Vapi.VapiModel
     | Vapi.XaiModel;

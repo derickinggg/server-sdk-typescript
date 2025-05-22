@@ -35,6 +35,9 @@ export class Calls {
     /**
      * @param {Vapi.CallsListRequest} request
      * @param {Calls.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.calls.list()
      */
     public list(
         request: Vapi.CallsListRequest = {},
@@ -122,8 +125,8 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -167,6 +170,9 @@ export class Calls {
     /**
      * @param {Vapi.CreateCallDto} request
      * @param {Calls.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.calls.create()
      */
     public create(
         request: Vapi.CreateCallDto = {},
@@ -191,8 +197,8 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -236,6 +242,9 @@ export class Calls {
     /**
      * @param {string} id
      * @param {Calls.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.calls.get("id")
      */
     public get(id: string, requestOptions?: Calls.RequestOptions): core.HttpResponsePromise<Vapi.Call> {
         return core.HttpResponsePromise.fromPromise(this.__get(id, requestOptions));
@@ -254,8 +263,8 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -298,6 +307,9 @@ export class Calls {
     /**
      * @param {string} id
      * @param {Calls.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.calls.delete("id")
      */
     public delete(id: string, requestOptions?: Calls.RequestOptions): core.HttpResponsePromise<Vapi.Call> {
         return core.HttpResponsePromise.fromPromise(this.__delete(id, requestOptions));
@@ -319,8 +331,8 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -364,6 +376,9 @@ export class Calls {
      * @param {string} id
      * @param {Vapi.UpdateCallDto} request
      * @param {Calls.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.calls.update("id")
      */
     public update(
         id: string,
@@ -390,8 +405,8 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,

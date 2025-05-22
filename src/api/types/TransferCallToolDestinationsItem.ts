@@ -6,6 +6,5 @@ import * as Vapi from "../index";
 
 export type TransferCallToolDestinationsItem =
     | Vapi.TransferDestinationAssistant
-    | Vapi.TransferDestinationStep
     | Vapi.TransferDestinationNumber
     | Vapi.TransferDestinationSip;

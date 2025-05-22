@@ -4,7 +4,7 @@
 
 import * as Vapi from "../index";
 
-export type UpdateSmsSendToolDtoMessagesItem =
+export type UpdateSmsToolDtoMessagesItem =
     | Vapi.ToolMessageStart
     | Vapi.ToolMessageComplete
     | Vapi.ToolMessageFailed

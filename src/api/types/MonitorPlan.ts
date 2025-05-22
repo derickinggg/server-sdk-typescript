@@ -12,6 +12,14 @@ export interface MonitorPlan {
      */
     listenEnabled?: boolean;
     /**
+     * This enables authentication on the `call.monitor.listenUrl`.
+     *
+     * If `listenAuthenticationEnabled` is `true`, the `call.monitor.listenUrl` will require an `Authorization: Bearer <vapi-public-api-key>` header.
+     *
+     * @default false
+     */
+    listenAuthenticationEnabled?: boolean;
+    /**
      * This determines whether the assistant's calls allow live control. Defaults to true.
      *
      * Fetch `call.monitor.controlUrl` to get the live control URL.
@@ -21,4 +29,12 @@ export interface MonitorPlan {
      * @default true
      */
     controlEnabled?: boolean;
+    /**
+     * This enables authentication on the `call.monitor.controlUrl`.
+     *
+     * If `controlAuthenticationEnabled` is `true`, the `call.monitor.controlUrl` will require an `Authorization: Bearer <vapi-public-api-key>` header.
+     *
+     * @default false
+     */
+    controlAuthenticationEnabled?: boolean;
 }

@@ -4,6 +4,10 @@
 
 import * as Vapi from "../../../../index";
 
+/**
+ * @example
+ *     {}
+ */
 export interface LogsGetRequest {
     /**
      * This is the type of the log.

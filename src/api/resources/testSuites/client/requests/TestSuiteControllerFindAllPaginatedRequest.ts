@@ -4,6 +4,10 @@
 
 import * as Vapi from "../../../../index";
 
+/**
+ * @example
+ *     {}
+ */
 export interface TestSuiteControllerFindAllPaginatedRequest {
     /**
      * This is the page number to return. Defaults to 1.

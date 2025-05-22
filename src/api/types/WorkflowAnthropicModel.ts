@@ -5,14 +5,15 @@
 import * as Vapi from "../index";
 
 export interface WorkflowAnthropicModel {
-    /** This is the specific Anthropic/Claude model that will be used. */
-    model: Vapi.WorkflowAnthropicModelModel;
-    /** This is the provider of the model. Ex. anthropic */
+    /** This is the provider of the model (`anthropic`). */
     provider: "anthropic";
+    /** This is the specific model that will be used. */
+    model: Vapi.WorkflowAnthropicModelModel;
     /**
      * This is the optional configuration for Anthropic's thinking feature.
-     * Only applicable for claude-3-7-sonnet-20250219 model.
-     * If provided, maxTokens must be greater than thinking.budgetTokens.
+     *
+     * - Only applicable for `claude-3-7-sonnet-20250219` model.
+     * - If provided, `maxTokens` must be greater than `thinking.budgetTokens`.
      */
     thinking?: Vapi.AnthropicThinkingConfig;
     /** This is the temperature of the model. */

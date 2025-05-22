@@ -6,25 +6,23 @@ import * as Vapi from "../index";
 
 export interface Server {
     /**
-     * This is the timeout in seconds for the request to your server. Defaults to 20 seconds.
+     * This is the timeout in seconds for the request. Defaults to 20 seconds.
      *
      * @default 20
      */
     timeoutSeconds?: number;
-    /** API endpoint to send requests to. */
-    url: string;
+    /** This is where the request will be sent. */
+    url?: string;
     /**
-     * This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.
-     *
-     * Same precedence logic as server.
-     */
-    secret?: string;
-    /**
-     * These are the custom headers to include in the request sent to your server.
+     * These are the headers to include in the request.
      *
      * Each key-value pair represents a header name and its value.
      */
     headers?: Record<string, unknown>;
-    /** This is the backoff plan to use if the request fails. */
+    /**
+     * This is the backoff plan if the request fails. Defaults to undefined (the request will not be retried).
+     *
+     * @default undefined (the request will not be retried)
+     */
     backoffPlan?: Vapi.BackoffPlan;
 }

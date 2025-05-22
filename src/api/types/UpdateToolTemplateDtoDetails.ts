@@ -5,16 +5,22 @@
 import * as Vapi from "../index";
 
 export type UpdateToolTemplateDtoDetails =
+    | Vapi.CreateApiRequestToolDto
+    | Vapi.CreateBashToolDto
+    | Vapi.CreateComputerToolDto
     | Vapi.CreateDtmfToolDto
     | Vapi.CreateEndCallToolDto
-    | Vapi.CreateVoicemailToolDto
     | Vapi.CreateFunctionToolDto
-    | Vapi.CreateGhlToolDto
-    | Vapi.CreateMakeToolDto
-    | Vapi.CreateTransferCallToolDto
-    | Vapi.CreateGoogleCalendarCreateEventToolDto
-    | Vapi.CreateGoogleSheetsRowAppendToolDto
     | Vapi.CreateGoHighLevelCalendarAvailabilityToolDto
     | Vapi.CreateGoHighLevelCalendarEventCreateToolDto
     | Vapi.CreateGoHighLevelContactCreateToolDto
-    | Vapi.CreateGoHighLevelContactGetToolDto;
+    | Vapi.CreateGoHighLevelContactGetToolDto
+    | Vapi.CreateGoogleCalendarCheckAvailabilityToolDto
+    | Vapi.CreateGoogleCalendarCreateEventToolDto
+    | Vapi.CreateGoogleSheetsRowAppendToolDto
+    | Vapi.CreateMcpToolDto
+    | Vapi.CreateQueryToolDto
+    | Vapi.CreateSlackSendMessageToolDto
+    | Vapi.CreateSmsToolDto
+    | Vapi.CreateTextEditorToolDto
+    | Vapi.CreateTransferCallToolDto;

@@ -20,7 +20,7 @@ export type ToolsCreateResponse =
     | Vapi.GoogleSheetsRowAppendTool
     | Vapi.GoogleCalendarCheckAvailabilityTool
     | Vapi.SlackSendMessageTool
-    | Vapi.SmsSendTool
+    | Vapi.SmsTool
     | Vapi.McpTool
     | Vapi.GoHighLevelCalendarAvailabilityTool
     | Vapi.GoHighLevelCalendarEventCreateTool

@@ -36,6 +36,9 @@ export class TestSuiteTests {
      * @param {string} testSuiteId
      * @param {Vapi.TestSuiteTestControllerFindAllPaginatedRequest} request
      * @param {TestSuiteTests.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.testSuiteTests.testSuiteTestControllerFindAllPaginated("testSuiteId")
      */
     public testSuiteTestControllerFindAllPaginated(
         testSuiteId: string,
@@ -122,8 +125,8 @@ export class TestSuiteTests {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -168,6 +171,16 @@ export class TestSuiteTests {
      * @param {string} testSuiteId
      * @param {Vapi.TestSuiteTestControllerCreateRequest} request
      * @param {TestSuiteTests.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.testSuiteTests.testSuiteTestControllerCreate("testSuiteId", {
+     *         scorers: [{
+     *                 type: "ai",
+     *                 rubric: "rubric"
+     *             }],
+     *         type: "voice",
+     *         script: "script"
+     *     })
      */
     public testSuiteTestControllerCreate(
         testSuiteId: string,
@@ -196,8 +209,8 @@ export class TestSuiteTests {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -245,6 +258,9 @@ export class TestSuiteTests {
      * @param {string} testSuiteId
      * @param {string} id
      * @param {TestSuiteTests.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.testSuiteTests.testSuiteTestControllerFindOne("testSuiteId", "id")
      */
     public testSuiteTestControllerFindOne(
         testSuiteId: string,
@@ -273,8 +289,8 @@ export class TestSuiteTests {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -323,6 +339,9 @@ export class TestSuiteTests {
      * @param {string} testSuiteId
      * @param {string} id
      * @param {TestSuiteTests.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.testSuiteTests.testSuiteTestControllerRemove("testSuiteId", "id")
      */
     public testSuiteTestControllerRemove(
         testSuiteId: string,
@@ -351,8 +370,8 @@ export class TestSuiteTests {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -402,6 +421,11 @@ export class TestSuiteTests {
      * @param {string} id
      * @param {Vapi.TestSuiteTestControllerUpdateRequest} request
      * @param {TestSuiteTests.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.testSuiteTests.testSuiteTestControllerUpdate("testSuiteId", "id", {
+     *         type: "voice"
+     *     })
      */
     public testSuiteTestControllerUpdate(
         testSuiteId: string,
@@ -432,8 +456,8 @@ export class TestSuiteTests {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,

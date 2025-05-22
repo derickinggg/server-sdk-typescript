@@ -4,6 +4,10 @@
 
 import * as Vapi from "../../../../index";
 
+/**
+ * @example
+ *     {}
+ */
 export interface CreateTestSuiteDto {
     /** This is the name of the test suite. */
     name?: string;

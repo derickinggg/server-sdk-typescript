@@ -6,6 +6,7 @@
  * This is the model that will be used for the transcription.
  */
 export type FallbackGoogleTranscriberModel =
+    | "gemini-2.5-pro-preview-05-06"
     | "gemini-2.5-flash-preview-04-17"
     | "gemini-2.0-flash-thinking-exp"
     | "gemini-2.0-pro-exp-02-05"
@@ -20,6 +21,7 @@ export type FallbackGoogleTranscriberModel =
     | "gemini-1.5-pro-002"
     | "gemini-1.0-pro";
 export const FallbackGoogleTranscriberModel = {
+    Gemini25ProPreview0506: "gemini-2.5-pro-preview-05-06",
     Gemini25FlashPreview0417: "gemini-2.5-flash-preview-04-17",
     Gemini20FlashThinkingExp: "gemini-2.0-flash-thinking-exp",
     Gemini20ProExp0205: "gemini-2.0-pro-exp-02-05",

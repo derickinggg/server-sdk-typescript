@@ -15,7 +15,7 @@ export interface FallbackRimeAiVoice {
     model?: Vapi.FallbackRimeAiVoiceModel;
     /** This is the speed multiplier that will be used. */
     speed?: number;
-    /** This is a flag that controls whether to add slight pauses using angle brackets. Example: “Hi. <200> I’d love to have a conversation with you.” adds a 200ms pause between the first and second sentences. */
+    /** This is a flag that controls whether to add slight pauses using angle brackets. Example: "Hi. <200> I'd love to have a conversation with you." adds a 200ms pause between the first and second sentences. */
     pauseBetweenBrackets?: boolean;
     /** This is a flag that controls whether text inside brackets should be phonemized (converted to phonetic pronunciation) - Example: "{h'El.o} World" will pronounce "Hello" as expected. */
     phonemizeBetweenBrackets?: boolean;

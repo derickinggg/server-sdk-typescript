@@ -4,7 +4,7 @@
 
 import * as Vapi from "../index";
 
-export interface UpdateSmsSendToolDto {
+export interface UpdateSmsToolDto {
     /**
      * This determines if the tool is async.
      *
@@ -20,7 +20,7 @@ export interface UpdateSmsSendToolDto {
      *
      * For some tools, this is auto-filled based on special fields like `tool.destinations`. For others like the function tool, these can be custom configured.
      */
-    messages?: Vapi.UpdateSmsSendToolDtoMessagesItem[];
+    messages?: Vapi.UpdateSmsToolDtoMessagesItem[];
     /**
      * This is the function definition of the tool.
      *

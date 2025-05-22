@@ -35,6 +35,9 @@ export class Tools {
     /**
      * @param {Vapi.ToolsListRequest} request
      * @param {Tools.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.tools.list()
      */
     public list(
         request: Vapi.ToolsListRequest = {},
@@ -107,8 +110,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -152,6 +155,11 @@ export class Tools {
     /**
      * @param {Vapi.ToolsCreateRequest} request
      * @param {Tools.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.tools.create({
+     *         type: "dtmf"
+     *     })
      */
     public create(
         request: Vapi.ToolsCreateRequest,
@@ -176,8 +184,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -221,6 +229,9 @@ export class Tools {
     /**
      * @param {string} id
      * @param {Tools.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.tools.get("id")
      */
     public get(id: string, requestOptions?: Tools.RequestOptions): core.HttpResponsePromise<Vapi.ToolsGetResponse> {
         return core.HttpResponsePromise.fromPromise(this.__get(id, requestOptions));
@@ -242,8 +253,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -286,6 +297,9 @@ export class Tools {
     /**
      * @param {string} id
      * @param {Tools.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.tools.delete("id")
      */
     public delete(
         id: string,
@@ -310,8 +324,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -355,6 +369,9 @@ export class Tools {
      * @param {string} id
      * @param {Vapi.ToolsUpdateRequest} request
      * @param {Tools.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.tools.update("id", {})
      */
     public update(
         id: string,
@@ -381,8 +398,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,

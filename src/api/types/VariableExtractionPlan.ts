@@ -4,7 +4,6 @@
 
 import * as Vapi from "../index";
 
-export interface Hook {
-    on: Vapi.HookOn;
-    do: Vapi.SayHook[];
+export interface VariableExtractionPlan {
+    output: Vapi.VariableExtractionSchema[];
 }

@@ -35,6 +35,9 @@ export class PhoneNumbers {
     /**
      * @param {Vapi.PhoneNumbersListRequest} request
      * @param {PhoneNumbers.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.phoneNumbers.list()
      */
     public list(
         request: Vapi.PhoneNumbersListRequest = {},
@@ -107,8 +110,8 @@ export class PhoneNumbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -152,6 +155,12 @@ export class PhoneNumbers {
     /**
      * @param {Vapi.PhoneNumbersCreateRequest} request
      * @param {PhoneNumbers.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.phoneNumbers.create({
+     *         provider: "byo-phone-number",
+     *         credentialId: "credentialId"
+     *     })
      */
     public create(
         request: Vapi.PhoneNumbersCreateRequest,
@@ -176,8 +185,8 @@ export class PhoneNumbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -221,6 +230,9 @@ export class PhoneNumbers {
     /**
      * @param {string} id
      * @param {PhoneNumbers.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.phoneNumbers.get("id")
      */
     public get(
         id: string,
@@ -245,8 +257,8 @@ export class PhoneNumbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -289,6 +301,9 @@ export class PhoneNumbers {
     /**
      * @param {string} id
      * @param {PhoneNumbers.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.phoneNumbers.delete("id")
      */
     public delete(
         id: string,
@@ -313,8 +328,8 @@ export class PhoneNumbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -358,6 +373,9 @@ export class PhoneNumbers {
      * @param {string} id
      * @param {Vapi.PhoneNumbersUpdateRequest} request
      * @param {PhoneNumbers.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.phoneNumbers.update("id", {})
      */
     public update(
         id: string,
@@ -384,8 +402,8 @@ export class PhoneNumbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,

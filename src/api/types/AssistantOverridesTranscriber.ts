@@ -14,7 +14,7 @@ export type AssistantOverridesTranscriber =
     | Vapi.DeepgramTranscriber
     | Vapi.ElevenLabsTranscriber
     | Vapi.GladiaTranscriber
+    | Vapi.GoogleTranscriber
     | Vapi.SpeechmaticsTranscriber
     | Vapi.TalkscriberTranscriber
-    | Vapi.GoogleTranscriber
     | Vapi.OpenAiTranscriber;

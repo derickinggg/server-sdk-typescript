@@ -34,6 +34,9 @@ export class Workflow {
 
     /**
      * @param {Workflow.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.workflow.workflowControllerFindAll()
      */
     public workflowControllerFindAll(
         requestOptions?: Workflow.RequestOptions,
@@ -56,8 +59,8 @@ export class Workflow {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -100,6 +103,19 @@ export class Workflow {
     /**
      * @param {Vapi.CreateWorkflowDto} request
      * @param {Workflow.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.workflow.workflowControllerCreate({
+     *         nodes: [{
+     *                 type: "conversation",
+     *                 name: "name"
+     *             }],
+     *         name: "name",
+     *         edges: [{
+     *                 from: "from",
+     *                 to: "to"
+     *             }]
+     *     })
      */
     public workflowControllerCreate(
         request: Vapi.CreateWorkflowDto,
@@ -124,8 +140,8 @@ export class Workflow {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -169,6 +185,9 @@ export class Workflow {
     /**
      * @param {string} id
      * @param {Workflow.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.workflow.workflowControllerFindOne("id")
      */
     public workflowControllerFindOne(
         id: string,
@@ -193,8 +212,8 @@ export class Workflow {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -237,6 +256,9 @@ export class Workflow {
     /**
      * @param {string} id
      * @param {Workflow.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.workflow.workflowControllerDelete("id")
      */
     public workflowControllerDelete(
         id: string,
@@ -261,8 +283,8 @@ export class Workflow {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -306,6 +328,9 @@ export class Workflow {
      * @param {string} id
      * @param {Vapi.UpdateWorkflowDto} request
      * @param {Workflow.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.workflow.workflowControllerUpdate("id")
      */
     public workflowControllerUpdate(
         id: string,
@@ -332,8 +357,8 @@ export class Workflow {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.7.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.7.1",
+                "X-Fern-SDK-Version": "0.8.0",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,

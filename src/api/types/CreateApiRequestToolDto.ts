@@ -4,7 +4,7 @@
 
 import * as Vapi from "../index";
 
-export interface SmsSendTool {
+export interface CreateApiRequestToolDto {
     /**
      * This determines if the tool is async.
      *
@@ -20,16 +20,32 @@ export interface SmsSendTool {
      *
      * For some tools, this is auto-filled based on special fields like `tool.destinations`. For others like the function tool, these can be custom configured.
      */
-    messages?: Vapi.SmsSendToolMessagesItem[];
-    type: "sms";
-    /** This is the unique identifier for the tool. */
-    id: string;
-    /** This is the unique identifier for the organization that this tool belongs to. */
-    orgId: string;
-    /** This is the ISO 8601 date-time string of when the tool was created. */
-    createdAt: string;
-    /** This is the ISO 8601 date-time string of when the tool was last updated. */
-    updatedAt: string;
+    messages?: Vapi.CreateApiRequestToolDtoMessagesItem[];
+    /** The type of tool. "apiRequest" for API request tool. */
+    type: "apiRequest";
+    method: Vapi.CreateApiRequestToolDtoMethod;
+    /**
+     * This is the timeout in seconds for the request. Defaults to 20 seconds.
+     *
+     * @default 20
+     */
+    timeoutSeconds?: number;
+    /** This is the name of the tool. This will be passed to the model. */
+    name?: string;
+    /** This is the description of the tool. This will be passed to the model. */
+    description?: string;
+    /** This is where the request will be sent. */
+    url: string;
+    /** This is the body of the request. */
+    body: Vapi.JsonSchema;
+    /** These are the headers to send in the request. */
+    headers?: Vapi.JsonSchema;
+    /**
+     * This is the backoff plan if the request fails. Defaults to undefined (the request will not be retried).
+     *
+     * @default undefined (the request will not be retried)
+     */
+    backoffPlan?: Vapi.BackoffPlan;
     /**
      * This is the function definition of the tool.
      *

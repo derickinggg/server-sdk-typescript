@@ -20,7 +20,7 @@ export type ToolsCreateRequest =
     | Vapi.CreateGoogleSheetsRowAppendToolDto
     | Vapi.CreateGoogleCalendarCheckAvailabilityToolDto
     | Vapi.CreateSlackSendMessageToolDto
-    | Vapi.CreateSmsSendToolDto
+    | Vapi.CreateSmsToolDto
     | Vapi.CreateMcpToolDto
     | Vapi.CreateGoHighLevelCalendarAvailabilityToolDto
     | Vapi.CreateGoHighLevelCalendarEventCreateToolDto

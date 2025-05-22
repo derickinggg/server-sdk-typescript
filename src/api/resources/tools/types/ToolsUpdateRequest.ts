@@ -20,7 +20,7 @@ export type ToolsUpdateRequest =
     | Vapi.UpdateGoogleSheetsRowAppendToolDto
     | Vapi.UpdateGoogleCalendarCheckAvailabilityToolDto
     | Vapi.UpdateSlackSendMessageToolDto
-    | Vapi.UpdateSmsSendToolDto
+    | Vapi.UpdateSmsToolDto
     | Vapi.UpdateMcpToolDto
     | Vapi.UpdateGoHighLevelCalendarAvailabilityToolDto
     | Vapi.UpdateGoHighLevelCalendarEventCreateToolDto

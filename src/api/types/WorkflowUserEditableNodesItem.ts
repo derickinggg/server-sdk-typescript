@@ -4,12 +4,4 @@
 
 import * as Vapi from "../index";
 
-export type WorkflowUserEditableNodesItem =
-    | Vapi.Start
-    | Vapi.WorkflowAssistant
-    | Vapi.Say
-    | Vapi.Gather
-    | Vapi.ApiRequest
-    | Vapi.Hangup
-    | Vapi.Transfer
-    | Vapi.Conversation;
+export type WorkflowUserEditableNodesItem = Vapi.ConversationNode | Vapi.ToolNode;

@@ -5,10 +5,10 @@
 import * as Vapi from "../index";
 
 export interface WorkflowOpenAiModel {
+    /** This is the provider of the model (`openai`). */
+    provider: "openai";
     /** This is the specific OpenAI model that will be used. */
     model: Vapi.WorkflowOpenAiModelModel;
-    /** This is the provider of the model. Ex. openai */
-    provider: "openai";
     /** This is the temperature of the model. */
     temperature?: number;
     /** This is the max tokens of the model. */

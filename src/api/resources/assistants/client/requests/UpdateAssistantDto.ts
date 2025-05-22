@@ -4,6 +4,10 @@
 
 import * as Vapi from "../../../../index";
 
+/**
+ * @example
+ *     {}
+ */
 export interface UpdateAssistantDto {
     /** These are the options for the assistant's transcriber. */
     transcriber?: Vapi.UpdateAssistantDtoTranscriber;

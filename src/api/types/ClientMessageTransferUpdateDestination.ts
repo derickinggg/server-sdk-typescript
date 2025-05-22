@@ -9,6 +9,5 @@ import * as Vapi from "../index";
  */
 export type ClientMessageTransferUpdateDestination =
     | Vapi.TransferDestinationAssistant
-    | Vapi.TransferDestinationStep
     | Vapi.TransferDestinationNumber
     | Vapi.TransferDestinationSip;
