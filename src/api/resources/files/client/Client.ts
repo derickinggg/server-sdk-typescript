@@ -15,7 +15,7 @@ export declare namespace Files {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
         /** Specify a custom URL to connect the client to. */
         baseUrl?: core.Supplier<string>;
-        token?: core.Supplier<core.BearerToken | undefined>;
+        token: core.Supplier<core.BearerToken>;
         fetcher?: core.FetchFunction;
     }
 
@@ -32,7 +32,7 @@ export declare namespace Files {
 }
 
 export class Files {
-    constructor(protected readonly _options: Files.Options = {}) {}
+    constructor(protected readonly _options: Files.Options) {}
 
     /**
      * @param {Files.RequestOptions} requestOptions - Request-specific configuration.
@@ -57,8 +57,8 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.8.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.8.1",
+                "X-Fern-SDK-Version": "0.9.1",
+                "User-Agent": "@vapi-ai/server-sdk/0.9.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -133,8 +133,8 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.8.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.8.1",
+                "X-Fern-SDK-Version": "0.9.1",
+                "User-Agent": "@vapi-ai/server-sdk/0.9.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ..._maybeEncodedRequest.headers,
@@ -205,8 +205,8 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.8.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.8.1",
+                "X-Fern-SDK-Version": "0.9.1",
+                "User-Agent": "@vapi-ai/server-sdk/0.9.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -273,8 +273,8 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.8.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.8.1",
+                "X-Fern-SDK-Version": "0.9.1",
+                "User-Agent": "@vapi-ai/server-sdk/0.9.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -347,8 +347,8 @@ export class Files {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.8.1",
-                "User-Agent": "@vapi-ai/server-sdk/0.8.1",
+                "X-Fern-SDK-Version": "0.9.1",
+                "User-Agent": "@vapi-ai/server-sdk/0.9.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -389,12 +389,7 @@ export class Files {
         }
     }
 
-    protected async _getAuthorizationHeader(): Promise<string | undefined> {
-        const bearer = await core.Supplier.get(this._options.token);
-        if (bearer != null) {
-            return `Bearer ${bearer}`;
-        }
-
-        return undefined;
+    protected async _getAuthorizationHeader(): Promise<string> {
+        return `Bearer ${await core.Supplier.get(this._options.token)}`;
     }
 }
