@@ -4,6 +4,8 @@
 
 import * as environments from "./environments";
 import * as core from "./core";
+import urlJoin from "url-join";
+import * as errors from "./errors/index";
 import { Calls } from "./api/resources/calls/client/Client";
 import { Assistants } from "./api/resources/assistants/client/Client";
 import { PhoneNumbers } from "./api/resources/phoneNumbers/client/Client";
@@ -23,7 +25,7 @@ export declare namespace VapiClient {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
         /** Specify a custom URL to connect the client to. */
         baseUrl?: core.Supplier<string>;
-        token: core.Supplier<core.BearerToken>;
+        token?: core.Supplier<core.BearerToken | undefined>;
         fetcher?: core.FetchFunction;
     }
 
@@ -54,7 +56,7 @@ export class VapiClient {
     protected _analytics: Analytics | undefined;
     protected _logs: Logs | undefined;
 
-    constructor(protected readonly _options: VapiClient.Options) {}
+    constructor(protected readonly _options: VapiClient.Options = {}) {}
 
     public get calls(): Calls {
         return (this._calls ??= new Calls(this._options));
@@ -106,5 +108,80 @@ export class VapiClient {
 
     public get logs(): Logs {
         return (this._logs ??= new Logs(this._options));
+    }
+
+    /**
+     * @param {VapiClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.prometheusControllerIndex()
+     */
+    public prometheusControllerIndex(requestOptions?: VapiClient.RequestOptions): core.HttpResponsePromise<void> {
+        return core.HttpResponsePromise.fromPromise(this.__prometheusControllerIndex(requestOptions));
+    }
+
+    private async __prometheusControllerIndex(
+        requestOptions?: VapiClient.RequestOptions,
+    ): Promise<core.WithRawResponse<void>> {
+        const _response = await (this._options.fetcher ?? core.fetcher)({
+            url: urlJoin(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                "prometheus_metrics",
+            ),
+            method: "GET",
+            headers: {
+                Authorization: await this._getAuthorizationHeader(),
+                "X-Fern-Language": "JavaScript",
+                "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
+                "X-Fern-SDK-Version": "0.8.1",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.1",
+                "X-Fern-Runtime": core.RUNTIME.type,
+                "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
+            },
+            contentType: "application/json",
+            requestType: "json",
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+        });
+        if (_response.ok) {
+            return { data: undefined, rawResponse: _response.rawResponse };
+        }
+
+        if (_response.error.reason === "status-code") {
+            throw new errors.VapiError({
+                statusCode: _response.error.statusCode,
+                body: _response.error.body,
+                rawResponse: _response.rawResponse,
+            });
+        }
+
+        switch (_response.error.reason) {
+            case "non-json":
+                throw new errors.VapiError({
+                    statusCode: _response.error.statusCode,
+                    body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
+                });
+            case "timeout":
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling GET /prometheus_metrics.");
+            case "unknown":
+                throw new errors.VapiError({
+                    message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
+                });
+        }
+    }
+
+    protected async _getAuthorizationHeader(): Promise<string | undefined> {
+        const bearer = await core.Supplier.get(this._options.token);
+        if (bearer != null) {
+            return `Bearer ${bearer}`;
+        }
+
+        return undefined;
     }
 }

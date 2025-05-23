@@ -13,7 +13,7 @@ export declare namespace TestSuiteRuns {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
         /** Specify a custom URL to connect the client to. */
         baseUrl?: core.Supplier<string>;
-        token: core.Supplier<core.BearerToken>;
+        token?: core.Supplier<core.BearerToken | undefined>;
         fetcher?: core.FetchFunction;
     }
 
@@ -30,7 +30,7 @@ export declare namespace TestSuiteRuns {
 }
 
 export class TestSuiteRuns {
-    constructor(protected readonly _options: TestSuiteRuns.Options) {}
+    constructor(protected readonly _options: TestSuiteRuns.Options = {}) {}
 
     /**
      * @param {string} testSuiteId
@@ -125,8 +125,8 @@ export class TestSuiteRuns {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.9.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.9.0",
+                "X-Fern-SDK-Version": "0.8.1",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -202,8 +202,8 @@ export class TestSuiteRuns {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.9.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.9.0",
+                "X-Fern-SDK-Version": "0.8.1",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -279,8 +279,8 @@ export class TestSuiteRuns {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.9.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.9.0",
+                "X-Fern-SDK-Version": "0.8.1",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -357,8 +357,8 @@ export class TestSuiteRuns {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.9.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.9.0",
+                "X-Fern-SDK-Version": "0.8.1",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -438,8 +438,8 @@ export class TestSuiteRuns {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.9.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.9.0",
+                "X-Fern-SDK-Version": "0.8.1",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -482,7 +482,12 @@ export class TestSuiteRuns {
         }
     }
 
-    protected async _getAuthorizationHeader(): Promise<string> {
-        return `Bearer ${await core.Supplier.get(this._options.token)}`;
+    protected async _getAuthorizationHeader(): Promise<string | undefined> {
+        const bearer = await core.Supplier.get(this._options.token);
+        if (bearer != null) {
+            return `Bearer ${bearer}`;
+        }
+
+        return undefined;
     }
 }

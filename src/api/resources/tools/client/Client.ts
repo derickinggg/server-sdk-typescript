@@ -13,7 +13,7 @@ export declare namespace Tools {
         environment?: core.Supplier<environments.VapiEnvironment | string>;
         /** Specify a custom URL to connect the client to. */
         baseUrl?: core.Supplier<string>;
-        token: core.Supplier<core.BearerToken>;
+        token?: core.Supplier<core.BearerToken | undefined>;
         fetcher?: core.FetchFunction;
     }
 
@@ -30,7 +30,7 @@ export declare namespace Tools {
 }
 
 export class Tools {
-    constructor(protected readonly _options: Tools.Options) {}
+    constructor(protected readonly _options: Tools.Options = {}) {}
 
     /**
      * @param {Vapi.ToolsListRequest} request
@@ -110,8 +110,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.9.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.9.0",
+                "X-Fern-SDK-Version": "0.8.1",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -184,8 +184,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.9.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.9.0",
+                "X-Fern-SDK-Version": "0.8.1",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -253,8 +253,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.9.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.9.0",
+                "X-Fern-SDK-Version": "0.8.1",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -324,8 +324,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.9.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.9.0",
+                "X-Fern-SDK-Version": "0.8.1",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -398,8 +398,8 @@ export class Tools {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.9.0",
-                "User-Agent": "@vapi-ai/server-sdk/0.9.0",
+                "X-Fern-SDK-Version": "0.8.1",
+                "User-Agent": "@vapi-ai/server-sdk/0.8.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -440,7 +440,12 @@ export class Tools {
         }
     }
 
-    protected async _getAuthorizationHeader(): Promise<string> {
-        return `Bearer ${await core.Supplier.get(this._options.token)}`;
+    protected async _getAuthorizationHeader(): Promise<string | undefined> {
+        const bearer = await core.Supplier.get(this._options.token);
+        if (bearer != null) {
+            return `Bearer ${bearer}`;
+        }
+
+        return undefined;
     }
 }
