@@ -5,9 +5,13 @@
 /**
  * This is the type / tier of the subscription.
  */
-export type SubscriptionType = "trial" | "pay-as-you-go" | "enterprise";
+export type SubscriptionType = "trial" | "pay-as-you-go" | "enterprise" | "agency" | "startup" | "growth" | "scale";
 export const SubscriptionType = {
     Trial: "trial",
     PayAsYouGo: "pay-as-you-go",
     Enterprise: "enterprise",
+    Agency: "agency",
+    Startup: "startup",
+    Growth: "growth",
+    Scale: "scale",
 } as const;

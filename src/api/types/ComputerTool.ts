@@ -24,6 +24,17 @@ export interface ComputerTool {
     type: "computer";
     /** The sub type of tool. */
     subType: "computer_20241022";
+    /**
+     *   This is the server where a `tool-calls` webhook will be sent.
+     *
+     *   Notes:
+     *   - Webhook is sent to this server when a tool call is made.
+     *   - Webhook contains the call, assistant, and phone number objects.
+     *   - Webhook contains the variables set on the assistant.
+     *   - Webhook is sent to the first available URL in this order: {{tool.server.url}}, {{assistant.server.url}}, {{phoneNumber.server.url}}, {{org.server.url}}.
+     *   - Webhook expects a response with tool call result.
+     */
+    server?: Vapi.Server;
     /** This is the unique identifier for the tool. */
     id: string;
     /** This is the unique identifier for the organization that this tool belongs to. */
@@ -40,14 +51,6 @@ export interface ComputerTool {
      * An example of an advanced use case is if you want to customize the message that's spoken for `endCall` tool. You can specify a function where it returns an argument "reason". Then, in `messages` array, you can have many "request-complete" messages. One of these messages will be triggered if the `messages[].conditions` matches the "reason" argument.
      */
     function?: Vapi.OpenAiFunction;
-    /**
-     * This is the server that will be hit when this tool is requested by the model.
-     *
-     * All requests will be sent with the call object among other things. You can find more details in the Server URL documentation.
-     *
-     * This overrides the serverUrl set on the org and the phoneNumber. Order of precedence: highest tool.server.url, then assistant.serverUrl, then phoneNumber.serverUrl, then org.serverUrl.
-     */
-    server?: Vapi.Server;
     /** The name of the tool, fixed to 'computer' */
     name: "computer";
     /** The display width in pixels */

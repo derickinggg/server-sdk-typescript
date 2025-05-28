@@ -5,10 +5,10 @@
 import * as Vapi from "../index";
 
 export interface ToolCall {
-    /** This is the type of tool the model called. */
-    type: "function";
-    /** This is the function the model called. */
-    function: Vapi.ToolCallFunction;
-    /** This is the unique identifier for the tool call. */
+    /** This is the ID of the tool call */
     id: string;
+    /** This is the type of tool */
+    type: string;
+    /** This is the function that was called */
+    function: Vapi.ToolCallFunction;
 }
