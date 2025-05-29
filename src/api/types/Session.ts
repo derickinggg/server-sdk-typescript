@@ -24,7 +24,7 @@ export interface Session {
      * If assistantId is provided, this will be ignored.
      */
     assistant?: Vapi.CreateAssistantDto;
-    /** Array of chat messages in the session */
+    /** This is an array of chat messages in the session. */
     messages?: Vapi.SessionMessagesItem[];
     /** This is the customer information associated with this session. */
     customer?: Vapi.CreateCustomerDto;

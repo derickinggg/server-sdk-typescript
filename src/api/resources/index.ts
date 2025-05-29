@@ -1,5 +1,9 @@
 export * as calls from "./calls";
 export * from "./calls/types";
+export * as chats from "./chats";
+export * from "./chats/types";
+export * as sessions from "./sessions";
+export * from "./sessions/types";
 export * as assistants from "./assistants";
 export * from "./assistants/types";
 export * as phoneNumbers from "./phoneNumbers";
@@ -22,6 +26,8 @@ export * as files from "./files";
 export * as squads from "./squads";
 export * as analytics from "./analytics";
 export * from "./calls/client/requests";
+export * from "./chats/client/requests";
+export * from "./sessions/client/requests";
 export * from "./assistants/client/requests";
 export * from "./phoneNumbers/client/requests";
 export * from "./tools/client/requests";

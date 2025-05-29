@@ -7,7 +7,12 @@ import * as Vapi from "../index";
 export interface WorkflowOpenAiModel {
     /** This is the provider of the model (`openai`). */
     provider: "openai";
-    /** This is the specific OpenAI model that will be used. */
+    /**
+     * This is the OpenAI model that will be used.
+     *
+     * When using Vapi OpenAI or your own Azure Credentials, you have the option to specify the region for the selected model. This shouldn't be specified unless you have a specific reason to do so. Vapi will automatically find the fastest region that make sense.
+     * This is helpful when you are required to comply with Data Residency rules. Learn more about Azure regions here https://azure.microsoft.com/en-us/explore/global-infrastructure/data-residency/.
+     */
     model: Vapi.WorkflowOpenAiModelModel;
     /** This is the temperature of the model. */
     temperature?: number;

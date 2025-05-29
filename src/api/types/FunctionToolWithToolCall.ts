@@ -6,16 +6,6 @@ import * as Vapi from "../index";
 
 export interface FunctionToolWithToolCall {
     /**
-     * This determines if the tool is async.
-     *
-     * If async, the assistant will move forward without waiting for your server to respond. This is useful if you just want to trigger something on your server.
-     *
-     * If sync, the assistant will wait for your server to respond. This is useful if want assistant to respond with the result from your server.
-     *
-     * Defaults to synchronous (`false`).
-     */
-    async?: boolean;
-    /**
      * These are the messages that will be spoken to the user as the tool is running.
      *
      * For some tools, this is auto-filled based on special fields like `tool.destinations`. For others like the function tool, these can be custom configured.
@@ -23,6 +13,16 @@ export interface FunctionToolWithToolCall {
     messages?: Vapi.FunctionToolWithToolCallMessagesItem[];
     /** The type of tool. "function" for Function tool. */
     type: "function";
+    /**
+     * This determines if the tool is async.
+     *
+     *   If async, the assistant will move forward without waiting for your server to respond. This is useful if you just want to trigger something on your server.
+     *
+     *   If sync, the assistant will wait for your server to respond. This is useful if want assistant to respond with the result from your server.
+     *
+     *   Defaults to synchronous (`false`).
+     */
+    async?: boolean;
     /**
      *   This is the server where a `tool-calls` webhook will be sent.
      *

@@ -25,7 +25,14 @@ export interface OpenAiModel {
     knowledgeBaseId?: string;
     /** This is the provider that will be used for the model. */
     provider: "openai";
-    /** This is the OpenAI model that will be used. */
+    /**
+     * This is the OpenAI model that will be used.
+     *
+     * When using Vapi OpenAI or your own Azure Credentials, you have the option to specify the region for the selected model. This shouldn't be specified unless you have a specific reason to do so. Vapi will automatically find the fastest region that make sense.
+     * This is helpful when you are required to comply with Data Residency rules. Learn more about Azure regions here https://azure.microsoft.com/en-us/explore/global-infrastructure/data-residency/.
+     *
+     * @default undefined
+     */
     model: Vapi.OpenAiModelModel;
     /** These are the fallback models that will be used if the primary model fails. This shouldn't be specified unless you have a specific reason to do so. Vapi will automatically find the fastest fallbacks that make sense. */
     fallbackModels?: Vapi.OpenAiModelFallbackModelsItem[];
