@@ -47,6 +47,17 @@ export interface TransferPlan {
      */
     holdAudioUrl?: string;
     /**
+     * This is the URL to an audio file played after the warm transfer message or summary is delivered to the destination party.
+     * It can be used to play a custom sound like 'beep' to notify that the transfer is complete.
+     *
+     * Usage:
+     * - Used only when `mode` is `warm-transfer-experimental`.
+     * - Used when transferring calls to play hold audio for the destination party.
+     * - Must be a publicly accessible URL to an audio file.
+     * - Supported formats: MP3 and WAV.
+     */
+    transferCompleteAudioUrl?: string;
+    /**
      * This is the TwiML instructions to execute on the destination call leg before connecting the customer.
      *
      * Usage:

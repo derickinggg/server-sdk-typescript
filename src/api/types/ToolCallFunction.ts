@@ -3,8 +3,8 @@
  */
 
 export interface ToolCallFunction {
-    /** This is the name of the function the model called. */
+    /** This is the arguments to call the function with */
+    arguments: string;
+    /** This is the name of the function to call */
     name: string;
-    /** These are the arguments that the function was called with. */
-    arguments: Record<string, unknown>;
 }
