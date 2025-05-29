@@ -5,6 +5,7 @@
 import * as Vapi from "../index";
 
 /**
- * Chat input as a string or an array of messages. When using message array, each message requires a role and content.
+ * This is the input text for the chat.
+ * Can be a string or an array of chat messages.
  */
 export type ChatInput = string | Vapi.ChatInputItem[];
