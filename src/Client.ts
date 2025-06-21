@@ -6,6 +6,7 @@ import * as environments from "./environments";
 import * as core from "./core";
 import { Calls } from "./api/resources/calls/client/Client";
 import { Chats } from "./api/resources/chats/client/Client";
+import { Campaigns } from "./api/resources/campaigns/client/Client";
 import { Sessions } from "./api/resources/sessions/client/Client";
 import { Assistants } from "./api/resources/assistants/client/Client";
 import { PhoneNumbers } from "./api/resources/phoneNumbers/client/Client";
@@ -44,6 +45,7 @@ export declare namespace VapiClient {
 export class VapiClient {
     protected _calls: Calls | undefined;
     protected _chats: Chats | undefined;
+    protected _campaigns: Campaigns | undefined;
     protected _sessions: Sessions | undefined;
     protected _assistants: Assistants | undefined;
     protected _phoneNumbers: PhoneNumbers | undefined;
@@ -66,6 +68,10 @@ export class VapiClient {
 
     public get chats(): Chats {
         return (this._chats ??= new Chats(this._options));
+    }
+
+    public get campaigns(): Campaigns {
+        return (this._campaigns ??= new Campaigns(this._options));
     }
 
     public get sessions(): Sessions {

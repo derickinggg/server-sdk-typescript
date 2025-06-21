@@ -5,6 +5,7 @@
 import * as Vapi from "../../../index";
 
 export type ToolsCreateRequest =
+    | Vapi.CreateApiRequestToolDto
     | Vapi.CreateDtmfToolDto
     | Vapi.CreateEndCallToolDto
     | Vapi.CreateFunctionToolDto

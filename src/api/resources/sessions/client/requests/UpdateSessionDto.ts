@@ -13,6 +13,8 @@ export interface UpdateSessionDto {
     name?: string;
     /** This is the new status for the session. */
     status?: Vapi.UpdateSessionDtoStatus;
+    /** Session expiration time in seconds. Defaults to 24 hours (86400 seconds) if not set. */
+    expirationSeconds?: number;
     /** This is the updated array of chat messages. */
     messages?: Vapi.UpdateSessionDtoMessagesItem[];
 }

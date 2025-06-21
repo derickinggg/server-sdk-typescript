@@ -58,6 +58,8 @@ export interface Call {
      * Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type.
      */
     phoneCallProviderId?: string;
+    /** This is the campaign ID that the call belongs to. */
+    campaignId?: string;
     /**
      * This is the assistant ID that will be used for the call. To use a transient assistant, use `assistant` instead.
      *
@@ -97,8 +99,6 @@ export interface Call {
      */
     squad?: Vapi.CreateSquadDto;
     /**
-     * [BETA] This feature is in active development. The API and behavior are subject to change as we refine it based on user feedback.
-     *
      * This is the workflow that will be used for the call. To use a transient workflow, use `workflow` instead.
      *
      * To start a call with:
@@ -108,8 +108,6 @@ export interface Call {
      */
     workflowId?: string;
     /**
-     * [BETA] This feature is in active development. The API and behavior are subject to change as we refine it based on user feedback.
-     *
      * This is a workflow that will be used for the call. To use an existing workflow, use `workflowId` instead.
      *
      * To start a call with:
@@ -118,6 +116,8 @@ export interface Call {
      * - Workflow, use `workflow` or `workflowId`
      */
     workflow?: Vapi.CreateWorkflowDto;
+    /** These are the overrides for the `workflow` or `workflowId`'s settings and template variables. */
+    workflowOverrides?: Vapi.WorkflowOverrides;
     /**
      * This is the phone number that will be used for the call. To use a transient number, use `phoneNumber` instead.
      *

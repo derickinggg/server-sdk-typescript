@@ -29,6 +29,12 @@ export interface TransferPlan {
      */
     message?: Vapi.TransferPlanMessage;
     /**
+     * This is the timeout in seconds for the warm-transfer-wait-for-operator-to-speak-first-and-then-say-message/summary
+     *
+     * @default 60
+     */
+    timeout?: number;
+    /**
      * This specifies the SIP verb to use while transferring the call.
      * - 'refer': Uses SIP REFER to transfer the call (default)
      * - 'bye': Ends current call with SIP BYE

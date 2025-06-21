@@ -5,6 +5,8 @@
 import * as Vapi from "../index";
 
 /**
- * This is the model for the Conversation Task.
+ * This is the model for the node.
+ *
+ * This overrides `workflow.model`.
  */
-export type ConversationNodeModel = Vapi.WorkflowOpenAiModel | Vapi.WorkflowAnthropicModel;
+export type ConversationNodeModel = Vapi.WorkflowOpenAiModel | Vapi.WorkflowAnthropicModel | unknown;

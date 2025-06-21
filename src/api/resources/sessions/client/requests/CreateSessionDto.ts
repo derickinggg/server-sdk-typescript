@@ -13,6 +13,8 @@ export interface CreateSessionDto {
     name?: string;
     /** This is the current status of the session. Can be either 'active' or 'completed'. */
     status?: Vapi.CreateSessionDtoStatus;
+    /** Session expiration time in seconds. Defaults to 24 hours (86400 seconds) if not set. */
+    expirationSeconds?: number;
     /** This is the ID of the assistant associated with this session. Use this when referencing an existing assistant. */
     assistantId?: string;
     /**

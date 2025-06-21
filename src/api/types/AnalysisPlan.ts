@@ -5,6 +5,12 @@
 import * as Vapi from "../index";
 
 export interface AnalysisPlan {
+    /**
+     * The minimum number of messages required to run the analysis plan.
+     * If the number of messages is less than this, analysis will be skipped.
+     * @default 2
+     */
+    minMessagesThreshold?: number;
     /** This is the plan for generating the summary of the call. This outputs to `call.analysis.summary`. */
     summaryPlan?: Vapi.SummaryPlan;
     /** This is the plan for generating the structured data from the call. This outputs to `call.analysis.structuredData`. */

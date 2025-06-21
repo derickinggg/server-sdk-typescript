@@ -5,7 +5,7 @@
 import * as Vapi from "../index";
 
 export interface Edge {
-    condition?: Vapi.EdgeCondition;
+    condition?: Vapi.AiEdgeCondition;
     from: string;
     to: string;
     /** This is for metadata you want to store on the edge. */

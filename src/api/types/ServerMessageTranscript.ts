@@ -23,6 +23,8 @@ export interface ServerMessageTranscript {
     customer?: Vapi.CreateCustomerDto;
     /** This is the call that the message is associated with. */
     call?: Vapi.Call;
+    /** This is the chat object. */
+    chat?: Vapi.Chat;
     /** This is the role for which the transcript is for. */
     role: Vapi.ServerMessageTranscriptRole;
     /** This is the type of the transcript. */

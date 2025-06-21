@@ -47,4 +47,8 @@ export interface Chat {
     createdAt: string;
     /** This is the ISO 8601 date-time string of when the chat was last updated. */
     updatedAt: string;
+    /** These are the costs of individual components of the chat in USD. */
+    costs?: Vapi.ChatCostsItem[];
+    /** This is the cost of the chat in USD. */
+    cost?: number;
 }

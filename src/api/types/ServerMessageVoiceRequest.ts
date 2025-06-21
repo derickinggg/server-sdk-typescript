@@ -46,6 +46,8 @@ export interface ServerMessageVoiceRequest {
     customer?: Vapi.CreateCustomerDto;
     /** This is the call that the message is associated with. */
     call?: Vapi.Call;
+    /** This is the chat object. */
+    chat?: Vapi.Chat;
     /** This is the text to be synthesized. */
     text: string;
     /** This is the sample rate to be synthesized. */

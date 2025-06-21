@@ -6,6 +6,8 @@ import * as Vapi from "../index";
 
 export interface CreateSupabaseCredentialDto {
     provider: "supabase";
+    /** This is the order in which this storage provider is tried during upload retries. Lower numbers are tried first in increasing order. */
+    fallbackIndex?: number;
     bucketPlan?: Vapi.SupabaseBucketPlan;
     /** This is the name of credential. This is just for your reference. */
     name?: string;

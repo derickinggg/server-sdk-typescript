@@ -15,6 +15,8 @@ export interface CostBreakdown {
     tts?: number;
     /** This is the cost of Vapi. */
     vapi?: number;
+    /** This is the cost of chat interactions. */
+    chat?: number;
     /** This is the total cost of the call. */
     total?: number;
     /** This is the LLM prompt tokens used for the call. */

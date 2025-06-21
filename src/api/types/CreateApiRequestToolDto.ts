@@ -11,7 +11,6 @@ export interface CreateApiRequestToolDto {
      * For some tools, this is auto-filled based on special fields like `tool.destinations`. For others like the function tool, these can be custom configured.
      */
     messages?: Vapi.CreateApiRequestToolDtoMessagesItem[];
-    /** The type of tool. "apiRequest" for API request tool. */
     type: "apiRequest";
     method: Vapi.CreateApiRequestToolDtoMethod;
     /**
@@ -20,7 +19,11 @@ export interface CreateApiRequestToolDto {
      * @default 20
      */
     timeoutSeconds?: number;
-    /** This is the name of the tool. This will be passed to the model. */
+    /**
+     * This is the name of the tool. This will be passed to the model.
+     *
+     * Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 40.
+     */
     name?: string;
     /** This is the description of the tool. This will be passed to the model. */
     description?: string;
@@ -36,6 +39,8 @@ export interface CreateApiRequestToolDto {
      * @default undefined (the request will not be retried)
      */
     backoffPlan?: Vapi.BackoffPlan;
+    /** This is the plan that controls the variable extraction from the tool's response. */
+    variableExtractionPlan?: Vapi.VariableExtractionPlan;
     /**
      * This is the function definition of the tool.
      *

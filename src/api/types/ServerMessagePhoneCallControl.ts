@@ -31,4 +31,6 @@ export interface ServerMessagePhoneCallControl {
     customer?: Vapi.CreateCustomerDto;
     /** This is the call that the message is associated with. */
     call?: Vapi.Call;
+    /** This is the chat object. */
+    chat?: Vapi.Chat;
 }

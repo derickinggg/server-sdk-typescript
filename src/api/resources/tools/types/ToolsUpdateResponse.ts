@@ -5,6 +5,7 @@
 import * as Vapi from "../../../index";
 
 export type ToolsUpdateResponse =
+    | Vapi.ApiRequestTool
     | Vapi.DtmfTool
     | Vapi.EndCallTool
     | Vapi.FunctionTool

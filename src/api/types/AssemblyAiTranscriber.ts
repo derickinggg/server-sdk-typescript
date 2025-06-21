@@ -15,6 +15,42 @@ export interface AssemblyAiTranscriber {
      * @default 0.4
      */
     confidenceThreshold?: number;
+    /**
+     * Uses Assembly AI's new Universal Streaming API. See: https://www.assemblyai.com/docs/speech-to-text/universal-streaming
+     *
+     * @default false
+     */
+    enableUniversalStreamingApi?: boolean;
+    /**
+     * This enables formatting of transcripts. Only used when `enableUniversalStreamingApi` is true.
+     *
+     * @default false
+     */
+    formatTurns?: boolean;
+    /**
+     * The confidence threshold to use when determining if the end of a turn has been reached. Only used when `enableUniversalStreamingApi` is true.
+     *
+     * @default 0.7
+     */
+    endOfTurnConfidenceThreshold?: number;
+    /**
+     * The minimum amount of silence in milliseconds required to detect end of turn when confident. Only used when `enableUniversalStreamingApi` is true.
+     *
+     * @default 160
+     */
+    minEndOfTurnSilenceWhenConfident?: number;
+    /**
+     * The maximum wait time for word finalization. Only used when `enableUniversalStreamingApi` is true.
+     *
+     * @default 160
+     */
+    wordFinalizationMaxWaitTime?: number;
+    /**
+     * The maximum amount of silence in milliseconds allowed in a turn before end of turn is triggered. Only used when `enableUniversalStreamingApi` is true.
+     *
+     * @default 400
+     */
+    maxTurnSilence?: number;
     /** The WebSocket URL that the transcriber connects to. */
     realtimeUrl?: string;
     /** Add up to 2500 characters of custom vocabulary. */

@@ -75,8 +75,9 @@ export interface CreateAssistantDto {
     /** These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. You can store multiple configurations for different transport providers. For a call, only the configuration matching the call transport provider is used. */
     transportConfigurations?: Vapi.TransportConfigurationTwilio[];
     /**
-     * This is the plan for observability configuration of assistant's calls.
-     * Currently supports Langfuse for tracing and monitoring.
+     * This is the plan for observability of assistant's calls.
+     *
+     * Currently, only Langfuse is supported.
      */
     observabilityPlan?: Vapi.LangfuseObservabilityPlan;
     /** These are dynamic credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can supplement an additional credentials using this. Dynamic credentials override existing credentials. */
@@ -106,13 +107,23 @@ export interface CreateAssistantDto {
     compliancePlan?: Vapi.CompliancePlan;
     /** This is for metadata you want to store on the assistant. */
     metadata?: Record<string, unknown>;
+    /**
+     * This enables filtering of noise and background speech while the user is talking.
+     *
+     * Features:
+     * - Smart denoising using Krisp
+     * - Fourier denoising
+     *
+     * Smart denoising can be combined with or used independently of Fourier denoising.
+     *
+     * Order of precedence:
+     * - Smart denoising
+     * - Fourier denoising
+     */
+    backgroundSpeechDenoisingPlan?: Vapi.BackgroundSpeechDenoisingPlan;
     /** This is the plan for analysis of assistant's calls. Stored in `call.analysis`. */
     analysisPlan?: Vapi.AnalysisPlan;
-    /**
-     * This is the plan for artifacts generated during assistant's calls. Stored in `call.artifact`.
-     *
-     * Note: `recordingEnabled` is currently at the root level. It will be moved to `artifactPlan` in the future, but will remain backwards compatible.
-     */
+    /** This is the plan for artifacts generated during assistant's calls. Stored in `call.artifact`. */
     artifactPlan?: Vapi.ArtifactPlan;
     /**
      * This is the plan for static predefined messages that can be spoken by the assistant during the call, like `idleMessages`.
@@ -146,8 +157,6 @@ export interface CreateAssistantDto {
      * Usage:
      * - To enable live listening of the assistant's calls, set `monitorPlan.listenEnabled` to `true`.
      * - To enable live control of the assistant's calls, set `monitorPlan.controlEnabled` to `true`.
-     *
-     * Note, `serverMessages`, `clientMessages`, `serverUrl` and `serverUrlSecret` are currently at the root level but will be moved to `monitorPlan` in the future. Will remain backwards compatible
      */
     monitorPlan?: Vapi.MonitorPlan;
     /** These are the credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can provide a subset using this. */

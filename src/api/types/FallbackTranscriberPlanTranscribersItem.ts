@@ -14,4 +14,5 @@ export type FallbackTranscriberPlanTranscribersItem =
     | Vapi.FallbackGoogleTranscriber
     | Vapi.FallbackTalkscriberTranscriber
     | Vapi.FallbackSpeechmaticsTranscriber
-    | Vapi.FallbackOpenAiTranscriber;
+    | Vapi.FallbackOpenAiTranscriber
+    | Vapi.FallbackCartesiaTranscriber;

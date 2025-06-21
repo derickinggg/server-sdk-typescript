@@ -25,6 +25,8 @@ export interface ServerMessageTransferUpdate {
     customer?: Vapi.CreateCustomerDto;
     /** This is the call that the message is associated with. */
     call?: Vapi.Call;
+    /** This is the chat object. */
+    chat?: Vapi.Chat;
     /** This is the assistant that the call is being transferred to. This is only sent if `destination.type` is "assistant". */
     toAssistant?: Vapi.CreateAssistantDto;
     /** This is the assistant that the call is being transferred from. This is only sent if `destination.type` is "assistant". */

@@ -6,13 +6,16 @@ import * as Vapi from "../index";
 
 export interface CreateGcpCredentialDto {
     provider: "gcp";
+    /** This is the order in which this storage provider is tried during upload retries. Lower numbers are tried first in increasing order. */
+    fallbackIndex?: number;
     /**
      * This is the GCP key. This is the JSON that can be generated in the Google Cloud Console at https://console.cloud.google.com/iam-admin/serviceaccounts/details/<service-account-id>/keys.
      *
      * The schema is identical to the JSON that GCP outputs.
      */
     gcpKey: Vapi.GcpKey;
-    /** This is the bucket plan that can be provided to store call artifacts in GCP. */
+    /** This is the region of the GCP resource. */
+    region?: string;
     bucketPlan?: Vapi.BucketPlan;
     /** This is the name of credential. This is just for your reference. */
     name?: string;

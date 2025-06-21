@@ -25,6 +25,8 @@ export interface ServerMessageEndOfCallReport {
     customer?: Vapi.CreateCustomerDto;
     /** This is the call that the message is associated with. */
     call?: Vapi.Call;
+    /** This is the chat object. */
+    chat?: Vapi.Chat;
     /** This is the analysis of the call. This can also be found at `call.analysis` on GET /call/:id. */
     analysis: Vapi.Analysis;
     /** This is the ISO 8601 date-time string of when the call started. This can also be found at `call.startedAt` on GET /call/:id. */

@@ -11,6 +11,8 @@ export interface GladiaTranscriber {
     languageBehaviour?: Vapi.GladiaTranscriberLanguageBehaviour;
     /** Defines the language to use for the transcription. Required when languageBehaviour is 'manual'. */
     language?: Vapi.GladiaTranscriberLanguage;
+    /** Defines the languages to use for the transcription. Required when languageBehaviour is 'manual'. */
+    languages?: Vapi.GladiaTranscriberLanguages;
     /**
      * Provides a custom vocabulary to the model to improve accuracy of transcribing context specific words, technical terms, names, etc. If empty, this argument is ignored.
      * ⚠️ Warning ⚠️: Please be aware that the transcription_hint field has a character limit of 600. If you provide a transcription_hint longer than 600 characters, it will be automatically truncated to meet this limit.

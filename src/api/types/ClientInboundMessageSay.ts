@@ -5,10 +5,16 @@
 export interface ClientInboundMessageSay {
     /** This is the type of the message. Send "say" message to make the assistant say something. */
     type?: "say";
+    /**
+     * This is the flag for whether the message should replace existing assistant speech.
+     *
+     * @default false
+     */
+    interruptAssistantEnabled?: boolean;
     /** This is the content to say. */
     content?: string;
     /** This is the flag to end call after content is spoken. */
     endCallAfterSpoken?: boolean;
-    /** This is the flag for whether the message is interruptible. */
+    /** This is the flag for whether the message is interruptible by the user. */
     interruptionsEnabled?: boolean;
 }

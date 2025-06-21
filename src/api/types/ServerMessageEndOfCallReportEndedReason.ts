@@ -13,8 +13,9 @@ export type ServerMessageEndOfCallReportEndedReason =
     | "assistant-request-returned-invalid-assistant"
     | "assistant-request-returned-no-assistant"
     | "assistant-request-returned-forwarding-phone-number"
-    | "call.start.error-get-org"
-    | "call.start.error-get-subscription"
+    | "scheduled-call-deleted"
+    | "call.start.error-vapifault-get-org"
+    | "call.start.error-vapifault-get-subscription"
     | "call.start.error-get-assistant"
     | "call.start.error-get-phone-number"
     | "call.start.error-get-customer"
@@ -22,6 +23,11 @@ export type ServerMessageEndOfCallReportEndedReason =
     | "call.start.error-vapi-number-international"
     | "call.start.error-vapi-number-outbound-daily-limit"
     | "call.start.error-get-transport"
+    | "call.start.error-subscription-wallet-does-not-exist"
+    | "call.start.error-subscription-frozen"
+    | "call.start.error-subscription-insufficient-credits"
+    | "call.start.error-subscription-upgrade-failed"
+    | "call.start.error-subscription-concurrency-limit-reached"
     | "assistant-not-valid"
     | "database-error"
     | "assistant-not-found"
@@ -89,7 +95,6 @@ export type ServerMessageEndOfCallReportEndedReason =
     | "call.in-progress.error-vapifault-azure-speech-transcriber-failed"
     | "call.in-progress.error-pipeline-no-available-llm-model"
     | "worker-shutdown"
-    | "unknown-error"
     | "vonage-disconnected"
     | "vonage-failed-to-connect-call"
     | "vonage-completed"
@@ -99,6 +104,9 @@ export type ServerMessageEndOfCallReportEndedReason =
     | "call.in-progress.error-vapifault-transport-never-connected"
     | "call.in-progress.error-vapifault-transport-connected-but-call-not-active"
     | "call.in-progress.error-vapifault-call-started-but-connection-to-transport-missing"
+    | "call.in-progress.error-vapifault-worker-died"
+    | "call.in-progress.twilio-completed-call"
+    | "call.in-progress.sip-completed-call"
     | "call.in-progress.error-vapifault-openai-llm-failed"
     | "call.in-progress.error-vapifault-azure-openai-llm-failed"
     | "call.in-progress.error-vapifault-groq-llm-failed"
@@ -108,6 +116,7 @@ export type ServerMessageEndOfCallReportEndedReason =
     | "call.in-progress.error-vapifault-inflection-ai-llm-failed"
     | "call.in-progress.error-vapifault-cerebras-llm-failed"
     | "call.in-progress.error-vapifault-deep-seek-llm-failed"
+    | "call.in-progress.error-vapifault-chat-pipeline-failed-to-start"
     | "pipeline-error-openai-400-bad-request-validation-failed"
     | "pipeline-error-openai-401-unauthorized"
     | "pipeline-error-openai-401-incorrect-api-key"
@@ -375,6 +384,7 @@ export type ServerMessageEndOfCallReportEndedReason =
     | "pipeline-error-cartesia-socket-hang-up"
     | "pipeline-error-cartesia-requested-payment"
     | "pipeline-error-cartesia-500-server-error"
+    | "pipeline-error-cartesia-502-server-error"
     | "pipeline-error-cartesia-503-server-error"
     | "pipeline-error-cartesia-522-server-error"
     | "call.in-progress.error-vapifault-cartesia-socket-hang-up"
@@ -395,6 +405,7 @@ export type ServerMessageEndOfCallReportEndedReason =
     | "pipeline-error-eleven-labs-invalid-api-key"
     | "pipeline-error-eleven-labs-invalid-voice-samples"
     | "pipeline-error-eleven-labs-voice-disabled-by-owner"
+    | "pipeline-error-eleven-labs-vapi-voice-disabled-by-owner"
     | "pipeline-error-eleven-labs-blocked-account-in-probation"
     | "pipeline-error-eleven-labs-blocked-content-against-their-policy"
     | "pipeline-error-eleven-labs-missing-samples-for-voice-clone"
@@ -403,6 +414,7 @@ export type ServerMessageEndOfCallReportEndedReason =
     | "pipeline-error-eleven-labs-max-character-limit-exceeded"
     | "pipeline-error-eleven-labs-blocked-voice-potentially-against-terms-of-service-and-awaiting-verification"
     | "pipeline-error-eleven-labs-500-server-error"
+    | "pipeline-error-eleven-labs-503-server-error"
     | "call.in-progress.error-vapifault-eleven-labs-voice-not-found"
     | "call.in-progress.error-vapifault-eleven-labs-quota-exceeded"
     | "call.in-progress.error-vapifault-eleven-labs-unauthorized-access"
@@ -424,6 +436,7 @@ export type ServerMessageEndOfCallReportEndedReason =
     | "call.in-progress.error-vapifault-eleven-labs-max-character-limit-exceeded"
     | "call.in-progress.error-vapifault-eleven-labs-blocked-voice-potentially-against-terms-of-service-and-awaiting-verification"
     | "call.in-progress.error-providerfault-eleven-labs-500-server-error"
+    | "call.in-progress.error-providerfault-eleven-labs-503-server-error"
     | "pipeline-error-playht-request-timed-out"
     | "pipeline-error-playht-invalid-voice"
     | "pipeline-error-playht-unexpected-error"
@@ -477,6 +490,7 @@ export type ServerMessageEndOfCallReportEndedReason =
     | "assistant-forwarded-call"
     | "assistant-join-timed-out"
     | "call.in-progress.error-assistant-did-not-receive-customer-audio"
+    | "call.in-progress.error-transfer-failed"
     | "customer-busy"
     | "customer-ended-call"
     | "customer-did-not-answer"
@@ -486,9 +500,16 @@ export type ServerMessageEndOfCallReportEndedReason =
     | "phone-call-provider-closed-websocket"
     | "call.forwarding.operator-busy"
     | "silence-timed-out"
-    | "call.in-progress.error-sip-telephony-provider-failed-to-connect-call"
+    | "call.in-progress.error-sip-inbound-call-failed-to-connect"
+    | "call.in-progress.error-providerfault-outbound-sip-403-forbidden"
+    | "call.in-progress.error-providerfault-outbound-sip-407-proxy-authentication-required"
+    | "call.in-progress.error-providerfault-outbound-sip-503-service-unavailable"
+    | "call.in-progress.error-providerfault-outbound-sip-480-temporarily-unavailable"
+    | "call.in-progress.error-sip-outbound-call-failed-to-connect"
     | "call.ringing.hook-executed-say"
     | "call.ringing.hook-executed-transfer"
+    | "call.ringing.sip-inbound-caller-hungup-before-call-connect"
+    | "call.ringing.error-sip-inbound-call-failed-to-connect"
     | "twilio-failed-to-connect-call"
     | "twilio-reported-customer-misdialed"
     | "vonage-rejected"
@@ -501,8 +522,9 @@ export const ServerMessageEndOfCallReportEndedReason = {
     AssistantRequestReturnedInvalidAssistant: "assistant-request-returned-invalid-assistant",
     AssistantRequestReturnedNoAssistant: "assistant-request-returned-no-assistant",
     AssistantRequestReturnedForwardingPhoneNumber: "assistant-request-returned-forwarding-phone-number",
-    CallStartErrorGetOrg: "call.start.error-get-org",
-    CallStartErrorGetSubscription: "call.start.error-get-subscription",
+    ScheduledCallDeleted: "scheduled-call-deleted",
+    CallStartErrorVapifaultGetOrg: "call.start.error-vapifault-get-org",
+    CallStartErrorVapifaultGetSubscription: "call.start.error-vapifault-get-subscription",
     CallStartErrorGetAssistant: "call.start.error-get-assistant",
     CallStartErrorGetPhoneNumber: "call.start.error-get-phone-number",
     CallStartErrorGetCustomer: "call.start.error-get-customer",
@@ -510,6 +532,11 @@ export const ServerMessageEndOfCallReportEndedReason = {
     CallStartErrorVapiNumberInternational: "call.start.error-vapi-number-international",
     CallStartErrorVapiNumberOutboundDailyLimit: "call.start.error-vapi-number-outbound-daily-limit",
     CallStartErrorGetTransport: "call.start.error-get-transport",
+    CallStartErrorSubscriptionWalletDoesNotExist: "call.start.error-subscription-wallet-does-not-exist",
+    CallStartErrorSubscriptionFrozen: "call.start.error-subscription-frozen",
+    CallStartErrorSubscriptionInsufficientCredits: "call.start.error-subscription-insufficient-credits",
+    CallStartErrorSubscriptionUpgradeFailed: "call.start.error-subscription-upgrade-failed",
+    CallStartErrorSubscriptionConcurrencyLimitReached: "call.start.error-subscription-concurrency-limit-reached",
     AssistantNotValid: "assistant-not-valid",
     DatabaseError: "database-error",
     AssistantNotFound: "assistant-not-found",
@@ -592,7 +619,6 @@ export const ServerMessageEndOfCallReportEndedReason = {
         "call.in-progress.error-vapifault-azure-speech-transcriber-failed",
     CallInProgressErrorPipelineNoAvailableLlmModel: "call.in-progress.error-pipeline-no-available-llm-model",
     WorkerShutdown: "worker-shutdown",
-    UnknownError: "unknown-error",
     VonageDisconnected: "vonage-disconnected",
     VonageFailedToConnectCall: "vonage-failed-to-connect-call",
     VonageCompleted: "vonage-completed",
@@ -605,6 +631,9 @@ export const ServerMessageEndOfCallReportEndedReason = {
         "call.in-progress.error-vapifault-transport-connected-but-call-not-active",
     CallInProgressErrorVapifaultCallStartedButConnectionToTransportMissing:
         "call.in-progress.error-vapifault-call-started-but-connection-to-transport-missing",
+    CallInProgressErrorVapifaultWorkerDied: "call.in-progress.error-vapifault-worker-died",
+    CallInProgressTwilioCompletedCall: "call.in-progress.twilio-completed-call",
+    CallInProgressSipCompletedCall: "call.in-progress.sip-completed-call",
     CallInProgressErrorVapifaultOpenaiLlmFailed: "call.in-progress.error-vapifault-openai-llm-failed",
     CallInProgressErrorVapifaultAzureOpenaiLlmFailed: "call.in-progress.error-vapifault-azure-openai-llm-failed",
     CallInProgressErrorVapifaultGroqLlmFailed: "call.in-progress.error-vapifault-groq-llm-failed",
@@ -614,6 +643,8 @@ export const ServerMessageEndOfCallReportEndedReason = {
     CallInProgressErrorVapifaultInflectionAiLlmFailed: "call.in-progress.error-vapifault-inflection-ai-llm-failed",
     CallInProgressErrorVapifaultCerebrasLlmFailed: "call.in-progress.error-vapifault-cerebras-llm-failed",
     CallInProgressErrorVapifaultDeepSeekLlmFailed: "call.in-progress.error-vapifault-deep-seek-llm-failed",
+    CallInProgressErrorVapifaultChatPipelineFailedToStart:
+        "call.in-progress.error-vapifault-chat-pipeline-failed-to-start",
     PipelineErrorOpenai400BadRequestValidationFailed: "pipeline-error-openai-400-bad-request-validation-failed",
     PipelineErrorOpenai401Unauthorized: "pipeline-error-openai-401-unauthorized",
     PipelineErrorOpenai401IncorrectApiKey: "pipeline-error-openai-401-incorrect-api-key",
@@ -987,6 +1018,7 @@ export const ServerMessageEndOfCallReportEndedReason = {
     PipelineErrorCartesiaSocketHangUp: "pipeline-error-cartesia-socket-hang-up",
     PipelineErrorCartesiaRequestedPayment: "pipeline-error-cartesia-requested-payment",
     PipelineErrorCartesia500ServerError: "pipeline-error-cartesia-500-server-error",
+    PipelineErrorCartesia502ServerError: "pipeline-error-cartesia-502-server-error",
     PipelineErrorCartesia503ServerError: "pipeline-error-cartesia-503-server-error",
     PipelineErrorCartesia522ServerError: "pipeline-error-cartesia-522-server-error",
     CallInProgressErrorVapifaultCartesiaSocketHangUp: "call.in-progress.error-vapifault-cartesia-socket-hang-up",
@@ -1015,6 +1047,7 @@ export const ServerMessageEndOfCallReportEndedReason = {
     PipelineErrorElevenLabsInvalidApiKey: "pipeline-error-eleven-labs-invalid-api-key",
     PipelineErrorElevenLabsInvalidVoiceSamples: "pipeline-error-eleven-labs-invalid-voice-samples",
     PipelineErrorElevenLabsVoiceDisabledByOwner: "pipeline-error-eleven-labs-voice-disabled-by-owner",
+    PipelineErrorElevenLabsVapiVoiceDisabledByOwner: "pipeline-error-eleven-labs-vapi-voice-disabled-by-owner",
     PipelineErrorElevenLabsBlockedAccountInProbation: "pipeline-error-eleven-labs-blocked-account-in-probation",
     PipelineErrorElevenLabsBlockedContentAgainstTheirPolicy:
         "pipeline-error-eleven-labs-blocked-content-against-their-policy",
@@ -1026,6 +1059,7 @@ export const ServerMessageEndOfCallReportEndedReason = {
     PipelineErrorElevenLabsBlockedVoicePotentiallyAgainstTermsOfServiceAndAwaitingVerification:
         "pipeline-error-eleven-labs-blocked-voice-potentially-against-terms-of-service-and-awaiting-verification",
     PipelineErrorElevenLabs500ServerError: "pipeline-error-eleven-labs-500-server-error",
+    PipelineErrorElevenLabs503ServerError: "pipeline-error-eleven-labs-503-server-error",
     CallInProgressErrorVapifaultElevenLabsVoiceNotFound: "call.in-progress.error-vapifault-eleven-labs-voice-not-found",
     CallInProgressErrorVapifaultElevenLabsQuotaExceeded: "call.in-progress.error-vapifault-eleven-labs-quota-exceeded",
     CallInProgressErrorVapifaultElevenLabsUnauthorizedAccess:
@@ -1065,6 +1099,8 @@ export const ServerMessageEndOfCallReportEndedReason = {
         "call.in-progress.error-vapifault-eleven-labs-blocked-voice-potentially-against-terms-of-service-and-awaiting-verification",
     CallInProgressErrorProviderfaultElevenLabs500ServerError:
         "call.in-progress.error-providerfault-eleven-labs-500-server-error",
+    CallInProgressErrorProviderfaultElevenLabs503ServerError:
+        "call.in-progress.error-providerfault-eleven-labs-503-server-error",
     PipelineErrorPlayhtRequestTimedOut: "pipeline-error-playht-request-timed-out",
     PipelineErrorPlayhtInvalidVoice: "pipeline-error-playht-invalid-voice",
     PipelineErrorPlayhtUnexpectedError: "pipeline-error-playht-unexpected-error",
@@ -1136,6 +1172,7 @@ export const ServerMessageEndOfCallReportEndedReason = {
     AssistantJoinTimedOut: "assistant-join-timed-out",
     CallInProgressErrorAssistantDidNotReceiveCustomerAudio:
         "call.in-progress.error-assistant-did-not-receive-customer-audio",
+    CallInProgressErrorTransferFailed: "call.in-progress.error-transfer-failed",
     CustomerBusy: "customer-busy",
     CustomerEndedCall: "customer-ended-call",
     CustomerDidNotAnswer: "customer-did-not-answer",
@@ -1145,10 +1182,20 @@ export const ServerMessageEndOfCallReportEndedReason = {
     PhoneCallProviderClosedWebsocket: "phone-call-provider-closed-websocket",
     CallForwardingOperatorBusy: "call.forwarding.operator-busy",
     SilenceTimedOut: "silence-timed-out",
-    CallInProgressErrorSipTelephonyProviderFailedToConnectCall:
-        "call.in-progress.error-sip-telephony-provider-failed-to-connect-call",
+    CallInProgressErrorSipInboundCallFailedToConnect: "call.in-progress.error-sip-inbound-call-failed-to-connect",
+    CallInProgressErrorProviderfaultOutboundSip403Forbidden:
+        "call.in-progress.error-providerfault-outbound-sip-403-forbidden",
+    CallInProgressErrorProviderfaultOutboundSip407ProxyAuthenticationRequired:
+        "call.in-progress.error-providerfault-outbound-sip-407-proxy-authentication-required",
+    CallInProgressErrorProviderfaultOutboundSip503ServiceUnavailable:
+        "call.in-progress.error-providerfault-outbound-sip-503-service-unavailable",
+    CallInProgressErrorProviderfaultOutboundSip480TemporarilyUnavailable:
+        "call.in-progress.error-providerfault-outbound-sip-480-temporarily-unavailable",
+    CallInProgressErrorSipOutboundCallFailedToConnect: "call.in-progress.error-sip-outbound-call-failed-to-connect",
     CallRingingHookExecutedSay: "call.ringing.hook-executed-say",
     CallRingingHookExecutedTransfer: "call.ringing.hook-executed-transfer",
+    CallRingingSipInboundCallerHungupBeforeCallConnect: "call.ringing.sip-inbound-caller-hungup-before-call-connect",
+    CallRingingErrorSipInboundCallFailedToConnect: "call.ringing.error-sip-inbound-call-failed-to-connect",
     TwilioFailedToConnectCall: "twilio-failed-to-connect-call",
     TwilioReportedCustomerMisdialed: "twilio-reported-customer-misdialed",
     VonageRejected: "vonage-rejected",

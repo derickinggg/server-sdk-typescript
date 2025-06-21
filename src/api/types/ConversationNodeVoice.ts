@@ -5,7 +5,9 @@
 import * as Vapi from "../index";
 
 /**
- * These are the options for the assistant's voice.
+ * This is the voice for the node.
+ *
+ * This overrides `workflow.voice`.
  */
 export type ConversationNodeVoice =
     | Vapi.AzureVoice

@@ -16,11 +16,23 @@ export interface ConversationNode {
      * - Workflow continues.
      */
     type: "conversation";
-    /** This is the model for the Conversation Task. */
+    /**
+     * This is the model for the node.
+     *
+     * This overrides `workflow.model`.
+     */
     model?: Vapi.ConversationNodeModel;
-    /** These are the options for the assistant's transcriber. */
+    /**
+     * This is the transcriber for the node.
+     *
+     * This overrides `workflow.transcriber`.
+     */
     transcriber?: Vapi.ConversationNodeTranscriber;
-    /** These are the options for the assistant's voice. */
+    /**
+     * This is the voice for the node.
+     *
+     * This overrides `workflow.voice`.
+     */
     voice?: Vapi.ConversationNodeVoice;
     prompt?: string;
     /** This is the plan for the global node. */

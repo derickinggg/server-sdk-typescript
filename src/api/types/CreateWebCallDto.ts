@@ -44,8 +44,6 @@ export interface CreateWebCallDto {
      */
     squad?: Vapi.CreateSquadDto;
     /**
-     * [BETA] This feature is in active development. The API and behavior are subject to change as we refine it based on user feedback.
-     *
      * This is the workflow that will be used for the call. To use a transient workflow, use `workflow` instead.
      *
      * To start a call with:
@@ -55,8 +53,6 @@ export interface CreateWebCallDto {
      */
     workflowId?: string;
     /**
-     * [BETA] This feature is in active development. The API and behavior are subject to change as we refine it based on user feedback.
-     *
      * This is a workflow that will be used for the call. To use an existing workflow, use `workflowId` instead.
      *
      * To start a call with:
@@ -65,4 +61,6 @@ export interface CreateWebCallDto {
      * - Workflow, use `workflow` or `workflowId`
      */
     workflow?: Vapi.CreateWorkflowDto;
+    /** These are the overrides for the `workflow` or `workflowId`'s settings and template variables. */
+    workflowOverrides?: Vapi.WorkflowOverrides;
 }

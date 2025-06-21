@@ -158,7 +158,9 @@ export class Tools {
      *
      * @example
      *     await client.tools.create({
-     *         type: "dtmf"
+     *         type: "apiRequest",
+     *         method: "POST",
+     *         url: "url"
      *     })
      */
     public create(

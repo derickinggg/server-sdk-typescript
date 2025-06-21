@@ -36,6 +36,15 @@ export interface OpenAiModel {
     model: Vapi.OpenAiModelModel;
     /** These are the fallback models that will be used if the primary model fails. This shouldn't be specified unless you have a specific reason to do so. Vapi will automatically find the fastest fallbacks that make sense. */
     fallbackModels?: Vapi.OpenAiModelFallbackModelsItem[];
+    /**
+     * Azure OpenAI doesn't support `maxLength` right now https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/structured-outputs?tabs=python-secure%2Cdotnet-entra-id&pivots=programming-language-csharp#unsupported-type-specific-keywords. Need to strip.
+     *
+     * - `strip-parameters-with-unsupported-validation` will strip parameters with unsupported validation.
+     * - `strip-unsupported-validation` will keep the parameters but strip unsupported validation.
+     *
+     * @default `strip-unsupported-validation`
+     */
+    toolStrictCompatibilityMode?: Vapi.OpenAiModelToolStrictCompatibilityMode;
     /** This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency. */
     temperature?: number;
     /** This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250. */

@@ -4,4 +4,4 @@
 
 import * as Vapi from "../index";
 
-export type EdgeCondition = Vapi.AiEdgeCondition | Vapi.LogicEdgeCondition | Vapi.FailedEdgeCondition;
+export type ChatCostsItem = Vapi.ModelCost | Vapi.ChatCost;

@@ -511,6 +511,311 @@ await client.chats.createResponse({
 </dl>
 </details>
 
+## Campaigns
+
+<details><summary><code>client.campaigns.<a href="/src/api/resources/campaigns/client/Client.ts">campaignControllerFindAll</a>({ ...params }) -> Vapi.Campaign[]</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.campaigns.campaignControllerFindAll();
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Vapi.CampaignControllerFindAllRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Campaigns.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.campaigns.<a href="/src/api/resources/campaigns/client/Client.ts">campaignControllerCreate</a>({ ...params }) -> Vapi.Campaign</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.campaigns.campaignControllerCreate({
+    name: "Q2 Sales Campaign",
+    phoneNumberId: "phoneNumberId",
+    schedulePlan: {
+        earliestAt: "2024-01-15T09:30:00Z",
+    },
+    customers: [{}],
+});
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Vapi.CreateCampaignDto`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Campaigns.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.campaigns.<a href="/src/api/resources/campaigns/client/Client.ts">campaignControllerFindAllPaginated</a>({ ...params }) -> Vapi.Campaign</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.campaigns.campaignControllerFindAllPaginated();
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Vapi.CampaignControllerFindAllPaginatedRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Campaigns.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.campaigns.<a href="/src/api/resources/campaigns/client/Client.ts">campaignControllerFindOne</a>(id) -> Vapi.Campaign</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.campaigns.campaignControllerFindOne("id");
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Campaigns.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.campaigns.<a href="/src/api/resources/campaigns/client/Client.ts">campaignControllerRemove</a>(id) -> Vapi.Campaign</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.campaigns.campaignControllerRemove("id");
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Campaigns.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.campaigns.<a href="/src/api/resources/campaigns/client/Client.ts">campaignControllerUpdate</a>(id, { ...params }) -> Vapi.Campaign</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.campaigns.campaignControllerUpdate("id");
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `Vapi.UpdateCampaignDto`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Campaigns.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
 ## Sessions
 
 <details><summary><code>client.sessions.<a href="/src/api/resources/sessions/client/Client.ts">list</a>({ ...params }) -> Vapi.SessionPaginatedResponse</code></summary>
@@ -1328,7 +1633,9 @@ await client.tools.list();
 
 ```typescript
 await client.tools.create({
-    type: "dtmf",
+    type: "apiRequest",
+    method: "POST",
+    url: "url",
 });
 ```
 

@@ -17,4 +17,5 @@ export type CreateAssistantDtoTranscriber =
     | Vapi.GoogleTranscriber
     | Vapi.SpeechmaticsTranscriber
     | Vapi.TalkscriberTranscriber
-    | Vapi.OpenAiTranscriber;
+    | Vapi.OpenAiTranscriber
+    | Vapi.CartesiaTranscriber;

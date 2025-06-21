@@ -13,6 +13,8 @@ export interface CloudflareCredential {
     apiKey?: string;
     /** Cloudflare Account Email. */
     accountEmail?: string;
+    /** This is the order in which this storage provider is tried during upload retries. Lower numbers are tried first in increasing order. */
+    fallbackIndex?: number;
     /** This is the unique identifier for the credential. */
     id: string;
     /** This is the unique identifier for the org that this credential belongs to. */

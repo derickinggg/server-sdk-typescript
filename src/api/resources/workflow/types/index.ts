@@ -1,2 +1,4 @@
 export * from "./UpdateWorkflowDtoNodesItem";
-export * from "./UpdateWorkflowDtoModel";
+export * from "./UpdateWorkflowDtoTranscriber";
+export * from "./UpdateWorkflowDtoVoice";
+export * from "./UpdateWorkflowDtoCredentialsItem";

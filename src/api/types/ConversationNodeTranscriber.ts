@@ -5,7 +5,9 @@
 import * as Vapi from "../index";
 
 /**
- * These are the options for the assistant's transcriber.
+ * This is the transcriber for the node.
+ *
+ * This overrides `workflow.transcriber`.
  */
 export type ConversationNodeTranscriber =
     | Vapi.AssemblyAiTranscriber
@@ -17,4 +19,5 @@ export type ConversationNodeTranscriber =
     | Vapi.GoogleTranscriber
     | Vapi.SpeechmaticsTranscriber
     | Vapi.TalkscriberTranscriber
-    | Vapi.OpenAiTranscriber;
+    | Vapi.OpenAiTranscriber
+    | Vapi.CartesiaTranscriber;

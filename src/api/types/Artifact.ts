@@ -23,4 +23,8 @@ export interface Artifact {
     transcript?: string;
     /** This is the packet capture url for the call. This is only available for `phone` type calls where phone number's provider is `vapi` or `byo-phone-number`. */
     pcapUrl?: string;
+    /** This is the history of workflow nodes that were executed during the call. */
+    nodes?: Vapi.NodeArtifact[];
+    /** This is the state of variables at the end of the workflow execution. */
+    variables?: Record<string, unknown>;
 }

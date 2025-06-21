@@ -14,6 +14,8 @@ export interface CreateS3CredentialDto {
     s3BucketName: string;
     /** The path prefix for the uploaded recording. Ex. "recordings/" */
     s3PathPrefix: string;
+    /** This is the order in which this storage provider is tried during upload retries. Lower numbers are tried first in increasing order. */
+    fallbackIndex?: number;
     /** This is the name of credential. This is just for your reference. */
     name?: string;
 }
