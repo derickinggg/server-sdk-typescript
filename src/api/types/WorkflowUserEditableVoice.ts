@@ -24,4 +24,5 @@ export type WorkflowUserEditableVoice =
     | Vapi.SmallestAiVoice
     | Vapi.TavusVoice
     | Vapi.VapiVoice
-    | Vapi.SesameVoice;
+    | Vapi.SesameVoice
+    | Vapi.InworldVoice;

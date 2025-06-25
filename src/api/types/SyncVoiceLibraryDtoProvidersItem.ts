@@ -17,7 +17,8 @@ export type SyncVoiceLibraryDtoProvidersItem =
     | "rime-ai"
     | "smallest-ai"
     | "tavus"
-    | "sesame";
+    | "sesame"
+    | "inworld";
 export const SyncVoiceLibraryDtoProvidersItem = {
     Vapi: "vapi",
     ElevenLabs: "11labs",
@@ -34,4 +35,5 @@ export const SyncVoiceLibraryDtoProvidersItem = {
     SmallestAi: "smallest-ai",
     Tavus: "tavus",
     Sesame: "sesame",
+    Inworld: "inworld",
 } as const;

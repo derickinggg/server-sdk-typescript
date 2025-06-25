@@ -23,6 +23,7 @@ export interface CreateMcpToolDto {
      *   - Webhook expects a response with tool call result.
      */
     server?: Vapi.Server;
+    metadata?: Vapi.McpToolMetadata;
     /**
      * This is the function definition of the tool.
      *

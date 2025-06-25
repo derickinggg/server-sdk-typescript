@@ -9,6 +9,11 @@ export interface Chat {
     assistantId?: string;
     /** This is the assistant that will be used for the chat. To use an existing assistant, use `assistantId` instead. */
     assistant?: Vapi.CreateAssistantDto;
+    /**
+     * These are the variable values that will be used to replace template variables in the assistant messages.
+     * Only variable substitution is supported in chat contexts - other assistant properties cannot be overridden.
+     */
+    assistantOverrides?: Vapi.AssistantOverrides;
     /** This is the name of the chat. This is just for your own reference. */
     name?: string;
     /**

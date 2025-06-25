@@ -31,6 +31,14 @@ export interface Campaign {
     updatedAt: string;
     /** This is a map of call IDs to campaign call details. */
     calls: Record<string, unknown>;
+    /** This is the number of calls that have been scheduled. */
+    callsCounterScheduled: number;
+    /** This is the number of calls that have been queued. */
+    callsCounterQueued: number;
+    /** This is the number of calls that have been in progress. */
+    callsCounterInProgress: number;
+    /** This is the number of calls whose ended reason is 'voicemail'. */
+    callsCounterEndedVoicemail: number;
     /** This is the number of calls that have ended. */
     callsCounterEnded: number;
 }

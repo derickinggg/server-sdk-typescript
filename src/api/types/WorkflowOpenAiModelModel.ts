@@ -24,9 +24,6 @@ export type WorkflowOpenAiModelModel =
     | "o1-preview-2024-09-12"
     | "o1-mini"
     | "o1-mini-2024-09-12"
-    | "gpt-4o-realtime-preview-2024-10-01"
-    | "gpt-4o-realtime-preview-2024-12-17"
-    | "gpt-4o-mini-realtime-preview-2024-12-17"
     | "gpt-4o-mini-2024-07-18"
     | "gpt-4o-mini"
     | "gpt-4o"
@@ -121,9 +118,6 @@ export const WorkflowOpenAiModelModel = {
     O1Preview20240912: "o1-preview-2024-09-12",
     O1Mini: "o1-mini",
     O1Mini20240912: "o1-mini-2024-09-12",
-    Gpt4ORealtimePreview20241001: "gpt-4o-realtime-preview-2024-10-01",
-    Gpt4ORealtimePreview20241217: "gpt-4o-realtime-preview-2024-12-17",
-    Gpt4OMiniRealtimePreview20241217: "gpt-4o-mini-realtime-preview-2024-12-17",
     Gpt4OMini20240718: "gpt-4o-mini-2024-07-18",
     Gpt4OMini: "gpt-4o-mini",
     Gpt4O: "gpt-4o",

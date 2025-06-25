@@ -34,4 +34,8 @@ export interface CreateCustomerDto {
      * For SIP inbound calls, this is extracted from the `From` SIP header with format `"Display Name" <sip:username@domain>`.
      */
     name?: string;
+    /** This is the email of the customer. */
+    email?: string;
+    /** This is the external ID of the customer. */
+    externalId?: string;
 }

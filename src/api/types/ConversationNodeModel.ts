@@ -9,4 +9,8 @@ import * as Vapi from "../index";
  *
  * This overrides `workflow.model`.
  */
-export type ConversationNodeModel = Vapi.WorkflowOpenAiModel | Vapi.WorkflowAnthropicModel | unknown;
+export type ConversationNodeModel =
+    | Vapi.WorkflowOpenAiModel
+    | Vapi.WorkflowAnthropicModel
+    | Vapi.WorkflowGoogleModel
+    | Vapi.WorkflowCustomModel;

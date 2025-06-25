@@ -59,8 +59,8 @@ export class Workflow {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.9.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.9.2",
+                "X-Fern-SDK-Version": "0.9.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.9.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -140,8 +140,8 @@ export class Workflow {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.9.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.9.2",
+                "X-Fern-SDK-Version": "0.9.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.9.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -212,8 +212,8 @@ export class Workflow {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.9.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.9.2",
+                "X-Fern-SDK-Version": "0.9.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.9.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -283,8 +283,8 @@ export class Workflow {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.9.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.9.2",
+                "X-Fern-SDK-Version": "0.9.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.9.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -357,8 +357,8 @@ export class Workflow {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                "X-Fern-SDK-Version": "0.9.2",
-                "User-Agent": "@vapi-ai/server-sdk/0.9.2",
+                "X-Fern-SDK-Version": "0.9.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.9.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -391,6 +391,80 @@ export class Workflow {
                 });
             case "timeout":
                 throw new errors.VapiTimeoutError("Timeout exceeded when calling PATCH /workflow/{id}.");
+            case "unknown":
+                throw new errors.VapiError({
+                    message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
+                });
+        }
+    }
+
+    /**
+     * @param {Vapi.GenerateWorkflowDto} request
+     * @param {Workflow.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.workflow.workflowControllerGenerateFromTranscripts()
+     */
+    public workflowControllerGenerateFromTranscripts(
+        request: Vapi.GenerateWorkflowDto = {},
+        requestOptions?: Workflow.RequestOptions,
+    ): core.HttpResponsePromise<Vapi.WorkflowUserEditable> {
+        return core.HttpResponsePromise.fromPromise(
+            this.__workflowControllerGenerateFromTranscripts(request, requestOptions),
+        );
+    }
+
+    private async __workflowControllerGenerateFromTranscripts(
+        request: Vapi.GenerateWorkflowDto = {},
+        requestOptions?: Workflow.RequestOptions,
+    ): Promise<core.WithRawResponse<Vapi.WorkflowUserEditable>> {
+        const _response = await (this._options.fetcher ?? core.fetcher)({
+            url: urlJoin(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.VapiEnvironment.Default,
+                "workflow/generate",
+            ),
+            method: "POST",
+            headers: {
+                Authorization: await this._getAuthorizationHeader(),
+                "X-Fern-Language": "JavaScript",
+                "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
+                "X-Fern-SDK-Version": "0.9.3",
+                "User-Agent": "@vapi-ai/server-sdk/0.9.3",
+                "X-Fern-Runtime": core.RUNTIME.type,
+                "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...requestOptions?.headers,
+            },
+            contentType: "application/json",
+            requestType: "json",
+            body: request,
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+        });
+        if (_response.ok) {
+            return { data: _response.body as Vapi.WorkflowUserEditable, rawResponse: _response.rawResponse };
+        }
+
+        if (_response.error.reason === "status-code") {
+            throw new errors.VapiError({
+                statusCode: _response.error.statusCode,
+                body: _response.error.body,
+                rawResponse: _response.rawResponse,
+            });
+        }
+
+        switch (_response.error.reason) {
+            case "non-json":
+                throw new errors.VapiError({
+                    statusCode: _response.error.statusCode,
+                    body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
+                });
+            case "timeout":
+                throw new errors.VapiTimeoutError("Timeout exceeded when calling POST /workflow/generate.");
             case "unknown":
                 throw new errors.VapiError({
                     message: _response.error.errorMessage,

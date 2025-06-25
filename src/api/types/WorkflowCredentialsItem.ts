@@ -52,4 +52,5 @@ export type WorkflowCredentialsItem =
     | Vapi.CreateGoogleCalendarOAuth2AuthorizationCredentialDto
     | Vapi.CreateGoogleSheetsOAuth2AuthorizationCredentialDto
     | Vapi.CreateSlackOAuth2AuthorizationCredentialDto
-    | Vapi.CreateGoHighLevelMcpCredentialDto;
+    | Vapi.CreateGoHighLevelMcpCredentialDto
+    | unknown;

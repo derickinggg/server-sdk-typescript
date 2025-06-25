@@ -13,6 +13,8 @@ export interface LmntVoice {
     voiceId: Vapi.LmntVoiceId;
     /** This is the speed multiplier that will be used. */
     speed?: number;
+    /** Two letter ISO 639-1 language code. Use "auto" for auto-detection. */
+    language?: Vapi.LmntVoiceLanguage;
     /** This is the plan for chunking the model output before it is sent to the voice provider. */
     chunkPlan?: Vapi.ChunkPlan;
     /** This is the plan for voice provider fallbacks in the event that the primary voice provider fails. */

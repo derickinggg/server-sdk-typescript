@@ -1066,6 +1066,60 @@ await client.sessions.update("id");
 </dl>
 </details>
 
+## Support
+
+<details><summary><code>client.support.<a href="/src/api/resources/support/client/Client.ts">supportControllerCreateTicket</a>({ ...params }) -> Vapi.SupportTicketResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.support.supportControllerCreateTicket({
+    category: "bug-report",
+    subject: "subject",
+    message: "message",
+});
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Vapi.CreateSupportTicketDto`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Support.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
 ## Assistants
 
 <details><summary><code>client.assistants.<a href="/src/api/resources/assistants/client/Client.ts">list</a>({ ...params }) -> Vapi.Assistant[]</code></summary>
@@ -2555,6 +2609,54 @@ await client.workflow.workflowControllerUpdate("id");
 <dd>
 
 **request:** `Vapi.UpdateWorkflowDto`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Workflow.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.workflow.<a href="/src/api/resources/workflow/client/Client.ts">workflowControllerGenerateFromTranscripts</a>({ ...params }) -> Vapi.WorkflowUserEditable</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.workflow.workflowControllerGenerateFromTranscripts();
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Vapi.GenerateWorkflowDto`
 
 </dd>
 </dl>

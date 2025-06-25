@@ -6,8 +6,8 @@ import * as Vapi from "../index";
 
 export interface CreateWebhookCredentialDto {
     provider: "webhook";
-    /** This is the authentication plan. Currently supports OAuth2 RFC 6749. */
-    authenticationPlan: Vapi.OAuth2AuthenticationPlan;
+    /** This is the authentication plan. Supports OAuth2 RFC 6749 and HMAC signing. */
+    authenticationPlan: Vapi.CreateWebhookCredentialDtoAuthenticationPlan;
     /** This is the name of credential. This is just for your reference. */
     name?: string;
 }

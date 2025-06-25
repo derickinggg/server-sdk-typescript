@@ -24,4 +24,5 @@ export type UpdateWorkflowDtoVoice =
     | Vapi.SmallestAiVoice
     | Vapi.TavusVoice
     | Vapi.VapiVoice
-    | Vapi.SesameVoice;
+    | Vapi.SesameVoice
+    | Vapi.InworldVoice;

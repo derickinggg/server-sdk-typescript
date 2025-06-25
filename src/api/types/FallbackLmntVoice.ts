@@ -13,6 +13,8 @@ export interface FallbackLmntVoice {
     voiceId: Vapi.FallbackLmntVoiceId;
     /** This is the speed multiplier that will be used. */
     speed?: number;
+    /** Two letter ISO 639-1 language code. Use "auto" for auto-detection. */
+    language?: Vapi.FallbackLmntVoiceLanguage;
     /** This is the plan for chunking the model output before it is sent to the voice provider. */
     chunkPlan?: Vapi.ChunkPlan;
 }

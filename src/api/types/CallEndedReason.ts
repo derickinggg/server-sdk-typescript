@@ -43,6 +43,7 @@ export type CallEndedReason =
     | "pipeline-error-neuphonic-voice-failed"
     | "pipeline-error-hume-voice-failed"
     | "pipeline-error-sesame-voice-failed"
+    | "pipeline-error-inworld-voice-failed"
     | "pipeline-error-tavus-video-failed"
     | "call.in-progress.error-vapifault-openai-voice-failed"
     | "call.in-progress.error-vapifault-cartesia-voice-failed"
@@ -56,6 +57,7 @@ export type CallEndedReason =
     | "call.in-progress.error-vapifault-neuphonic-voice-failed"
     | "call.in-progress.error-vapifault-hume-voice-failed"
     | "call.in-progress.error-vapifault-sesame-voice-failed"
+    | "call.in-progress.error-vapifault-inworld-voice-failed"
     | "call.in-progress.error-vapifault-tavus-video-failed"
     | "pipeline-error-vapi-llm-failed"
     | "pipeline-error-vapi-400-bad-request-validation-failed"
@@ -472,6 +474,7 @@ export type CallEndedReason =
     | "pipeline-error-deepgram-returning-500-invalid-json"
     | "pipeline-error-deepgram-returning-502-network-error"
     | "pipeline-error-deepgram-returning-502-bad-gateway-ehostunreach"
+    | "pipeline-error-deepgram-returning-econnreset"
     | "call.in-progress.error-vapifault-deepgram-returning-400-no-such-model-language-tier-combination"
     | "call.in-progress.error-vapifault-deepgram-returning-401-invalid-credentials"
     | "call.in-progress.error-vapifault-deepgram-returning-404-not-found"
@@ -552,6 +555,7 @@ export const CallEndedReason = {
     PipelineErrorNeuphonicVoiceFailed: "pipeline-error-neuphonic-voice-failed",
     PipelineErrorHumeVoiceFailed: "pipeline-error-hume-voice-failed",
     PipelineErrorSesameVoiceFailed: "pipeline-error-sesame-voice-failed",
+    PipelineErrorInworldVoiceFailed: "pipeline-error-inworld-voice-failed",
     PipelineErrorTavusVideoFailed: "pipeline-error-tavus-video-failed",
     CallInProgressErrorVapifaultOpenaiVoiceFailed: "call.in-progress.error-vapifault-openai-voice-failed",
     CallInProgressErrorVapifaultCartesiaVoiceFailed: "call.in-progress.error-vapifault-cartesia-voice-failed",
@@ -565,6 +569,7 @@ export const CallEndedReason = {
     CallInProgressErrorVapifaultNeuphonicVoiceFailed: "call.in-progress.error-vapifault-neuphonic-voice-failed",
     CallInProgressErrorVapifaultHumeVoiceFailed: "call.in-progress.error-vapifault-hume-voice-failed",
     CallInProgressErrorVapifaultSesameVoiceFailed: "call.in-progress.error-vapifault-sesame-voice-failed",
+    CallInProgressErrorVapifaultInworldVoiceFailed: "call.in-progress.error-vapifault-inworld-voice-failed",
     CallInProgressErrorVapifaultTavusVideoFailed: "call.in-progress.error-vapifault-tavus-video-failed",
     PipelineErrorVapiLlmFailed: "pipeline-error-vapi-llm-failed",
     PipelineErrorVapi400BadRequestValidationFailed: "pipeline-error-vapi-400-bad-request-validation-failed",
@@ -1146,6 +1151,7 @@ export const CallEndedReason = {
     PipelineErrorDeepgramReturning502NetworkError: "pipeline-error-deepgram-returning-502-network-error",
     PipelineErrorDeepgramReturning502BadGatewayEhostunreach:
         "pipeline-error-deepgram-returning-502-bad-gateway-ehostunreach",
+    PipelineErrorDeepgramReturningEconnreset: "pipeline-error-deepgram-returning-econnreset",
     CallInProgressErrorVapifaultDeepgramReturning400NoSuchModelLanguageTierCombination:
         "call.in-progress.error-vapifault-deepgram-returning-400-no-such-model-language-tier-combination",
     CallInProgressErrorVapifaultDeepgramReturning401InvalidCredentials:

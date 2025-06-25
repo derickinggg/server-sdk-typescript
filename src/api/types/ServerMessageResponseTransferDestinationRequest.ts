@@ -7,6 +7,8 @@ import * as Vapi from "../index";
 export interface ServerMessageResponseTransferDestinationRequest {
     /** This is the destination you'd like the call to be transferred to. */
     destination?: Vapi.ServerMessageResponseTransferDestinationRequestDestination;
+    /** This is the message that will be spoken to the user as the tool is running. */
+    message?: Vapi.ServerMessageResponseTransferDestinationRequestMessage;
     /** This is the error message if the transfer should not be made. */
     error?: string;
 }

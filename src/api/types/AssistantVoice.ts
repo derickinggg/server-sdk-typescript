@@ -22,4 +22,5 @@ export type AssistantVoice =
     | Vapi.SmallestAiVoice
     | Vapi.TavusVoice
     | Vapi.VapiVoice
-    | Vapi.SesameVoice;
+    | Vapi.SesameVoice
+    | Vapi.InworldVoice;
