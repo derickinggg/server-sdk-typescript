@@ -1,2 +1,2 @@
-export { type SquadsListRequest } from "./SquadsListRequest";
-export { type UpdateSquadDto } from "./UpdateSquadDto";
+export { type SquadsListRequest } from "./SquadsListRequest.js";
+export { type UpdateSquadDto } from "./UpdateSquadDto.js";

@@ -1,1 +1,1 @@
-export * from "./TestSuiteRunControllerFindAllPaginatedRequestSortOrder";
+export * from "./TestSuiteRunControllerFindAllPaginatedRequestSortOrder.js";

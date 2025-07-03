@@ -1,3 +1,3 @@
-export { type CallsListRequest } from "./CallsListRequest";
-export { type CreateCallDto } from "./CreateCallDto";
-export { type UpdateCallDto } from "./UpdateCallDto";
+export { type CallsListRequest } from "./CallsListRequest.js";
+export { type CreateCallDto } from "./CreateCallDto.js";
+export { type UpdateCallDto } from "./UpdateCallDto.js";

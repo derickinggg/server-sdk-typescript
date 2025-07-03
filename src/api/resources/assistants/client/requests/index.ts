@@ -1,2 +1,2 @@
-export { type AssistantsListRequest } from "./AssistantsListRequest";
-export { type UpdateAssistantDto } from "./UpdateAssistantDto";
+export { type AssistantsListRequest } from "./AssistantsListRequest.js";
+export { type UpdateAssistantDto } from "./UpdateAssistantDto.js";

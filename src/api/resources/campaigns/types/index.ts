@@ -1,2 +1,2 @@
-export * from "./CampaignControllerFindAllPaginatedRequestStatus";
-export * from "./CampaignControllerFindAllPaginatedRequestSortOrder";
+export * from "./CampaignControllerFindAllRequestStatus.js";
+export * from "./CampaignControllerFindAllRequestSortOrder.js";

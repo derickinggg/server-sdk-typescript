@@ -1,2 +1,2 @@
-export { type CreateFileDto } from "./CreateFileDto";
-export { type UpdateFileDto } from "./UpdateFileDto";
+export { type CreateFileDto } from "./CreateFileDto.js";
+export { type UpdateFileDto } from "./UpdateFileDto.js";

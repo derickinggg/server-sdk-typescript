@@ -1,2 +1,2 @@
-export { VapiError } from "./VapiError";
-export { VapiTimeoutError } from "./VapiTimeoutError";
+export { VapiError } from "./VapiError.js";
+export { VapiTimeoutError } from "./VapiTimeoutError.js";

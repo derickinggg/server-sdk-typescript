@@ -6,6 +6,11 @@ export interface CreateChatStreamResponse {
     /** This is the unique identifier for the streaming response. */
     id: string;
     /**
+     * This is the ID of the session that will be used for the chat.
+     * Helps track conversation context across multiple messages.
+     */
+    sessionId?: string;
+    /**
      * This is the path to the content being updated.
      * Format: `chat.output[{contentIndex}].content` where contentIndex identifies the specific content item.
      */

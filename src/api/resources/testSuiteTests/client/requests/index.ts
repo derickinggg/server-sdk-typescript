@@ -1,1 +1,1 @@
-export { type TestSuiteTestControllerFindAllPaginatedRequest } from "./TestSuiteTestControllerFindAllPaginatedRequest";
+export { type TestSuiteTestControllerFindAllPaginatedRequest } from "./TestSuiteTestControllerFindAllPaginatedRequest.js";

@@ -1,4 +1,3 @@
-export { type CampaignControllerFindAllRequest } from "./CampaignControllerFindAllRequest";
-export { type CreateCampaignDto } from "./CreateCampaignDto";
-export { type CampaignControllerFindAllPaginatedRequest } from "./CampaignControllerFindAllPaginatedRequest";
-export { type UpdateCampaignDto } from "./UpdateCampaignDto";
+export { type CampaignControllerFindAllRequest } from "./CampaignControllerFindAllRequest.js";
+export { type CreateCampaignDto } from "./CreateCampaignDto.js";
+export { type UpdateCampaignDto } from "./UpdateCampaignDto.js";

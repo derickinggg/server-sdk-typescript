@@ -1,2 +1,1 @@
-export { type UpdateWorkflowDto } from "./UpdateWorkflowDto";
-export { type GenerateWorkflowDto } from "./GenerateWorkflowDto";
+export { type UpdateWorkflowDto } from "./UpdateWorkflowDto.js";

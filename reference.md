@@ -513,7 +513,7 @@ await client.chats.createResponse({
 
 ## Campaigns
 
-<details><summary><code>client.campaigns.<a href="/src/api/resources/campaigns/client/Client.ts">campaignControllerFindAll</a>({ ...params }) -> Vapi.Campaign[]</code></summary>
+<details><summary><code>client.campaigns.<a href="/src/api/resources/campaigns/client/Client.ts">campaignControllerFindAll</a>({ ...params }) -> Vapi.CampaignPaginatedResponse</code></summary>
 <dl>
 <dd>
 
@@ -577,9 +577,6 @@ await client.campaigns.campaignControllerFindAll();
 await client.campaigns.campaignControllerCreate({
     name: "Q2 Sales Campaign",
     phoneNumberId: "phoneNumberId",
-    schedulePlan: {
-        earliestAt: "2024-01-15T09:30:00Z",
-    },
     customers: [{}],
 });
 ```
@@ -598,54 +595,6 @@ await client.campaigns.campaignControllerCreate({
 <dd>
 
 **request:** `Vapi.CreateCampaignDto`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `Campaigns.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.campaigns.<a href="/src/api/resources/campaigns/client/Client.ts">campaignControllerFindAllPaginated</a>({ ...params }) -> Vapi.Campaign</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.campaigns.campaignControllerFindAllPaginated();
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Vapi.CampaignControllerFindAllPaginatedRequest`
 
 </dd>
 </dl>
@@ -1056,60 +1005,6 @@ await client.sessions.update("id");
 <dd>
 
 **requestOptions:** `Sessions.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-## Support
-
-<details><summary><code>client.support.<a href="/src/api/resources/support/client/Client.ts">supportControllerCreateTicket</a>({ ...params }) -> Vapi.SupportTicketResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.support.supportControllerCreateTicket({
-    category: "bug-report",
-    subject: "subject",
-    message: "message",
-});
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Vapi.CreateSupportTicketDto`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `Support.RequestOptions`
 
 </dd>
 </dl>
@@ -1919,7 +1814,7 @@ await client.files.list();
 </dl>
 </details>
 
-<details><summary><code>client.files.<a href="/src/api/resources/files/client/Client.ts">create</a>(file) -> Vapi.File_</code></summary>
+<details><summary><code>client.files.<a href="/src/api/resources/files/client/Client.ts">create</a>({ ...params }) -> Vapi.File_</code></summary>
 <dl>
 <dd>
 
@@ -1932,7 +1827,9 @@ await client.files.list();
 <dd>
 
 ```typescript
-await client.files.create(fs.createReadStream("/path/to/your/file"));
+await client.files.create({
+    file: fs.createReadStream("/path/to/your/file"),
+});
 ```
 
 </dd>
@@ -1948,7 +1845,7 @@ await client.files.create(fs.createReadStream("/path/to/your/file"));
 <dl>
 <dd>
 
-**file:** `File | fs.ReadStream | Blob`
+**request:** `Vapi.CreateFileDto`
 
 </dd>
 </dl>
@@ -2609,54 +2506,6 @@ await client.workflow.workflowControllerUpdate("id");
 <dd>
 
 **request:** `Vapi.UpdateWorkflowDto`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `Workflow.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.workflow.<a href="/src/api/resources/workflow/client/Client.ts">workflowControllerGenerateFromTranscripts</a>({ ...params }) -> Vapi.WorkflowUserEditable</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.workflow.workflowControllerGenerateFromTranscripts();
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Vapi.GenerateWorkflowDto`
 
 </dd>
 </dl>

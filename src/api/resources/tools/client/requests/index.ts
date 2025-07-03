@@ -1,1 +1,1 @@
-export { type ToolsListRequest } from "./ToolsListRequest";
+export { type ToolsListRequest } from "./ToolsListRequest.js";

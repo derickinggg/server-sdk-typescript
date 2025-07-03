@@ -1,1 +1,1 @@
-export { type PhoneNumbersListRequest } from "./PhoneNumbersListRequest";
+export { type PhoneNumbersListRequest } from "./PhoneNumbersListRequest.js";
