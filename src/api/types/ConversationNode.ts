@@ -34,6 +34,18 @@ export interface ConversationNode {
      * This overrides `workflow.voice`.
      */
     voice?: ConversationNode.Voice;
+    /**
+     * These are the tools that the conversation node can use during the call. To use existing tools, use `toolIds`.
+     *
+     * Both `tools` and `toolIds` can be used together.
+     */
+    tools?: ConversationNode.Tools.Item[];
+    /**
+     * These are the tools that the conversation node can use during the call. To use transient tools, use `tools`.
+     *
+     * Both `tools` and `toolIds` can be used together.
+     */
+    toolIds?: string[];
     prompt?: string;
     /** This is the plan for the global node. */
     globalNodePlan?: Vapi.GlobalNodePlan;
@@ -143,5 +155,31 @@ export namespace ConversationNode {
         | Vapi.TavusVoice
         | Vapi.VapiVoice
         | Vapi.SesameVoice
-        | Vapi.InworldVoice;
+        | Vapi.InworldVoice
+        | Vapi.MinimaxVoice;
+    export type Tools = Tools.Item[];
+
+    export namespace Tools {
+        export type Item =
+            | Vapi.CreateApiRequestToolDto
+            | Vapi.CreateBashToolDto
+            | Vapi.CreateComputerToolDto
+            | Vapi.CreateDtmfToolDto
+            | Vapi.CreateEndCallToolDto
+            | Vapi.CreateFunctionToolDto
+            | Vapi.CreateGoHighLevelCalendarAvailabilityToolDto
+            | Vapi.CreateGoHighLevelCalendarEventCreateToolDto
+            | Vapi.CreateGoHighLevelContactCreateToolDto
+            | Vapi.CreateGoHighLevelContactGetToolDto
+            | Vapi.CreateGoogleCalendarCheckAvailabilityToolDto
+            | Vapi.CreateGoogleCalendarCreateEventToolDto
+            | Vapi.CreateGoogleSheetsRowAppendToolDto
+            | Vapi.CreateHandoffToolDto
+            | Vapi.CreateMcpToolDto
+            | Vapi.CreateQueryToolDto
+            | Vapi.CreateSlackSendMessageToolDto
+            | Vapi.CreateSmsToolDto
+            | Vapi.CreateTextEditorToolDto
+            | Vapi.CreateTransferCallToolDto;
+    }
 }

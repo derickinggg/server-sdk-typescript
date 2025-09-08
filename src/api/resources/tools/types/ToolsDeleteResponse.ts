@@ -9,10 +9,8 @@ export type ToolsDeleteResponse =
     | Vapi.DtmfTool
     | Vapi.EndCallTool
     | Vapi.FunctionTool
-    | Vapi.GhlTool
-    | Vapi.MakeTool
     | Vapi.TransferCallTool
-    | Vapi.OutputTool
+    | Vapi.HandoffTool
     | Vapi.BashTool
     | Vapi.ComputerTool
     | Vapi.TextEditorTool

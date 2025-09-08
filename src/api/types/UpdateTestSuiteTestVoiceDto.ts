@@ -7,7 +7,8 @@ import * as Vapi from "../index.js";
 export interface UpdateTestSuiteTestVoiceDto {
     /** These are the scorers used to evaluate the test. */
     scorers?: Vapi.TestSuiteTestScorerAi[];
-    type: "voice";
+    /** This is the type of the test, which must be voice. */
+    type?: "voice";
     /** This is the name of the test. */
     name?: string;
     /** This is the script to be used for the voice test. */

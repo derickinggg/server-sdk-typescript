@@ -23,6 +23,12 @@ export interface ClientMessageTranscript {
     transcriptType: ClientMessageTranscript.TranscriptType;
     /** This is the transcript content. */
     transcript: string;
+    /** Indicates if the transcript was filtered for security reasons. */
+    isFiltered?: boolean;
+    /** List of detected security threats if the transcript was filtered. */
+    detectedThreats?: string[];
+    /** The original transcript before filtering (only included if content was filtered). */
+    originalTranscript?: string;
 }
 
 export namespace ClientMessageTranscript {
@@ -38,10 +44,9 @@ export namespace ClientMessageTranscript {
     /**
      * This is the type of the message. "transcript" is sent as transcriber outputs partial or final transcript.
      */
-    export type Type = "transcript" | 'transcript[transcriptType="final"]';
+    export type Type = "transcript[transcriptType='final']";
     export const Type = {
-        Transcript: "transcript",
-        TranscriptTranscriptTypeFinal: 'transcript[transcriptType="final"]',
+        FinalTranscript: "transcript[transcriptType='final']",
     } as const;
     /**
      * This is the role for which the transcript is for.

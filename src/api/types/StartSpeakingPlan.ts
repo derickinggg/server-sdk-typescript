@@ -22,10 +22,12 @@ export interface StartSpeakingPlan {
     waitSeconds?: number;
     smartEndpointingEnabled?: StartSpeakingPlan.SmartEndpointingEnabled;
     /**
-     * This is the plan for smart endpointing. Pick between Vapi smart endpointing or LiveKit smart endpointing (or nothing). We strongly recommend using livekit endpointing when working in English. LiveKit endpointing is not supported in other languages, yet.
+     * This is the plan for smart endpointing. Pick between Vapi smart endpointing, LiveKit, or custom endpointing model (or nothing). We strongly recommend using livekit endpointing when working in English. LiveKit endpointing is not supported in other languages, yet.
      *
      * If this is set, it will override and take precedence over `transcriptionEndpointingPlan`.
      * This plan will still be overridden by any matching `customEndpointingRules`.
+     *
+     * If this is not set, the system will automatically use the transcriber's built-in endpointing capabilities if available.
      */
     smartEndpointingPlan?: StartSpeakingPlan.SmartEndpointingPlan;
     /**
@@ -53,7 +55,7 @@ export interface StartSpeakingPlan {
      *
      * Once an endpoint is triggered, the request is sent to `assistant.model`.
      *
-     * Note: This plan is only used if `smartEndpointingPlan` is not set. If both are provided, `smartEndpointingPlan` takes precedence.
+     * Note: This plan is only used if `smartEndpointingPlan` is not set and transcriber does not have built-in endpointing capabilities. If both are provided, `smartEndpointingPlan` takes precedence.
      * This plan will also be overridden by any matching `customEndpointingRules`.
      */
     transcriptionEndpointingPlan?: Vapi.TranscriptionEndpointingPlan;
@@ -62,10 +64,12 @@ export interface StartSpeakingPlan {
 export namespace StartSpeakingPlan {
     export type SmartEndpointingEnabled = boolean | "livekit";
     /**
-     * This is the plan for smart endpointing. Pick between Vapi smart endpointing or LiveKit smart endpointing (or nothing). We strongly recommend using livekit endpointing when working in English. LiveKit endpointing is not supported in other languages, yet.
+     * This is the plan for smart endpointing. Pick between Vapi smart endpointing, LiveKit, or custom endpointing model (or nothing). We strongly recommend using livekit endpointing when working in English. LiveKit endpointing is not supported in other languages, yet.
      *
      * If this is set, it will override and take precedence over `transcriptionEndpointingPlan`.
      * This plan will still be overridden by any matching `customEndpointingRules`.
+     *
+     * If this is not set, the system will automatically use the transcriber's built-in endpointing capabilities if available.
      */
     export type SmartEndpointingPlan =
         | Vapi.VapiSmartEndpointingPlan

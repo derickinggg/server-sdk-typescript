@@ -11,4 +11,6 @@ export interface ToolMessage {
     tool_call_id: string;
     /** This is an optional name for the participant */
     name?: string;
+    /** This is an optional metadata for the message */
+    metadata?: Record<string, unknown>;
 }

@@ -5,6 +5,7 @@
 import * as Vapi from "../index.js";
 
 export interface CreateCustomKnowledgeBaseDto {
+    /** This knowledge base is bring your own knowledge base implementation. */
     provider: "custom-knowledge-base";
     /**
      * This is where the knowledge base request will be sent.

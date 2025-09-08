@@ -28,6 +28,18 @@ export interface GladiaTranscriber {
      * @default 0.4
      */
     confidenceThreshold?: number;
+    /** Endpointing time in seconds - time to wait before considering speech ended */
+    endpointing?: number;
+    /** Speech threshold - sensitivity configuration for speech detection (0.0 to 1.0) */
+    speechThreshold?: number;
+    /** Enable custom vocabulary for improved accuracy */
+    customVocabularyEnabled?: boolean;
+    /** Custom vocabulary configuration */
+    customVocabularyConfig?: Vapi.GladiaCustomVocabularyConfigDto;
+    /** Region for processing audio (us-west or eu-west) */
+    region?: GladiaTranscriber.Region;
+    /** Enable partial transcripts for low-latency streaming transcription */
+    receivePartialTranscripts?: boolean;
     /** This is the plan for voice provider fallbacks in the event that the primary voice provider fails. */
     fallbackPlan?: Vapi.FallbackTranscriberPlan;
 }
@@ -452,5 +464,13 @@ export namespace GladiaTranscriber {
         Cy: "cy",
         Yi: "yi",
         Yo: "yo",
+    } as const;
+    /**
+     * Region for processing audio (us-west or eu-west)
+     */
+    export type Region = "us-west" | "eu-west";
+    export const Region = {
+        UsWest: "us-west",
+        EuWest: "eu-west",
     } as const;
 }

@@ -7,6 +7,7 @@ import * as Vapi from "../index.js";
 export interface TestSuiteTestVoice {
     /** These are the scorers used to evaluate the test. */
     scorers: Vapi.TestSuiteTestScorerAi[];
+    /** This is the type of the test, which must be voice. */
     type: "voice";
     /** This is the unique identifier for the test. */
     id: string;

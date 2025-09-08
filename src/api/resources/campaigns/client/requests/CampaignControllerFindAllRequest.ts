@@ -11,48 +11,26 @@ import * as Vapi from "../../../../index.js";
 export interface CampaignControllerFindAllRequest {
     id?: string | null;
     status?: Vapi.CampaignControllerFindAllRequestStatus | null;
-    /**
-     * This is the page number to return. Defaults to 1.
-     */
+    /** This is the page number to return. Defaults to 1. */
     page?: number | null;
-    /**
-     * This is the sort order for pagination. Defaults to 'DESC'.
-     */
+    /** This is the sort order for pagination. Defaults to 'DESC'. */
     sortOrder?: Vapi.CampaignControllerFindAllRequestSortOrder | null;
-    /**
-     * This is the maximum number of items to return. Defaults to 100.
-     */
+    /** This is the maximum number of items to return. Defaults to 100. */
     limit?: number | null;
-    /**
-     * This will return items where the createdAt is greater than the specified value.
-     */
+    /** This will return items where the createdAt is greater than the specified value. */
     createdAtGt?: string | null;
-    /**
-     * This will return items where the createdAt is less than the specified value.
-     */
+    /** This will return items where the createdAt is less than the specified value. */
     createdAtLt?: string | null;
-    /**
-     * This will return items where the createdAt is greater than or equal to the specified value.
-     */
+    /** This will return items where the createdAt is greater than or equal to the specified value. */
     createdAtGe?: string | null;
-    /**
-     * This will return items where the createdAt is less than or equal to the specified value.
-     */
+    /** This will return items where the createdAt is less than or equal to the specified value. */
     createdAtLe?: string | null;
-    /**
-     * This will return items where the updatedAt is greater than the specified value.
-     */
+    /** This will return items where the updatedAt is greater than the specified value. */
     updatedAtGt?: string | null;
-    /**
-     * This will return items where the updatedAt is less than the specified value.
-     */
+    /** This will return items where the updatedAt is less than the specified value. */
     updatedAtLt?: string | null;
-    /**
-     * This will return items where the updatedAt is greater than or equal to the specified value.
-     */
+    /** This will return items where the updatedAt is greater than or equal to the specified value. */
     updatedAtGe?: string | null;
-    /**
-     * This will return items where the updatedAt is less than or equal to the specified value.
-     */
+    /** This will return items where the updatedAt is less than or equal to the specified value. */
     updatedAtLe?: string | null;
 }

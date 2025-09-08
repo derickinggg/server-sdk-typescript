@@ -1,5 +1,509 @@
 # Reference
 
+## Assistants
+
+<details><summary><code>client.assistants.<a href="/src/api/resources/assistants/client/Client.ts">list</a>({ ...params }) -> Vapi.Assistant[]</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.assistants.list();
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Vapi.AssistantsListRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Assistants.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assistants.<a href="/src/api/resources/assistants/client/Client.ts">create</a>({ ...params }) -> Vapi.Assistant</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.assistants.create({});
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Vapi.CreateAssistantDto`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Assistants.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assistants.<a href="/src/api/resources/assistants/client/Client.ts">get</a>(id) -> Vapi.Assistant</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.assistants.get("id");
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Assistants.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assistants.<a href="/src/api/resources/assistants/client/Client.ts">delete</a>(id) -> Vapi.Assistant</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.assistants.delete("id");
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Assistants.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assistants.<a href="/src/api/resources/assistants/client/Client.ts">update</a>(id, { ...params }) -> Vapi.Assistant</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.assistants.update("id");
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `Vapi.UpdateAssistantDto`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Assistants.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+## Squads
+
+<details><summary><code>client.squads.<a href="/src/api/resources/squads/client/Client.ts">list</a>({ ...params }) -> Vapi.Squad[]</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.squads.list();
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Vapi.SquadsListRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Squads.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.squads.<a href="/src/api/resources/squads/client/Client.ts">create</a>({ ...params }) -> Vapi.Squad</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.squads.create({
+    members: [{}],
+});
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Vapi.CreateSquadDto`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Squads.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.squads.<a href="/src/api/resources/squads/client/Client.ts">get</a>(id) -> Vapi.Squad</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.squads.get("id");
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Squads.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.squads.<a href="/src/api/resources/squads/client/Client.ts">delete</a>(id) -> Vapi.Squad</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.squads.delete("id");
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Squads.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.squads.<a href="/src/api/resources/squads/client/Client.ts">update</a>(id, { ...params }) -> Vapi.Squad</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.squads.update("id", {
+    members: [{}],
+});
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `Vapi.UpdateSquadDto`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Squads.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
 ## Calls
 
 <details><summary><code>client.calls.<a href="/src/api/resources/calls/client/Client.ts">list</a>({ ...params }) -> Vapi.Call[]</code></summary>
@@ -312,7 +816,7 @@ await client.chats.list();
 <dl>
 <dd>
 
-Creates a new chat. Requires at least one of: assistantId/assistant, sessionId, or previousChatId. Note: sessionId and previousChatId are mutually exclusive.
+Creates a new chat with optional SMS delivery via transport field. Requires at least one of: assistantId/assistant, sessionId, or previousChatId. Note: sessionId and previousChatId are mutually exclusive. Transport field enables SMS delivery with two modes: (1) New conversation - provide transport.phoneNumberId and transport.customer to create a new session, (2) Existing conversation - provide sessionId to use existing session data. Cannot specify both sessionId and transport fields together. The transport.useLLMGeneratedMessageForOutbound flag controls whether input is processed by LLM (true, default) or forwarded directly as SMS (false).
 
 </dd>
 </dl>
@@ -1005,256 +1509,6 @@ await client.sessions.update("id");
 <dd>
 
 **requestOptions:** `Sessions.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-## Assistants
-
-<details><summary><code>client.assistants.<a href="/src/api/resources/assistants/client/Client.ts">list</a>({ ...params }) -> Vapi.Assistant[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.assistants.list();
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Vapi.AssistantsListRequest`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `Assistants.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.assistants.<a href="/src/api/resources/assistants/client/Client.ts">create</a>({ ...params }) -> Vapi.Assistant</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.assistants.create({});
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Vapi.CreateAssistantDto`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `Assistants.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.assistants.<a href="/src/api/resources/assistants/client/Client.ts">get</a>(id) -> Vapi.Assistant</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.assistants.get("id");
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `Assistants.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.assistants.<a href="/src/api/resources/assistants/client/Client.ts">delete</a>(id) -> Vapi.Assistant</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.assistants.delete("id");
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `Assistants.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.assistants.<a href="/src/api/resources/assistants/client/Client.ts">update</a>(id, { ...params }) -> Vapi.Assistant</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.assistants.update("id");
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request:** `Vapi.UpdateAssistantDto`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `Assistants.RequestOptions`
 
 </dd>
 </dl>
@@ -2016,9 +2270,9 @@ await client.files.update("id");
 </dl>
 </details>
 
-## KnowledgeBases
+## StructuredOutputs
 
-<details><summary><code>client.knowledgeBases.<a href="/src/api/resources/knowledgeBases/client/Client.ts">list</a>({ ...params }) -> Vapi.KnowledgeBasesListResponseItem[]</code></summary>
+<details><summary><code>client.structuredOutputs.<a href="/src/api/resources/structuredOutputs/client/Client.ts">structuredOutputControllerFindAll</a>({ ...params }) -> Vapi.StructuredOutputPaginatedResponse</code></summary>
 <dl>
 <dd>
 
@@ -2031,7 +2285,7 @@ await client.files.update("id");
 <dd>
 
 ```typescript
-await client.knowledgeBases.list();
+await client.structuredOutputs.structuredOutputControllerFindAll();
 ```
 
 </dd>
@@ -2047,7 +2301,7 @@ await client.knowledgeBases.list();
 <dl>
 <dd>
 
-**request:** `Vapi.KnowledgeBasesListRequest`
+**request:** `Vapi.StructuredOutputControllerFindAllRequest`
 
 </dd>
 </dl>
@@ -2055,7 +2309,7 @@ await client.knowledgeBases.list();
 <dl>
 <dd>
 
-**requestOptions:** `KnowledgeBases.RequestOptions`
+**requestOptions:** `StructuredOutputs.RequestOptions`
 
 </dd>
 </dl>
@@ -2066,7 +2320,7 @@ await client.knowledgeBases.list();
 </dl>
 </details>
 
-<details><summary><code>client.knowledgeBases.<a href="/src/api/resources/knowledgeBases/client/Client.ts">create</a>({ ...params }) -> Vapi.KnowledgeBasesCreateResponse</code></summary>
+<details><summary><code>client.structuredOutputs.<a href="/src/api/resources/structuredOutputs/client/Client.ts">structuredOutputControllerCreate</a>({ ...params }) -> Vapi.StructuredOutput</code></summary>
 <dl>
 <dd>
 
@@ -2079,264 +2333,270 @@ await client.knowledgeBases.list();
 <dd>
 
 ```typescript
-await client.knowledgeBases.create({
-    provider: "trieve",
-});
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Vapi.KnowledgeBasesCreateRequest`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `KnowledgeBases.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.knowledgeBases.<a href="/src/api/resources/knowledgeBases/client/Client.ts">get</a>(id) -> Vapi.KnowledgeBasesGetResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.knowledgeBases.get("id");
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `KnowledgeBases.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.knowledgeBases.<a href="/src/api/resources/knowledgeBases/client/Client.ts">delete</a>(id) -> Vapi.KnowledgeBasesDeleteResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.knowledgeBases.delete("id");
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `KnowledgeBases.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.knowledgeBases.<a href="/src/api/resources/knowledgeBases/client/Client.ts">update</a>(id, { ...params }) -> Vapi.KnowledgeBasesUpdateResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.knowledgeBases.update("id", {});
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request:** `Vapi.KnowledgeBasesUpdateRequest`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `KnowledgeBases.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-## Workflow
-
-<details><summary><code>client.workflow.<a href="/src/api/resources/workflow/client/Client.ts">workflowControllerFindAll</a>() -> Vapi.Workflow[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.workflow.workflowControllerFindAll();
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**requestOptions:** `Workflow.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.workflow.<a href="/src/api/resources/workflow/client/Client.ts">workflowControllerCreate</a>({ ...params }) -> Vapi.Workflow</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.workflow.workflowControllerCreate({
-    nodes: [
-        {
-            type: "conversation",
-            name: "name",
-        },
-    ],
+await client.structuredOutputs.structuredOutputControllerCreate({
     name: "name",
-    edges: [
+    schema: {
+        type: "string",
+    },
+});
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Vapi.CreateStructuredOutputDto`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `StructuredOutputs.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.structuredOutputs.<a href="/src/api/resources/structuredOutputs/client/Client.ts">structuredOutputControllerFindOne</a>(id) -> Vapi.StructuredOutput</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.structuredOutputs.structuredOutputControllerFindOne("id");
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `StructuredOutputs.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.structuredOutputs.<a href="/src/api/resources/structuredOutputs/client/Client.ts">structuredOutputControllerRemove</a>(id) -> Vapi.StructuredOutput</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.structuredOutputs.structuredOutputControllerRemove("id");
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `StructuredOutputs.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.structuredOutputs.<a href="/src/api/resources/structuredOutputs/client/Client.ts">structuredOutputControllerUpdate</a>(id, { ...params }) -> Vapi.StructuredOutput</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.structuredOutputs.structuredOutputControllerUpdate("id", {
+    schemaOverride: "schemaOverride",
+});
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `Vapi.UpdateStructuredOutputDto`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `StructuredOutputs.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+## Eval
+
+<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerGetPaginated</a>({ ...params }) -> Vapi.EvalPaginatedResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.eval.evalControllerGetPaginated();
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Vapi.EvalControllerGetPaginatedRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Eval.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerCreate</a>({ ...params }) -> void</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.eval.evalControllerCreate({
+    messages: [
         {
-            from: "from",
-            to: "to",
+            role: "assistant",
         },
     ],
+    type: "chat.mockConversation",
 });
 ```
 
@@ -2353,7 +2613,7 @@ await client.workflow.workflowControllerCreate({
 <dl>
 <dd>
 
-**request:** `Vapi.CreateWorkflowDto`
+**request:** `Vapi.CreateEvalDto`
 
 </dd>
 </dl>
@@ -2361,7 +2621,7 @@ await client.workflow.workflowControllerCreate({
 <dl>
 <dd>
 
-**requestOptions:** `Workflow.RequestOptions`
+**requestOptions:** `Eval.RequestOptions`
 
 </dd>
 </dl>
@@ -2372,7 +2632,7 @@ await client.workflow.workflowControllerCreate({
 </dl>
 </details>
 
-<details><summary><code>client.workflow.<a href="/src/api/resources/workflow/client/Client.ts">workflowControllerFindOne</a>(id) -> Vapi.Workflow</code></summary>
+<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerGet</a>(id) -> void</code></summary>
 <dl>
 <dd>
 
@@ -2385,7 +2645,7 @@ await client.workflow.workflowControllerCreate({
 <dd>
 
 ```typescript
-await client.workflow.workflowControllerFindOne("id");
+await client.eval.evalControllerGet("id");
 ```
 
 </dd>
@@ -2409,7 +2669,7 @@ await client.workflow.workflowControllerFindOne("id");
 <dl>
 <dd>
 
-**requestOptions:** `Workflow.RequestOptions`
+**requestOptions:** `Eval.RequestOptions`
 
 </dd>
 </dl>
@@ -2420,7 +2680,7 @@ await client.workflow.workflowControllerFindOne("id");
 </dl>
 </details>
 
-<details><summary><code>client.workflow.<a href="/src/api/resources/workflow/client/Client.ts">workflowControllerDelete</a>(id) -> Vapi.Workflow</code></summary>
+<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerRemove</a>(id) -> void</code></summary>
 <dl>
 <dd>
 
@@ -2433,7 +2693,7 @@ await client.workflow.workflowControllerFindOne("id");
 <dd>
 
 ```typescript
-await client.workflow.workflowControllerDelete("id");
+await client.eval.evalControllerRemove("id");
 ```
 
 </dd>
@@ -2457,7 +2717,7 @@ await client.workflow.workflowControllerDelete("id");
 <dl>
 <dd>
 
-**requestOptions:** `Workflow.RequestOptions`
+**requestOptions:** `Eval.RequestOptions`
 
 </dd>
 </dl>
@@ -2468,7 +2728,7 @@ await client.workflow.workflowControllerDelete("id");
 </dl>
 </details>
 
-<details><summary><code>client.workflow.<a href="/src/api/resources/workflow/client/Client.ts">workflowControllerUpdate</a>(id, { ...params }) -> Vapi.Workflow</code></summary>
+<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerUpdate</a>(id, { ...params }) -> void</code></summary>
 <dl>
 <dd>
 
@@ -2481,7 +2741,7 @@ await client.workflow.workflowControllerDelete("id");
 <dd>
 
 ```typescript
-await client.workflow.workflowControllerUpdate("id");
+await client.eval.evalControllerUpdate("id");
 ```
 
 </dd>
@@ -2505,7 +2765,7 @@ await client.workflow.workflowControllerUpdate("id");
 <dl>
 <dd>
 
-**request:** `Vapi.UpdateWorkflowDto`
+**request:** `Vapi.UpdateEvalDto`
 
 </dd>
 </dl>
@@ -2513,7 +2773,7 @@ await client.workflow.workflowControllerUpdate("id");
 <dl>
 <dd>
 
-**requestOptions:** `Workflow.RequestOptions`
+**requestOptions:** `Eval.RequestOptions`
 
 </dd>
 </dl>
@@ -2524,9 +2784,7 @@ await client.workflow.workflowControllerUpdate("id");
 </dl>
 </details>
 
-## Squads
-
-<details><summary><code>client.squads.<a href="/src/api/resources/squads/client/Client.ts">list</a>({ ...params }) -> Vapi.Squad[]</code></summary>
+<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerGetRun</a>(id) -> Vapi.EvalRun</code></summary>
 <dl>
 <dd>
 
@@ -2539,7 +2797,7 @@ await client.workflow.workflowControllerUpdate("id");
 <dd>
 
 ```typescript
-await client.squads.list();
+await client.eval.evalControllerGetRun("id");
 ```
 
 </dd>
@@ -2555,7 +2813,7 @@ await client.squads.list();
 <dl>
 <dd>
 
-**request:** `Vapi.SquadsListRequest`
+**id:** `string`
 
 </dd>
 </dl>
@@ -2563,7 +2821,7 @@ await client.squads.list();
 <dl>
 <dd>
 
-**requestOptions:** `Squads.RequestOptions`
+**requestOptions:** `Eval.RequestOptions`
 
 </dd>
 </dl>
@@ -2574,7 +2832,7 @@ await client.squads.list();
 </dl>
 </details>
 
-<details><summary><code>client.squads.<a href="/src/api/resources/squads/client/Client.ts">create</a>({ ...params }) -> Vapi.Squad</code></summary>
+<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerRemoveRun</a>(id) -> void</code></summary>
 <dl>
 <dd>
 
@@ -2587,8 +2845,106 @@ await client.squads.list();
 <dd>
 
 ```typescript
-await client.squads.create({
-    members: [{}],
+await client.eval.evalControllerRemoveRun("id");
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Eval.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerGetRunsPaginated</a>({ ...params }) -> Vapi.EvalRunPaginatedResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.eval.evalControllerGetRunsPaginated();
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Vapi.EvalControllerGetRunsPaginatedRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Eval.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerRun</a>({ ...params }) -> Record<string, unknown></code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.eval.evalControllerRun({
+    target: {
+        type: "assistant",
+    },
 });
 ```
 
@@ -2605,7 +2961,7 @@ await client.squads.create({
 <dl>
 <dd>
 
-**request:** `Vapi.CreateSquadDto`
+**request:** `Vapi.CreateEvalRunDto`
 
 </dd>
 </dl>
@@ -2613,7 +2969,7 @@ await client.squads.create({
 <dl>
 <dd>
 
-**requestOptions:** `Squads.RequestOptions`
+**requestOptions:** `Eval.RequestOptions`
 
 </dd>
 </dl>
@@ -2624,7 +2980,9 @@ await client.squads.create({
 </dl>
 </details>
 
-<details><summary><code>client.squads.<a href="/src/api/resources/squads/client/Client.ts">get</a>(id) -> Vapi.Squad</code></summary>
+## ProviderResources
+
+<details><summary><code>client.providerResources.<a href="/src/api/resources/providerResources/client/Client.ts">providerResourceControllerGetProviderResourcesPaginated</a>(provider, resourceName, { ...params }) -> Vapi.ProviderResourcePaginatedResponse</code></summary>
 <dl>
 <dd>
 
@@ -2637,7 +2995,10 @@ await client.squads.create({
 <dd>
 
 ```typescript
-await client.squads.get("id");
+await client.providerResources.providerResourceControllerGetProviderResourcesPaginated(
+    "11labs",
+    "pronunciation-dictionary",
+);
 ```
 
 </dd>
@@ -2653,7 +3014,7 @@ await client.squads.get("id");
 <dl>
 <dd>
 
-**id:** `string`
+**provider:** `"11labs"` — The provider (e.g., 11labs)
 
 </dd>
 </dl>
@@ -2661,7 +3022,23 @@ await client.squads.get("id");
 <dl>
 <dd>
 
-**requestOptions:** `Squads.RequestOptions`
+**resourceName:** `"pronunciation-dictionary"` — The resource name (e.g., pronunciation-dictionary)
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `Vapi.ProviderResourceControllerGetProviderResourcesPaginatedRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ProviderResources.RequestOptions`
 
 </dd>
 </dl>
@@ -2672,7 +3049,7 @@ await client.squads.get("id");
 </dl>
 </details>
 
-<details><summary><code>client.squads.<a href="/src/api/resources/squads/client/Client.ts">delete</a>(id) -> Vapi.Squad</code></summary>
+<details><summary><code>client.providerResources.<a href="/src/api/resources/providerResources/client/Client.ts">providerResourceControllerCreateProviderResource</a>(provider, resourceName) -> Vapi.ProviderResource</code></summary>
 <dl>
 <dd>
 
@@ -2685,7 +3062,7 @@ await client.squads.get("id");
 <dd>
 
 ```typescript
-await client.squads.delete("id");
+await client.providerResources.providerResourceControllerCreateProviderResource("11labs", "pronunciation-dictionary");
 ```
 
 </dd>
@@ -2701,7 +3078,7 @@ await client.squads.delete("id");
 <dl>
 <dd>
 
-**id:** `string`
+**provider:** `"11labs"` — The provider (e.g., 11labs)
 
 </dd>
 </dl>
@@ -2709,7 +3086,15 @@ await client.squads.delete("id");
 <dl>
 <dd>
 
-**requestOptions:** `Squads.RequestOptions`
+**resourceName:** `"pronunciation-dictionary"` — The resource name (e.g., pronunciation-dictionary)
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ProviderResources.RequestOptions`
 
 </dd>
 </dl>
@@ -2720,7 +3105,7 @@ await client.squads.delete("id");
 </dl>
 </details>
 
-<details><summary><code>client.squads.<a href="/src/api/resources/squads/client/Client.ts">update</a>(id, { ...params }) -> Vapi.Squad</code></summary>
+<details><summary><code>client.providerResources.<a href="/src/api/resources/providerResources/client/Client.ts">providerResourceControllerGetProviderResource</a>(provider, resourceName, id) -> Vapi.ProviderResource</code></summary>
 <dl>
 <dd>
 
@@ -2733,9 +3118,11 @@ await client.squads.delete("id");
 <dd>
 
 ```typescript
-await client.squads.update("id", {
-    members: [{}],
-});
+await client.providerResources.providerResourceControllerGetProviderResource(
+    "11labs",
+    "pronunciation-dictionary",
+    "id",
+);
 ```
 
 </dd>
@@ -2751,7 +3138,7 @@ await client.squads.update("id", {
 <dl>
 <dd>
 
-**id:** `string`
+**provider:** `"11labs"` — The provider (e.g., 11labs)
 
 </dd>
 </dl>
@@ -2759,428 +3146,7 @@ await client.squads.update("id", {
 <dl>
 <dd>
 
-**request:** `Vapi.UpdateSquadDto`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `Squads.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-## TestSuites
-
-<details><summary><code>client.testSuites.<a href="/src/api/resources/testSuites/client/Client.ts">testSuiteControllerFindAllPaginated</a>({ ...params }) -> Vapi.TestSuitesPaginatedResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.testSuites.testSuiteControllerFindAllPaginated();
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Vapi.TestSuiteControllerFindAllPaginatedRequest`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `TestSuites.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.testSuites.<a href="/src/api/resources/testSuites/client/Client.ts">testSuiteControllerCreate</a>({ ...params }) -> Vapi.TestSuite</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.testSuites.testSuiteControllerCreate();
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Vapi.CreateTestSuiteDto`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `TestSuites.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.testSuites.<a href="/src/api/resources/testSuites/client/Client.ts">testSuiteControllerFindOne</a>(id) -> Vapi.TestSuite</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.testSuites.testSuiteControllerFindOne("id");
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `TestSuites.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.testSuites.<a href="/src/api/resources/testSuites/client/Client.ts">testSuiteControllerRemove</a>(id) -> Vapi.TestSuite</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.testSuites.testSuiteControllerRemove("id");
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `TestSuites.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.testSuites.<a href="/src/api/resources/testSuites/client/Client.ts">testSuiteControllerUpdate</a>(id, { ...params }) -> Vapi.TestSuite</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.testSuites.testSuiteControllerUpdate("id");
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request:** `Vapi.UpdateTestSuiteDto`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `TestSuites.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-## TestSuiteTests
-
-<details><summary><code>client.testSuiteTests.<a href="/src/api/resources/testSuiteTests/client/Client.ts">testSuiteTestControllerFindAllPaginated</a>(testSuiteId, { ...params }) -> Vapi.TestSuiteTestsPaginatedResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.testSuiteTests.testSuiteTestControllerFindAllPaginated("testSuiteId");
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**testSuiteId:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request:** `Vapi.TestSuiteTestControllerFindAllPaginatedRequest`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `TestSuiteTests.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.testSuiteTests.<a href="/src/api/resources/testSuiteTests/client/Client.ts">testSuiteTestControllerCreate</a>(testSuiteId, { ...params }) -> Vapi.TestSuiteTestControllerCreateResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.testSuiteTests.testSuiteTestControllerCreate("testSuiteId", {
-    scorers: [
-        {
-            type: "ai",
-            rubric: "rubric",
-        },
-    ],
-    type: "voice",
-    script: "script",
-});
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**testSuiteId:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request:** `Vapi.TestSuiteTestControllerCreateRequest`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `TestSuiteTests.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.testSuiteTests.<a href="/src/api/resources/testSuiteTests/client/Client.ts">testSuiteTestControllerFindOne</a>(testSuiteId, id) -> Vapi.TestSuiteTestControllerFindOneResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.testSuiteTests.testSuiteTestControllerFindOne("testSuiteId", "id");
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**testSuiteId:** `string`
+**resourceName:** `"pronunciation-dictionary"` — The resource name (e.g., pronunciation-dictionary)
 
 </dd>
 </dl>
@@ -3196,7 +3162,7 @@ await client.testSuiteTests.testSuiteTestControllerFindOne("testSuiteId", "id");
 <dl>
 <dd>
 
-**requestOptions:** `TestSuiteTests.RequestOptions`
+**requestOptions:** `ProviderResources.RequestOptions`
 
 </dd>
 </dl>
@@ -3207,7 +3173,7 @@ await client.testSuiteTests.testSuiteTestControllerFindOne("testSuiteId", "id");
 </dl>
 </details>
 
-<details><summary><code>client.testSuiteTests.<a href="/src/api/resources/testSuiteTests/client/Client.ts">testSuiteTestControllerRemove</a>(testSuiteId, id) -> Vapi.TestSuiteTestControllerRemoveResponse</code></summary>
+<details><summary><code>client.providerResources.<a href="/src/api/resources/providerResources/client/Client.ts">providerResourceControllerDeleteProviderResource</a>(provider, resourceName, id) -> Vapi.ProviderResource</code></summary>
 <dl>
 <dd>
 
@@ -3220,7 +3186,11 @@ await client.testSuiteTests.testSuiteTestControllerFindOne("testSuiteId", "id");
 <dd>
 
 ```typescript
-await client.testSuiteTests.testSuiteTestControllerRemove("testSuiteId", "id");
+await client.providerResources.providerResourceControllerDeleteProviderResource(
+    "11labs",
+    "pronunciation-dictionary",
+    "id",
+);
 ```
 
 </dd>
@@ -3236,7 +3206,15 @@ await client.testSuiteTests.testSuiteTestControllerRemove("testSuiteId", "id");
 <dl>
 <dd>
 
-**testSuiteId:** `string`
+**provider:** `"11labs"` — The provider (e.g., 11labs)
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**resourceName:** `"pronunciation-dictionary"` — The resource name (e.g., pronunciation-dictionary)
 
 </dd>
 </dl>
@@ -3252,7 +3230,7 @@ await client.testSuiteTests.testSuiteTestControllerRemove("testSuiteId", "id");
 <dl>
 <dd>
 
-**requestOptions:** `TestSuiteTests.RequestOptions`
+**requestOptions:** `ProviderResources.RequestOptions`
 
 </dd>
 </dl>
@@ -3263,7 +3241,7 @@ await client.testSuiteTests.testSuiteTestControllerRemove("testSuiteId", "id");
 </dl>
 </details>
 
-<details><summary><code>client.testSuiteTests.<a href="/src/api/resources/testSuiteTests/client/Client.ts">testSuiteTestControllerUpdate</a>(testSuiteId, id, { ...params }) -> Vapi.TestSuiteTestControllerUpdateResponse</code></summary>
+<details><summary><code>client.providerResources.<a href="/src/api/resources/providerResources/client/Client.ts">providerResourceControllerUpdateProviderResource</a>(provider, resourceName, id) -> Vapi.ProviderResource</code></summary>
 <dl>
 <dd>
 
@@ -3276,9 +3254,11 @@ await client.testSuiteTests.testSuiteTestControllerRemove("testSuiteId", "id");
 <dd>
 
 ```typescript
-await client.testSuiteTests.testSuiteTestControllerUpdate("testSuiteId", "id", {
-    type: "voice",
-});
+await client.providerResources.providerResourceControllerUpdateProviderResource(
+    "11labs",
+    "pronunciation-dictionary",
+    "id",
+);
 ```
 
 </dd>
@@ -3294,7 +3274,15 @@ await client.testSuiteTests.testSuiteTestControllerUpdate("testSuiteId", "id", {
 <dl>
 <dd>
 
-**testSuiteId:** `string`
+**provider:** `"11labs"` — The provider (e.g., 11labs)
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**resourceName:** `"pronunciation-dictionary"` — The resource name (e.g., pronunciation-dictionary)
 
 </dd>
 </dl>
@@ -3310,305 +3298,7 @@ await client.testSuiteTests.testSuiteTestControllerUpdate("testSuiteId", "id", {
 <dl>
 <dd>
 
-**request:** `Vapi.TestSuiteTestControllerUpdateRequest`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `TestSuiteTests.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-## TestSuiteRuns
-
-<details><summary><code>client.testSuiteRuns.<a href="/src/api/resources/testSuiteRuns/client/Client.ts">testSuiteRunControllerFindAllPaginated</a>(testSuiteId, { ...params }) -> Vapi.TestSuiteRunsPaginatedResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.testSuiteRuns.testSuiteRunControllerFindAllPaginated("testSuiteId");
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**testSuiteId:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request:** `Vapi.TestSuiteRunControllerFindAllPaginatedRequest`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `TestSuiteRuns.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.testSuiteRuns.<a href="/src/api/resources/testSuiteRuns/client/Client.ts">testSuiteRunControllerCreate</a>(testSuiteId, { ...params }) -> Vapi.TestSuiteRun</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.testSuiteRuns.testSuiteRunControllerCreate("testSuiteId");
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**testSuiteId:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request:** `Vapi.CreateTestSuiteRunDto`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `TestSuiteRuns.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.testSuiteRuns.<a href="/src/api/resources/testSuiteRuns/client/Client.ts">testSuiteRunControllerFindOne</a>(testSuiteId, id) -> Vapi.TestSuiteRun</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.testSuiteRuns.testSuiteRunControllerFindOne("testSuiteId", "id");
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**testSuiteId:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**id:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `TestSuiteRuns.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.testSuiteRuns.<a href="/src/api/resources/testSuiteRuns/client/Client.ts">testSuiteRunControllerRemove</a>(testSuiteId, id) -> Vapi.TestSuiteRun</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.testSuiteRuns.testSuiteRunControllerRemove("testSuiteId", "id");
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**testSuiteId:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**id:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `TestSuiteRuns.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.testSuiteRuns.<a href="/src/api/resources/testSuiteRuns/client/Client.ts">testSuiteRunControllerUpdate</a>(testSuiteId, id, { ...params }) -> Vapi.TestSuiteRun</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.testSuiteRuns.testSuiteRunControllerUpdate("testSuiteId", "id");
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**testSuiteId:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**id:** `string`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request:** `Vapi.UpdateTestSuiteRunDto`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `TestSuiteRuns.RequestOptions`
+**requestOptions:** `ProviderResources.RequestOptions`
 
 </dd>
 </dl>
@@ -3672,113 +3362,6 @@ await client.analytics.get({
 <dd>
 
 **requestOptions:** `Analytics.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-## Logs
-
-<details><summary><code>client.logs.<a href="/src/api/resources/logs/client/Client.ts">get</a>({ ...params }) -> core.Page<Vapi.Log></code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-const response = await client.logs.get();
-for await (const item of response) {
-    console.log(item);
-}
-
-// Or you can manually iterate page-by-page
-const page = await client.logs.get();
-while (page.hasNextPage()) {
-    page = page.getNextPage();
-}
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Vapi.LogsGetRequest`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `Logs.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.logs.<a href="/src/api/resources/logs/client/Client.ts">loggingControllerLogsDeleteQuery</a>({ ...params }) -> void</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.logs.loggingControllerLogsDeleteQuery();
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Vapi.LoggingControllerLogsDeleteQueryRequest`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `Logs.RequestOptions`
 
 </dd>
 </dl>

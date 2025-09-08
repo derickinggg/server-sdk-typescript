@@ -21,8 +21,6 @@ export interface VapiModel {
     toolIds?: string[];
     /** These are the options for the knowledge base. */
     knowledgeBase?: Vapi.CreateCustomKnowledgeBaseDto;
-    /** This is the ID of the knowledge base the model will use. */
-    knowledgeBaseId?: string;
     provider: "vapi";
     /** This is the workflow that will be used for the call. To use a transient workflow, use `workflow` instead. */
     workflowId?: string;
@@ -70,6 +68,7 @@ export namespace VapiModel {
             | Vapi.CreateGoogleCalendarCheckAvailabilityToolDto
             | Vapi.CreateGoogleCalendarCreateEventToolDto
             | Vapi.CreateGoogleSheetsRowAppendToolDto
+            | Vapi.CreateHandoffToolDto
             | Vapi.CreateMcpToolDto
             | Vapi.CreateQueryToolDto
             | Vapi.CreateSlackSendMessageToolDto

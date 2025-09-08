@@ -19,6 +19,8 @@ export interface WorkflowCustomModel {
     metadataSendMode?: WorkflowCustomModel.MetadataSendMode;
     /** These is the URL we'll use for the OpenAI client's `baseURL`. Ex. https://openrouter.ai/api/v1 */
     url: string;
+    /** These are the headers we'll use for the OpenAI client's `headers`. */
+    headers?: Record<string, unknown>;
     /** This sets the timeout for the connection to the custom provider without needing to stream any tokens back. Default is 20 seconds. */
     timeoutSeconds?: number;
     /** This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b */

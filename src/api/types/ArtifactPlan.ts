@@ -24,6 +24,18 @@ export interface ArtifactPlan {
      */
     recordingFormat?: ArtifactPlan.RecordingFormat;
     /**
+     * This determines whether to use custom storage (S3 or GCP) for call recordings when storage credentials are configured.
+     *
+     * When set to false, recordings will be stored on Vapi's storage instead of your custom storage, even if you have custom storage credentials configured.
+     *
+     * Usage:
+     * - Set to false if you have custom storage configured but want to store recordings on Vapi's storage for this assistant.
+     * - Set to true (or leave unset) to use your custom storage for recordings when available.
+     *
+     * @default true
+     */
+    recordingUseCustomStorageEnabled?: boolean;
+    /**
      * This determines whether the video is recorded during the call. Defaults to false. Only relevant for `webCall` type.
      *
      * You can find the video recording at `call.artifact.videoRecordingUrl` after the call is ended.
@@ -51,6 +63,36 @@ export interface ArtifactPlan {
      * @default '/'
      */
     pcapS3PathPrefix?: string;
+    /**
+     * This determines whether to use custom storage (S3 or GCP) for SIP packet captures when storage credentials are configured.
+     *
+     * When set to false, packet captures will be stored on Vapi's storage instead of your custom storage, even if you have custom storage credentials configured.
+     *
+     * Usage:
+     * - Set to false if you have custom storage configured but want to store packet captures on Vapi's storage for this assistant.
+     * - Set to true (or leave unset) to use your custom storage for packet captures when available.
+     *
+     * @default true
+     */
+    pcapUseCustomStorageEnabled?: boolean;
+    /**
+     * This determines whether the call logs are enabled. Defaults to true.
+     *
+     * @default true
+     */
+    loggingEnabled?: boolean;
+    /**
+     * This determines whether to use custom storage (S3 or GCP) for call logs when storage credentials are configured.
+     *
+     * When set to false, logs will be stored on Vapi's storage instead of your custom storage, even if you have custom storage credentials configured.
+     *
+     * Usage:
+     * - Set to false if you have custom storage configured but want to store logs on Vapi's storage for this assistant.
+     * - Set to true (or leave unset) to use your custom storage for logs when available.
+     *
+     * @default true
+     */
+    loggingUseCustomStorageEnabled?: boolean;
     /** This is the plan for `call.artifact.transcript`. To disable, set `transcriptPlan.enabled` to false. */
     transcriptPlan?: Vapi.TranscriptPlan;
     /**
@@ -65,6 +107,23 @@ export interface ArtifactPlan {
      * @default '/'
      */
     recordingPath?: string;
+    /**
+     * This is an array of structured output IDs to be calculated during the call.
+     * The outputs will be extracted and stored in `call.artifact.structuredOutputs` after the call is ended.
+     */
+    structuredOutputIds?: string[];
+    /**
+     * This is the path where the call logs will be uploaded. This is only used if you have provided S3 or GCP credentials on the Provider Credentials page in the Dashboard.
+     *
+     * If credential.s3PathPrefix or credential.bucketPlan.path is set, this will append to it.
+     *
+     * Usage:
+     * - If you want to upload the call logs to a specific path, set this to the path. Example: `/my-assistant-logs`.
+     * - If you want to upload the call logs to the root of the bucket, set this to `/`.
+     *
+     * @default '/'
+     */
+    loggingPath?: string;
 }
 
 export namespace ArtifactPlan {

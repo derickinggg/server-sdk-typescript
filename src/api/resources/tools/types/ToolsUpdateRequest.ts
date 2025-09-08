@@ -9,10 +9,8 @@ export type ToolsUpdateRequest =
     | Vapi.UpdateDtmfToolDto
     | Vapi.UpdateEndCallToolDto
     | Vapi.UpdateFunctionToolDto
-    | Vapi.UpdateGhlToolDto
-    | Vapi.UpdateMakeToolDto
     | Vapi.UpdateTransferCallToolDto
-    | Vapi.UpdateOutputToolDto
+    | Vapi.UpdateHandoffToolDto
     | Vapi.UpdateBashToolDto
     | Vapi.UpdateComputerToolDto
     | Vapi.UpdateTextEditorToolDto

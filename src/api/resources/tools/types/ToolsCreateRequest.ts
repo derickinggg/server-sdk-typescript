@@ -9,10 +9,8 @@ export type ToolsCreateRequest =
     | Vapi.CreateDtmfToolDto
     | Vapi.CreateEndCallToolDto
     | Vapi.CreateFunctionToolDto
-    | Vapi.CreateGhlToolDto
-    | Vapi.CreateMakeToolDto
     | Vapi.CreateTransferCallToolDto
-    | Vapi.CreateOutputToolDto
+    | Vapi.CreateHandoffToolDto
     | Vapi.CreateBashToolDto
     | Vapi.CreateComputerToolDto
     | Vapi.CreateTextEditorToolDto

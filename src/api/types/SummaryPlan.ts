@@ -23,6 +23,7 @@ export interface SummaryPlan {
      * Here are the template variables available:
      * - {{transcript}}: The transcript of the call from `call.artifact.transcript`
      * - {{systemPrompt}}: The system prompt of the call from `assistant.model.messages[type=system].content`
+     * - {{messages}}: The messages of the call from `assistant.model.messages`
      * - {{endedReason}}: The ended reason of the call from `call.endedReason`
      */
     messages?: Record<string, unknown>[];

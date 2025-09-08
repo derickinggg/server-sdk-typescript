@@ -11,7 +11,7 @@ export interface FallbackRimeAiVoice {
     provider: "rime-ai";
     /** This is the provider-specific ID that will be used. */
     voiceId: FallbackRimeAiVoice.VoiceId;
-    /** This is the model that will be used. Defaults to 'mistv2' when not specified. */
+    /** This is the model that will be used. Defaults to 'arcana' when not specified. */
     model?: FallbackRimeAiVoice.Model;
     /** This is the speed multiplier that will be used. */
     speed?: number;
@@ -127,12 +127,12 @@ export namespace FallbackRimeAiVoice {
           )
         | string;
     /**
-     * This is the model that will be used. Defaults to 'mistv2' when not specified.
+     * This is the model that will be used. Defaults to 'arcana' when not specified.
      */
-    export type Model = "mist" | "mistv2" | "arcana";
+    export type Model = "arcana" | "mistv2" | "mist";
     export const Model = {
-        Mist: "mist",
-        Mistv2: "mistv2",
         Arcana: "arcana",
+        Mistv2: "mistv2",
+        Mist: "mist",
     } as const;
 }

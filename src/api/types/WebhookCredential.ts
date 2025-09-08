@@ -6,7 +6,7 @@ import * as Vapi from "../index.js";
 
 export interface WebhookCredential {
     provider: "webhook";
-    /** This is the authentication plan. Supports OAuth2 RFC 6749 and HMAC signing. */
+    /** This is the authentication plan. Supports OAuth2 RFC 6749, HMAC signing, and Bearer authentication. */
     authenticationPlan: WebhookCredential.AuthenticationPlan;
     /** This is the unique identifier for the credential. */
     id: string;
@@ -24,7 +24,10 @@ export interface WebhookCredential {
 
 export namespace WebhookCredential {
     /**
-     * This is the authentication plan. Supports OAuth2 RFC 6749 and HMAC signing.
+     * This is the authentication plan. Supports OAuth2 RFC 6749, HMAC signing, and Bearer authentication.
      */
-    export type AuthenticationPlan = Vapi.OAuth2AuthenticationPlan | Vapi.HmacAuthenticationPlan;
+    export type AuthenticationPlan =
+        | Vapi.OAuth2AuthenticationPlan
+        | Vapi.HmacAuthenticationPlan
+        | Vapi.BearerAuthenticationPlan;
 }

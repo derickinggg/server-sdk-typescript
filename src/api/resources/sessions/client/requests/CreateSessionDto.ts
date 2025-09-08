@@ -22,6 +22,13 @@ export interface CreateSessionDto {
      * If assistantId is provided, this will be ignored.
      */
     assistant?: Vapi.CreateAssistantDto;
+    /** This is the squad ID associated with this session. Use this when referencing an existing squad. */
+    squadId?: string;
+    /**
+     * This is the squad configuration for this session. Use this when creating a new squad configuration.
+     * If squadId is provided, this will be ignored.
+     */
+    squad?: Vapi.CreateSquadDto;
     /** This is an array of chat messages in the session. */
     messages?: CreateSessionDto.Messages.Item[];
     /** This is the customer information associated with this session. */

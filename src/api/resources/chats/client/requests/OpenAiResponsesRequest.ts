@@ -20,6 +20,10 @@ export interface OpenAiResponsesRequest {
      * Only variable substitution is supported in chat contexts - other assistant properties cannot be overridden.
      */
     assistantOverrides?: Vapi.AssistantOverrides;
+    /** This is the squad that will be used for the chat. To use a transient squad, use `squad` instead. */
+    squadId?: string;
+    /** This is the squad that will be used for the chat. To use an existing squad, use `squadId` instead. */
+    squad?: Vapi.CreateSquadDto;
     /** This is the name of the chat. This is just for your own reference. */
     name?: string;
     /**
@@ -41,6 +45,13 @@ export interface OpenAiResponsesRequest {
      * Mutually exclusive with sessionId.
      */
     previousChatId?: string;
+    /**
+     * This is used to send the chat through a transport like SMS.
+     * If transport.phoneNumberId and transport.customer are provided, creates a new session.
+     * If sessionId is provided without transport fields, uses existing session data.
+     * Cannot specify both sessionId and transport fields (phoneNumberId/customer) together.
+     */
+    transport?: Vapi.TwilioSmsChatTransport;
 }
 
 export namespace OpenAiResponsesRequest {

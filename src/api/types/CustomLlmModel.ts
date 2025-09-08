@@ -21,8 +21,6 @@ export interface CustomLlmModel {
     toolIds?: string[];
     /** These are the options for the knowledge base. */
     knowledgeBase?: Vapi.CreateCustomKnowledgeBaseDto;
-    /** This is the ID of the knowledge base the model will use. */
-    knowledgeBaseId?: string;
     /** This is the provider that will be used for the model. Any service, including your own server, that is compatible with the OpenAI API can be used. */
     provider: "custom-llm";
     /**
@@ -37,6 +35,8 @@ export interface CustomLlmModel {
      * Default is `variable`.
      */
     metadataSendMode?: CustomLlmModel.MetadataSendMode;
+    /** Custom headers to send with requests. These headers can override default OpenAI headers except for Authorization (which should be specified using a custom-llm credential). */
+    headers?: Record<string, string>;
     /** These is the URL we'll use for the OpenAI client's `baseURL`. Ex. https://openrouter.ai/api/v1 */
     url: string;
     /** This sets the timeout for the connection to the custom provider without needing to stream any tokens back. Default is 20 seconds. */
@@ -83,6 +83,7 @@ export namespace CustomLlmModel {
             | Vapi.CreateGoogleCalendarCheckAvailabilityToolDto
             | Vapi.CreateGoogleCalendarCreateEventToolDto
             | Vapi.CreateGoogleSheetsRowAppendToolDto
+            | Vapi.CreateHandoffToolDto
             | Vapi.CreateMcpToolDto
             | Vapi.CreateQueryToolDto
             | Vapi.CreateSlackSendMessageToolDto

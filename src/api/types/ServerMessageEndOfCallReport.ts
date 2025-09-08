@@ -87,6 +87,7 @@ export namespace ServerMessageEndOfCallReport {
         | "pipeline-error-hume-voice-failed"
         | "pipeline-error-sesame-voice-failed"
         | "pipeline-error-inworld-voice-failed"
+        | "pipeline-error-minimax-voice-failed"
         | "pipeline-error-tavus-video-failed"
         | "call.in-progress.error-vapifault-openai-voice-failed"
         | "call.in-progress.error-vapifault-cartesia-voice-failed"
@@ -101,6 +102,7 @@ export namespace ServerMessageEndOfCallReport {
         | "call.in-progress.error-vapifault-hume-voice-failed"
         | "call.in-progress.error-vapifault-sesame-voice-failed"
         | "call.in-progress.error-vapifault-inworld-voice-failed"
+        | "call.in-progress.error-vapifault-minimax-voice-failed"
         | "call.in-progress.error-vapifault-tavus-video-failed"
         | "pipeline-error-vapi-llm-failed"
         | "pipeline-error-vapi-400-bad-request-validation-failed"
@@ -109,7 +111,7 @@ export namespace ServerMessageEndOfCallReport {
         | "pipeline-error-vapi-429-exceeded-quota"
         | "pipeline-error-vapi-500-server-error"
         | "pipeline-error-vapi-503-server-overloaded-error"
-        | "call.in-progress.error-vapifault-vapi-llm-failed"
+        | "call.in-progress.error-providerfault-vapi-llm-failed"
         | "call.in-progress.error-vapifault-vapi-400-bad-request-validation-failed"
         | "call.in-progress.error-vapifault-vapi-401-unauthorized"
         | "call.in-progress.error-vapifault-vapi-403-model-access-denied"
@@ -117,6 +119,7 @@ export namespace ServerMessageEndOfCallReport {
         | "call.in-progress.error-providerfault-vapi-500-server-error"
         | "call.in-progress.error-providerfault-vapi-503-server-overloaded-error"
         | "pipeline-error-deepgram-transcriber-failed"
+        | "pipeline-error-deepgram-transcriber-api-key-missing"
         | "call.in-progress.error-vapifault-deepgram-transcriber-failed"
         | "pipeline-error-gladia-transcriber-failed"
         | "call.in-progress.error-vapifault-gladia-transcriber-failed"
@@ -152,15 +155,15 @@ export namespace ServerMessageEndOfCallReport {
         | "call.in-progress.error-vapifault-worker-died"
         | "call.in-progress.twilio-completed-call"
         | "call.in-progress.sip-completed-call"
-        | "call.in-progress.error-vapifault-openai-llm-failed"
-        | "call.in-progress.error-vapifault-azure-openai-llm-failed"
-        | "call.in-progress.error-vapifault-groq-llm-failed"
-        | "call.in-progress.error-vapifault-google-llm-failed"
-        | "call.in-progress.error-vapifault-xai-llm-failed"
-        | "call.in-progress.error-vapifault-mistral-llm-failed"
-        | "call.in-progress.error-vapifault-inflection-ai-llm-failed"
-        | "call.in-progress.error-vapifault-cerebras-llm-failed"
-        | "call.in-progress.error-vapifault-deep-seek-llm-failed"
+        | "call.in-progress.error-providerfault-openai-llm-failed"
+        | "call.in-progress.error-providerfault-azure-openai-llm-failed"
+        | "call.in-progress.error-providerfault-groq-llm-failed"
+        | "call.in-progress.error-providerfault-google-llm-failed"
+        | "call.in-progress.error-providerfault-xai-llm-failed"
+        | "call.in-progress.error-providerfault-mistral-llm-failed"
+        | "call.in-progress.error-providerfault-inflection-ai-llm-failed"
+        | "call.in-progress.error-providerfault-cerebras-llm-failed"
+        | "call.in-progress.error-providerfault-deep-seek-llm-failed"
         | "call.in-progress.error-vapifault-chat-pipeline-failed-to-start"
         | "pipeline-error-openai-400-bad-request-validation-failed"
         | "pipeline-error-openai-401-unauthorized"
@@ -292,7 +295,7 @@ export namespace ServerMessageEndOfCallReport {
         | "pipeline-error-anthropic-500-server-error"
         | "pipeline-error-anthropic-503-server-overloaded-error"
         | "pipeline-error-anthropic-llm-failed"
-        | "call.in-progress.error-vapifault-anthropic-llm-failed"
+        | "call.in-progress.error-providerfault-anthropic-llm-failed"
         | "call.in-progress.error-vapifault-anthropic-400-bad-request-validation-failed"
         | "call.in-progress.error-vapifault-anthropic-401-unauthorized"
         | "call.in-progress.error-vapifault-anthropic-403-model-access-denied"
@@ -306,7 +309,7 @@ export namespace ServerMessageEndOfCallReport {
         | "pipeline-error-anthropic-bedrock-500-server-error"
         | "pipeline-error-anthropic-bedrock-503-server-overloaded-error"
         | "pipeline-error-anthropic-bedrock-llm-failed"
-        | "call.in-progress.error-vapifault-anthropic-bedrock-llm-failed"
+        | "call.in-progress.error-providerfault-anthropic-bedrock-llm-failed"
         | "call.in-progress.error-vapifault-anthropic-bedrock-400-bad-request-validation-failed"
         | "call.in-progress.error-vapifault-anthropic-bedrock-401-unauthorized"
         | "call.in-progress.error-vapifault-anthropic-bedrock-403-model-access-denied"
@@ -320,7 +323,7 @@ export namespace ServerMessageEndOfCallReport {
         | "pipeline-error-anthropic-vertex-500-server-error"
         | "pipeline-error-anthropic-vertex-503-server-overloaded-error"
         | "pipeline-error-anthropic-vertex-llm-failed"
-        | "call.in-progress.error-vapifault-anthropic-vertex-llm-failed"
+        | "call.in-progress.error-providerfault-anthropic-vertex-llm-failed"
         | "call.in-progress.error-vapifault-anthropic-vertex-400-bad-request-validation-failed"
         | "call.in-progress.error-vapifault-anthropic-vertex-401-unauthorized"
         | "call.in-progress.error-vapifault-anthropic-vertex-403-model-access-denied"
@@ -334,7 +337,7 @@ export namespace ServerMessageEndOfCallReport {
         | "pipeline-error-together-ai-500-server-error"
         | "pipeline-error-together-ai-503-server-overloaded-error"
         | "pipeline-error-together-ai-llm-failed"
-        | "call.in-progress.error-vapifault-together-ai-llm-failed"
+        | "call.in-progress.error-providerfault-together-ai-llm-failed"
         | "call.in-progress.error-vapifault-together-ai-400-bad-request-validation-failed"
         | "call.in-progress.error-vapifault-together-ai-401-unauthorized"
         | "call.in-progress.error-vapifault-together-ai-403-model-access-denied"
@@ -348,7 +351,7 @@ export namespace ServerMessageEndOfCallReport {
         | "pipeline-error-anyscale-500-server-error"
         | "pipeline-error-anyscale-503-server-overloaded-error"
         | "pipeline-error-anyscale-llm-failed"
-        | "call.in-progress.error-vapifault-anyscale-llm-failed"
+        | "call.in-progress.error-providerfault-anyscale-llm-failed"
         | "call.in-progress.error-vapifault-anyscale-400-bad-request-validation-failed"
         | "call.in-progress.error-vapifault-anyscale-401-unauthorized"
         | "call.in-progress.error-vapifault-anyscale-403-model-access-denied"
@@ -362,7 +365,7 @@ export namespace ServerMessageEndOfCallReport {
         | "pipeline-error-openrouter-500-server-error"
         | "pipeline-error-openrouter-503-server-overloaded-error"
         | "pipeline-error-openrouter-llm-failed"
-        | "call.in-progress.error-vapifault-openrouter-llm-failed"
+        | "call.in-progress.error-providerfault-openrouter-llm-failed"
         | "call.in-progress.error-vapifault-openrouter-400-bad-request-validation-failed"
         | "call.in-progress.error-vapifault-openrouter-401-unauthorized"
         | "call.in-progress.error-vapifault-openrouter-403-model-access-denied"
@@ -376,7 +379,7 @@ export namespace ServerMessageEndOfCallReport {
         | "pipeline-error-perplexity-ai-500-server-error"
         | "pipeline-error-perplexity-ai-503-server-overloaded-error"
         | "pipeline-error-perplexity-ai-llm-failed"
-        | "call.in-progress.error-vapifault-perplexity-ai-llm-failed"
+        | "call.in-progress.error-providerfault-perplexity-ai-llm-failed"
         | "call.in-progress.error-vapifault-perplexity-ai-400-bad-request-validation-failed"
         | "call.in-progress.error-vapifault-perplexity-ai-401-unauthorized"
         | "call.in-progress.error-vapifault-perplexity-ai-403-model-access-denied"
@@ -390,7 +393,7 @@ export namespace ServerMessageEndOfCallReport {
         | "pipeline-error-deepinfra-500-server-error"
         | "pipeline-error-deepinfra-503-server-overloaded-error"
         | "pipeline-error-deepinfra-llm-failed"
-        | "call.in-progress.error-vapifault-deepinfra-llm-failed"
+        | "call.in-progress.error-providerfault-deepinfra-llm-failed"
         | "call.in-progress.error-vapifault-deepinfra-400-bad-request-validation-failed"
         | "call.in-progress.error-vapifault-deepinfra-401-unauthorized"
         | "call.in-progress.error-vapifault-deepinfra-403-model-access-denied"
@@ -404,7 +407,7 @@ export namespace ServerMessageEndOfCallReport {
         | "pipeline-error-runpod-500-server-error"
         | "pipeline-error-runpod-503-server-overloaded-error"
         | "pipeline-error-runpod-llm-failed"
-        | "call.in-progress.error-vapifault-runpod-llm-failed"
+        | "call.in-progress.error-providerfault-runpod-llm-failed"
         | "call.in-progress.error-vapifault-runpod-400-bad-request-validation-failed"
         | "call.in-progress.error-vapifault-runpod-401-unauthorized"
         | "call.in-progress.error-vapifault-runpod-403-model-access-denied"
@@ -418,7 +421,7 @@ export namespace ServerMessageEndOfCallReport {
         | "pipeline-error-custom-llm-500-server-error"
         | "pipeline-error-custom-llm-503-server-overloaded-error"
         | "pipeline-error-custom-llm-llm-failed"
-        | "call.in-progress.error-vapifault-custom-llm-llm-failed"
+        | "call.in-progress.error-providerfault-custom-llm-llm-failed"
         | "call.in-progress.error-vapifault-custom-llm-400-bad-request-validation-failed"
         | "call.in-progress.error-vapifault-custom-llm-401-unauthorized"
         | "call.in-progress.error-vapifault-custom-llm-403-model-access-denied"
@@ -529,6 +532,12 @@ export namespace ServerMessageEndOfCallReport {
         | "call.in-progress.error-vapifault-google-transcriber-failed"
         | "pipeline-error-openai-transcriber-failed"
         | "call.in-progress.error-vapifault-openai-transcriber-failed"
+        | "call.in-progress.error-warm-transfer-max-duration"
+        | "call.in-progress.error-warm-transfer-assistant-cancelled"
+        | "call.in-progress.error-warm-transfer-silence-timeout"
+        | "call.in-progress.error-warm-transfer-microphone-timeout"
+        | "call.in-progress.error-warm-transfer-hang-timeout"
+        | "call.in-progress.error-warm-transfer-idle-timeout"
         | "assistant-ended-call"
         | "assistant-said-end-call-phrase"
         | "assistant-ended-call-with-hangup-task"
@@ -539,6 +548,7 @@ export namespace ServerMessageEndOfCallReport {
         | "call.in-progress.error-transfer-failed"
         | "customer-busy"
         | "customer-ended-call"
+        | "customer-ended-call-after-warm-transfer-attempt"
         | "customer-did-not-answer"
         | "customer-did-not-give-microphone-permission"
         | "exceeded-max-duration"
@@ -554,6 +564,8 @@ export namespace ServerMessageEndOfCallReport {
         | "call.in-progress.error-sip-outbound-call-failed-to-connect"
         | "call.ringing.hook-executed-say"
         | "call.ringing.hook-executed-transfer"
+        | "call.ending.hook-executed-say"
+        | "call.ending.hook-executed-transfer"
         | "call.ringing.sip-inbound-caller-hungup-before-call-connect"
         | "call.ringing.error-sip-inbound-call-failed-to-connect"
         | "twilio-failed-to-connect-call"
@@ -599,6 +611,7 @@ export namespace ServerMessageEndOfCallReport {
         PipelineErrorHumeVoiceFailed: "pipeline-error-hume-voice-failed",
         PipelineErrorSesameVoiceFailed: "pipeline-error-sesame-voice-failed",
         PipelineErrorInworldVoiceFailed: "pipeline-error-inworld-voice-failed",
+        PipelineErrorMinimaxVoiceFailed: "pipeline-error-minimax-voice-failed",
         PipelineErrorTavusVideoFailed: "pipeline-error-tavus-video-failed",
         CallInProgressErrorVapifaultOpenaiVoiceFailed: "call.in-progress.error-vapifault-openai-voice-failed",
         CallInProgressErrorVapifaultCartesiaVoiceFailed: "call.in-progress.error-vapifault-cartesia-voice-failed",
@@ -613,6 +626,7 @@ export namespace ServerMessageEndOfCallReport {
         CallInProgressErrorVapifaultHumeVoiceFailed: "call.in-progress.error-vapifault-hume-voice-failed",
         CallInProgressErrorVapifaultSesameVoiceFailed: "call.in-progress.error-vapifault-sesame-voice-failed",
         CallInProgressErrorVapifaultInworldVoiceFailed: "call.in-progress.error-vapifault-inworld-voice-failed",
+        CallInProgressErrorVapifaultMinimaxVoiceFailed: "call.in-progress.error-vapifault-minimax-voice-failed",
         CallInProgressErrorVapifaultTavusVideoFailed: "call.in-progress.error-vapifault-tavus-video-failed",
         PipelineErrorVapiLlmFailed: "pipeline-error-vapi-llm-failed",
         PipelineErrorVapi400BadRequestValidationFailed: "pipeline-error-vapi-400-bad-request-validation-failed",
@@ -621,7 +635,7 @@ export namespace ServerMessageEndOfCallReport {
         PipelineErrorVapi429ExceededQuota: "pipeline-error-vapi-429-exceeded-quota",
         PipelineErrorVapi500ServerError: "pipeline-error-vapi-500-server-error",
         PipelineErrorVapi503ServerOverloadedError: "pipeline-error-vapi-503-server-overloaded-error",
-        CallInProgressErrorVapifaultVapiLlmFailed: "call.in-progress.error-vapifault-vapi-llm-failed",
+        CallInProgressErrorProviderfaultVapiLlmFailed: "call.in-progress.error-providerfault-vapi-llm-failed",
         CallInProgressErrorVapifaultVapi400BadRequestValidationFailed:
             "call.in-progress.error-vapifault-vapi-400-bad-request-validation-failed",
         CallInProgressErrorVapifaultVapi401Unauthorized: "call.in-progress.error-vapifault-vapi-401-unauthorized",
@@ -633,6 +647,7 @@ export namespace ServerMessageEndOfCallReport {
         CallInProgressErrorProviderfaultVapi503ServerOverloadedError:
             "call.in-progress.error-providerfault-vapi-503-server-overloaded-error",
         PipelineErrorDeepgramTranscriberFailed: "pipeline-error-deepgram-transcriber-failed",
+        PipelineErrorDeepgramTranscriberApiKeyMissing: "pipeline-error-deepgram-transcriber-api-key-missing",
         CallInProgressErrorVapifaultDeepgramTranscriberFailed:
             "call.in-progress.error-vapifault-deepgram-transcriber-failed",
         PipelineErrorGladiaTranscriberFailed: "pipeline-error-gladia-transcriber-failed",
@@ -687,15 +702,17 @@ export namespace ServerMessageEndOfCallReport {
         CallInProgressErrorVapifaultWorkerDied: "call.in-progress.error-vapifault-worker-died",
         CallInProgressTwilioCompletedCall: "call.in-progress.twilio-completed-call",
         CallInProgressSipCompletedCall: "call.in-progress.sip-completed-call",
-        CallInProgressErrorVapifaultOpenaiLlmFailed: "call.in-progress.error-vapifault-openai-llm-failed",
-        CallInProgressErrorVapifaultAzureOpenaiLlmFailed: "call.in-progress.error-vapifault-azure-openai-llm-failed",
-        CallInProgressErrorVapifaultGroqLlmFailed: "call.in-progress.error-vapifault-groq-llm-failed",
-        CallInProgressErrorVapifaultGoogleLlmFailed: "call.in-progress.error-vapifault-google-llm-failed",
-        CallInProgressErrorVapifaultXaiLlmFailed: "call.in-progress.error-vapifault-xai-llm-failed",
-        CallInProgressErrorVapifaultMistralLlmFailed: "call.in-progress.error-vapifault-mistral-llm-failed",
-        CallInProgressErrorVapifaultInflectionAiLlmFailed: "call.in-progress.error-vapifault-inflection-ai-llm-failed",
-        CallInProgressErrorVapifaultCerebrasLlmFailed: "call.in-progress.error-vapifault-cerebras-llm-failed",
-        CallInProgressErrorVapifaultDeepSeekLlmFailed: "call.in-progress.error-vapifault-deep-seek-llm-failed",
+        CallInProgressErrorProviderfaultOpenaiLlmFailed: "call.in-progress.error-providerfault-openai-llm-failed",
+        CallInProgressErrorProviderfaultAzureOpenaiLlmFailed:
+            "call.in-progress.error-providerfault-azure-openai-llm-failed",
+        CallInProgressErrorProviderfaultGroqLlmFailed: "call.in-progress.error-providerfault-groq-llm-failed",
+        CallInProgressErrorProviderfaultGoogleLlmFailed: "call.in-progress.error-providerfault-google-llm-failed",
+        CallInProgressErrorProviderfaultXaiLlmFailed: "call.in-progress.error-providerfault-xai-llm-failed",
+        CallInProgressErrorProviderfaultMistralLlmFailed: "call.in-progress.error-providerfault-mistral-llm-failed",
+        CallInProgressErrorProviderfaultInflectionAiLlmFailed:
+            "call.in-progress.error-providerfault-inflection-ai-llm-failed",
+        CallInProgressErrorProviderfaultCerebrasLlmFailed: "call.in-progress.error-providerfault-cerebras-llm-failed",
+        CallInProgressErrorProviderfaultDeepSeekLlmFailed: "call.in-progress.error-providerfault-deep-seek-llm-failed",
         CallInProgressErrorVapifaultChatPipelineFailedToStart:
             "call.in-progress.error-vapifault-chat-pipeline-failed-to-start",
         PipelineErrorOpenai400BadRequestValidationFailed: "pipeline-error-openai-400-bad-request-validation-failed",
@@ -881,7 +898,7 @@ export namespace ServerMessageEndOfCallReport {
         PipelineErrorAnthropic500ServerError: "pipeline-error-anthropic-500-server-error",
         PipelineErrorAnthropic503ServerOverloadedError: "pipeline-error-anthropic-503-server-overloaded-error",
         PipelineErrorAnthropicLlmFailed: "pipeline-error-anthropic-llm-failed",
-        CallInProgressErrorVapifaultAnthropicLlmFailed: "call.in-progress.error-vapifault-anthropic-llm-failed",
+        CallInProgressErrorProviderfaultAnthropicLlmFailed: "call.in-progress.error-providerfault-anthropic-llm-failed",
         CallInProgressErrorVapifaultAnthropic400BadRequestValidationFailed:
             "call.in-progress.error-vapifault-anthropic-400-bad-request-validation-failed",
         CallInProgressErrorVapifaultAnthropic401Unauthorized:
@@ -903,8 +920,8 @@ export namespace ServerMessageEndOfCallReport {
         PipelineErrorAnthropicBedrock503ServerOverloadedError:
             "pipeline-error-anthropic-bedrock-503-server-overloaded-error",
         PipelineErrorAnthropicBedrockLlmFailed: "pipeline-error-anthropic-bedrock-llm-failed",
-        CallInProgressErrorVapifaultAnthropicBedrockLlmFailed:
-            "call.in-progress.error-vapifault-anthropic-bedrock-llm-failed",
+        CallInProgressErrorProviderfaultAnthropicBedrockLlmFailed:
+            "call.in-progress.error-providerfault-anthropic-bedrock-llm-failed",
         CallInProgressErrorVapifaultAnthropicBedrock400BadRequestValidationFailed:
             "call.in-progress.error-vapifault-anthropic-bedrock-400-bad-request-validation-failed",
         CallInProgressErrorVapifaultAnthropicBedrock401Unauthorized:
@@ -926,8 +943,8 @@ export namespace ServerMessageEndOfCallReport {
         PipelineErrorAnthropicVertex503ServerOverloadedError:
             "pipeline-error-anthropic-vertex-503-server-overloaded-error",
         PipelineErrorAnthropicVertexLlmFailed: "pipeline-error-anthropic-vertex-llm-failed",
-        CallInProgressErrorVapifaultAnthropicVertexLlmFailed:
-            "call.in-progress.error-vapifault-anthropic-vertex-llm-failed",
+        CallInProgressErrorProviderfaultAnthropicVertexLlmFailed:
+            "call.in-progress.error-providerfault-anthropic-vertex-llm-failed",
         CallInProgressErrorVapifaultAnthropicVertex400BadRequestValidationFailed:
             "call.in-progress.error-vapifault-anthropic-vertex-400-bad-request-validation-failed",
         CallInProgressErrorVapifaultAnthropicVertex401Unauthorized:
@@ -948,7 +965,8 @@ export namespace ServerMessageEndOfCallReport {
         PipelineErrorTogetherAi500ServerError: "pipeline-error-together-ai-500-server-error",
         PipelineErrorTogetherAi503ServerOverloadedError: "pipeline-error-together-ai-503-server-overloaded-error",
         PipelineErrorTogetherAiLlmFailed: "pipeline-error-together-ai-llm-failed",
-        CallInProgressErrorVapifaultTogetherAiLlmFailed: "call.in-progress.error-vapifault-together-ai-llm-failed",
+        CallInProgressErrorProviderfaultTogetherAiLlmFailed:
+            "call.in-progress.error-providerfault-together-ai-llm-failed",
         CallInProgressErrorVapifaultTogetherAi400BadRequestValidationFailed:
             "call.in-progress.error-vapifault-together-ai-400-bad-request-validation-failed",
         CallInProgressErrorVapifaultTogetherAi401Unauthorized:
@@ -968,7 +986,7 @@ export namespace ServerMessageEndOfCallReport {
         PipelineErrorAnyscale500ServerError: "pipeline-error-anyscale-500-server-error",
         PipelineErrorAnyscale503ServerOverloadedError: "pipeline-error-anyscale-503-server-overloaded-error",
         PipelineErrorAnyscaleLlmFailed: "pipeline-error-anyscale-llm-failed",
-        CallInProgressErrorVapifaultAnyscaleLlmFailed: "call.in-progress.error-vapifault-anyscale-llm-failed",
+        CallInProgressErrorProviderfaultAnyscaleLlmFailed: "call.in-progress.error-providerfault-anyscale-llm-failed",
         CallInProgressErrorVapifaultAnyscale400BadRequestValidationFailed:
             "call.in-progress.error-vapifault-anyscale-400-bad-request-validation-failed",
         CallInProgressErrorVapifaultAnyscale401Unauthorized:
@@ -989,7 +1007,8 @@ export namespace ServerMessageEndOfCallReport {
         PipelineErrorOpenrouter500ServerError: "pipeline-error-openrouter-500-server-error",
         PipelineErrorOpenrouter503ServerOverloadedError: "pipeline-error-openrouter-503-server-overloaded-error",
         PipelineErrorOpenrouterLlmFailed: "pipeline-error-openrouter-llm-failed",
-        CallInProgressErrorVapifaultOpenrouterLlmFailed: "call.in-progress.error-vapifault-openrouter-llm-failed",
+        CallInProgressErrorProviderfaultOpenrouterLlmFailed:
+            "call.in-progress.error-providerfault-openrouter-llm-failed",
         CallInProgressErrorVapifaultOpenrouter400BadRequestValidationFailed:
             "call.in-progress.error-vapifault-openrouter-400-bad-request-validation-failed",
         CallInProgressErrorVapifaultOpenrouter401Unauthorized:
@@ -1010,7 +1029,8 @@ export namespace ServerMessageEndOfCallReport {
         PipelineErrorPerplexityAi500ServerError: "pipeline-error-perplexity-ai-500-server-error",
         PipelineErrorPerplexityAi503ServerOverloadedError: "pipeline-error-perplexity-ai-503-server-overloaded-error",
         PipelineErrorPerplexityAiLlmFailed: "pipeline-error-perplexity-ai-llm-failed",
-        CallInProgressErrorVapifaultPerplexityAiLlmFailed: "call.in-progress.error-vapifault-perplexity-ai-llm-failed",
+        CallInProgressErrorProviderfaultPerplexityAiLlmFailed:
+            "call.in-progress.error-providerfault-perplexity-ai-llm-failed",
         CallInProgressErrorVapifaultPerplexityAi400BadRequestValidationFailed:
             "call.in-progress.error-vapifault-perplexity-ai-400-bad-request-validation-failed",
         CallInProgressErrorVapifaultPerplexityAi401Unauthorized:
@@ -1031,7 +1051,7 @@ export namespace ServerMessageEndOfCallReport {
         PipelineErrorDeepinfra500ServerError: "pipeline-error-deepinfra-500-server-error",
         PipelineErrorDeepinfra503ServerOverloadedError: "pipeline-error-deepinfra-503-server-overloaded-error",
         PipelineErrorDeepinfraLlmFailed: "pipeline-error-deepinfra-llm-failed",
-        CallInProgressErrorVapifaultDeepinfraLlmFailed: "call.in-progress.error-vapifault-deepinfra-llm-failed",
+        CallInProgressErrorProviderfaultDeepinfraLlmFailed: "call.in-progress.error-providerfault-deepinfra-llm-failed",
         CallInProgressErrorVapifaultDeepinfra400BadRequestValidationFailed:
             "call.in-progress.error-vapifault-deepinfra-400-bad-request-validation-failed",
         CallInProgressErrorVapifaultDeepinfra401Unauthorized:
@@ -1051,7 +1071,7 @@ export namespace ServerMessageEndOfCallReport {
         PipelineErrorRunpod500ServerError: "pipeline-error-runpod-500-server-error",
         PipelineErrorRunpod503ServerOverloadedError: "pipeline-error-runpod-503-server-overloaded-error",
         PipelineErrorRunpodLlmFailed: "pipeline-error-runpod-llm-failed",
-        CallInProgressErrorVapifaultRunpodLlmFailed: "call.in-progress.error-vapifault-runpod-llm-failed",
+        CallInProgressErrorProviderfaultRunpodLlmFailed: "call.in-progress.error-providerfault-runpod-llm-failed",
         CallInProgressErrorVapifaultRunpod400BadRequestValidationFailed:
             "call.in-progress.error-vapifault-runpod-400-bad-request-validation-failed",
         CallInProgressErrorVapifaultRunpod401Unauthorized: "call.in-progress.error-vapifault-runpod-401-unauthorized",
@@ -1071,7 +1091,8 @@ export namespace ServerMessageEndOfCallReport {
         PipelineErrorCustomLlm500ServerError: "pipeline-error-custom-llm-500-server-error",
         PipelineErrorCustomLlm503ServerOverloadedError: "pipeline-error-custom-llm-503-server-overloaded-error",
         PipelineErrorCustomLlmLlmFailed: "pipeline-error-custom-llm-llm-failed",
-        CallInProgressErrorVapifaultCustomLlmLlmFailed: "call.in-progress.error-vapifault-custom-llm-llm-failed",
+        CallInProgressErrorProviderfaultCustomLlmLlmFailed:
+            "call.in-progress.error-providerfault-custom-llm-llm-failed",
         CallInProgressErrorVapifaultCustomLlm400BadRequestValidationFailed:
             "call.in-progress.error-vapifault-custom-llm-400-bad-request-validation-failed",
         CallInProgressErrorVapifaultCustomLlm401Unauthorized:
@@ -1246,6 +1267,12 @@ export namespace ServerMessageEndOfCallReport {
         PipelineErrorOpenaiTranscriberFailed: "pipeline-error-openai-transcriber-failed",
         CallInProgressErrorVapifaultOpenaiTranscriberFailed:
             "call.in-progress.error-vapifault-openai-transcriber-failed",
+        CallInProgressErrorWarmTransferMaxDuration: "call.in-progress.error-warm-transfer-max-duration",
+        CallInProgressErrorWarmTransferAssistantCancelled: "call.in-progress.error-warm-transfer-assistant-cancelled",
+        CallInProgressErrorWarmTransferSilenceTimeout: "call.in-progress.error-warm-transfer-silence-timeout",
+        CallInProgressErrorWarmTransferMicrophoneTimeout: "call.in-progress.error-warm-transfer-microphone-timeout",
+        CallInProgressErrorWarmTransferHangTimeout: "call.in-progress.error-warm-transfer-hang-timeout",
+        CallInProgressErrorWarmTransferIdleTimeout: "call.in-progress.error-warm-transfer-idle-timeout",
         AssistantEndedCall: "assistant-ended-call",
         AssistantSaidEndCallPhrase: "assistant-said-end-call-phrase",
         AssistantEndedCallWithHangupTask: "assistant-ended-call-with-hangup-task",
@@ -1257,6 +1284,7 @@ export namespace ServerMessageEndOfCallReport {
         CallInProgressErrorTransferFailed: "call.in-progress.error-transfer-failed",
         CustomerBusy: "customer-busy",
         CustomerEndedCall: "customer-ended-call",
+        CustomerEndedCallAfterWarmTransferAttempt: "customer-ended-call-after-warm-transfer-attempt",
         CustomerDidNotAnswer: "customer-did-not-answer",
         CustomerDidNotGiveMicrophonePermission: "customer-did-not-give-microphone-permission",
         ExceededMaxDuration: "exceeded-max-duration",
@@ -1276,6 +1304,8 @@ export namespace ServerMessageEndOfCallReport {
         CallInProgressErrorSipOutboundCallFailedToConnect: "call.in-progress.error-sip-outbound-call-failed-to-connect",
         CallRingingHookExecutedSay: "call.ringing.hook-executed-say",
         CallRingingHookExecutedTransfer: "call.ringing.hook-executed-transfer",
+        CallEndingHookExecutedSay: "call.ending.hook-executed-say",
+        CallEndingHookExecutedTransfer: "call.ending.hook-executed-transfer",
         CallRingingSipInboundCallerHungupBeforeCallConnect:
             "call.ringing.sip-inbound-caller-hungup-before-call-connect",
         CallRingingErrorSipInboundCallFailedToConnect: "call.ringing.error-sip-inbound-call-failed-to-connect",

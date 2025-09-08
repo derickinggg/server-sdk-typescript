@@ -21,8 +21,6 @@ export interface GroqModel {
     toolIds?: string[];
     /** These are the options for the knowledge base. */
     knowledgeBase?: Vapi.CreateCustomKnowledgeBaseDto;
-    /** This is the ID of the knowledge base the model will use. */
-    knowledgeBaseId?: string;
     /** This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b */
     model: GroqModel.Model;
     provider: "groq";
@@ -66,6 +64,7 @@ export namespace GroqModel {
             | Vapi.CreateGoogleCalendarCheckAvailabilityToolDto
             | Vapi.CreateGoogleCalendarCreateEventToolDto
             | Vapi.CreateGoogleSheetsRowAppendToolDto
+            | Vapi.CreateHandoffToolDto
             | Vapi.CreateMcpToolDto
             | Vapi.CreateQueryToolDto
             | Vapi.CreateSlackSendMessageToolDto
@@ -78,6 +77,8 @@ export namespace GroqModel {
      * This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b
      */
     export type Model =
+        | "openai/gpt-oss-20b"
+        | "openai/gpt-oss-120b"
         | "deepseek-r1-distill-llama-70b"
         | "llama-3.3-70b-versatile"
         | "llama-3.1-405b-reasoning"
@@ -85,12 +86,15 @@ export namespace GroqModel {
         | "llama3-8b-8192"
         | "llama3-70b-8192"
         | "gemma2-9b-it"
+        | "moonshotai/kimi-k2-instruct-0905"
         | "meta-llama/llama-4-maverick-17b-128e-instruct"
         | "meta-llama/llama-4-scout-17b-16e-instruct"
         | "mistral-saba-24b"
         | "compound-beta"
         | "compound-beta-mini";
     export const Model = {
+        OpenaiGptOss20B: "openai/gpt-oss-20b",
+        OpenaiGptOss120B: "openai/gpt-oss-120b",
         DeepseekR1DistillLlama70B: "deepseek-r1-distill-llama-70b",
         Llama3370BVersatile: "llama-3.3-70b-versatile",
         Llama31405BReasoning: "llama-3.1-405b-reasoning",
@@ -98,6 +102,7 @@ export namespace GroqModel {
         Llama38B8192: "llama3-8b-8192",
         Llama370B8192: "llama3-70b-8192",
         Gemma29BIt: "gemma2-9b-it",
+        MoonshotaiKimiK2Instruct0905: "moonshotai/kimi-k2-instruct-0905",
         MetaLlamaLlama4Maverick17B128EInstruct: "meta-llama/llama-4-maverick-17b-128e-instruct",
         MetaLlamaLlama4Scout17B16EInstruct: "meta-llama/llama-4-scout-17b-16e-instruct",
         MistralSaba24B: "mistral-saba-24b",

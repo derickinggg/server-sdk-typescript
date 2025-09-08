@@ -23,10 +23,19 @@ export interface Artifact {
     transcript?: string;
     /** This is the packet capture url for the call. This is only available for `phone` type calls where phone number's provider is `vapi` or `byo-phone-number`. */
     pcapUrl?: string;
+    /** This is the url for the call logs. This includes all logging output during the call for debugging purposes. */
+    logUrl?: string;
     /** This is the history of workflow nodes that were executed during the call. */
     nodes?: Vapi.NodeArtifact[];
     /** These are the variable values at the end of the workflow execution. */
     variableValues?: Record<string, unknown>;
+    /** This is the performance metrics for the call. It contains the turn latency, broken down by component. */
+    performanceMetrics?: Vapi.PerformanceMetrics;
+    /**
+     * These are the structured outputs that will be extracted from the call.
+     * To enable, set `assistant.artifactPlan.structuredOutputIds` with the IDs of the structured outputs you want to extract.
+     */
+    structuredOutputs?: Record<string, unknown>;
 }
 
 export namespace Artifact {

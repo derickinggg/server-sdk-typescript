@@ -7,6 +7,7 @@ import * as Vapi from "../index.js";
 export interface CreateTestSuiteTestChatDto {
     /** These are the scorers used to evaluate the test. */
     scorers: Vapi.TestSuiteTestScorerAi[];
+    /** This is the type of the test, which must be chat. */
     type: "chat";
     /** This is the script to be used for the chat test. */
     script: string;

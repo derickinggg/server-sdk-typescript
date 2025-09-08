@@ -21,4 +21,10 @@ export interface AnalysisCostBreakdown {
     successEvaluationPromptTokens?: number;
     /** This is the number of completion tokens used to evaluate if the call was successful. */
     successEvaluationCompletionTokens?: number;
+    /** This is the cost to evaluate structuredOutputs from the call. */
+    structuredOutput?: number;
+    /** This is the number of prompt tokens used to evaluate structuredOutputs from the call. */
+    structuredOutputPromptTokens?: number;
+    /** This is the number of completion tokens used to evaluate structuredOutputs from the call. */
+    structuredOutputCompletionTokens?: number;
 }

@@ -96,15 +96,24 @@ export interface Subscription {
     pciEnabled?: boolean;
     /** This is the ID for the Common Paper agreement outlining the PCI contract. */
     pciCommonPaperAgreementId?: string;
+    /** This is the call retention days for the subscription. */
+    callRetentionDays?: number;
+    /** This is the chat retention days for the subscription. */
+    chatRetentionDays?: number;
+    /** This is the minutes_included reset frequency for the subscription. */
+    minutesIncludedResetFrequency?: Subscription.MinutesIncludedResetFrequency;
+    /** This is the Role Based Access Control (RBAC) enabled flag for the subscription. */
+    rbacEnabled?: boolean;
+    /** This is the platform fee for the subscription. */
+    platformFee?: number;
 }
 
 export namespace Subscription {
     /**
      * This is the type / tier of the subscription.
      */
-    export type Type = "trial" | "pay-as-you-go" | "enterprise" | "agency" | "startup" | "growth" | "scale";
+    export type Type = "pay-as-you-go" | "enterprise" | "agency" | "startup" | "growth" | "scale";
     export const Type = {
-        Trial: "trial",
         PayAsYouGo: "pay-as-you-go",
         Enterprise: "enterprise",
         Agency: "agency",
@@ -120,5 +129,13 @@ export namespace Subscription {
     export const Status = {
         Active: "active",
         Frozen: "frozen",
+    } as const;
+    /**
+     * This is the minutes_included reset frequency for the subscription.
+     */
+    export type MinutesIncludedResetFrequency = "monthly" | "annually";
+    export const MinutesIncludedResetFrequency = {
+        Monthly: "monthly",
+        Annually: "annually",
     } as const;
 }

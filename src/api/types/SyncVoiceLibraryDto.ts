@@ -27,7 +27,8 @@ export namespace SyncVoiceLibraryDto {
             | "smallest-ai"
             | "tavus"
             | "sesame"
-            | "inworld";
+            | "inworld"
+            | "minimax";
         export const Item = {
             Vapi: "vapi",
             ElevenLabs: "11labs",
@@ -45,6 +46,7 @@ export namespace SyncVoiceLibraryDto {
             Tavus: "tavus",
             Sesame: "sesame",
             Inworld: "inworld",
+            Minimax: "minimax",
         } as const;
     }
 }

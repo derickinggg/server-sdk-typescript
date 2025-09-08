@@ -7,13 +7,9 @@
  *     {}
  */
 export interface CallsListRequest {
-    /**
-     * This is the unique identifier for the call.
-     */
+    /** This is the unique identifier for the call. */
     id?: string | null;
-    /**
-     * This will return calls with the specified assistantId.
-     */
+    /** This will return calls with the specified assistantId. */
     assistantId?: string | null;
     /**
      * This is the phone number that will be used for the call. To use a transient number, use `phoneNumber` instead.
@@ -21,40 +17,22 @@ export interface CallsListRequest {
      * Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type.
      */
     phoneNumberId?: string | null;
-    /**
-     * This is the maximum number of items to return. Defaults to 100.
-     */
+    /** This is the maximum number of items to return. Defaults to 100. */
     limit?: number | null;
-    /**
-     * This will return items where the createdAt is greater than the specified value.
-     */
+    /** This will return items where the createdAt is greater than the specified value. */
     createdAtGt?: string | null;
-    /**
-     * This will return items where the createdAt is less than the specified value.
-     */
+    /** This will return items where the createdAt is less than the specified value. */
     createdAtLt?: string | null;
-    /**
-     * This will return items where the createdAt is greater than or equal to the specified value.
-     */
+    /** This will return items where the createdAt is greater than or equal to the specified value. */
     createdAtGe?: string | null;
-    /**
-     * This will return items where the createdAt is less than or equal to the specified value.
-     */
+    /** This will return items where the createdAt is less than or equal to the specified value. */
     createdAtLe?: string | null;
-    /**
-     * This will return items where the updatedAt is greater than the specified value.
-     */
+    /** This will return items where the updatedAt is greater than the specified value. */
     updatedAtGt?: string | null;
-    /**
-     * This will return items where the updatedAt is less than the specified value.
-     */
+    /** This will return items where the updatedAt is less than the specified value. */
     updatedAtLt?: string | null;
-    /**
-     * This will return items where the updatedAt is greater than or equal to the specified value.
-     */
+    /** This will return items where the updatedAt is greater than or equal to the specified value. */
     updatedAtGe?: string | null;
-    /**
-     * This will return items where the updatedAt is less than or equal to the specified value.
-     */
+    /** This will return items where the updatedAt is less than or equal to the specified value. */
     updatedAtLe?: string | null;
 }

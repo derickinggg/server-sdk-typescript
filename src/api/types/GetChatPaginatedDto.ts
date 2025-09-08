@@ -5,6 +5,8 @@
 export interface GetChatPaginatedDto {
     /** This is the unique identifier for the assistant that will be used for the chat. */
     assistantId?: string;
+    /** This is the unique identifier for the squad that will be used for the chat. */
+    squadId?: string;
     /** This is the unique identifier for the workflow that will be used for the chat. */
     workflowId?: string;
     /** This is the unique identifier for the session that will be used for the chat. */

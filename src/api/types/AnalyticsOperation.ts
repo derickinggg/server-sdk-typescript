@@ -34,6 +34,9 @@ export namespace AnalyticsOperation {
         | "costBreakdown.stt"
         | "costBreakdown.tts"
         | "costBreakdown.vapi"
+        | "costBreakdown.transport"
+        | "costBreakdown.analysisBreakdown.summary"
+        | "costBreakdown.transcriber"
         | "costBreakdown.ttsCharacters"
         | "costBreakdown.llmPromptTokens"
         | "costBreakdown.llmCompletionTokens"
@@ -47,6 +50,9 @@ export namespace AnalyticsOperation {
         CostBreakdownStt: "costBreakdown.stt",
         CostBreakdownTts: "costBreakdown.tts",
         CostBreakdownVapi: "costBreakdown.vapi",
+        CostBreakdownTransport: "costBreakdown.transport",
+        CostBreakdownAnalysisBreakdownSummary: "costBreakdown.analysisBreakdown.summary",
+        CostBreakdownTranscriber: "costBreakdown.transcriber",
         CostBreakdownTtsCharacters: "costBreakdown.ttsCharacters",
         CostBreakdownLlmPromptTokens: "costBreakdown.llmPromptTokens",
         CostBreakdownLlmCompletionTokens: "costBreakdown.llmCompletionTokens",

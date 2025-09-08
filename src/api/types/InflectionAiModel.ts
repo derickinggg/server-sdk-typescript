@@ -21,8 +21,6 @@ export interface InflectionAiModel {
     toolIds?: string[];
     /** These are the options for the knowledge base. */
     knowledgeBase?: Vapi.CreateCustomKnowledgeBaseDto;
-    /** This is the ID of the knowledge base the model will use. */
-    knowledgeBaseId?: string;
     /** This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b */
     model: "inflection_3_pi";
     provider: "inflection-ai";
@@ -66,6 +64,7 @@ export namespace InflectionAiModel {
             | Vapi.CreateGoogleCalendarCheckAvailabilityToolDto
             | Vapi.CreateGoogleCalendarCreateEventToolDto
             | Vapi.CreateGoogleSheetsRowAppendToolDto
+            | Vapi.CreateHandoffToolDto
             | Vapi.CreateMcpToolDto
             | Vapi.CreateQueryToolDto
             | Vapi.CreateSlackSendMessageToolDto

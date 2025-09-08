@@ -7,6 +7,8 @@ export interface GetSessionPaginatedDto {
     name?: string;
     /** This is the ID of the assistant to filter sessions by. */
     assistantId?: string;
+    /** This is the ID of the squad to filter sessions by. */
+    squadId?: string;
     /** This is the ID of the workflow to filter sessions by. */
     workflowId?: string;
     /** This is the page number to return. Defaults to 1. */

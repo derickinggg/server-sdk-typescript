@@ -5,22 +5,19 @@
 import * as environments from "./environments.js";
 import * as core from "./core/index.js";
 import { mergeHeaders } from "./core/headers.js";
+import { Assistants } from "./api/resources/assistants/client/Client.js";
+import { Squads } from "./api/resources/squads/client/Client.js";
 import { Calls } from "./api/resources/calls/client/Client.js";
 import { Chats } from "./api/resources/chats/client/Client.js";
 import { Campaigns } from "./api/resources/campaigns/client/Client.js";
 import { Sessions } from "./api/resources/sessions/client/Client.js";
-import { Assistants } from "./api/resources/assistants/client/Client.js";
 import { PhoneNumbers } from "./api/resources/phoneNumbers/client/Client.js";
 import { Tools } from "./api/resources/tools/client/Client.js";
 import { Files } from "./api/resources/files/client/Client.js";
-import { KnowledgeBases } from "./api/resources/knowledgeBases/client/Client.js";
-import { Workflow } from "./api/resources/workflow/client/Client.js";
-import { Squads } from "./api/resources/squads/client/Client.js";
-import { TestSuites } from "./api/resources/testSuites/client/Client.js";
-import { TestSuiteTests } from "./api/resources/testSuiteTests/client/Client.js";
-import { TestSuiteRuns } from "./api/resources/testSuiteRuns/client/Client.js";
+import { StructuredOutputs } from "./api/resources/structuredOutputs/client/Client.js";
+import { Eval } from "./api/resources/eval/client/Client.js";
+import { ProviderResources } from "./api/resources/providerResources/client/Client.js";
 import { Analytics } from "./api/resources/analytics/client/Client.js";
-import { Logs } from "./api/resources/logs/client/Client.js";
 
 export declare namespace VapiClient {
     export interface Options {
@@ -40,6 +37,8 @@ export declare namespace VapiClient {
         maxRetries?: number;
         /** A hook to abort the request. */
         abortSignal?: AbortSignal;
+        /** Additional query string parameters to include in the request. */
+        queryParams?: Record<string, unknown>;
         /** Additional headers to include in the request. */
         headers?: Record<string, string | core.Supplier<string | undefined> | undefined>;
     }
@@ -47,22 +46,19 @@ export declare namespace VapiClient {
 
 export class VapiClient {
     protected readonly _options: VapiClient.Options;
+    protected _assistants: Assistants | undefined;
+    protected _squads: Squads | undefined;
     protected _calls: Calls | undefined;
     protected _chats: Chats | undefined;
     protected _campaigns: Campaigns | undefined;
     protected _sessions: Sessions | undefined;
-    protected _assistants: Assistants | undefined;
     protected _phoneNumbers: PhoneNumbers | undefined;
     protected _tools: Tools | undefined;
     protected _files: Files | undefined;
-    protected _knowledgeBases: KnowledgeBases | undefined;
-    protected _workflow: Workflow | undefined;
-    protected _squads: Squads | undefined;
-    protected _testSuites: TestSuites | undefined;
-    protected _testSuiteTests: TestSuiteTests | undefined;
-    protected _testSuiteRuns: TestSuiteRuns | undefined;
+    protected _structuredOutputs: StructuredOutputs | undefined;
+    protected _eval: Eval | undefined;
+    protected _providerResources: ProviderResources | undefined;
     protected _analytics: Analytics | undefined;
-    protected _logs: Logs | undefined;
 
     constructor(_options: VapiClient.Options) {
         this._options = {
@@ -71,14 +67,22 @@ export class VapiClient {
                 {
                     "X-Fern-Language": "JavaScript",
                     "X-Fern-SDK-Name": "@vapi-ai/server-sdk",
-                    "X-Fern-SDK-Version": "0.10.0",
-                    "User-Agent": "@vapi-ai/server-sdk/0.10.0",
+                    "X-Fern-SDK-Version": "0.10.1",
+                    "User-Agent": "@vapi-ai/server-sdk/0.10.1",
                     "X-Fern-Runtime": core.RUNTIME.type,
                     "X-Fern-Runtime-Version": core.RUNTIME.version,
                 },
                 _options?.headers,
             ),
         };
+    }
+
+    public get assistants(): Assistants {
+        return (this._assistants ??= new Assistants(this._options));
+    }
+
+    public get squads(): Squads {
+        return (this._squads ??= new Squads(this._options));
     }
 
     public get calls(): Calls {
@@ -97,10 +101,6 @@ export class VapiClient {
         return (this._sessions ??= new Sessions(this._options));
     }
 
-    public get assistants(): Assistants {
-        return (this._assistants ??= new Assistants(this._options));
-    }
-
     public get phoneNumbers(): PhoneNumbers {
         return (this._phoneNumbers ??= new PhoneNumbers(this._options));
     }
@@ -113,35 +113,19 @@ export class VapiClient {
         return (this._files ??= new Files(this._options));
     }
 
-    public get knowledgeBases(): KnowledgeBases {
-        return (this._knowledgeBases ??= new KnowledgeBases(this._options));
+    public get structuredOutputs(): StructuredOutputs {
+        return (this._structuredOutputs ??= new StructuredOutputs(this._options));
     }
 
-    public get workflow(): Workflow {
-        return (this._workflow ??= new Workflow(this._options));
+    public get eval(): Eval {
+        return (this._eval ??= new Eval(this._options));
     }
 
-    public get squads(): Squads {
-        return (this._squads ??= new Squads(this._options));
-    }
-
-    public get testSuites(): TestSuites {
-        return (this._testSuites ??= new TestSuites(this._options));
-    }
-
-    public get testSuiteTests(): TestSuiteTests {
-        return (this._testSuiteTests ??= new TestSuiteTests(this._options));
-    }
-
-    public get testSuiteRuns(): TestSuiteRuns {
-        return (this._testSuiteRuns ??= new TestSuiteRuns(this._options));
+    public get providerResources(): ProviderResources {
+        return (this._providerResources ??= new ProviderResources(this._options));
     }
 
     public get analytics(): Analytics {
         return (this._analytics ??= new Analytics(this._options));
-    }
-
-    public get logs(): Logs {
-        return (this._logs ??= new Logs(this._options));
     }
 }

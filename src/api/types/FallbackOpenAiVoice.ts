@@ -32,7 +32,7 @@ export namespace FallbackOpenAiVoice {
      * This is the provider-specific ID that will be used.
      * Please note that ash, ballad, coral, sage, and verse may only be used with realtime models.
      */
-    export type VoiceId = ("alloy" | "echo" | "fable" | "onyx" | "nova" | "shimmer") | string;
+    export type VoiceId = ("alloy" | "echo" | "fable" | "onyx" | "nova" | "shimmer" | "marin" | "cedar") | string;
     /**
      * This is the model that will be used for text-to-speech.
      */

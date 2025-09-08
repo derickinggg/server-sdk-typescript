@@ -7,6 +7,12 @@ import * as Vapi from "../index.js";
 export interface Workflow {
     nodes: Workflow.Nodes.Item[];
     /**
+     * This is the model for the workflow.
+     *
+     * This can be overridden at node level using `nodes[n].model`.
+     */
+    model?: Workflow.Model;
+    /**
      * This is the transcriber for the workflow.
      *
      * This can be overridden at node level using `nodes[n].transcriber`.
@@ -29,8 +35,12 @@ export interface Workflow {
      * You can also provide a custom sound by providing a URL to an audio file.
      */
     backgroundSound?: Workflow.BackgroundSound;
+    /** This is a set of actions that will be performed on certain events. */
+    hooks?: Workflow.Hooks.Item[];
     /** These are dynamic credentials that will be used for the workflow calls. By default, all the credentials are available for use in the call but you can supplement an additional credentials using this. Dynamic credentials override existing credentials. */
     credentials?: Workflow.Credentials.Item[];
+    /** This is the voicemail detection plan for the workflow. */
+    voicemailDetection?: Workflow.VoicemailDetection;
     id: string;
     orgId: string;
     createdAt: string;
@@ -97,6 +107,8 @@ export interface Workflow {
     backgroundSpeechDenoisingPlan?: Vapi.BackgroundSpeechDenoisingPlan;
     /** These are the credentials that will be used for the workflow calls. By default, all the credentials are available for use in the call but you can provide a subset using this. */
     credentialIds?: string[];
+    /** This is the plan for keypad input handling during workflow calls. */
+    keypadInputPlan?: Vapi.KeypadInputPlan;
 }
 
 export namespace Workflow {
@@ -106,6 +118,16 @@ export namespace Workflow {
         export type Item = Vapi.ConversationNode | Vapi.ToolNode;
     }
 
+    /**
+     * This is the model for the workflow.
+     *
+     * This can be overridden at node level using `nodes[n].model`.
+     */
+    export type Model =
+        | Vapi.WorkflowOpenAiModel
+        | Vapi.WorkflowAnthropicModel
+        | Vapi.WorkflowGoogleModel
+        | Vapi.WorkflowCustomModel;
     /**
      * This is the transcriber for the workflow.
      *
@@ -144,12 +166,23 @@ export namespace Workflow {
         | Vapi.TavusVoice
         | Vapi.VapiVoice
         | Vapi.SesameVoice
-        | Vapi.InworldVoice;
+        | Vapi.InworldVoice
+        | Vapi.MinimaxVoice;
     /**
      * This is the background sound in the call. Default for phone calls is 'office' and default for web calls is 'off'.
      * You can also provide a custom sound by providing a URL to an audio file.
      */
     export type BackgroundSound = ("off" | "office") | string;
+    export type Hooks = Hooks.Item[];
+
+    export namespace Hooks {
+        export type Item =
+            | Vapi.CallHookCallEnding
+            | Vapi.CallHookAssistantSpeechInterrupted
+            | Vapi.CallHookCustomerSpeechInterrupted
+            | Vapi.CallHookCustomerSpeechTimeout;
+    }
+
     export type Credentials = Credentials.Item[];
 
     export namespace Credentials {
@@ -191,6 +224,7 @@ export namespace Workflow {
             | Vapi.CreateTwilioCredentialDto
             | Vapi.CreateVonageCredentialDto
             | Vapi.CreateWebhookCredentialDto
+            | Vapi.CreateCustomCredentialDto
             | Vapi.CreateXAiCredentialDto
             | Vapi.CreateNeuphonicCredentialDto
             | Vapi.CreateHumeCredentialDto
@@ -202,6 +236,16 @@ export namespace Workflow {
             | Vapi.CreateGoogleSheetsOAuth2AuthorizationCredentialDto
             | Vapi.CreateSlackOAuth2AuthorizationCredentialDto
             | Vapi.CreateGoHighLevelMcpCredentialDto
-            | unknown;
+            | Vapi.CreateInworldCredentialDto
+            | Vapi.CreateMinimaxCredentialDto;
     }
+
+    /**
+     * This is the voicemail detection plan for the workflow.
+     */
+    export type VoicemailDetection =
+        | Vapi.GoogleVoicemailDetectionPlan
+        | Vapi.OpenAiVoicemailDetectionPlan
+        | Vapi.TwilioVoicemailDetectionPlan
+        | Vapi.VapiVoicemailDetectionPlan;
 }

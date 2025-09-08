@@ -1,8 +1,8 @@
 {
     "name": "@vapi-ai/server-sdk",
-    "version": "0.10.0",
+    "version": "0.10.1",
     "private": false,
-    "repository": "https://github.com/VapiAI/server-sdk-typescript",
+    "repository": "github:VapiAI/server-sdk-typescript",
     "type": "commonjs",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.mjs",
@@ -24,7 +24,9 @@
     },
     "files": [
         "dist",
-        "reference.md"
+        "reference.md",
+        "README.md",
+        "LICENSE"
     ],
     "scripts": {
         "format": "prettier . --write --ignore-unknown",
@@ -55,5 +57,9 @@
         "path": false,
         "stream": false
     },
-    "packageManager": "yarn@1.22.22"
+    "packageManager": "yarn@1.22.22",
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "sideEffects": false
 }

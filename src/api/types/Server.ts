@@ -11,6 +11,8 @@ export interface Server {
      * @default 20
      */
     timeoutSeconds?: number;
+    /** The credential ID for server authentication */
+    credentialId?: string;
     /** This is where the request will be sent. */
     url?: string;
     /**

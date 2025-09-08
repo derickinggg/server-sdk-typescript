@@ -12,5 +12,6 @@ import * as core from "../../../../../core/index.js";
  *     }
  */
 export interface CreateFileDto {
-    file: core.FileLike;
+    /** This is the File you want to upload for use with the Knowledge Base. */
+    file: core.file.Uploadable.FileLike;
 }

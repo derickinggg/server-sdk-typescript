@@ -5,16 +5,28 @@
 import * as Vapi from "../index.js";
 
 export interface SquadMemberDto {
+    /**
+     * These are the other assistants that this assistant can transfer or handoff to.
+     *
+     * Supports both:
+     * - TransferDestinationAssistant: For transfer call tool (legacy)
+     * - HandoffDestinationAssistant: For handoff tool (recommended)
+     *
+     * If the assistant already has transfer call or handoff tools, these destinations are just appended to existing ones.
+     */
+    assistantDestinations?: SquadMemberDto.AssistantDestinations.Item[];
     /** This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead. */
     assistantId?: string | null;
     /** This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead. */
     assistant?: Vapi.CreateAssistantDto;
     /** This can be used to override the assistant's settings and provide values for it's template variables. */
     assistantOverrides?: Vapi.AssistantOverrides;
-    /**
-     * These are the others assistants that this assistant can transfer to.
-     *
-     * If the assistant already has transfer call tool, these destinations are just appended to existing ones.
-     */
-    assistantDestinations?: Vapi.TransferDestinationAssistant[];
+}
+
+export namespace SquadMemberDto {
+    export type AssistantDestinations = AssistantDestinations.Item[];
+
+    export namespace AssistantDestinations {
+        export type Item = Vapi.TransferDestinationAssistant | Vapi.HandoffDestinationAssistant;
+    }
 }

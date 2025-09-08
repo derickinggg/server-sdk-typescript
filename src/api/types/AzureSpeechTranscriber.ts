@@ -9,6 +9,12 @@ export interface AzureSpeechTranscriber {
     provider: "azure";
     /** This is the language that will be set for the transcription. The list of languages Azure supports can be found here: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=stt */
     language?: AzureSpeechTranscriber.Language;
+    /** Controls how phrase boundaries are detected, enabling either simple time/silence heuristics or more advanced semantic segmentation. */
+    segmentationStrategy?: AzureSpeechTranscriber.SegmentationStrategy;
+    /** Duration of detected silence after which the service finalizes a phrase. Configure to adjust sensitivity to pauses in speech. */
+    segmentationSilenceTimeoutMs?: number;
+    /** Maximum duration a segment can reach before being cut off when using time-based segmentation. */
+    segmentationMaximumTimeMs?: number;
     /** This is the plan for voice provider fallbacks in the event that the primary voice provider fails. */
     fallbackPlan?: Vapi.FallbackTranscriberPlan;
 }
@@ -305,5 +311,14 @@ export namespace AzureSpeechTranscriber {
         ZhHk: "zh-HK",
         ZhTw: "zh-TW",
         ZuZa: "zu-ZA",
+    } as const;
+    /**
+     * Controls how phrase boundaries are detected, enabling either simple time/silence heuristics or more advanced semantic segmentation.
+     */
+    export type SegmentationStrategy = "Default" | "Time" | "Semantic";
+    export const SegmentationStrategy = {
+        Default: "Default",
+        Time: "Time",
+        Semantic: "Semantic",
     } as const;
 }

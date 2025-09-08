@@ -19,4 +19,9 @@ export interface AnalysisPlan {
     structuredDataMultiPlan?: Vapi.StructuredDataMultiPlan[];
     /** This is the plan for generating the success evaluation of the call. This outputs to `call.analysis.successEvaluation`. */
     successEvaluationPlan?: Vapi.SuccessEvaluationPlan;
+    /**
+     * This is an array of outcome UUIDs to be calculated during analysis.
+     * The outcomes will be calculated and stored in `call.analysis.outcomes`.
+     */
+    outcomeIds?: string[];
 }

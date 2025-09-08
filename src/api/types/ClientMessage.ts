@@ -26,5 +26,10 @@ export namespace ClientMessage {
         | Vapi.ClientMessageTransferUpdate
         | Vapi.ClientMessageUserInterrupted
         | Vapi.ClientMessageLanguageChangeDetected
-        | Vapi.ClientMessageVoiceInput;
+        | Vapi.ClientMessageVoiceInput
+        | Vapi.ClientMessageChatCreated
+        | Vapi.ClientMessageChatDeleted
+        | Vapi.ClientMessageSessionCreated
+        | Vapi.ClientMessageSessionUpdated
+        | Vapi.ClientMessageSessionDeleted;
 }

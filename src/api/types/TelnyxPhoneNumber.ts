@@ -15,7 +15,7 @@ export interface TelnyxPhoneNumber {
      */
     fallbackDestination?: TelnyxPhoneNumber.FallbackDestination;
     /** This is the hooks that will be used for incoming calls to this phone number. */
-    hooks?: Vapi.PhoneNumberHookCallRinging[];
+    hooks?: TelnyxPhoneNumber.Hooks.Item[];
     provider: "telnyx";
     /** This is the unique identifier for the phone number. */
     id: string;
@@ -73,6 +73,12 @@ export namespace TelnyxPhoneNumber {
      * If this is not set and above conditions are met, the inbound call is hung up with an error message.
      */
     export type FallbackDestination = Vapi.TransferDestinationNumber | Vapi.TransferDestinationSip;
+    export type Hooks = Hooks.Item[];
+
+    export namespace Hooks {
+        export type Item = Vapi.PhoneNumberHookCallRinging | Vapi.PhoneNumberHookCallEnding;
+    }
+
     /**
      * This is the status of the phone number.
      */

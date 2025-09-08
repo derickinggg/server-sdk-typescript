@@ -14,6 +14,10 @@ export interface Chat {
      * Only variable substitution is supported in chat contexts - other assistant properties cannot be overridden.
      */
     assistantOverrides?: Vapi.AssistantOverrides;
+    /** This is the squad that will be used for the chat. To use a transient squad, use `squad` instead. */
+    squadId?: string;
+    /** This is the squad that will be used for the chat. To use an existing squad, use `squadId` instead. */
+    squad?: Vapi.CreateSquadDto;
     /** This is the name of the chat. This is just for your own reference. */
     name?: string;
     /**

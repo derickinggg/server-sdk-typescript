@@ -20,8 +20,6 @@ export interface Org {
     createdAt: string;
     /** This is the ISO 8601 date-time string of when the org was last updated. */
     updatedAt: string;
-    /** This is the Stripe customer for the org. */
-    stripeCustomerId?: string;
     /** This is the subscription for the org. */
     stripeSubscriptionId?: string;
     /** This is the subscription's subscription item. */
@@ -30,8 +28,6 @@ export interface Org {
     stripeSubscriptionCurrentPeriodStart?: string;
     /** This is the subscription's status. */
     stripeSubscriptionStatus?: string;
-    /** This is the plan for the org. */
-    plan?: Vapi.OrgPlan;
     /** This is the secret key used for signing JWT tokens for the org. */
     jwtSecret?: string;
     /** This is the total number of call minutes used by this org across all time. */

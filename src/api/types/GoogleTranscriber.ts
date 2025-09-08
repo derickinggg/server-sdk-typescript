@@ -23,14 +23,10 @@ export namespace GoogleTranscriber {
         | "gemini-2.5-pro"
         | "gemini-2.5-flash"
         | "gemini-2.5-flash-lite"
-        | "gemini-2.5-pro-preview-05-06"
-        | "gemini-2.5-flash-preview-05-20"
-        | "gemini-2.5-flash-preview-04-17"
         | "gemini-2.0-flash-thinking-exp"
         | "gemini-2.0-pro-exp-02-05"
         | "gemini-2.0-flash"
         | "gemini-2.0-flash-lite"
-        | "gemini-2.0-flash-lite-preview-02-05"
         | "gemini-2.0-flash-exp"
         | "gemini-2.0-flash-realtime-exp"
         | "gemini-1.5-flash"
@@ -42,14 +38,10 @@ export namespace GoogleTranscriber {
         Gemini25Pro: "gemini-2.5-pro",
         Gemini25Flash: "gemini-2.5-flash",
         Gemini25FlashLite: "gemini-2.5-flash-lite",
-        Gemini25ProPreview0506: "gemini-2.5-pro-preview-05-06",
-        Gemini25FlashPreview0520: "gemini-2.5-flash-preview-05-20",
-        Gemini25FlashPreview0417: "gemini-2.5-flash-preview-04-17",
         Gemini20FlashThinkingExp: "gemini-2.0-flash-thinking-exp",
         Gemini20ProExp0205: "gemini-2.0-pro-exp-02-05",
         Gemini20Flash: "gemini-2.0-flash",
         Gemini20FlashLite: "gemini-2.0-flash-lite",
-        Gemini20FlashLitePreview0205: "gemini-2.0-flash-lite-preview-02-05",
         Gemini20FlashExp: "gemini-2.0-flash-exp",
         Gemini20FlashRealtimeExp: "gemini-2.0-flash-realtime-exp",
         Gemini15Flash: "gemini-1.5-flash",

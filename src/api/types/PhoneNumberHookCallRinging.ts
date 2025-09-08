@@ -7,7 +7,7 @@ import * as Vapi from "../index.js";
 export interface PhoneNumberHookCallRinging {
     /** This is the event to trigger the hook on */
     on: "call.ringing";
-    /** This is the set of actions to perform when the hook triggers */
+    /** Only the first action will be executed. Additional actions will be ignored. */
     do: PhoneNumberHookCallRinging.Do.Item[];
 }
 

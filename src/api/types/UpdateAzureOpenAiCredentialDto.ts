@@ -58,6 +58,9 @@ export namespace UpdateAzureOpenAiCredentialDto {
 
     export namespace Models {
         export type Item =
+            | "gpt-5"
+            | "gpt-5-mini"
+            | "gpt-5-nano"
             | "gpt-4.1-2025-04-14"
             | "gpt-4.1-mini-2025-04-14"
             | "gpt-4.1-nano-2025-04-14"
@@ -72,6 +75,9 @@ export namespace UpdateAzureOpenAiCredentialDto {
             | "gpt-35-turbo-0125"
             | "gpt-35-turbo-1106";
         export const Item = {
+            Gpt5: "gpt-5",
+            Gpt5Mini: "gpt-5-mini",
+            Gpt5Nano: "gpt-5-nano",
             Gpt4120250414: "gpt-4.1-2025-04-14",
             Gpt41Mini20250414: "gpt-4.1-mini-2025-04-14",
             Gpt41Nano20250414: "gpt-4.1-nano-2025-04-14",

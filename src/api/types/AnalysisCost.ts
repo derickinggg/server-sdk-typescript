@@ -21,10 +21,11 @@ export namespace AnalysisCost {
     /**
      * This is the type of analysis performed.
      */
-    export type AnalysisType = "summary" | "structuredData" | "successEvaluation";
+    export type AnalysisType = "summary" | "structuredData" | "successEvaluation" | "structuredOutput";
     export const AnalysisType = {
         Summary: "summary",
         StructuredData: "structuredData",
         SuccessEvaluation: "successEvaluation",
+        StructuredOutput: "structuredOutput",
     } as const;
 }

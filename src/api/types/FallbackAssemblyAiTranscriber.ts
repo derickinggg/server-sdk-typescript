@@ -14,38 +14,34 @@ export interface FallbackAssemblyAiTranscriber {
      */
     confidenceThreshold?: number;
     /**
-     * Uses Assembly AI's new Universal Streaming API. See: https://www.assemblyai.com/docs/speech-to-text/universal-streaming
+     * This enables formatting of transcripts.
      *
-     * @default false
-     */
-    enableUniversalStreamingApi?: boolean;
-    /**
-     * This enables formatting of transcripts. Only used when `enableUniversalStreamingApi` is true.
-     *
-     * @default false
+     * @default true
      */
     formatTurns?: boolean;
     /**
-     * The confidence threshold to use when determining if the end of a turn has been reached. Only used when `enableUniversalStreamingApi` is true.
-     *
+     * This is the end of turn confidence threshold. The minimum confidence that the end of turn is detected.
+     * Note: Only used if startSpeakingPlan.smartEndpointingPlan is not set.
+     * @min 0
+     * @max 1
      * @default 0.7
      */
     endOfTurnConfidenceThreshold?: number;
     /**
-     * The minimum amount of silence in milliseconds required to detect end of turn when confident. Only used when `enableUniversalStreamingApi` is true.
-     *
+     * This is the minimum end of turn silence when confident in milliseconds.
+     * Note: Only used if startSpeakingPlan.smartEndpointingPlan is not set.
      * @default 160
      */
     minEndOfTurnSilenceWhenConfident?: number;
     /**
-     * The maximum wait time for word finalization. Only used when `enableUniversalStreamingApi` is true.
-     *
+     * This is the maximum wait time for word finalization in milliseconds.
+     * Note: Only used if startSpeakingPlan.smartEndpointingPlan is not set.
      * @default 160
      */
     wordFinalizationMaxWaitTime?: number;
     /**
-     * The maximum amount of silence in milliseconds allowed in a turn before end of turn is triggered. Only used when `enableUniversalStreamingApi` is true.
-     *
+     * This is the maximum turn silence time in milliseconds.
+     * Note: Only used if startSpeakingPlan.smartEndpointingPlan is not set.
      * @default 400
      */
     maxTurnSilence?: number;

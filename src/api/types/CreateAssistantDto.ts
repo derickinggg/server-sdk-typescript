@@ -37,14 +37,8 @@ export interface CreateAssistantDto {
     voicemailDetection?: CreateAssistantDto.VoicemailDetection;
     /** These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input,workflow.node.started. You can check the shape of the messages in ClientMessage schema. */
     clientMessages?: CreateAssistantDto.ClientMessages.Item[];
-    /** These are the messages that will be sent to your Server URL. Default is conversation-update,end-of-call-report,function-call,hang,speech-update,status-update,tool-calls,transfer-destination-request,user-interrupted. You can check the shape of the messages in ServerMessage schema. */
+    /** These are the messages that will be sent to your Server URL. Default is conversation-update,end-of-call-report,function-call,hang,speech-update,status-update,tool-calls,transfer-destination-request,handoff-destination-request,user-interrupted. You can check the shape of the messages in ServerMessage schema. */
     serverMessages?: CreateAssistantDto.ServerMessages.Item[];
-    /**
-     * How many seconds of silence to wait before ending the call. Defaults to 30.
-     *
-     * @default 30
-     */
-    silenceTimeoutSeconds?: number;
     /**
      * This is the maximum number of seconds that the call will last. When the call reaches this duration, it will be ended.
      *
@@ -56,14 +50,6 @@ export interface CreateAssistantDto {
      * You can also provide a custom sound by providing a URL to an audio file.
      */
     backgroundSound?: CreateAssistantDto.BackgroundSound;
-    /**
-     * This enables filtering of noise and background speech while the user is talking.
-     *
-     * Default `false` while in beta.
-     *
-     * @default false
-     */
-    backgroundDenoisingEnabled?: boolean;
     /**
      * This determines whether the model's output is used in conversation history rather than the transcription of assistant's speech.
      *
@@ -125,12 +111,6 @@ export interface CreateAssistantDto {
     analysisPlan?: Vapi.AnalysisPlan;
     /** This is the plan for artifacts generated during assistant's calls. Stored in `call.artifact`. */
     artifactPlan?: Vapi.ArtifactPlan;
-    /**
-     * This is the plan for static predefined messages that can be spoken by the assistant during the call, like `idleMessages`.
-     *
-     * Note: `firstMessage`, `voicemailMessage`, and `endCallMessage` are currently at the root level. They will be moved to `messagePlan` in the future, but will remain backwards compatible.
-     */
-    messagePlan?: Vapi.MessagePlan;
     /**
      * This is the plan for when the assistant should start talking.
      *
@@ -227,7 +207,8 @@ export namespace CreateAssistantDto {
         | Vapi.TavusVoice
         | Vapi.VapiVoice
         | Vapi.SesameVoice
-        | Vapi.InworldVoice;
+        | Vapi.InworldVoice
+        | Vapi.MinimaxVoice;
     /**
      * This is the mode for the first message. Default is 'assistant-speaks-first'.
      *
@@ -302,42 +283,9 @@ export namespace CreateAssistantDto {
     export type ServerMessages = ServerMessages.Item[];
 
     export namespace ServerMessages {
-        export type Item =
-            | "conversation-update"
-            | "end-of-call-report"
-            | "function-call"
-            | "hang"
-            | "language-changed"
-            | "language-change-detected"
-            | "model-output"
-            | "phone-call-control"
-            | "speech-update"
-            | "status-update"
-            | "transcript"
-            | 'transcript[transcriptType="final"]'
-            | "tool-calls"
-            | "transfer-destination-request"
-            | "transfer-update"
-            | "user-interrupted"
-            | "voice-input";
+        export type Item = "transcript[transcriptType='final']";
         export const Item = {
-            ConversationUpdate: "conversation-update",
-            EndOfCallReport: "end-of-call-report",
-            FunctionCall: "function-call",
-            Hang: "hang",
-            LanguageChanged: "language-changed",
-            LanguageChangeDetected: "language-change-detected",
-            ModelOutput: "model-output",
-            PhoneCallControl: "phone-call-control",
-            SpeechUpdate: "speech-update",
-            StatusUpdate: "status-update",
-            Transcript: "transcript",
-            TranscriptTranscriptTypeFinal: 'transcript[transcriptType="final"]',
-            ToolCalls: "tool-calls",
-            TransferDestinationRequest: "transfer-destination-request",
-            TransferUpdate: "transfer-update",
-            UserInterrupted: "user-interrupted",
-            VoiceInput: "voice-input",
+            FinalTranscript: "transcript[transcriptType='final']",
         } as const;
     }
 
@@ -387,6 +335,7 @@ export namespace CreateAssistantDto {
             | Vapi.CreateTwilioCredentialDto
             | Vapi.CreateVonageCredentialDto
             | Vapi.CreateWebhookCredentialDto
+            | Vapi.CreateCustomCredentialDto
             | Vapi.CreateXAiCredentialDto
             | Vapi.CreateNeuphonicCredentialDto
             | Vapi.CreateHumeCredentialDto
@@ -398,15 +347,17 @@ export namespace CreateAssistantDto {
             | Vapi.CreateGoogleSheetsOAuth2AuthorizationCredentialDto
             | Vapi.CreateSlackOAuth2AuthorizationCredentialDto
             | Vapi.CreateGoHighLevelMcpCredentialDto
-            | unknown;
+            | Vapi.CreateInworldCredentialDto
+            | Vapi.CreateMinimaxCredentialDto;
     }
 
     export type Hooks = Hooks.Item[];
 
     export namespace Hooks {
         export type Item =
-            | Vapi.AssistantHookCallEnding
-            | Vapi.AssistantHookAssistantSpeechInterrupted
-            | Vapi.AssistantHookCustomerSpeechInterrupted;
+            | Vapi.CallHookCallEnding
+            | Vapi.CallHookAssistantSpeechInterrupted
+            | Vapi.CallHookCustomerSpeechInterrupted
+            | Vapi.CallHookCustomerSpeechTimeout;
     }
 }

@@ -30,6 +30,7 @@ export namespace UpdateToolTemplateDto {
         | Vapi.CreateGoogleCalendarCheckAvailabilityToolDto
         | Vapi.CreateGoogleCalendarCreateEventToolDto
         | Vapi.CreateGoogleSheetsRowAppendToolDto
+        | Vapi.CreateHandoffToolDto
         | Vapi.CreateMcpToolDto
         | Vapi.CreateQueryToolDto
         | Vapi.CreateSlackSendMessageToolDto

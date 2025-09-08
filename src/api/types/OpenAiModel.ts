@@ -21,8 +21,6 @@ export interface OpenAiModel {
     toolIds?: string[];
     /** These are the options for the knowledge base. */
     knowledgeBase?: Vapi.CreateCustomKnowledgeBaseDto;
-    /** This is the ID of the knowledge base the model will use. */
-    knowledgeBaseId?: string;
     /** This is the provider that will be used for the model. */
     provider: "openai";
     /**
@@ -85,6 +83,7 @@ export namespace OpenAiModel {
             | Vapi.CreateGoogleCalendarCheckAvailabilityToolDto
             | Vapi.CreateGoogleCalendarCreateEventToolDto
             | Vapi.CreateGoogleSheetsRowAppendToolDto
+            | Vapi.CreateHandoffToolDto
             | Vapi.CreateMcpToolDto
             | Vapi.CreateQueryToolDto
             | Vapi.CreateSlackSendMessageToolDto
@@ -102,24 +101,25 @@ export namespace OpenAiModel {
      * @default undefined
      */
     export type Model =
+        | "gpt-5"
+        | "gpt-5-mini"
+        | "gpt-5-nano"
         | "gpt-4.1-2025-04-14"
         | "gpt-4.1-mini-2025-04-14"
         | "gpt-4.1-nano-2025-04-14"
         | "gpt-4.1"
         | "gpt-4.1-mini"
         | "gpt-4.1-nano"
-        | "gpt-4.5-preview"
         | "chatgpt-4o-latest"
         | "o3"
         | "o3-mini"
         | "o4-mini"
-        | "o1-preview"
-        | "o1-preview-2024-09-12"
         | "o1-mini"
         | "o1-mini-2024-09-12"
         | "gpt-4o-realtime-preview-2024-10-01"
         | "gpt-4o-realtime-preview-2024-12-17"
         | "gpt-4o-mini-realtime-preview-2024-12-17"
+        | "gpt-realtime-2025-08-28"
         | "gpt-4o-mini-2024-07-18"
         | "gpt-4o-mini"
         | "gpt-4o"
@@ -199,24 +199,25 @@ export namespace OpenAiModel {
         | "gpt-3.5-turbo-1106:canadaeast"
         | "gpt-3.5-turbo-1106:westus";
     export const Model = {
+        Gpt5: "gpt-5",
+        Gpt5Mini: "gpt-5-mini",
+        Gpt5Nano: "gpt-5-nano",
         Gpt4120250414: "gpt-4.1-2025-04-14",
         Gpt41Mini20250414: "gpt-4.1-mini-2025-04-14",
         Gpt41Nano20250414: "gpt-4.1-nano-2025-04-14",
         Gpt41: "gpt-4.1",
         Gpt41Mini: "gpt-4.1-mini",
         Gpt41Nano: "gpt-4.1-nano",
-        Gpt45Preview: "gpt-4.5-preview",
         Chatgpt4OLatest: "chatgpt-4o-latest",
         O3: "o3",
         O3Mini: "o3-mini",
         O4Mini: "o4-mini",
-        O1Preview: "o1-preview",
-        O1Preview20240912: "o1-preview-2024-09-12",
         O1Mini: "o1-mini",
         O1Mini20240912: "o1-mini-2024-09-12",
         Gpt4ORealtimePreview20241001: "gpt-4o-realtime-preview-2024-10-01",
         Gpt4ORealtimePreview20241217: "gpt-4o-realtime-preview-2024-12-17",
         Gpt4OMiniRealtimePreview20241217: "gpt-4o-mini-realtime-preview-2024-12-17",
+        GptRealtime20250828: "gpt-realtime-2025-08-28",
         Gpt4OMini20240718: "gpt-4o-mini-2024-07-18",
         Gpt4OMini: "gpt-4o-mini",
         Gpt4O: "gpt-4o",
@@ -300,24 +301,25 @@ export namespace OpenAiModel {
 
     export namespace FallbackModels {
         export type Item =
+            | "gpt-5"
+            | "gpt-5-mini"
+            | "gpt-5-nano"
             | "gpt-4.1-2025-04-14"
             | "gpt-4.1-mini-2025-04-14"
             | "gpt-4.1-nano-2025-04-14"
             | "gpt-4.1"
             | "gpt-4.1-mini"
             | "gpt-4.1-nano"
-            | "gpt-4.5-preview"
             | "chatgpt-4o-latest"
             | "o3"
             | "o3-mini"
             | "o4-mini"
-            | "o1-preview"
-            | "o1-preview-2024-09-12"
             | "o1-mini"
             | "o1-mini-2024-09-12"
             | "gpt-4o-realtime-preview-2024-10-01"
             | "gpt-4o-realtime-preview-2024-12-17"
             | "gpt-4o-mini-realtime-preview-2024-12-17"
+            | "gpt-realtime-2025-08-28"
             | "gpt-4o-mini-2024-07-18"
             | "gpt-4o-mini"
             | "gpt-4o"
@@ -397,24 +399,25 @@ export namespace OpenAiModel {
             | "gpt-3.5-turbo-1106:canadaeast"
             | "gpt-3.5-turbo-1106:westus";
         export const Item = {
+            Gpt5: "gpt-5",
+            Gpt5Mini: "gpt-5-mini",
+            Gpt5Nano: "gpt-5-nano",
             Gpt4120250414: "gpt-4.1-2025-04-14",
             Gpt41Mini20250414: "gpt-4.1-mini-2025-04-14",
             Gpt41Nano20250414: "gpt-4.1-nano-2025-04-14",
             Gpt41: "gpt-4.1",
             Gpt41Mini: "gpt-4.1-mini",
             Gpt41Nano: "gpt-4.1-nano",
-            Gpt45Preview: "gpt-4.5-preview",
             Chatgpt4OLatest: "chatgpt-4o-latest",
             O3: "o3",
             O3Mini: "o3-mini",
             O4Mini: "o4-mini",
-            O1Preview: "o1-preview",
-            O1Preview20240912: "o1-preview-2024-09-12",
             O1Mini: "o1-mini",
             O1Mini20240912: "o1-mini-2024-09-12",
             Gpt4ORealtimePreview20241001: "gpt-4o-realtime-preview-2024-10-01",
             Gpt4ORealtimePreview20241217: "gpt-4o-realtime-preview-2024-12-17",
             Gpt4OMiniRealtimePreview20241217: "gpt-4o-mini-realtime-preview-2024-12-17",
+            GptRealtime20250828: "gpt-realtime-2025-08-28",
             Gpt4OMini20240718: "gpt-4o-mini-2024-07-18",
             Gpt4OMini: "gpt-4o-mini",
             Gpt4O: "gpt-4o",

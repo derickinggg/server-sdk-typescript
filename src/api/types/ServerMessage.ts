@@ -47,5 +47,10 @@ export namespace ServerMessage {
         | Vapi.ServerMessageLanguageChangeDetected
         | Vapi.ServerMessageVoiceInput
         | Vapi.ServerMessageVoiceRequest
-        | Vapi.ServerMessageCallEndpointingRequest;
+        | Vapi.ServerMessageCallEndpointingRequest
+        | Vapi.ServerMessageChatCreated
+        | Vapi.ServerMessageChatDeleted
+        | Vapi.ServerMessageSessionCreated
+        | Vapi.ServerMessageSessionUpdated
+        | Vapi.ServerMessageSessionDeleted;
 }

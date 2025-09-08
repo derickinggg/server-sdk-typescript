@@ -5,6 +5,11 @@
 import * as Vapi from "../index.js";
 
 export interface CreateTrieveKnowledgeBaseDto {
+    /**
+     * This knowledge base is provided by Trieve.
+     *
+     * To learn more about Trieve, visit https://trieve.ai.
+     */
     provider: "trieve";
     /** This is the name of the knowledge base. */
     name?: string;

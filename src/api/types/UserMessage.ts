@@ -15,4 +15,10 @@ export interface UserMessage {
     secondsFromStart: number;
     /** The duration of the message in seconds. */
     duration?: number;
+    /** Indicates if the message was filtered for security reasons. */
+    isFiltered?: boolean;
+    /** List of detected security threats if the message was filtered. */
+    detectedThreats?: string[];
+    /** The original message before filtering (only included if content was filtered). */
+    originalMessage?: string;
 }

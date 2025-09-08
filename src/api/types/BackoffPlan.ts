@@ -17,4 +17,9 @@ export interface BackoffPlan {
     maxRetries: number;
     /** This is the base delay in seconds. For linear backoff, this is the delay between each retry. For exponential backoff, this is the initial delay. */
     baseDelaySeconds: number;
+    /**
+     * This is the excluded status codes. If the response status code is in this list, the request will not be retried.
+     * By default, the request will be retried for any non-2xx status code.
+     */
+    excludedStatusCodes?: Record<string, unknown>[];
 }

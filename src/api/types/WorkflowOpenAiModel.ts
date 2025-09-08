@@ -26,19 +26,19 @@ export namespace WorkflowOpenAiModel {
      * This is helpful when you are required to comply with Data Residency rules. Learn more about Azure regions here https://azure.microsoft.com/en-us/explore/global-infrastructure/data-residency/.
      */
     export type Model =
+        | "gpt-5"
+        | "gpt-5-mini"
+        | "gpt-5-nano"
         | "gpt-4.1-2025-04-14"
         | "gpt-4.1-mini-2025-04-14"
         | "gpt-4.1-nano-2025-04-14"
         | "gpt-4.1"
         | "gpt-4.1-mini"
         | "gpt-4.1-nano"
-        | "gpt-4.5-preview"
         | "chatgpt-4o-latest"
         | "o3"
         | "o3-mini"
         | "o4-mini"
-        | "o1-preview"
-        | "o1-preview-2024-09-12"
         | "o1-mini"
         | "o1-mini-2024-09-12"
         | "gpt-4o-mini-2024-07-18"
@@ -120,19 +120,19 @@ export namespace WorkflowOpenAiModel {
         | "gpt-3.5-turbo-1106:canadaeast"
         | "gpt-3.5-turbo-1106:westus";
     export const Model = {
+        Gpt5: "gpt-5",
+        Gpt5Mini: "gpt-5-mini",
+        Gpt5Nano: "gpt-5-nano",
         Gpt4120250414: "gpt-4.1-2025-04-14",
         Gpt41Mini20250414: "gpt-4.1-mini-2025-04-14",
         Gpt41Nano20250414: "gpt-4.1-nano-2025-04-14",
         Gpt41: "gpt-4.1",
         Gpt41Mini: "gpt-4.1-mini",
         Gpt41Nano: "gpt-4.1-nano",
-        Gpt45Preview: "gpt-4.5-preview",
         Chatgpt4OLatest: "chatgpt-4o-latest",
         O3: "o3",
         O3Mini: "o3-mini",
         O4Mini: "o4-mini",
-        O1Preview: "o1-preview",
-        O1Preview20240912: "o1-preview-2024-09-12",
         O1Mini: "o1-mini",
         O1Mini20240912: "o1-mini-2024-09-12",
         Gpt4OMini20240718: "gpt-4o-mini-2024-07-18",

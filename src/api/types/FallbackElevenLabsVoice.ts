@@ -35,6 +35,8 @@ export interface FallbackElevenLabsVoice {
     model?: FallbackElevenLabsVoice.Model;
     /** This is the language (ISO 639-1) that is enforced for the model. Currently only Turbo v2.5 supports language enforcement. For other models, an error will be returned if language code is provided. */
     language?: string;
+    /** This is the pronunciation dictionary locators to use. */
+    pronunciationDictionaryLocators?: Vapi.ElevenLabsPronunciationDictionaryLocator[];
     /** This is the plan for chunking the model output before it is sent to the voice provider. */
     chunkPlan?: Vapi.ChunkPlan;
 }

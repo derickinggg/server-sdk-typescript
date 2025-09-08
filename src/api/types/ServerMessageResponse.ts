@@ -21,6 +21,7 @@ export namespace ServerMessageResponse {
      */
     export type MessageResponse =
         | Vapi.ServerMessageResponseAssistantRequest
+        | Vapi.ServerMessageResponseHandoffDestinationRequest
         | Vapi.ServerMessageResponseKnowledgeBaseRequest
         | Vapi.ServerMessageResponseToolCalls
         | Vapi.ServerMessageResponseTransferDestinationRequest

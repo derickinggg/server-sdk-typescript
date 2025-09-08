@@ -1,0 +1,1 @@
+export { type ProviderResourceControllerGetProviderResourcesPaginatedRequest } from "./ProviderResourceControllerGetProviderResourcesPaginatedRequest.js";

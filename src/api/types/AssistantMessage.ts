@@ -15,4 +15,6 @@ export interface AssistantMessage {
     tool_calls?: Vapi.ToolCall[];
     /** This is an optional name for the participant */
     name?: string;
+    /** This is an optional metadata for the message */
+    metadata?: Record<string, unknown>;
 }
