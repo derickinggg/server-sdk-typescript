@@ -25,7 +25,14 @@ describe("StructuredOutputs", () => {
                     schema: { type: "string" },
                 },
             ],
-            metadata: { itemsPerPage: 1.1, totalItems: 1.1, currentPage: 1.1, itemsBeyondRetention: true },
+            metadata: {
+                itemsPerPage: 1.1,
+                totalItems: 1.1,
+                currentPage: 1.1,
+                itemsBeyondRetention: true,
+                createdAtLe: "2024-01-15T09:30:00Z",
+                createdAtGe: "2024-01-15T09:30:00Z",
+            },
         };
         server.mockEndpoint().get("/structured-output").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
@@ -55,6 +62,8 @@ describe("StructuredOutputs", () => {
                 totalItems: 1.1,
                 currentPage: 1.1,
                 itemsBeyondRetention: true,
+                createdAtLe: "2024-01-15T09:30:00Z",
+                createdAtGe: "2024-01-15T09:30:00Z",
             },
         });
     });

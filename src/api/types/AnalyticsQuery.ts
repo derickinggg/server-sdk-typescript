@@ -9,6 +9,8 @@ export interface AnalyticsQuery {
     table: AnalyticsQuery.Table;
     /** This is the list of columns you want to group by. */
     groupBy?: AnalyticsQuery.GroupBy.Item[];
+    /** This is the list of variable value keys you want to group by. */
+    groupByVariableValue?: Vapi.VariableValueGroupBy[];
     /** This is the name of the query. This will be used to identify the query in the response. */
     name: string;
     /** This is the time range for the query. */

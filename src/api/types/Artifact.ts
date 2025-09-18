@@ -36,6 +36,8 @@ export interface Artifact {
      * To enable, set `assistant.artifactPlan.structuredOutputIds` with the IDs of the structured outputs you want to extract.
      */
     structuredOutputs?: Record<string, unknown>;
+    /** These are the transfer records from warm transfers, including destinations, transcripts, and status. */
+    transfers?: string[];
 }
 
 export namespace Artifact {

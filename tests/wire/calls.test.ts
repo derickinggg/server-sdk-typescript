@@ -78,6 +78,10 @@ describe("Calls", () => {
                     nodes: [{}],
                     variableValues: { key: "value" },
                     structuredOutputs: { key: "value" },
+                    transfers: ["transfers"],
+                },
+                compliance: {
+                    recordingConsent: { type: { key: "value" }, granted: true, grantedAt: "2024-01-15T09:30:00Z" },
                 },
                 campaignId: "campaignId",
                 assistantId: "assistantId",
@@ -117,16 +121,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -139,6 +143,22 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: { key: "value" },
                     artifactPlan: {
                         recordingEnabled: true,
@@ -201,16 +221,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -224,6 +244,22 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: { key: "value" },
                     artifactPlan: {
                         recordingEnabled: true,
@@ -313,6 +349,22 @@ describe("Calls", () => {
                         credentialId: "550e8400-e29b-41d4-a716-446655440000",
                         backoffPlan: { type: { key: "value" }, maxRetries: 0, baseDelaySeconds: 1 },
                     },
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     artifactPlan: {
                         recordingEnabled: true,
                         recordingUseCustomStorageEnabled: true,
@@ -332,6 +384,7 @@ describe("Calls", () => {
                         controlAuthenticationEnabled: false,
                     },
                     credentialIds: ["credentialIds"],
+                    voicemailMessage: "voicemailMessage",
                 },
                 workflowOverrides: { variableValues: { key: "value" } },
                 phoneNumberId: "phoneNumberId",
@@ -496,6 +549,16 @@ describe("Calls", () => {
                     structuredOutputs: {
                         key: "value",
                     },
+                    transfers: ["transfers"],
+                },
+                compliance: {
+                    recordingConsent: {
+                        type: {
+                            key: "value",
+                        },
+                        granted: true,
+                        grantedAt: "2024-01-15T09:30:00Z",
+                    },
                 },
                 campaignId: "campaignId",
                 assistantId: "assistantId",
@@ -548,16 +611,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -593,6 +656,28 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [
+                                        {
+                                            cachingEnabled: true,
+                                            provider: "azure",
+                                            voiceId: "andrew",
+                                        },
+                                    ],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: {
                         key: "value",
                     },
@@ -682,16 +767,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -730,6 +815,28 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [
+                                        {
+                                            cachingEnabled: true,
+                                            provider: "azure",
+                                            voiceId: "andrew",
+                                        },
+                                    ],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: {
                         key: "value",
                     },
@@ -893,6 +1000,28 @@ describe("Calls", () => {
                             baseDelaySeconds: 1,
                         },
                     },
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [
+                                        {
+                                            cachingEnabled: true,
+                                            provider: "azure",
+                                            voiceId: "andrew",
+                                        },
+                                    ],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     artifactPlan: {
                         recordingEnabled: true,
                         recordingUseCustomStorageEnabled: true,
@@ -918,6 +1047,7 @@ describe("Calls", () => {
                         controlAuthenticationEnabled: false,
                     },
                     credentialIds: ["credentialIds"],
+                    voicemailMessage: "voicemailMessage",
                 },
                 workflowOverrides: {
                     variableValues: {
@@ -1016,7 +1146,7 @@ describe("Calls", () => {
         const rawRequestBody = {};
         const rawResponseBody = {
             type: "inboundPhoneCall",
-            costs: [{ type: "transport", provider: "twilio", minutes: 1.1, cost: 1.1 }],
+            costs: [{ type: "transport", provider: "daily", minutes: 1.1, cost: 1.1 }],
             messages: [
                 {
                     role: "role",
@@ -1126,6 +1256,10 @@ describe("Calls", () => {
                     turnLatencyAverage: 1.1,
                 },
                 structuredOutputs: { key: "value" },
+                transfers: ["transfers"],
+            },
+            compliance: {
+                recordingConsent: { type: { key: "value" }, granted: true, grantedAt: "2024-01-15T09:30:00Z" },
             },
             campaignId: "campaignId",
             assistantId: "assistantId",
@@ -1213,16 +1347,16 @@ describe("Calls", () => {
                     "workflow.node.started",
                 ],
                 serverMessages: [
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
+                    "conversation-update",
+                    "end-of-call-report",
+                    "function-call",
+                    "hang",
+                    "speech-update",
+                    "status-update",
+                    "tool-calls",
+                    "transfer-destination-request",
+                    "handoff-destination-request",
+                    "user-interrupted",
                 ],
                 maxDurationSeconds: 600,
                 backgroundSound: "off",
@@ -1235,7 +1369,22 @@ describe("Calls", () => {
                 voicemailMessage: "voicemailMessage",
                 endCallMessage: "endCallMessage",
                 endCallPhrases: ["endCallPhrases"],
-                compliancePlan: { hipaaEnabled: true, pciEnabled: true },
+                compliancePlan: {
+                    hipaaEnabled: true,
+                    pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: { voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }] },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
+                },
                 metadata: { key: "value" },
                 backgroundSpeechDenoisingPlan: {
                     fourierDenoisingPlan: {
@@ -1427,16 +1576,16 @@ describe("Calls", () => {
                     "workflow.node.started",
                 ],
                 serverMessages: [
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
+                    "conversation-update",
+                    "end-of-call-report",
+                    "function-call",
+                    "hang",
+                    "speech-update",
+                    "status-update",
+                    "tool-calls",
+                    "transfer-destination-request",
+                    "handoff-destination-request",
+                    "user-interrupted",
                 ],
                 maxDurationSeconds: 600,
                 backgroundSound: "off",
@@ -1450,7 +1599,22 @@ describe("Calls", () => {
                 voicemailMessage: "voicemailMessage",
                 endCallMessage: "endCallMessage",
                 endCallPhrases: ["endCallPhrases"],
-                compliancePlan: { hipaaEnabled: true, pciEnabled: true },
+                compliancePlan: {
+                    hipaaEnabled: true,
+                    pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: { voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }] },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
+                },
                 metadata: { key: "value" },
                 backgroundSpeechDenoisingPlan: {
                     fourierDenoisingPlan: {
@@ -1598,16 +1762,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -1621,6 +1785,22 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: { key: "value" },
                     artifactPlan: {
                         recordingEnabled: true,
@@ -1713,7 +1893,22 @@ describe("Calls", () => {
                     headers: { key: "value" },
                     backoffPlan: { type: { key: "value" }, maxRetries: 0, baseDelaySeconds: 1 },
                 },
-                compliancePlan: { hipaaEnabled: true, pciEnabled: true },
+                compliancePlan: {
+                    hipaaEnabled: true,
+                    pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: { voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }] },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
+                },
                 analysisPlan: {
                     minMessagesThreshold: 1.1,
                     structuredDataMultiPlan: [{ key: "key", plan: {} }],
@@ -1812,6 +2007,7 @@ describe("Calls", () => {
                 },
                 credentialIds: ["credentialIds"],
                 keypadInputPlan: { enabled: true, timeoutSeconds: 1.1, delimiters: "#" },
+                voicemailMessage: "voicemailMessage",
             },
             workflowOverrides: { variableValues: { key: "value" } },
             phoneNumberId: "phoneNumberId",
@@ -1885,16 +2081,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -1908,6 +2104,22 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: { key: "value" },
                     artifactPlan: {
                         recordingEnabled: true,
@@ -1959,7 +2171,7 @@ describe("Calls", () => {
             costs: [
                 {
                     type: "transport",
-                    provider: "twilio",
+                    provider: "daily",
                     minutes: 1.1,
                     cost: 1.1,
                 },
@@ -2110,6 +2322,16 @@ describe("Calls", () => {
                 structuredOutputs: {
                     key: "value",
                 },
+                transfers: ["transfers"],
+            },
+            compliance: {
+                recordingConsent: {
+                    type: {
+                        key: "value",
+                    },
+                    granted: true,
+                    grantedAt: "2024-01-15T09:30:00Z",
+                },
             },
             campaignId: "campaignId",
             assistantId: "assistantId",
@@ -2231,16 +2453,16 @@ describe("Calls", () => {
                     "workflow.node.started",
                 ],
                 serverMessages: [
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
+                    "conversation-update",
+                    "end-of-call-report",
+                    "function-call",
+                    "hang",
+                    "speech-update",
+                    "status-update",
+                    "tool-calls",
+                    "transfer-destination-request",
+                    "handoff-destination-request",
+                    "user-interrupted",
                 ],
                 maxDurationSeconds: 600,
                 backgroundSound: "off",
@@ -2282,6 +2504,26 @@ describe("Calls", () => {
                 compliancePlan: {
                     hipaaEnabled: true,
                     pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: {
+                                voices: [
+                                    {
+                                        cachingEnabled: true,
+                                        provider: "azure",
+                                        voiceId: "andrew",
+                                    },
+                                ],
+                            },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
                 },
                 metadata: {
                     key: "value",
@@ -2537,16 +2779,16 @@ describe("Calls", () => {
                     "workflow.node.started",
                 ],
                 serverMessages: [
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
+                    "conversation-update",
+                    "end-of-call-report",
+                    "function-call",
+                    "hang",
+                    "speech-update",
+                    "status-update",
+                    "tool-calls",
+                    "transfer-destination-request",
+                    "handoff-destination-request",
+                    "user-interrupted",
                 ],
                 maxDurationSeconds: 600,
                 backgroundSound: "off",
@@ -2591,6 +2833,26 @@ describe("Calls", () => {
                 compliancePlan: {
                     hipaaEnabled: true,
                     pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: {
+                                voices: [
+                                    {
+                                        cachingEnabled: true,
+                                        provider: "azure",
+                                        voiceId: "andrew",
+                                    },
+                                ],
+                            },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
                 },
                 metadata: {
                     key: "value",
@@ -2781,16 +3043,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -2829,6 +3091,28 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [
+                                        {
+                                            cachingEnabled: true,
+                                            provider: "azure",
+                                            voiceId: "andrew",
+                                        },
+                                    ],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: {
                         key: "value",
                     },
@@ -2999,6 +3283,26 @@ describe("Calls", () => {
                 compliancePlan: {
                     hipaaEnabled: true,
                     pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: {
+                                voices: [
+                                    {
+                                        cachingEnabled: true,
+                                        provider: "azure",
+                                        voiceId: "andrew",
+                                    },
+                                ],
+                            },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
                 },
                 analysisPlan: {
                     minMessagesThreshold: 1.1,
@@ -3117,6 +3421,7 @@ describe("Calls", () => {
                     timeoutSeconds: 1.1,
                     delimiters: "#",
                 },
+                voicemailMessage: "voicemailMessage",
             },
             workflowOverrides: {
                 variableValues: {
@@ -3226,16 +3531,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -3274,6 +3579,28 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [
+                                        {
+                                            cachingEnabled: true,
+                                            provider: "azure",
+                                            voiceId: "andrew",
+                                        },
+                                    ],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: {
                         key: "value",
                     },
@@ -3337,7 +3664,7 @@ describe("Calls", () => {
 
         const rawResponseBody = {
             type: "inboundPhoneCall",
-            costs: [{ type: "transport", provider: "twilio", minutes: 1.1, cost: 1.1 }],
+            costs: [{ type: "transport", provider: "daily", minutes: 1.1, cost: 1.1 }],
             messages: [
                 {
                     role: "role",
@@ -3447,6 +3774,10 @@ describe("Calls", () => {
                     turnLatencyAverage: 1.1,
                 },
                 structuredOutputs: { key: "value" },
+                transfers: ["transfers"],
+            },
+            compliance: {
+                recordingConsent: { type: { key: "value" }, granted: true, grantedAt: "2024-01-15T09:30:00Z" },
             },
             campaignId: "campaignId",
             assistantId: "assistantId",
@@ -3534,16 +3865,16 @@ describe("Calls", () => {
                     "workflow.node.started",
                 ],
                 serverMessages: [
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
+                    "conversation-update",
+                    "end-of-call-report",
+                    "function-call",
+                    "hang",
+                    "speech-update",
+                    "status-update",
+                    "tool-calls",
+                    "transfer-destination-request",
+                    "handoff-destination-request",
+                    "user-interrupted",
                 ],
                 maxDurationSeconds: 600,
                 backgroundSound: "off",
@@ -3556,7 +3887,22 @@ describe("Calls", () => {
                 voicemailMessage: "voicemailMessage",
                 endCallMessage: "endCallMessage",
                 endCallPhrases: ["endCallPhrases"],
-                compliancePlan: { hipaaEnabled: true, pciEnabled: true },
+                compliancePlan: {
+                    hipaaEnabled: true,
+                    pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: { voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }] },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
+                },
                 metadata: { key: "value" },
                 backgroundSpeechDenoisingPlan: {
                     fourierDenoisingPlan: {
@@ -3748,16 +4094,16 @@ describe("Calls", () => {
                     "workflow.node.started",
                 ],
                 serverMessages: [
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
+                    "conversation-update",
+                    "end-of-call-report",
+                    "function-call",
+                    "hang",
+                    "speech-update",
+                    "status-update",
+                    "tool-calls",
+                    "transfer-destination-request",
+                    "handoff-destination-request",
+                    "user-interrupted",
                 ],
                 maxDurationSeconds: 600,
                 backgroundSound: "off",
@@ -3771,7 +4117,22 @@ describe("Calls", () => {
                 voicemailMessage: "voicemailMessage",
                 endCallMessage: "endCallMessage",
                 endCallPhrases: ["endCallPhrases"],
-                compliancePlan: { hipaaEnabled: true, pciEnabled: true },
+                compliancePlan: {
+                    hipaaEnabled: true,
+                    pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: { voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }] },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
+                },
                 metadata: { key: "value" },
                 backgroundSpeechDenoisingPlan: {
                     fourierDenoisingPlan: {
@@ -3919,16 +4280,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -3942,6 +4303,22 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: { key: "value" },
                     artifactPlan: {
                         recordingEnabled: true,
@@ -4034,7 +4411,22 @@ describe("Calls", () => {
                     headers: { key: "value" },
                     backoffPlan: { type: { key: "value" }, maxRetries: 0, baseDelaySeconds: 1 },
                 },
-                compliancePlan: { hipaaEnabled: true, pciEnabled: true },
+                compliancePlan: {
+                    hipaaEnabled: true,
+                    pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: { voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }] },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
+                },
                 analysisPlan: {
                     minMessagesThreshold: 1.1,
                     structuredDataMultiPlan: [{ key: "key", plan: {} }],
@@ -4133,6 +4525,7 @@ describe("Calls", () => {
                 },
                 credentialIds: ["credentialIds"],
                 keypadInputPlan: { enabled: true, timeoutSeconds: 1.1, delimiters: "#" },
+                voicemailMessage: "voicemailMessage",
             },
             workflowOverrides: { variableValues: { key: "value" } },
             phoneNumberId: "phoneNumberId",
@@ -4206,16 +4599,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -4229,6 +4622,22 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: { key: "value" },
                     artifactPlan: {
                         recordingEnabled: true,
@@ -4273,7 +4682,7 @@ describe("Calls", () => {
             costs: [
                 {
                     type: "transport",
-                    provider: "twilio",
+                    provider: "daily",
                     minutes: 1.1,
                     cost: 1.1,
                 },
@@ -4424,6 +4833,16 @@ describe("Calls", () => {
                 structuredOutputs: {
                     key: "value",
                 },
+                transfers: ["transfers"],
+            },
+            compliance: {
+                recordingConsent: {
+                    type: {
+                        key: "value",
+                    },
+                    granted: true,
+                    grantedAt: "2024-01-15T09:30:00Z",
+                },
             },
             campaignId: "campaignId",
             assistantId: "assistantId",
@@ -4545,16 +4964,16 @@ describe("Calls", () => {
                     "workflow.node.started",
                 ],
                 serverMessages: [
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
+                    "conversation-update",
+                    "end-of-call-report",
+                    "function-call",
+                    "hang",
+                    "speech-update",
+                    "status-update",
+                    "tool-calls",
+                    "transfer-destination-request",
+                    "handoff-destination-request",
+                    "user-interrupted",
                 ],
                 maxDurationSeconds: 600,
                 backgroundSound: "off",
@@ -4596,6 +5015,26 @@ describe("Calls", () => {
                 compliancePlan: {
                     hipaaEnabled: true,
                     pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: {
+                                voices: [
+                                    {
+                                        cachingEnabled: true,
+                                        provider: "azure",
+                                        voiceId: "andrew",
+                                    },
+                                ],
+                            },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
                 },
                 metadata: {
                     key: "value",
@@ -4851,16 +5290,16 @@ describe("Calls", () => {
                     "workflow.node.started",
                 ],
                 serverMessages: [
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
+                    "conversation-update",
+                    "end-of-call-report",
+                    "function-call",
+                    "hang",
+                    "speech-update",
+                    "status-update",
+                    "tool-calls",
+                    "transfer-destination-request",
+                    "handoff-destination-request",
+                    "user-interrupted",
                 ],
                 maxDurationSeconds: 600,
                 backgroundSound: "off",
@@ -4905,6 +5344,26 @@ describe("Calls", () => {
                 compliancePlan: {
                     hipaaEnabled: true,
                     pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: {
+                                voices: [
+                                    {
+                                        cachingEnabled: true,
+                                        provider: "azure",
+                                        voiceId: "andrew",
+                                    },
+                                ],
+                            },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
                 },
                 metadata: {
                     key: "value",
@@ -5095,16 +5554,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -5143,6 +5602,28 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [
+                                        {
+                                            cachingEnabled: true,
+                                            provider: "azure",
+                                            voiceId: "andrew",
+                                        },
+                                    ],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: {
                         key: "value",
                     },
@@ -5313,6 +5794,26 @@ describe("Calls", () => {
                 compliancePlan: {
                     hipaaEnabled: true,
                     pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: {
+                                voices: [
+                                    {
+                                        cachingEnabled: true,
+                                        provider: "azure",
+                                        voiceId: "andrew",
+                                    },
+                                ],
+                            },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
                 },
                 analysisPlan: {
                     minMessagesThreshold: 1.1,
@@ -5431,6 +5932,7 @@ describe("Calls", () => {
                     timeoutSeconds: 1.1,
                     delimiters: "#",
                 },
+                voicemailMessage: "voicemailMessage",
             },
             workflowOverrides: {
                 variableValues: {
@@ -5540,16 +6042,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -5588,6 +6090,28 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [
+                                        {
+                                            cachingEnabled: true,
+                                            provider: "azure",
+                                            voiceId: "andrew",
+                                        },
+                                    ],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: {
                         key: "value",
                     },
@@ -5651,7 +6175,7 @@ describe("Calls", () => {
 
         const rawResponseBody = {
             type: "inboundPhoneCall",
-            costs: [{ type: "transport", provider: "twilio", minutes: 1.1, cost: 1.1 }],
+            costs: [{ type: "transport", provider: "daily", minutes: 1.1, cost: 1.1 }],
             messages: [
                 {
                     role: "role",
@@ -5761,6 +6285,10 @@ describe("Calls", () => {
                     turnLatencyAverage: 1.1,
                 },
                 structuredOutputs: { key: "value" },
+                transfers: ["transfers"],
+            },
+            compliance: {
+                recordingConsent: { type: { key: "value" }, granted: true, grantedAt: "2024-01-15T09:30:00Z" },
             },
             campaignId: "campaignId",
             assistantId: "assistantId",
@@ -5848,16 +6376,16 @@ describe("Calls", () => {
                     "workflow.node.started",
                 ],
                 serverMessages: [
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
+                    "conversation-update",
+                    "end-of-call-report",
+                    "function-call",
+                    "hang",
+                    "speech-update",
+                    "status-update",
+                    "tool-calls",
+                    "transfer-destination-request",
+                    "handoff-destination-request",
+                    "user-interrupted",
                 ],
                 maxDurationSeconds: 600,
                 backgroundSound: "off",
@@ -5870,7 +6398,22 @@ describe("Calls", () => {
                 voicemailMessage: "voicemailMessage",
                 endCallMessage: "endCallMessage",
                 endCallPhrases: ["endCallPhrases"],
-                compliancePlan: { hipaaEnabled: true, pciEnabled: true },
+                compliancePlan: {
+                    hipaaEnabled: true,
+                    pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: { voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }] },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
+                },
                 metadata: { key: "value" },
                 backgroundSpeechDenoisingPlan: {
                     fourierDenoisingPlan: {
@@ -6062,16 +6605,16 @@ describe("Calls", () => {
                     "workflow.node.started",
                 ],
                 serverMessages: [
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
+                    "conversation-update",
+                    "end-of-call-report",
+                    "function-call",
+                    "hang",
+                    "speech-update",
+                    "status-update",
+                    "tool-calls",
+                    "transfer-destination-request",
+                    "handoff-destination-request",
+                    "user-interrupted",
                 ],
                 maxDurationSeconds: 600,
                 backgroundSound: "off",
@@ -6085,7 +6628,22 @@ describe("Calls", () => {
                 voicemailMessage: "voicemailMessage",
                 endCallMessage: "endCallMessage",
                 endCallPhrases: ["endCallPhrases"],
-                compliancePlan: { hipaaEnabled: true, pciEnabled: true },
+                compliancePlan: {
+                    hipaaEnabled: true,
+                    pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: { voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }] },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
+                },
                 metadata: { key: "value" },
                 backgroundSpeechDenoisingPlan: {
                     fourierDenoisingPlan: {
@@ -6233,16 +6791,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -6256,6 +6814,22 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: { key: "value" },
                     artifactPlan: {
                         recordingEnabled: true,
@@ -6348,7 +6922,22 @@ describe("Calls", () => {
                     headers: { key: "value" },
                     backoffPlan: { type: { key: "value" }, maxRetries: 0, baseDelaySeconds: 1 },
                 },
-                compliancePlan: { hipaaEnabled: true, pciEnabled: true },
+                compliancePlan: {
+                    hipaaEnabled: true,
+                    pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: { voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }] },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
+                },
                 analysisPlan: {
                     minMessagesThreshold: 1.1,
                     structuredDataMultiPlan: [{ key: "key", plan: {} }],
@@ -6447,6 +7036,7 @@ describe("Calls", () => {
                 },
                 credentialIds: ["credentialIds"],
                 keypadInputPlan: { enabled: true, timeoutSeconds: 1.1, delimiters: "#" },
+                voicemailMessage: "voicemailMessage",
             },
             workflowOverrides: { variableValues: { key: "value" } },
             phoneNumberId: "phoneNumberId",
@@ -6520,16 +7110,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -6543,6 +7133,22 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: { key: "value" },
                     artifactPlan: {
                         recordingEnabled: true,
@@ -6587,7 +7193,7 @@ describe("Calls", () => {
             costs: [
                 {
                     type: "transport",
-                    provider: "twilio",
+                    provider: "daily",
                     minutes: 1.1,
                     cost: 1.1,
                 },
@@ -6738,6 +7344,16 @@ describe("Calls", () => {
                 structuredOutputs: {
                     key: "value",
                 },
+                transfers: ["transfers"],
+            },
+            compliance: {
+                recordingConsent: {
+                    type: {
+                        key: "value",
+                    },
+                    granted: true,
+                    grantedAt: "2024-01-15T09:30:00Z",
+                },
             },
             campaignId: "campaignId",
             assistantId: "assistantId",
@@ -6859,16 +7475,16 @@ describe("Calls", () => {
                     "workflow.node.started",
                 ],
                 serverMessages: [
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
+                    "conversation-update",
+                    "end-of-call-report",
+                    "function-call",
+                    "hang",
+                    "speech-update",
+                    "status-update",
+                    "tool-calls",
+                    "transfer-destination-request",
+                    "handoff-destination-request",
+                    "user-interrupted",
                 ],
                 maxDurationSeconds: 600,
                 backgroundSound: "off",
@@ -6910,6 +7526,26 @@ describe("Calls", () => {
                 compliancePlan: {
                     hipaaEnabled: true,
                     pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: {
+                                voices: [
+                                    {
+                                        cachingEnabled: true,
+                                        provider: "azure",
+                                        voiceId: "andrew",
+                                    },
+                                ],
+                            },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
                 },
                 metadata: {
                     key: "value",
@@ -7165,16 +7801,16 @@ describe("Calls", () => {
                     "workflow.node.started",
                 ],
                 serverMessages: [
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
+                    "conversation-update",
+                    "end-of-call-report",
+                    "function-call",
+                    "hang",
+                    "speech-update",
+                    "status-update",
+                    "tool-calls",
+                    "transfer-destination-request",
+                    "handoff-destination-request",
+                    "user-interrupted",
                 ],
                 maxDurationSeconds: 600,
                 backgroundSound: "off",
@@ -7219,6 +7855,26 @@ describe("Calls", () => {
                 compliancePlan: {
                     hipaaEnabled: true,
                     pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: {
+                                voices: [
+                                    {
+                                        cachingEnabled: true,
+                                        provider: "azure",
+                                        voiceId: "andrew",
+                                    },
+                                ],
+                            },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
                 },
                 metadata: {
                     key: "value",
@@ -7409,16 +8065,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -7457,6 +8113,28 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [
+                                        {
+                                            cachingEnabled: true,
+                                            provider: "azure",
+                                            voiceId: "andrew",
+                                        },
+                                    ],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: {
                         key: "value",
                     },
@@ -7627,6 +8305,26 @@ describe("Calls", () => {
                 compliancePlan: {
                     hipaaEnabled: true,
                     pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: {
+                                voices: [
+                                    {
+                                        cachingEnabled: true,
+                                        provider: "azure",
+                                        voiceId: "andrew",
+                                    },
+                                ],
+                            },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
                 },
                 analysisPlan: {
                     minMessagesThreshold: 1.1,
@@ -7745,6 +8443,7 @@ describe("Calls", () => {
                     timeoutSeconds: 1.1,
                     delimiters: "#",
                 },
+                voicemailMessage: "voicemailMessage",
             },
             workflowOverrides: {
                 variableValues: {
@@ -7854,16 +8553,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -7902,6 +8601,28 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [
+                                        {
+                                            cachingEnabled: true,
+                                            provider: "azure",
+                                            voiceId: "andrew",
+                                        },
+                                    ],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: {
                         key: "value",
                     },
@@ -7965,7 +8686,7 @@ describe("Calls", () => {
         const rawRequestBody = {};
         const rawResponseBody = {
             type: "inboundPhoneCall",
-            costs: [{ type: "transport", provider: "twilio", minutes: 1.1, cost: 1.1 }],
+            costs: [{ type: "transport", provider: "daily", minutes: 1.1, cost: 1.1 }],
             messages: [
                 {
                     role: "role",
@@ -8075,6 +8796,10 @@ describe("Calls", () => {
                     turnLatencyAverage: 1.1,
                 },
                 structuredOutputs: { key: "value" },
+                transfers: ["transfers"],
+            },
+            compliance: {
+                recordingConsent: { type: { key: "value" }, granted: true, grantedAt: "2024-01-15T09:30:00Z" },
             },
             campaignId: "campaignId",
             assistantId: "assistantId",
@@ -8162,16 +8887,16 @@ describe("Calls", () => {
                     "workflow.node.started",
                 ],
                 serverMessages: [
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
+                    "conversation-update",
+                    "end-of-call-report",
+                    "function-call",
+                    "hang",
+                    "speech-update",
+                    "status-update",
+                    "tool-calls",
+                    "transfer-destination-request",
+                    "handoff-destination-request",
+                    "user-interrupted",
                 ],
                 maxDurationSeconds: 600,
                 backgroundSound: "off",
@@ -8184,7 +8909,22 @@ describe("Calls", () => {
                 voicemailMessage: "voicemailMessage",
                 endCallMessage: "endCallMessage",
                 endCallPhrases: ["endCallPhrases"],
-                compliancePlan: { hipaaEnabled: true, pciEnabled: true },
+                compliancePlan: {
+                    hipaaEnabled: true,
+                    pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: { voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }] },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
+                },
                 metadata: { key: "value" },
                 backgroundSpeechDenoisingPlan: {
                     fourierDenoisingPlan: {
@@ -8376,16 +9116,16 @@ describe("Calls", () => {
                     "workflow.node.started",
                 ],
                 serverMessages: [
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
+                    "conversation-update",
+                    "end-of-call-report",
+                    "function-call",
+                    "hang",
+                    "speech-update",
+                    "status-update",
+                    "tool-calls",
+                    "transfer-destination-request",
+                    "handoff-destination-request",
+                    "user-interrupted",
                 ],
                 maxDurationSeconds: 600,
                 backgroundSound: "off",
@@ -8399,7 +9139,22 @@ describe("Calls", () => {
                 voicemailMessage: "voicemailMessage",
                 endCallMessage: "endCallMessage",
                 endCallPhrases: ["endCallPhrases"],
-                compliancePlan: { hipaaEnabled: true, pciEnabled: true },
+                compliancePlan: {
+                    hipaaEnabled: true,
+                    pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: { voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }] },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
+                },
                 metadata: { key: "value" },
                 backgroundSpeechDenoisingPlan: {
                     fourierDenoisingPlan: {
@@ -8547,16 +9302,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -8570,6 +9325,22 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: { key: "value" },
                     artifactPlan: {
                         recordingEnabled: true,
@@ -8662,7 +9433,22 @@ describe("Calls", () => {
                     headers: { key: "value" },
                     backoffPlan: { type: { key: "value" }, maxRetries: 0, baseDelaySeconds: 1 },
                 },
-                compliancePlan: { hipaaEnabled: true, pciEnabled: true },
+                compliancePlan: {
+                    hipaaEnabled: true,
+                    pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: { voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }] },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
+                },
                 analysisPlan: {
                     minMessagesThreshold: 1.1,
                     structuredDataMultiPlan: [{ key: "key", plan: {} }],
@@ -8761,6 +9547,7 @@ describe("Calls", () => {
                 },
                 credentialIds: ["credentialIds"],
                 keypadInputPlan: { enabled: true, timeoutSeconds: 1.1, delimiters: "#" },
+                voicemailMessage: "voicemailMessage",
             },
             workflowOverrides: { variableValues: { key: "value" } },
             phoneNumberId: "phoneNumberId",
@@ -8834,16 +9621,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -8857,6 +9644,22 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: { key: "value" },
                     artifactPlan: {
                         recordingEnabled: true,
@@ -8908,7 +9711,7 @@ describe("Calls", () => {
             costs: [
                 {
                     type: "transport",
-                    provider: "twilio",
+                    provider: "daily",
                     minutes: 1.1,
                     cost: 1.1,
                 },
@@ -9059,6 +9862,16 @@ describe("Calls", () => {
                 structuredOutputs: {
                     key: "value",
                 },
+                transfers: ["transfers"],
+            },
+            compliance: {
+                recordingConsent: {
+                    type: {
+                        key: "value",
+                    },
+                    granted: true,
+                    grantedAt: "2024-01-15T09:30:00Z",
+                },
             },
             campaignId: "campaignId",
             assistantId: "assistantId",
@@ -9180,16 +9993,16 @@ describe("Calls", () => {
                     "workflow.node.started",
                 ],
                 serverMessages: [
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
+                    "conversation-update",
+                    "end-of-call-report",
+                    "function-call",
+                    "hang",
+                    "speech-update",
+                    "status-update",
+                    "tool-calls",
+                    "transfer-destination-request",
+                    "handoff-destination-request",
+                    "user-interrupted",
                 ],
                 maxDurationSeconds: 600,
                 backgroundSound: "off",
@@ -9231,6 +10044,26 @@ describe("Calls", () => {
                 compliancePlan: {
                     hipaaEnabled: true,
                     pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: {
+                                voices: [
+                                    {
+                                        cachingEnabled: true,
+                                        provider: "azure",
+                                        voiceId: "andrew",
+                                    },
+                                ],
+                            },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
                 },
                 metadata: {
                     key: "value",
@@ -9486,16 +10319,16 @@ describe("Calls", () => {
                     "workflow.node.started",
                 ],
                 serverMessages: [
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
-                    "transcript[transcriptType='final']",
+                    "conversation-update",
+                    "end-of-call-report",
+                    "function-call",
+                    "hang",
+                    "speech-update",
+                    "status-update",
+                    "tool-calls",
+                    "transfer-destination-request",
+                    "handoff-destination-request",
+                    "user-interrupted",
                 ],
                 maxDurationSeconds: 600,
                 backgroundSound: "off",
@@ -9540,6 +10373,26 @@ describe("Calls", () => {
                 compliancePlan: {
                     hipaaEnabled: true,
                     pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: {
+                                voices: [
+                                    {
+                                        cachingEnabled: true,
+                                        provider: "azure",
+                                        voiceId: "andrew",
+                                    },
+                                ],
+                            },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
                 },
                 metadata: {
                     key: "value",
@@ -9730,16 +10583,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -9778,6 +10631,28 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [
+                                        {
+                                            cachingEnabled: true,
+                                            provider: "azure",
+                                            voiceId: "andrew",
+                                        },
+                                    ],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: {
                         key: "value",
                     },
@@ -9948,6 +10823,26 @@ describe("Calls", () => {
                 compliancePlan: {
                     hipaaEnabled: true,
                     pciEnabled: true,
+                    recordingConsentPlan: {
+                        message:
+                            "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                        voice: {
+                            cachingEnabled: true,
+                            provider: "azure",
+                            voiceId: "andrew",
+                            fallbackPlan: {
+                                voices: [
+                                    {
+                                        cachingEnabled: true,
+                                        provider: "azure",
+                                        voiceId: "andrew",
+                                    },
+                                ],
+                            },
+                        },
+                        type: "hang-up-to-decline",
+                        waitSeconds: 2,
+                    },
                 },
                 analysisPlan: {
                     minMessagesThreshold: 1.1,
@@ -10066,6 +10961,7 @@ describe("Calls", () => {
                     timeoutSeconds: 1.1,
                     delimiters: "#",
                 },
+                voicemailMessage: "voicemailMessage",
             },
             workflowOverrides: {
                 variableValues: {
@@ -10175,16 +11071,16 @@ describe("Calls", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -10223,6 +11119,28 @@ describe("Calls", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [
+                                        {
+                                            cachingEnabled: true,
+                                            provider: "azure",
+                                            voiceId: "andrew",
+                                        },
+                                    ],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: {
                         key: "value",
                     },

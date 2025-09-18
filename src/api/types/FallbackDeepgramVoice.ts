@@ -74,7 +74,17 @@ export namespace FallbackDeepgramVoice {
         | "saturn"
         | "selene"
         | "theia"
-        | "vesta";
+        | "vesta"
+        | "celeste"
+        | "estrella"
+        | "nestor"
+        | "sirio"
+        | "carina"
+        | "alvaro"
+        | "diana"
+        | "aquila"
+        | "selena"
+        | "javier";
     export const VoiceId = {
         Asteria: "asteria",
         Luna: "luna",
@@ -121,6 +131,16 @@ export namespace FallbackDeepgramVoice {
         Selene: "selene",
         Theia: "theia",
         Vesta: "vesta",
+        Celeste: "celeste",
+        Estrella: "estrella",
+        Nestor: "nestor",
+        Sirio: "sirio",
+        Carina: "carina",
+        Alvaro: "alvaro",
+        Diana: "diana",
+        Aquila: "aquila",
+        Selena: "selena",
+        Javier: "javier",
     } as const;
     /**
      * This is the model that will be used. Defaults to 'aura-2' when not specified.

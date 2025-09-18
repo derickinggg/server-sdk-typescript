@@ -2577,7 +2577,7 @@ await client.eval.evalControllerGetPaginated();
 </dl>
 </details>
 
-<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerCreate</a>({ ...params }) -> void</code></summary>
+<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerCreate</a>({ ...params }) -> Vapi.Eval</code></summary>
 <dl>
 <dd>
 
@@ -2632,7 +2632,7 @@ await client.eval.evalControllerCreate({
 </dl>
 </details>
 
-<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerGet</a>(id) -> void</code></summary>
+<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerGet</a>(id) -> Vapi.Eval</code></summary>
 <dl>
 <dd>
 
@@ -2680,7 +2680,7 @@ await client.eval.evalControllerGet("id");
 </dl>
 </details>
 
-<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerRemove</a>(id) -> void</code></summary>
+<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerRemove</a>(id) -> Vapi.Eval</code></summary>
 <dl>
 <dd>
 
@@ -2728,7 +2728,7 @@ await client.eval.evalControllerRemove("id");
 </dl>
 </details>
 
-<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerUpdate</a>(id, { ...params }) -> void</code></summary>
+<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerUpdate</a>(id, { ...params }) -> Vapi.Eval</code></summary>
 <dl>
 <dd>
 
@@ -2832,7 +2832,7 @@ await client.eval.evalControllerGetRun("id");
 </dl>
 </details>
 
-<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerRemoveRun</a>(id) -> void</code></summary>
+<details><summary><code>client.eval.<a href="/src/api/resources/eval/client/Client.ts">evalControllerRemoveRun</a>(id) -> Vapi.EvalRun</code></summary>
 <dl>
 <dd>
 

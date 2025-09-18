@@ -7,4 +7,6 @@ export interface PaginationMeta {
     totalItems: number;
     currentPage: number;
     itemsBeyondRetention?: boolean;
+    createdAtLe?: string;
+    createdAtGe?: string;
 }

@@ -41,6 +41,10 @@ export interface MinimaxVoice {
     volume?: number;
     /** The region for Minimax API. Defaults to "worldwide". */
     region?: MinimaxVoice.Region;
+    /** Language hint for MiniMax T2A. Example: yue (Cantonese), zh (Chinese), en (English). */
+    languageBoost?: MinimaxVoice.LanguageBoost;
+    /** Enable MiniMax text normalization to improve number reading and formatting. */
+    textNormalizationEnabled?: boolean;
     /** This is the plan for chunking the model output before it is sent to the voice provider. */
     chunkPlan?: Vapi.ChunkPlan;
     /** This is the plan for voice provider fallbacks in the event that the primary voice provider fails. */
@@ -55,10 +59,11 @@ export namespace MinimaxVoice {
      *
      * @default "speech-02-turbo"
      */
-    export type Model = "speech-02-hd" | "speech-02-turbo";
+    export type Model = "speech-02-hd" | "speech-02-turbo" | "speech-2.5-turbo-preview";
     export const Model = {
         Speech02Hd: "speech-02-hd",
         Speech02Turbo: "speech-02-turbo",
+        Speech25TurboPreview: "speech-2.5-turbo-preview",
     } as const;
     /**
      * The region for Minimax API. Defaults to "worldwide".
@@ -67,5 +72,93 @@ export namespace MinimaxVoice {
     export const Region = {
         Worldwide: "worldwide",
         China: "china",
+    } as const;
+    /**
+     * Language hint for MiniMax T2A. Example: yue (Cantonese), zh (Chinese), en (English).
+     */
+    export type LanguageBoost =
+        | "Chinese"
+        | "Chinese,Yue"
+        | "English"
+        | "Arabic"
+        | "Russian"
+        | "Spanish"
+        | "French"
+        | "Portuguese"
+        | "German"
+        | "Turkish"
+        | "Dutch"
+        | "Ukrainian"
+        | "Vietnamese"
+        | "Indonesian"
+        | "Japanese"
+        | "Italian"
+        | "Korean"
+        | "Thai"
+        | "Polish"
+        | "Romanian"
+        | "Greek"
+        | "Czech"
+        | "Finnish"
+        | "Hindi"
+        | "Bulgarian"
+        | "Danish"
+        | "Hebrew"
+        | "Malay"
+        | "Persian"
+        | "Slovak"
+        | "Swedish"
+        | "Croatian"
+        | "Filipino"
+        | "Hungarian"
+        | "Norwegian"
+        | "Slovenian"
+        | "Catalan"
+        | "Nynorsk"
+        | "Tamil"
+        | "Afrikaans"
+        | "auto";
+    export const LanguageBoost = {
+        Chinese: "Chinese",
+        ChineseYue: "Chinese,Yue",
+        English: "English",
+        Arabic: "Arabic",
+        Russian: "Russian",
+        Spanish: "Spanish",
+        French: "French",
+        Portuguese: "Portuguese",
+        German: "German",
+        Turkish: "Turkish",
+        Dutch: "Dutch",
+        Ukrainian: "Ukrainian",
+        Vietnamese: "Vietnamese",
+        Indonesian: "Indonesian",
+        Japanese: "Japanese",
+        Italian: "Italian",
+        Korean: "Korean",
+        Thai: "Thai",
+        Polish: "Polish",
+        Romanian: "Romanian",
+        Greek: "Greek",
+        Czech: "Czech",
+        Finnish: "Finnish",
+        Hindi: "Hindi",
+        Bulgarian: "Bulgarian",
+        Danish: "Danish",
+        Hebrew: "Hebrew",
+        Malay: "Malay",
+        Persian: "Persian",
+        Slovak: "Slovak",
+        Swedish: "Swedish",
+        Croatian: "Croatian",
+        Filipino: "Filipino",
+        Hungarian: "Hungarian",
+        Norwegian: "Norwegian",
+        Slovenian: "Slovenian",
+        Catalan: "Catalan",
+        Nynorsk: "Nynorsk",
+        Tamil: "Tamil",
+        Afrikaans: "Afrikaans",
+        Auto: "auto",
     } as const;
 }

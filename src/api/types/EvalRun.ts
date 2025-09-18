@@ -22,7 +22,7 @@ export interface EvalRun {
     /** This is the transient eval that will be run */
     eval?: Vapi.CreateEvalDto;
     /** This is the target that will be run against the eval */
-    target: Vapi.EvalRunTargetAssistant;
+    target: EvalRun.Target;
     id: string;
     orgId: string;
     createdAt: string;
@@ -71,4 +71,8 @@ export namespace EvalRun {
         Cancelled: "cancelled",
         Aborted: "aborted",
     } as const;
+    /**
+     * This is the target that will be run against the eval
+     */
+    export type Target = Vapi.EvalRunTargetAssistant | Vapi.EvalRunTargetSquad;
 }

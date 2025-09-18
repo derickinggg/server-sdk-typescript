@@ -7,4 +7,6 @@ import * as Vapi from "../index.js";
 export interface ServerMessageResponseHandoffDestinationRequest {
     /** This is the destination you'd like the call to be transferred to. */
     destination: Vapi.HandoffDestinationAssistant;
+    /** This is the error message if the handoff should not be made. */
+    error?: string;
 }

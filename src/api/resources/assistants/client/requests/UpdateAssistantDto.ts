@@ -287,9 +287,54 @@ export namespace UpdateAssistantDto {
     export type ServerMessages = ServerMessages.Item[];
 
     export namespace ServerMessages {
-        export type Item = "transcript[transcriptType='final']";
+        export type Item =
+            | "conversation-update"
+            | "end-of-call-report"
+            | "function-call"
+            | "hang"
+            | "language-changed"
+            | "language-change-detected"
+            | "model-output"
+            | "phone-call-control"
+            | "speech-update"
+            | "status-update"
+            | "transcript"
+            | 'transcript[transcriptType="final"]'
+            | "tool-calls"
+            | "transfer-destination-request"
+            | "handoff-destination-request"
+            | "transfer-update"
+            | "user-interrupted"
+            | "voice-input"
+            | "chat.created"
+            | "chat.deleted"
+            | "session.created"
+            | "session.updated"
+            | "session.deleted";
         export const Item = {
-            FinalTranscript: "transcript[transcriptType='final']",
+            ConversationUpdate: "conversation-update",
+            EndOfCallReport: "end-of-call-report",
+            FunctionCall: "function-call",
+            Hang: "hang",
+            LanguageChanged: "language-changed",
+            LanguageChangeDetected: "language-change-detected",
+            ModelOutput: "model-output",
+            PhoneCallControl: "phone-call-control",
+            SpeechUpdate: "speech-update",
+            StatusUpdate: "status-update",
+            Transcript: "transcript",
+            TranscriptTranscriptTypeFinal: 'transcript[transcriptType="final"]',
+            ToolCalls: "tool-calls",
+            TransferDestinationRequest: "transfer-destination-request",
+            HandoffDestinationRequest: "handoff-destination-request",
+            TransferUpdate: "transfer-update",
+            UserInterrupted: "user-interrupted",
+            VoiceInput: "voice-input",
+            ChatCreated: "chat.created",
+            ChatDeleted: "chat.deleted",
+            SessionCreated: "session.created",
+            SessionUpdated: "session.updated",
+            SessionDeleted: "session.deleted",
         } as const;
     }
 

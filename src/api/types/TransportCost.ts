@@ -13,10 +13,13 @@ export interface TransportCost {
 }
 
 export namespace TransportCost {
-    export type Provider = "twilio" | "vonage" | "vapi";
+    export type Provider = "daily" | "vapi.websocket" | "twilio" | "vonage" | "telnyx" | "vapi.sip";
     export const Provider = {
+        Daily: "daily",
+        VapiWebsocket: "vapi.websocket",
         Twilio: "twilio",
         Vonage: "vonage",
-        Vapi: "vapi",
+        Telnyx: "telnyx",
+        VapiSip: "vapi.sip",
     } as const;
 }

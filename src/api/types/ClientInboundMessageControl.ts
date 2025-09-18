@@ -7,6 +7,8 @@ export interface ClientInboundMessageControl {
      * This is the type of the message. Send "control" message to control the assistant. `control` options are:
      * - "mute-assistant" - mute the assistant
      * - "unmute-assistant" - unmute the assistant
+     * - "mute-customer" - mute the user
+     * - "unmute-customer" - unmute the user
      * - "say-first-message" - say the first message (this is used when video recording is enabled and the conversation is only started once the client side kicks off the recording)
      */
     type: "control";
@@ -18,10 +20,17 @@ export namespace ClientInboundMessageControl {
     /**
      * This is the control action
      */
-    export type Control = "mute-assistant" | "unmute-assistant" | "say-first-message";
+    export type Control =
+        | "mute-assistant"
+        | "unmute-assistant"
+        | "mute-customer"
+        | "unmute-customer"
+        | "say-first-message";
     export const Control = {
         MuteAssistant: "mute-assistant",
         UnmuteAssistant: "unmute-assistant",
+        MuteCustomer: "mute-customer",
+        UnmuteCustomer: "unmute-customer",
         SayFirstMessage: "say-first-message",
     } as const;
 }

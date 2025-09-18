@@ -52,6 +52,8 @@ export interface Call {
     monitor?: Vapi.Monitor;
     /** These are the artifacts created from the call. Configure in `assistant.artifactPlan`. */
     artifact?: Vapi.Artifact;
+    /** This is the compliance of the call. Configure in `assistant.compliancePlan`. */
+    compliance?: Vapi.Compliance;
     /**
      * The ID of the call as provided by the phone number service. callSid in Twilio. conversationUuid in Vonage. callControlId in Telnyx.
      *
@@ -242,6 +244,7 @@ export namespace Call {
         | "call.start.error-vapi-number-outbound-daily-limit"
         | "call.start.error-get-transport"
         | "call.start.error-subscription-wallet-does-not-exist"
+        | "call.start.error-fraud-check-failed"
         | "call.start.error-subscription-frozen"
         | "call.start.error-subscription-insufficient-credits"
         | "call.start.error-subscription-upgrade-failed"
@@ -766,6 +769,7 @@ export namespace Call {
         CallStartErrorVapiNumberOutboundDailyLimit: "call.start.error-vapi-number-outbound-daily-limit",
         CallStartErrorGetTransport: "call.start.error-get-transport",
         CallStartErrorSubscriptionWalletDoesNotExist: "call.start.error-subscription-wallet-does-not-exist",
+        CallStartErrorFraudCheckFailed: "call.start.error-fraud-check-failed",
         CallStartErrorSubscriptionFrozen: "call.start.error-subscription-frozen",
         CallStartErrorSubscriptionInsufficientCredits: "call.start.error-subscription-insufficient-credits",
         CallStartErrorSubscriptionUpgradeFailed: "call.start.error-subscription-upgrade-failed",

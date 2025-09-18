@@ -29,7 +29,14 @@ describe("Eval", () => {
                     type: "chat.mockConversation",
                 },
             ],
-            metadata: { itemsPerPage: 1.1, totalItems: 1.1, currentPage: 1.1, itemsBeyondRetention: true },
+            metadata: {
+                itemsPerPage: 1.1,
+                totalItems: 1.1,
+                currentPage: 1.1,
+                itemsBeyondRetention: true,
+                createdAtLe: "2024-01-15T09:30:00Z",
+                createdAtGe: "2024-01-15T09:30:00Z",
+            },
         };
         server.mockEndpoint().get("/eval").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
@@ -65,6 +72,8 @@ describe("Eval", () => {
                 totalItems: 1.1,
                 currentPage: 1.1,
                 itemsBeyondRetention: true,
+                createdAtLe: "2024-01-15T09:30:00Z",
+                createdAtGe: "2024-01-15T09:30:00Z",
             },
         });
     });
@@ -73,8 +82,30 @@ describe("Eval", () => {
         const server = mockServerPool.createServer();
         const client = new VapiClient({ token: "test", environment: server.baseUrl });
         const rawRequestBody = { messages: [{ role: "assistant" }], type: "chat.mockConversation" };
-
-        server.mockEndpoint().post("/eval").jsonBody(rawRequestBody).respondWith().statusCode(200).build();
+        const rawResponseBody = {
+            messages: [
+                {
+                    role: "assistant",
+                    content: "The weather in San Francisco is sunny.",
+                    toolCalls: [{ name: "get_weather", arguments: { key: "value" } }],
+                },
+            ],
+            id: "id",
+            orgId: "orgId",
+            createdAt: "2024-01-15T09:30:00Z",
+            updatedAt: "2024-01-15T09:30:00Z",
+            name: "Verified User Flow Eval",
+            description: "This eval checks if the user flow is verified.",
+            type: "chat.mockConversation",
+        };
+        server
+            .mockEndpoint()
+            .post("/eval")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
 
         const response = await client.eval.evalControllerCreate({
             messages: [
@@ -84,38 +115,180 @@ describe("Eval", () => {
             ],
             type: "chat.mockConversation",
         });
-        expect(response).toEqual(undefined);
+        expect(response).toEqual({
+            messages: [
+                {
+                    role: "assistant",
+                    content: "The weather in San Francisco is sunny.",
+                    toolCalls: [
+                        {
+                            name: "get_weather",
+                            arguments: {
+                                key: "value",
+                            },
+                        },
+                    ],
+                },
+            ],
+            id: "id",
+            orgId: "orgId",
+            createdAt: "2024-01-15T09:30:00Z",
+            updatedAt: "2024-01-15T09:30:00Z",
+            name: "Verified User Flow Eval",
+            description: "This eval checks if the user flow is verified.",
+            type: "chat.mockConversation",
+        });
     });
 
     test("EvalController_get", async () => {
         const server = mockServerPool.createServer();
         const client = new VapiClient({ token: "test", environment: server.baseUrl });
 
-        server.mockEndpoint().get("/eval/id").respondWith().statusCode(200).build();
+        const rawResponseBody = {
+            messages: [
+                {
+                    role: "assistant",
+                    content: "The weather in San Francisco is sunny.",
+                    toolCalls: [{ name: "get_weather", arguments: { key: "value" } }],
+                },
+            ],
+            id: "id",
+            orgId: "orgId",
+            createdAt: "2024-01-15T09:30:00Z",
+            updatedAt: "2024-01-15T09:30:00Z",
+            name: "Verified User Flow Eval",
+            description: "This eval checks if the user flow is verified.",
+            type: "chat.mockConversation",
+        };
+        server.mockEndpoint().get("/eval/id").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
         const response = await client.eval.evalControllerGet("id");
-        expect(response).toEqual(undefined);
+        expect(response).toEqual({
+            messages: [
+                {
+                    role: "assistant",
+                    content: "The weather in San Francisco is sunny.",
+                    toolCalls: [
+                        {
+                            name: "get_weather",
+                            arguments: {
+                                key: "value",
+                            },
+                        },
+                    ],
+                },
+            ],
+            id: "id",
+            orgId: "orgId",
+            createdAt: "2024-01-15T09:30:00Z",
+            updatedAt: "2024-01-15T09:30:00Z",
+            name: "Verified User Flow Eval",
+            description: "This eval checks if the user flow is verified.",
+            type: "chat.mockConversation",
+        });
     });
 
     test("EvalController_remove", async () => {
         const server = mockServerPool.createServer();
         const client = new VapiClient({ token: "test", environment: server.baseUrl });
 
-        server.mockEndpoint().delete("/eval/id").respondWith().statusCode(200).build();
+        const rawResponseBody = {
+            messages: [
+                {
+                    role: "assistant",
+                    content: "The weather in San Francisco is sunny.",
+                    toolCalls: [{ name: "get_weather", arguments: { key: "value" } }],
+                },
+            ],
+            id: "id",
+            orgId: "orgId",
+            createdAt: "2024-01-15T09:30:00Z",
+            updatedAt: "2024-01-15T09:30:00Z",
+            name: "Verified User Flow Eval",
+            description: "This eval checks if the user flow is verified.",
+            type: "chat.mockConversation",
+        };
+        server.mockEndpoint().delete("/eval/id").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
         const response = await client.eval.evalControllerRemove("id");
-        expect(response).toEqual(undefined);
+        expect(response).toEqual({
+            messages: [
+                {
+                    role: "assistant",
+                    content: "The weather in San Francisco is sunny.",
+                    toolCalls: [
+                        {
+                            name: "get_weather",
+                            arguments: {
+                                key: "value",
+                            },
+                        },
+                    ],
+                },
+            ],
+            id: "id",
+            orgId: "orgId",
+            createdAt: "2024-01-15T09:30:00Z",
+            updatedAt: "2024-01-15T09:30:00Z",
+            name: "Verified User Flow Eval",
+            description: "This eval checks if the user flow is verified.",
+            type: "chat.mockConversation",
+        });
     });
 
     test("EvalController_update", async () => {
         const server = mockServerPool.createServer();
         const client = new VapiClient({ token: "test", environment: server.baseUrl });
         const rawRequestBody = {};
-
-        server.mockEndpoint().patch("/eval/id").jsonBody(rawRequestBody).respondWith().statusCode(200).build();
+        const rawResponseBody = {
+            messages: [
+                {
+                    role: "assistant",
+                    content: "The weather in San Francisco is sunny.",
+                    toolCalls: [{ name: "get_weather", arguments: { key: "value" } }],
+                },
+            ],
+            id: "id",
+            orgId: "orgId",
+            createdAt: "2024-01-15T09:30:00Z",
+            updatedAt: "2024-01-15T09:30:00Z",
+            name: "Verified User Flow Eval",
+            description: "This eval checks if the user flow is verified.",
+            type: "chat.mockConversation",
+        };
+        server
+            .mockEndpoint()
+            .patch("/eval/id")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
 
         const response = await client.eval.evalControllerUpdate("id");
-        expect(response).toEqual(undefined);
+        expect(response).toEqual({
+            messages: [
+                {
+                    role: "assistant",
+                    content: "The weather in San Francisco is sunny.",
+                    toolCalls: [
+                        {
+                            name: "get_weather",
+                            arguments: {
+                                key: "value",
+                            },
+                        },
+                    ],
+                },
+            ],
+            id: "id",
+            orgId: "orgId",
+            createdAt: "2024-01-15T09:30:00Z",
+            updatedAt: "2024-01-15T09:30:00Z",
+            name: "Verified User Flow Eval",
+            description: "This eval checks if the user flow is verified.",
+            type: "chat.mockConversation",
+        });
     });
 
     test("EvalController_getRun", async () => {
@@ -174,16 +347,16 @@ describe("Eval", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -196,6 +369,22 @@ describe("Eval", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: { key: "value" },
                     artifactPlan: {
                         recordingEnabled: true,
@@ -258,16 +447,16 @@ describe("Eval", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -281,6 +470,22 @@ describe("Eval", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: { key: "value" },
                     artifactPlan: {
                         recordingEnabled: true,
@@ -402,16 +607,16 @@ describe("Eval", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -447,6 +652,28 @@ describe("Eval", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [
+                                        {
+                                            cachingEnabled: true,
+                                            provider: "azure",
+                                            voiceId: "andrew",
+                                        },
+                                    ],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: {
                         key: "value",
                     },
@@ -536,16 +763,16 @@ describe("Eval", () => {
                         "workflow.node.started",
                     ],
                     serverMessages: [
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
-                        "transcript[transcriptType='final']",
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
                     ],
                     maxDurationSeconds: 600,
                     backgroundSound: "off",
@@ -584,6 +811,28 @@ describe("Eval", () => {
                     voicemailMessage: "voicemailMessage",
                     endCallMessage: "endCallMessage",
                     endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [
+                                        {
+                                            cachingEnabled: true,
+                                            provider: "azure",
+                                            voiceId: "andrew",
+                                        },
+                                    ],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
                     metadata: {
                         key: "value",
                     },
@@ -655,10 +904,609 @@ describe("Eval", () => {
         const server = mockServerPool.createServer();
         const client = new VapiClient({ token: "test", environment: server.baseUrl });
 
-        server.mockEndpoint().delete("/eval/run/id").respondWith().statusCode(200).build();
+        const rawResponseBody = {
+            status: "running",
+            endedReason: "mockConversation.done",
+            eval: {
+                messages: [
+                    {
+                        role: "assistant",
+                        content: "The weather in San Francisco is sunny.",
+                        toolCalls: [{ name: "get_weather", arguments: { key: "value" } }],
+                    },
+                ],
+                name: "Verified User Flow Eval",
+                description: "This eval checks if the user flow is verified.",
+                type: "chat.mockConversation",
+            },
+            target: {
+                assistant: {
+                    transcriber: {
+                        provider: "assembly-ai",
+                        confidenceThreshold: 0.4,
+                        formatTurns: true,
+                        endOfTurnConfidenceThreshold: 0.7,
+                        minEndOfTurnSilenceWhenConfident: 160,
+                        wordFinalizationMaxWaitTime: 160,
+                        maxTurnSilence: 400,
+                    },
+                    model: { model: "claude-3-opus-20240229", provider: "anthropic" },
+                    voice: {
+                        cachingEnabled: true,
+                        provider: "azure",
+                        voiceId: "andrew",
+                        fallbackPlan: { voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }] },
+                    },
+                    firstMessage: "Hello! How can I help you today?",
+                    firstMessageInterruptionsEnabled: true,
+                    firstMessageMode: "assistant-speaks-first",
+                    voicemailDetection: { provider: "google" },
+                    clientMessages: [
+                        "conversation-update",
+                        "function-call",
+                        "hang",
+                        "model-output",
+                        "speech-update",
+                        "status-update",
+                        "transfer-update",
+                        "transcript",
+                        "tool-calls",
+                        "user-interrupted",
+                        "voice-input",
+                        "workflow.node.started",
+                    ],
+                    serverMessages: [
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
+                    ],
+                    maxDurationSeconds: 600,
+                    backgroundSound: "off",
+                    modelOutputInMessagesEnabled: false,
+                    transportConfigurations: [{ provider: "twilio", timeout: 60, record: false }],
+                    observabilityPlan: { provider: "langfuse", tags: ["tags"] },
+                    credentials: [{ provider: "11labs", apiKey: "apiKey" }],
+                    hooks: [{ on: "call.ending", do: [{ type: "tool" }] }],
+                    name: "name",
+                    voicemailMessage: "voicemailMessage",
+                    endCallMessage: "endCallMessage",
+                    endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
+                    metadata: { key: "value" },
+                    artifactPlan: {
+                        recordingEnabled: true,
+                        recordingUseCustomStorageEnabled: true,
+                        videoRecordingEnabled: false,
+                        pcapEnabled: true,
+                        pcapS3PathPrefix: "/pcaps",
+                        pcapUseCustomStorageEnabled: true,
+                        loggingEnabled: true,
+                        loggingUseCustomStorageEnabled: true,
+                    },
+                    startSpeakingPlan: { waitSeconds: 0.4 },
+                    stopSpeakingPlan: { numWords: 0, voiceSeconds: 0.2, backoffSeconds: 1 },
+                    monitorPlan: {
+                        listenEnabled: false,
+                        listenAuthenticationEnabled: false,
+                        controlEnabled: false,
+                        controlAuthenticationEnabled: false,
+                    },
+                    credentialIds: ["credentialIds"],
+                    server: {
+                        timeoutSeconds: 20,
+                        credentialId: "550e8400-e29b-41d4-a716-446655440000",
+                        backoffPlan: { type: { key: "value" }, maxRetries: 0, baseDelaySeconds: 1 },
+                    },
+                },
+                assistantOverrides: {
+                    transcriber: {
+                        provider: "assembly-ai",
+                        confidenceThreshold: 0.4,
+                        formatTurns: true,
+                        endOfTurnConfidenceThreshold: 0.7,
+                        minEndOfTurnSilenceWhenConfident: 160,
+                        wordFinalizationMaxWaitTime: 160,
+                        maxTurnSilence: 400,
+                    },
+                    model: { model: "claude-3-opus-20240229", provider: "anthropic" },
+                    voice: {
+                        cachingEnabled: true,
+                        provider: "azure",
+                        voiceId: "andrew",
+                        fallbackPlan: { voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }] },
+                    },
+                    firstMessage: "Hello! How can I help you today?",
+                    firstMessageInterruptionsEnabled: true,
+                    firstMessageMode: "assistant-speaks-first",
+                    voicemailDetection: { provider: "google" },
+                    clientMessages: [
+                        "conversation-update",
+                        "function-call",
+                        "hang",
+                        "model-output",
+                        "speech-update",
+                        "status-update",
+                        "transfer-update",
+                        "transcript",
+                        "tool-calls",
+                        "user-interrupted",
+                        "voice-input",
+                        "workflow.node.started",
+                    ],
+                    serverMessages: [
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
+                    ],
+                    maxDurationSeconds: 600,
+                    backgroundSound: "off",
+                    modelOutputInMessagesEnabled: false,
+                    transportConfigurations: [{ provider: "twilio", timeout: 60, record: false }],
+                    observabilityPlan: { provider: "langfuse", tags: ["tags"] },
+                    credentials: [{ provider: "11labs", apiKey: "apiKey" }],
+                    hooks: [{ on: "call.ending", do: [{ type: "tool" }] }],
+                    variableValues: { key: "value" },
+                    name: "name",
+                    voicemailMessage: "voicemailMessage",
+                    endCallMessage: "endCallMessage",
+                    endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [{ cachingEnabled: true, provider: "azure", voiceId: "andrew" }],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
+                    metadata: { key: "value" },
+                    artifactPlan: {
+                        recordingEnabled: true,
+                        recordingUseCustomStorageEnabled: true,
+                        videoRecordingEnabled: false,
+                        pcapEnabled: true,
+                        pcapS3PathPrefix: "/pcaps",
+                        pcapUseCustomStorageEnabled: true,
+                        loggingEnabled: true,
+                        loggingUseCustomStorageEnabled: true,
+                    },
+                    startSpeakingPlan: { waitSeconds: 0.4 },
+                    stopSpeakingPlan: { numWords: 0, voiceSeconds: 0.2, backoffSeconds: 1 },
+                    monitorPlan: {
+                        listenEnabled: false,
+                        listenAuthenticationEnabled: false,
+                        controlEnabled: false,
+                        controlAuthenticationEnabled: false,
+                    },
+                    credentialIds: ["credentialIds"],
+                    server: {
+                        timeoutSeconds: 20,
+                        credentialId: "550e8400-e29b-41d4-a716-446655440000",
+                        backoffPlan: { type: { key: "value" }, maxRetries: 0, baseDelaySeconds: 1 },
+                    },
+                },
+                type: "assistant",
+                assistantId: "123e4567-e89b-12d3-a456-426614174000",
+            },
+            id: "id",
+            orgId: "orgId",
+            createdAt: "2024-01-15T09:30:00Z",
+            startedAt: "2024-01-15T09:30:00Z",
+            endedAt: "2024-01-15T09:30:00Z",
+            endedMessage: "The Assistant returned an error",
+            results: [
+                {
+                    status: "pass",
+                    messages: [{ role: "user", content: "Hello, how are you?" }],
+                    startedAt: "2021-01-01T00:00:00Z",
+                    endedAt: "2021-01-01T00:00:00Z",
+                },
+            ],
+            type: "eval",
+            evalId: "123e4567-e89b-12d3-a456-426614174000",
+        };
+        server.mockEndpoint().delete("/eval/run/id").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
         const response = await client.eval.evalControllerRemoveRun("id");
-        expect(response).toEqual(undefined);
+        expect(response).toEqual({
+            status: "running",
+            endedReason: "mockConversation.done",
+            eval: {
+                messages: [
+                    {
+                        role: "assistant",
+                        content: "The weather in San Francisco is sunny.",
+                        toolCalls: [
+                            {
+                                name: "get_weather",
+                                arguments: {
+                                    key: "value",
+                                },
+                            },
+                        ],
+                    },
+                ],
+                name: "Verified User Flow Eval",
+                description: "This eval checks if the user flow is verified.",
+                type: "chat.mockConversation",
+            },
+            target: {
+                assistant: {
+                    transcriber: {
+                        provider: "assembly-ai",
+                        confidenceThreshold: 0.4,
+                        formatTurns: true,
+                        endOfTurnConfidenceThreshold: 0.7,
+                        minEndOfTurnSilenceWhenConfident: 160,
+                        wordFinalizationMaxWaitTime: 160,
+                        maxTurnSilence: 400,
+                    },
+                    model: {
+                        model: "claude-3-opus-20240229",
+                        provider: "anthropic",
+                    },
+                    voice: {
+                        cachingEnabled: true,
+                        provider: "azure",
+                        voiceId: "andrew",
+                        fallbackPlan: {
+                            voices: [
+                                {
+                                    cachingEnabled: true,
+                                    provider: "azure",
+                                    voiceId: "andrew",
+                                },
+                            ],
+                        },
+                    },
+                    firstMessage: "Hello! How can I help you today?",
+                    firstMessageInterruptionsEnabled: true,
+                    firstMessageMode: "assistant-speaks-first",
+                    voicemailDetection: {
+                        provider: "google",
+                    },
+                    clientMessages: [
+                        "conversation-update",
+                        "function-call",
+                        "hang",
+                        "model-output",
+                        "speech-update",
+                        "status-update",
+                        "transfer-update",
+                        "transcript",
+                        "tool-calls",
+                        "user-interrupted",
+                        "voice-input",
+                        "workflow.node.started",
+                    ],
+                    serverMessages: [
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
+                    ],
+                    maxDurationSeconds: 600,
+                    backgroundSound: "off",
+                    modelOutputInMessagesEnabled: false,
+                    transportConfigurations: [
+                        {
+                            provider: "twilio",
+                            timeout: 60,
+                            record: false,
+                        },
+                    ],
+                    observabilityPlan: {
+                        provider: "langfuse",
+                        tags: ["tags"],
+                    },
+                    credentials: [
+                        {
+                            provider: "11labs",
+                            apiKey: "apiKey",
+                        },
+                    ],
+                    hooks: [
+                        {
+                            on: "call.ending",
+                            do: [
+                                {
+                                    type: "tool",
+                                },
+                            ],
+                        },
+                    ],
+                    name: "name",
+                    voicemailMessage: "voicemailMessage",
+                    endCallMessage: "endCallMessage",
+                    endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [
+                                        {
+                                            cachingEnabled: true,
+                                            provider: "azure",
+                                            voiceId: "andrew",
+                                        },
+                                    ],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
+                    metadata: {
+                        key: "value",
+                    },
+                    artifactPlan: {
+                        recordingEnabled: true,
+                        recordingUseCustomStorageEnabled: true,
+                        videoRecordingEnabled: false,
+                        pcapEnabled: true,
+                        pcapS3PathPrefix: "/pcaps",
+                        pcapUseCustomStorageEnabled: true,
+                        loggingEnabled: true,
+                        loggingUseCustomStorageEnabled: true,
+                    },
+                    startSpeakingPlan: {
+                        waitSeconds: 0.4,
+                    },
+                    stopSpeakingPlan: {
+                        numWords: 0,
+                        voiceSeconds: 0.2,
+                        backoffSeconds: 1,
+                    },
+                    monitorPlan: {
+                        listenEnabled: false,
+                        listenAuthenticationEnabled: false,
+                        controlEnabled: false,
+                        controlAuthenticationEnabled: false,
+                    },
+                    credentialIds: ["credentialIds"],
+                    server: {
+                        timeoutSeconds: 20,
+                        credentialId: "550e8400-e29b-41d4-a716-446655440000",
+                        backoffPlan: {
+                            type: {
+                                key: "value",
+                            },
+                            maxRetries: 0,
+                            baseDelaySeconds: 1,
+                        },
+                    },
+                },
+                assistantOverrides: {
+                    transcriber: {
+                        provider: "assembly-ai",
+                        confidenceThreshold: 0.4,
+                        formatTurns: true,
+                        endOfTurnConfidenceThreshold: 0.7,
+                        minEndOfTurnSilenceWhenConfident: 160,
+                        wordFinalizationMaxWaitTime: 160,
+                        maxTurnSilence: 400,
+                    },
+                    model: {
+                        model: "claude-3-opus-20240229",
+                        provider: "anthropic",
+                    },
+                    voice: {
+                        cachingEnabled: true,
+                        provider: "azure",
+                        voiceId: "andrew",
+                        fallbackPlan: {
+                            voices: [
+                                {
+                                    cachingEnabled: true,
+                                    provider: "azure",
+                                    voiceId: "andrew",
+                                },
+                            ],
+                        },
+                    },
+                    firstMessage: "Hello! How can I help you today?",
+                    firstMessageInterruptionsEnabled: true,
+                    firstMessageMode: "assistant-speaks-first",
+                    voicemailDetection: {
+                        provider: "google",
+                    },
+                    clientMessages: [
+                        "conversation-update",
+                        "function-call",
+                        "hang",
+                        "model-output",
+                        "speech-update",
+                        "status-update",
+                        "transfer-update",
+                        "transcript",
+                        "tool-calls",
+                        "user-interrupted",
+                        "voice-input",
+                        "workflow.node.started",
+                    ],
+                    serverMessages: [
+                        "conversation-update",
+                        "end-of-call-report",
+                        "function-call",
+                        "hang",
+                        "speech-update",
+                        "status-update",
+                        "tool-calls",
+                        "transfer-destination-request",
+                        "handoff-destination-request",
+                        "user-interrupted",
+                    ],
+                    maxDurationSeconds: 600,
+                    backgroundSound: "off",
+                    modelOutputInMessagesEnabled: false,
+                    transportConfigurations: [
+                        {
+                            provider: "twilio",
+                            timeout: 60,
+                            record: false,
+                        },
+                    ],
+                    observabilityPlan: {
+                        provider: "langfuse",
+                        tags: ["tags"],
+                    },
+                    credentials: [
+                        {
+                            provider: "11labs",
+                            apiKey: "apiKey",
+                        },
+                    ],
+                    hooks: [
+                        {
+                            on: "call.ending",
+                            do: [
+                                {
+                                    type: "tool",
+                                },
+                            ],
+                        },
+                    ],
+                    variableValues: {
+                        key: "value",
+                    },
+                    name: "name",
+                    voicemailMessage: "voicemailMessage",
+                    endCallMessage: "endCallMessage",
+                    endCallPhrases: ["endCallPhrases"],
+                    compliancePlan: {
+                        recordingConsentPlan: {
+                            message:
+                                "For quality purposes, this call may be recorded. Please stay on the line if you agree or end the call if you do not consent.",
+                            voice: {
+                                cachingEnabled: true,
+                                provider: "azure",
+                                voiceId: "andrew",
+                                fallbackPlan: {
+                                    voices: [
+                                        {
+                                            cachingEnabled: true,
+                                            provider: "azure",
+                                            voiceId: "andrew",
+                                        },
+                                    ],
+                                },
+                            },
+                            type: "hang-up-to-decline",
+                            waitSeconds: 2,
+                        },
+                    },
+                    metadata: {
+                        key: "value",
+                    },
+                    artifactPlan: {
+                        recordingEnabled: true,
+                        recordingUseCustomStorageEnabled: true,
+                        videoRecordingEnabled: false,
+                        pcapEnabled: true,
+                        pcapS3PathPrefix: "/pcaps",
+                        pcapUseCustomStorageEnabled: true,
+                        loggingEnabled: true,
+                        loggingUseCustomStorageEnabled: true,
+                    },
+                    startSpeakingPlan: {
+                        waitSeconds: 0.4,
+                    },
+                    stopSpeakingPlan: {
+                        numWords: 0,
+                        voiceSeconds: 0.2,
+                        backoffSeconds: 1,
+                    },
+                    monitorPlan: {
+                        listenEnabled: false,
+                        listenAuthenticationEnabled: false,
+                        controlEnabled: false,
+                        controlAuthenticationEnabled: false,
+                    },
+                    credentialIds: ["credentialIds"],
+                    server: {
+                        timeoutSeconds: 20,
+                        credentialId: "550e8400-e29b-41d4-a716-446655440000",
+                        backoffPlan: {
+                            type: {
+                                key: "value",
+                            },
+                            maxRetries: 0,
+                            baseDelaySeconds: 1,
+                        },
+                    },
+                },
+                type: "assistant",
+                assistantId: "123e4567-e89b-12d3-a456-426614174000",
+            },
+            id: "id",
+            orgId: "orgId",
+            createdAt: "2024-01-15T09:30:00Z",
+            startedAt: "2024-01-15T09:30:00Z",
+            endedAt: "2024-01-15T09:30:00Z",
+            endedMessage: "The Assistant returned an error",
+            results: [
+                {
+                    status: "pass",
+                    messages: [
+                        {
+                            role: "user",
+                            content: "Hello, how are you?",
+                        },
+                    ],
+                    startedAt: "2021-01-01T00:00:00Z",
+                    endedAt: "2021-01-01T00:00:00Z",
+                },
+            ],
+            type: "eval",
+            evalId: "123e4567-e89b-12d3-a456-426614174000",
+        });
     });
 
     test("EvalController_getRunsPaginated", async () => {
@@ -701,7 +1549,14 @@ describe("Eval", () => {
                     evalId: "123e4567-e89b-12d3-a456-426614174000",
                 },
             ],
-            metadata: { itemsPerPage: 1.1, totalItems: 1.1, currentPage: 1.1, itemsBeyondRetention: true },
+            metadata: {
+                itemsPerPage: 1.1,
+                totalItems: 1.1,
+                currentPage: 1.1,
+                itemsBeyondRetention: true,
+                createdAtLe: "2024-01-15T09:30:00Z",
+                createdAtGe: "2024-01-15T09:30:00Z",
+            },
         };
         server.mockEndpoint().get("/eval/run").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
@@ -762,6 +1617,8 @@ describe("Eval", () => {
                 totalItems: 1.1,
                 currentPage: 1.1,
                 itemsBeyondRetention: true,
+                createdAtLe: "2024-01-15T09:30:00Z",
+                createdAtGe: "2024-01-15T09:30:00Z",
             },
         });
     });

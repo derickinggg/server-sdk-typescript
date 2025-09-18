@@ -105,6 +105,12 @@ export interface UpdateWorkflowDto {
     credentialIds?: string[];
     /** This is the plan for keypad input handling during workflow calls. */
     keypadInputPlan?: Vapi.KeypadInputPlan;
+    /**
+     * This is the message that the assistant will say if the call is forwarded to voicemail.
+     *
+     * If unspecified, it will hang up.
+     */
+    voicemailMessage?: string;
 }
 
 export namespace UpdateWorkflowDto {

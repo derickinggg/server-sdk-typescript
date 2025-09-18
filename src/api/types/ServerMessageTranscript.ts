@@ -52,9 +52,10 @@ export namespace ServerMessageTranscript {
     /**
      * This is the type of the message. "transcript" is sent as transcriber outputs partial or final transcript.
      */
-    export type Type = "transcript[transcriptType='final']";
+    export type Type = "transcript" | 'transcript[transcriptType="final"]';
     export const Type = {
-        FinalTranscript: "transcript[transcriptType='final']",
+        Transcript: "transcript",
+        TranscriptTranscriptTypeFinal: 'transcript[transcriptType="final"]',
     } as const;
     /**
      * This is the role for which the transcript is for.

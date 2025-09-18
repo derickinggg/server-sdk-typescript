@@ -184,14 +184,14 @@ export class Eval {
     public evalControllerCreate(
         request: Vapi.CreateEvalDto,
         requestOptions?: Eval.RequestOptions,
-    ): core.HttpResponsePromise<void> {
+    ): core.HttpResponsePromise<Vapi.Eval> {
         return core.HttpResponsePromise.fromPromise(this.__evalControllerCreate(request, requestOptions));
     }
 
     private async __evalControllerCreate(
         request: Vapi.CreateEvalDto,
         requestOptions?: Eval.RequestOptions,
-    ): Promise<core.WithRawResponse<void>> {
+    ): Promise<core.WithRawResponse<Vapi.Eval>> {
         let _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             this._options?.headers,
             mergeOnlyDefinedHeaders({ Authorization: await this._getAuthorizationHeader() }),
@@ -215,7 +215,7 @@ export class Eval {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return { data: undefined, rawResponse: _response.rawResponse };
+            return { data: _response.body as Vapi.Eval, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
@@ -250,14 +250,14 @@ export class Eval {
      * @example
      *     await client.eval.evalControllerGet("id")
      */
-    public evalControllerGet(id: string, requestOptions?: Eval.RequestOptions): core.HttpResponsePromise<void> {
+    public evalControllerGet(id: string, requestOptions?: Eval.RequestOptions): core.HttpResponsePromise<Vapi.Eval> {
         return core.HttpResponsePromise.fromPromise(this.__evalControllerGet(id, requestOptions));
     }
 
     private async __evalControllerGet(
         id: string,
         requestOptions?: Eval.RequestOptions,
-    ): Promise<core.WithRawResponse<void>> {
+    ): Promise<core.WithRawResponse<Vapi.Eval>> {
         let _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             this._options?.headers,
             mergeOnlyDefinedHeaders({ Authorization: await this._getAuthorizationHeader() }),
@@ -278,7 +278,7 @@ export class Eval {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return { data: undefined, rawResponse: _response.rawResponse };
+            return { data: _response.body as Vapi.Eval, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
@@ -313,14 +313,14 @@ export class Eval {
      * @example
      *     await client.eval.evalControllerRemove("id")
      */
-    public evalControllerRemove(id: string, requestOptions?: Eval.RequestOptions): core.HttpResponsePromise<void> {
+    public evalControllerRemove(id: string, requestOptions?: Eval.RequestOptions): core.HttpResponsePromise<Vapi.Eval> {
         return core.HttpResponsePromise.fromPromise(this.__evalControllerRemove(id, requestOptions));
     }
 
     private async __evalControllerRemove(
         id: string,
         requestOptions?: Eval.RequestOptions,
-    ): Promise<core.WithRawResponse<void>> {
+    ): Promise<core.WithRawResponse<Vapi.Eval>> {
         let _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             this._options?.headers,
             mergeOnlyDefinedHeaders({ Authorization: await this._getAuthorizationHeader() }),
@@ -341,7 +341,7 @@ export class Eval {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return { data: undefined, rawResponse: _response.rawResponse };
+            return { data: _response.body as Vapi.Eval, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
@@ -381,7 +381,7 @@ export class Eval {
         id: string,
         request: Vapi.UpdateEvalDto = {},
         requestOptions?: Eval.RequestOptions,
-    ): core.HttpResponsePromise<void> {
+    ): core.HttpResponsePromise<Vapi.Eval> {
         return core.HttpResponsePromise.fromPromise(this.__evalControllerUpdate(id, request, requestOptions));
     }
 
@@ -389,7 +389,7 @@ export class Eval {
         id: string,
         request: Vapi.UpdateEvalDto = {},
         requestOptions?: Eval.RequestOptions,
-    ): Promise<core.WithRawResponse<void>> {
+    ): Promise<core.WithRawResponse<Vapi.Eval>> {
         let _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             this._options?.headers,
             mergeOnlyDefinedHeaders({ Authorization: await this._getAuthorizationHeader() }),
@@ -413,7 +413,7 @@ export class Eval {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return { data: undefined, rawResponse: _response.rawResponse };
+            return { data: _response.body as Vapi.Eval, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
@@ -514,14 +514,17 @@ export class Eval {
      * @example
      *     await client.eval.evalControllerRemoveRun("id")
      */
-    public evalControllerRemoveRun(id: string, requestOptions?: Eval.RequestOptions): core.HttpResponsePromise<void> {
+    public evalControllerRemoveRun(
+        id: string,
+        requestOptions?: Eval.RequestOptions,
+    ): core.HttpResponsePromise<Vapi.EvalRun> {
         return core.HttpResponsePromise.fromPromise(this.__evalControllerRemoveRun(id, requestOptions));
     }
 
     private async __evalControllerRemoveRun(
         id: string,
         requestOptions?: Eval.RequestOptions,
-    ): Promise<core.WithRawResponse<void>> {
+    ): Promise<core.WithRawResponse<Vapi.EvalRun>> {
         let _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             this._options?.headers,
             mergeOnlyDefinedHeaders({ Authorization: await this._getAuthorizationHeader() }),
@@ -542,7 +545,7 @@ export class Eval {
             abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return { data: undefined, rawResponse: _response.rawResponse };
+            return { data: _response.body as Vapi.EvalRun, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {

@@ -10,14 +10,14 @@ export interface AssistantMessageEvaluationContinuePlan {
      * By default, it is false and the evaluation will continue.
      * @default false
      */
-    exitOnFailureEnabled: boolean;
+    exitOnFailureEnabled?: boolean;
     /**
-     * This is the content that will be used in the conversation for this assistant turn if provided.
+     * This is the content that will be used in the conversation for this assistant turn moving forward if provided.
      * It will override the content received from the model.
      */
     contentOverride?: string;
     /**
-     * This is the tool calls that will be used in the conversation for this assistant turn if provided.
+     * This is the tool calls that will be used in the conversation for this assistant turn moving forward if provided.
      * It will override the tool calls received from the model.
      */
     toolCallsOverride?: Vapi.ChatEvalAssistantMessageMockToolCall[];

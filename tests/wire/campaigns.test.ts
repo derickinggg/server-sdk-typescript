@@ -33,7 +33,14 @@ describe("Campaigns", () => {
                     callsCounterEnded: 1.1,
                 },
             ],
-            metadata: { itemsPerPage: 1.1, totalItems: 1.1, currentPage: 1.1, itemsBeyondRetention: true },
+            metadata: {
+                itemsPerPage: 1.1,
+                totalItems: 1.1,
+                currentPage: 1.1,
+                itemsBeyondRetention: true,
+                createdAtLe: "2024-01-15T09:30:00Z",
+                createdAtGe: "2024-01-15T09:30:00Z",
+            },
         };
         server.mockEndpoint().get("/campaign").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
 
@@ -70,6 +77,8 @@ describe("Campaigns", () => {
                 totalItems: 1.1,
                 currentPage: 1.1,
                 itemsBeyondRetention: true,
+                createdAtLe: "2024-01-15T09:30:00Z",
+                createdAtGe: "2024-01-15T09:30:00Z",
             },
         });
     });
