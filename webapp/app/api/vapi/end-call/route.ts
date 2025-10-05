@@ -1,4 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { VapiClient } from '@vapi-ai/server-sdk';
+
+const client = new VapiClient({
+  token: process.env.VAPI_API_KEY || '',
+});
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,12 +17,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Mock response for deployment
-    // In production, you would use the actual VAPI SDK
-    const call = {
-      id: callId,
-      status: 'ended',
-    };
+    const call = await client.calls.delete(callId);
 
     return NextResponse.json({ call });
   } catch (error) {
