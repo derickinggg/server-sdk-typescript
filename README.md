@@ -5,6 +5,20 @@
 
 The Vapi TypeScript library provides convenient access to the Vapi API from TypeScript.
 
+## 🎙️ VAPI Calling Agent Web App
+
+This repository now includes a **user-friendly web application** for making AI-powered voice calls using the VAPI SDK. The webapp is located in the `/webapp` directory.
+
+### Quick Start
+
+```bash
+cd webapp
+./setup.sh  # Run setup script
+npm run dev # Start development server
+```
+
+See the [webapp README](/webapp/README.md) for detailed setup and usage instructions.
+
 ## Installation
 
 ```sh
