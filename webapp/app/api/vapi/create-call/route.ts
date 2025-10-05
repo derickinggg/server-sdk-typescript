@@ -17,18 +17,64 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Create web call (browser-based)
-    const call = await client.calls.create({
-      assistantId,
-      ...(phoneNumber && { phoneNumberId: phoneNumber }),
-      ...(customerPhoneNumber && { customer: { number: customerPhoneNumber } }),
-    });
+    // If customerPhoneNumber is provided, this is an outbound phone call
+    if (customerPhoneNumber) {
+      // Validate phone number format
+      const phoneRegex = /^\+?[1-9]\d{1,14}$/;
+      if (!phoneRegex.test(customerPhoneNumber)) {
+        return NextResponse.json(
+          { error: 'Invalid phone number format' },
+          { status: 400 }
+        );
+      }
 
-    return NextResponse.json({ call });
-  } catch (error) {
+      // Create outbound phone call
+      const call = await client.calls.create({
+        assistantId,
+        customer: {
+          number: customerPhoneNumber,
+        },
+        // You can optionally specify a phone number to call from
+        // phoneNumberId: 'your-vapi-phone-number-id',
+      });
+
+      return NextResponse.json({ 
+        call,
+        message: `Initiating call to ${customerPhoneNumber}`,
+        type: 'outbound_phone'
+      });
+    } else {
+      // Create web call (browser-based)
+      const call = await client.calls.create({
+        assistantId,
+        ...(phoneNumber && { phoneNumberId: phoneNumber }),
+      });
+
+      return NextResponse.json({ 
+        call,
+        type: 'web'
+      });
+    }
+  } catch (error: any) {
     console.error('Error creating call:', error);
+    
+    // Provide more specific error messages
+    if (error.response?.status === 402) {
+      return NextResponse.json(
+        { error: 'Insufficient credits. Please add credits to your VAPI account.' },
+        { status: 402 }
+      );
+    }
+    
+    if (error.response?.status === 404) {
+      return NextResponse.json(
+        { error: 'Assistant not found. Please create an assistant first.' },
+        { status: 404 }
+      );
+    }
+    
     return NextResponse.json(
-      { error: 'Failed to create call' },
+      { error: error.message || 'Failed to create call' },
       { status: 500 }
     );
   }
