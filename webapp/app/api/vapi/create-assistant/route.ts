@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
       maxDurationSeconds
     } = body;
 
-    const assistant = await client.assistants.create({
+    const assistantConfig: any = {
       name: name || 'VAPI Calling Assistant',
       firstMessage: firstMessage || 'Hello! I am your AI assistant. How can I help you today?',
       model: {
@@ -39,12 +39,26 @@ export async function POST(req: NextRequest) {
         provider: voice?.provider || '11labs',
         voiceId: voice?.voiceId || 'rachel',
       },
-      silenceTimeoutSeconds: silenceTimeoutSeconds || 30,
-      responseDelaySeconds: responseDelaySeconds || 0.4,
-      interruptionThreshold: interruptionThreshold || 0.5,
-      endCallPhrases: endCallPhrases || ['goodbye', 'bye', 'see you later'],
-      maxDurationSeconds: maxDurationSeconds || 600,
-    });
+    };
+
+    // Add optional configuration if provided
+    if (silenceTimeoutSeconds !== undefined) {
+      assistantConfig.silenceTimeoutSeconds = silenceTimeoutSeconds;
+    }
+    if (responseDelaySeconds !== undefined) {
+      assistantConfig.responseDelaySeconds = responseDelaySeconds;
+    }
+    if (interruptionThreshold !== undefined) {
+      assistantConfig.interruptionThreshold = interruptionThreshold;
+    }
+    if (endCallPhrases !== undefined) {
+      assistantConfig.endCallPhrases = endCallPhrases;
+    }
+    if (maxDurationSeconds !== undefined) {
+      assistantConfig.maxDurationSeconds = maxDurationSeconds;
+    }
+
+    const assistant = await client.assistants.create(assistantConfig);
 
     return NextResponse.json({ assistant });
   } catch (error: any) {
