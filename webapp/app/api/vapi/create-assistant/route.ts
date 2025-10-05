@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
         ],
       },
       voice: {
-        provider: 'elevenlabs',
+        provider: '11labs',
         voiceId: voice || 'rachel',
       },
     });
