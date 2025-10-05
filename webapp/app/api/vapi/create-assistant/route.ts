@@ -1,11 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { VapiClient } from '@vapi-ai/server-sdk';
 
-const client = new VapiClient({
-  token: process.env.VAPI_API_KEY || '',
-});
-
 export async function POST(req: NextRequest) {
+  // Check if API key is configured
+  if (!process.env.VAPI_API_KEY) {
+    return NextResponse.json(
+      { error: 'VAPI API key not configured. Please set VAPI_API_KEY environment variable in Vercel.' },
+      { status: 500 }
+    );
+  }
+
+  const client = new VapiClient({
+    token: process.env.VAPI_API_KEY,
+  });
   try {
     const body = await req.json();
     const { 

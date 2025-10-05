@@ -112,7 +112,16 @@ export function CallInterface() {
           const response = await fetch('/api/vapi/phone-numbers');
           const data = await response.json();
           
-          if (data.phoneNumbers && data.phoneNumbers.length > 0) {
+          if (data.error) {
+            // Handle specific error cases
+            if (response.status === 401) {
+              setPhoneError('VAPI API key is invalid or missing. Please contact your administrator to set up the correct API key.');
+            } else if (response.status === 500 && data.error.includes('not configured')) {
+              setPhoneError('VAPI API key is not configured. Please set up the API key in Vercel environment variables.');
+            } else {
+              setPhoneError(data.error || 'Failed to fetch phone numbers.');
+            }
+          } else if (data.phoneNumbers && data.phoneNumbers.length > 0) {
             setVapiPhoneNumbers(data.phoneNumbers);
             // Auto-select the first phone number
             setSelectedVapiNumber(data.phoneNumbers[0].id);
