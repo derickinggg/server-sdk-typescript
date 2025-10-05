@@ -1,15 +1,17 @@
-# VAPI Calling Agent Web App
+# VAPI Agent Builder
 
-A modern, user-friendly web application for making AI-powered voice calls using the VAPI SDK.
+A comprehensive web application for building, managing, and testing custom AI voice agents using the VAPI SDK. Features a step-by-step agent creation wizard with bilingual support (English/Chinese).
 
 ## Features
 
-- 🎙️ Real-time voice calling with AI assistant
-- 💬 Live conversation transcript
-- 🎛️ Call controls (mute/unmute, speaker toggle)
-- ⏱️ Call duration tracking
-- 🎨 Beautiful, responsive UI with Tailwind CSS
-- 🚀 Built with Next.js 14 and TypeScript
+- 🤖 **Step-by-step Agent Builder**: Create custom AI agents with a 4-step wizard
+- 🌐 **Bilingual Support**: Full English and Chinese language support
+- 📊 **Agent Management Dashboard**: View, search, and manage all your agents
+- 🎙️ **Real-time Voice Calling**: Test agents with live voice conversations
+- 💬 **Live Transcription**: See conversations in real-time
+- 🎛️ **Advanced Configuration**: Customize voice, AI model, behavior, and more
+- 🎨 **Modern UI**: Beautiful, responsive design with Tailwind CSS
+- 🚀 **Built with Next.js 14**: Fast, SEO-friendly, and production-ready
 
 ## Prerequisites
 
@@ -91,12 +93,19 @@ webapp/
 
 ## Deployment
 
-### Deploy to Vercel
+### Quick Deploy with Vercel CLI
+
+```bash
+cd webapp
+npx vercel --prod
+```
+
+### Deploy via Git Integration
 
 1. **Push to GitHub**
    ```bash
    git add .
-   git commit -m "Add VAPI calling agent webapp"
+   git commit -m "VAPI Agent Builder"
    git push
    ```
 
@@ -105,13 +114,13 @@ webapp/
    - Click "New Project"
    - Import your GitHub repository
    - Select the `webapp` directory as the root directory
-   - Configure environment variables in Vercel dashboard
 
-3. **Environment Variables in Vercel**
+3. **Environment Variables**
    Add these in your Vercel project settings:
-   - `VAPI_API_KEY`
-   - `VERCEL_API_KEY`
-   - `NEXT_PUBLIC_VAPI_PUBLIC_KEY`
+   - `VAPI_API_KEY`: Your VAPI API key
+   - `NEXT_PUBLIC_VAPI_PUBLIC_KEY`: Your VAPI public key
+
+For detailed deployment instructions, see [DEPLOYMENT-GUIDE.md](./DEPLOYMENT-GUIDE.md)
 
 ## Customization
 
