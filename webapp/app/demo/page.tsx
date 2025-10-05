@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import CallInterface from '../components/CallInterface';
+import { CallInterface } from '../components/CallInterface';
 import EnhancedCallInterface from '../components/EnhancedCallInterface';
 
 export default function DemoPage() {

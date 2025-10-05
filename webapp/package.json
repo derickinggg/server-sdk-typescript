@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@daily-co/daily-js": "^0.84.0",
+    "@headlessui/react": "^2.2.9",
+    "@heroicons/react": "^2.2.0",
     "@vapi-ai/server-sdk": "^0.10.2",
     "@vapi-ai/web": "^2.2.15",
     "clsx": "^2.1.1",
