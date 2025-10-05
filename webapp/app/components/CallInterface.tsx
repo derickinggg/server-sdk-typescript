@@ -28,6 +28,9 @@ export function CallInterface() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [callType, setCallType] = useState<'web' | 'phone'>('web');
   const [phoneError, setPhoneError] = useState('');
+  const [vapiPhoneNumbers, setVapiPhoneNumbers] = useState<any[]>([]);
+  const [selectedVapiNumber, setSelectedVapiNumber] = useState<string>('');
+  const [loadingPhoneNumbers, setLoadingPhoneNumbers] = useState(false);
 
   // Initialize VAPI client
   useEffect(() => {
@@ -100,6 +103,34 @@ export function CallInterface() {
     createAssistant();
   }, []);
 
+  // Fetch VAPI phone numbers when phone call type is selected
+  useEffect(() => {
+    const fetchPhoneNumbers = async () => {
+      if (callType === 'phone' && vapiPhoneNumbers.length === 0) {
+        setLoadingPhoneNumbers(true);
+        try {
+          const response = await fetch('/api/vapi/phone-numbers');
+          const data = await response.json();
+          
+          if (data.phoneNumbers && data.phoneNumbers.length > 0) {
+            setVapiPhoneNumbers(data.phoneNumbers);
+            // Auto-select the first phone number
+            setSelectedVapiNumber(data.phoneNumbers[0].id);
+          } else {
+            setPhoneError('No VAPI phone numbers found. Please purchase a phone number from your VAPI dashboard at https://dashboard.vapi.ai');
+          }
+        } catch (error) {
+          console.error('Error fetching phone numbers:', error);
+          setPhoneError('Failed to fetch phone numbers. Please check your VAPI configuration.');
+        } finally {
+          setLoadingPhoneNumbers(false);
+        }
+      }
+    };
+    
+    fetchPhoneNumbers();
+  }, [callType, vapiPhoneNumbers.length]);
+
   // Update call duration
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -151,8 +182,16 @@ export function CallInterface() {
     if (!vapi || !assistantId) return;
 
     // Validate phone number if phone call type is selected
-    if (callType === 'phone' && !validatePhoneNumber(phoneNumber)) {
-      return;
+    if (callType === 'phone') {
+      if (!validatePhoneNumber(phoneNumber)) {
+        return;
+      }
+      
+      // Check if a VAPI phone number is selected
+      if (!selectedVapiNumber) {
+        setPhoneError('Please select a VAPI phone number to make calls from. If you don\'t have one, purchase it from your VAPI dashboard.');
+        return;
+      }
     }
 
     setIsLoading(true);
@@ -190,6 +229,7 @@ export function CallInterface() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               assistantId,
+              phoneNumberId: selectedVapiNumber,
               customerPhoneNumber: formattedNumber,
             }),
           });
@@ -297,32 +337,85 @@ export function CallInterface() {
 
             {/* Phone Number Input */}
             {callType === 'phone' && (
-              <div className="max-w-md mx-auto">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Target Phone Number
-                </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <PhoneIcon className="h-5 w-5 text-gray-400" />
+              <div className="max-w-md mx-auto space-y-4">
+                {/* VAPI Phone Number Selection */}
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <label className="block text-sm font-medium text-gray-700">
+                      Your VAPI Phone Number (Caller ID)
+                    </label>
+                    <button
+                      onClick={async () => {
+                        setVapiPhoneNumbers([]); // Clear to trigger refetch
+                        setPhoneError('');
+                      }}
+                      className="text-sm text-purple-600 hover:text-purple-700"
+                      disabled={loadingPhoneNumbers}
+                    >
+                      Refresh
+                    </button>
                   </div>
-                  <input
-                    type="tel"
-                    value={phoneNumber}
-                    onChange={(e) => {
-                      setPhoneNumber(e.target.value);
-                      setPhoneError(''); // Clear error on input change
-                    }}
-                    placeholder="Enter phone number (e.g., +1234567890)"
-                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                    disabled={isCallActive}
-                  />
+                  {loadingPhoneNumbers ? (
+                    <div className="text-center py-4">
+                      <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
+                      <p className="text-sm text-gray-500 mt-2">Loading phone numbers...</p>
+                    </div>
+                  ) : vapiPhoneNumbers.length > 0 ? (
+                    <select
+                      value={selectedVapiNumber}
+                      onChange={(e) => setSelectedVapiNumber(e.target.value)}
+                      className="block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      disabled={isCallActive}
+                    >
+                      {vapiPhoneNumbers.map((number) => (
+                        <option key={number.id} value={number.id}>
+                          {number.number} ({number.provider})
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                      <p className="text-sm text-yellow-800">
+                        No VAPI phone numbers found. To make outbound calls:
+                      </p>
+                      <ol className="mt-2 text-sm text-yellow-700 list-decimal list-inside space-y-1">
+                        <li>Go to your <a href="https://dashboard.vapi.ai" target="_blank" rel="noopener noreferrer" className="underline font-medium">VAPI Dashboard</a></li>
+                        <li>Navigate to Phone Numbers section</li>
+                        <li>Purchase a phone number</li>
+                        <li>Refresh this page to see your numbers</li>
+                      </ol>
+                    </div>
+                  )}
                 </div>
-                {phoneError && (
-                  <p className="mt-2 text-sm text-red-600">{phoneError}</p>
-                )}
-                <p className="mt-2 text-xs text-gray-500">
-                  Enter the phone number with country code (e.g., +1 for US) or just the 10-digit number for US calls.
-                </p>
+
+                {/* Target Phone Number Input */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Target Phone Number (Who to Call)
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <PhoneIcon className="h-5 w-5 text-gray-400" />
+                    </div>
+                    <input
+                      type="tel"
+                      value={phoneNumber}
+                      onChange={(e) => {
+                        setPhoneNumber(e.target.value);
+                        setPhoneError(''); // Clear error on input change
+                      }}
+                      placeholder="Enter phone number (e.g., +1234567890)"
+                      className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      disabled={isCallActive || vapiPhoneNumbers.length === 0}
+                    />
+                  </div>
+                  {phoneError && (
+                    <p className="mt-2 text-sm text-red-600">{phoneError}</p>
+                  )}
+                  <p className="mt-2 text-xs text-gray-500">
+                    Enter the phone number with country code (e.g., +1 for US) or just the 10-digit number for US calls.
+                  </p>
+                </div>
               </div>
             )}
 

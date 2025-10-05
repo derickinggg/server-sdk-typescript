@@ -8,7 +8,7 @@ const client = new VapiClient({
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { assistantId, phoneNumber, customerPhoneNumber } = body;
+    const { assistantId, phoneNumberId, customerPhoneNumber } = body;
 
     if (!assistantId) {
       return NextResponse.json(
@@ -28,14 +28,21 @@ export async function POST(req: NextRequest) {
         );
       }
 
+      // For outbound calls, we need a VAPI phone number
+      if (!phoneNumberId) {
+        return NextResponse.json(
+          { error: 'A VAPI phone number is required to make outbound calls. Please purchase a phone number from your VAPI dashboard.' },
+          { status: 400 }
+        );
+      }
+
       // Create outbound phone call
       const call = await client.calls.create({
         assistantId,
+        phoneNumberId, // The VAPI phone number to call from
         customer: {
           number: customerPhoneNumber,
         },
-        // You can optionally specify a phone number to call from
-        // phoneNumberId: 'your-vapi-phone-number-id',
       });
 
       return NextResponse.json({ 
@@ -47,7 +54,7 @@ export async function POST(req: NextRequest) {
       // Create web call (browser-based)
       const call = await client.calls.create({
         assistantId,
-        ...(phoneNumber && { phoneNumberId: phoneNumber }),
+        ...(phoneNumberId && { phoneNumberId }),
       });
 
       return NextResponse.json({ 
