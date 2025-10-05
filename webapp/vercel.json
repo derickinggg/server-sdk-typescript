@@ -3,5 +3,8 @@
   "outputDirectory": ".next",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "env": {
+    "NEXT_PUBLIC_VAPI_PUBLIC_KEY": "899811a4-02a5-407d-a8f1-6fa8060db666"
+  }
 }
