@@ -2,222 +2,464 @@
 
 import { useState } from 'react';
 import { useLanguage } from './lib/i18n/LanguageContext';
-import { LanguageSwitcher } from './components/LanguageSwitcher';
+import { Header } from './components/Header';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { 
-  PhoneIcon, 
-  PencilIcon, 
-  DocumentDuplicateIcon, 
-  TrashIcon,
-  PlusIcon,
-  MagnifyingGlassIcon,
-  Squares2X2Icon,
-  ListBulletIcon,
-  ClockIcon,
-  CubeIcon,
-  CogIcon,
-  PhoneArrowUpRightIcon
+  PhoneIcon,
+  CheckIcon,
+  DocumentTextIcon,
+  ChevronRightIcon,
+  ChevronLeftIcon,
+  SpeakerWaveIcon,
+  ChatBubbleLeftRightIcon,
+  EyeIcon
 } from '@heroicons/react/24/outline';
 
-interface Agent {
-  id: string;
+interface AgentConfig {
   name: string;
-  provider: string;
-  model: string;
-  createdAt: string;
-  duration: string;
-  avatar: string;
+  role: string;
+  firstMessage: string;
+  voiceProvider: string;
+  voiceModel: string;
+  aiProvider: string;
+  aiModel: string;
+  temperature: number;
+  systemPrompt: string;
+  interruptionThreshold: number;
+  endCallPhrases: string;
+  maxDuration: number;
 }
+
+const VOICE_PROVIDERS = [
+  { id: 'elevenlabs', name: 'ElevenLabs', models: ['rachel', 'drew', 'clyde', 'paul', 'domi'] },
+  { id: 'openai', name: 'OpenAI', models: ['alloy', 'echo', 'fable', 'onyx', 'nova', 'shimmer'] },
+  { id: 'azure', name: 'Azure', models: ['jenny', 'guy', 'aria', 'davis'] },
+];
+
+const AI_PROVIDERS = [
+  { id: 'openai', name: 'OpenAI', models: ['gpt-4', 'gpt-3.5-turbo'] },
+  { id: 'anthropic', name: 'Anthropic', models: ['claude-3-opus', 'claude-3-sonnet'] },
+];
 
 export default function HomePage() {
   const { t } = useLanguage();
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const [searchQuery, setSearchQuery] = useState('');
+  const router = useRouter();
+  const [currentStep, setCurrentStep] = useState(1);
+  const [isCreating, setIsCreating] = useState(false);
+  const [agentConfig, setAgentConfig] = useState<AgentConfig>({
+    name: '',
+    role: '',
+    firstMessage: '',
+    voiceProvider: 'elevenlabs',
+    voiceModel: 'rachel',
+    aiProvider: 'openai',
+    aiModel: 'gpt-4',
+    temperature: 0.7,
+    systemPrompt: '',
+    interruptionThreshold: 50,
+    endCallPhrases: 'goodbye, bye, see you later',
+    maxDuration: 600,
+  });
 
-  const agents: Agent[] = [
-    {
-      id: '1',
-      name: t('home.customerSupportAgent'),
-      provider: 'openai',
-      model: 'vapi',
-      createdAt: 'Oct 5, 2025',
-      duration: t('home.duration'),
-      avatar: '👤',
-    },
-    {
-      id: '2',
-      name: t('home.technicalSupportSpecialist'),
-      provider: 'openai',
-      model: 'vapi',
-      createdAt: 'Oct 5, 2025',
-      duration: t('home.duration'),
-      avatar: '👤',
-    },
-    {
-      id: '3',
-      name: t('home.salesRepresentative'),
-      provider: 'openai',
-      model: '11labs',
-      createdAt: 'Oct 5, 2025',
-      duration: t('home.duration'),
-      avatar: '👤',
-    },
+  const steps = [
+    { id: 1, title: t('builder.step1Title'), subtitle: t('builder.step1Subtitle'), icon: DocumentTextIcon },
+    { id: 2, title: t('builder.step2Title'), subtitle: t('builder.step2Subtitle'), icon: SpeakerWaveIcon },
+    { id: 3, title: t('builder.step3Title'), subtitle: t('builder.step3Subtitle'), icon: ChatBubbleLeftRightIcon },
+    { id: 4, title: t('builder.step4Title'), subtitle: t('builder.step4Subtitle'), icon: EyeIcon },
   ];
 
-  const filteredAgents = agents.filter(agent =>
-    agent.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const handleNext = () => {
+    if (currentStep < 4) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const handleBack = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  const handleCreateAgent = async () => {
+    setIsCreating(true);
+    try {
+      const response = await fetch('/api/vapi/create-assistant', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: agentConfig.name,
+          firstMessage: agentConfig.firstMessage,
+          systemPrompt: agentConfig.systemPrompt,
+          model: {
+            provider: agentConfig.aiProvider,
+            model: agentConfig.aiModel,
+            temperature: agentConfig.temperature,
+          },
+          voice: {
+            provider: agentConfig.voiceProvider,
+            voiceId: agentConfig.voiceModel,
+          },
+          silenceTimeoutSeconds: 30,
+          responseDelaySeconds: 0.4,
+          interruptionThreshold: agentConfig.interruptionThreshold / 100,
+          endCallPhrases: agentConfig.endCallPhrases.split(',').map(p => p.trim()),
+          maxDurationSeconds: agentConfig.maxDuration,
+        }),
+      });
+      
+      if (response.ok) {
+        alert(t('builder.createSuccess'));
+        router.push('/agents');
+      } else {
+        alert(t('builder.createError'));
+      }
+    } catch (error) {
+      console.error('Error creating agent:', error);
+      alert(t('builder.createError'));
+    } finally {
+      setIsCreating(false);
+    }
+  };
+
+  const selectedVoiceProvider = VOICE_PROVIDERS.find(p => p.id === agentConfig.voiceProvider);
+  const selectedAIProvider = AI_PROVIDERS.find(p => p.id === agentConfig.aiProvider);
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-4">
-              <div className="bg-purple-600 p-2 rounded-lg">
-                <CubeIcon className="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl font-semibold text-gray-900">{t('nav.title')}</h1>
-                <p className="text-sm text-gray-500">{t('nav.subtitle')}</p>
-              </div>
-            </div>
-            
-            <div className="flex items-center space-x-6">
-              <nav className="flex space-x-6">
-                <Link href="/" className="flex items-center text-sm text-gray-700 hover:text-purple-600 transition-colors">
-                  <CubeIcon className="h-4 w-4 mr-1" />
-                  {t('nav.buildAgents')}
-                </Link>
-                <Link href="/call" className="flex items-center text-sm text-gray-700 hover:text-purple-600 transition-colors">
-                  <PhoneIcon className="h-4 w-4 mr-1" />
-                  {t('nav.makeCalls')}
-                </Link>
-                <Link href="/demo" className="flex items-center text-sm text-gray-700 hover:text-purple-600 transition-colors">
-                  <CogIcon className="h-4 w-4 mr-1" />
-                  {t('nav.fullCustomization')}
-                </Link>
-              </nav>
-              <LanguageSwitcher />
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Page Title and Actions */}
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">{t('builder.title')}</h2>
+          <p className="text-gray-600">{t('builder.subtitle')}</p>
+        </div>
+
+        {/* Progress Steps */}
         <div className="mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">{t('home.myAgents')}</h2>
-          <p className="text-gray-600">{t('home.manageAgents')}</p>
-        </div>
-
-        {/* Search and View Toggle */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center space-x-4 flex-1">
-            <div className="relative flex-1 max-w-md">
-              <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-              <input
-                type="text"
-                placeholder={t('common.search')}
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-              />
-            </div>
-            <div className="flex items-center border border-gray-300 rounded-lg">
-              <button
-                onClick={() => setViewMode('grid')}
-                className={`p-2 ${viewMode === 'grid' ? 'bg-gray-100' : ''}`}
-              >
-                <Squares2X2Icon className="h-5 w-5 text-gray-600" />
-              </button>
-              <button
-                onClick={() => setViewMode('list')}
-                className={`p-2 ${viewMode === 'list' ? 'bg-gray-100' : ''}`}
-              >
-                <ListBulletIcon className="h-5 w-5 text-gray-600" />
-              </button>
-            </div>
-          </div>
-          <button className="ml-4 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors flex items-center">
-            <PlusIcon className="h-5 w-5 mr-2" />
-            {t('common.createAgent')}
-          </button>
-        </div>
-
-        {/* Agents Grid */}
-        <div className={viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6' : 'space-y-4'}>
-          {filteredAgents.map((agent) => (
-            <div
-              key={agent.id}
-              className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow"
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-2xl">
-                    {agent.avatar}
+          <div className="flex items-center justify-between">
+            {steps.map((step, index) => (
+              <div key={step.id} className="flex items-center flex-1">
+                <div className="relative">
+                  <div
+                    className={`w-12 h-12 rounded-full flex items-center justify-center ${
+                      currentStep >= step.id
+                        ? 'bg-purple-600 text-white'
+                        : 'bg-gray-200 text-gray-400'
+                    }`}
+                  >
+                    {currentStep > step.id ? (
+                      <CheckIcon className="h-6 w-6" />
+                    ) : (
+                      <step.icon className="h-6 w-6" />
+                    )}
                   </div>
-                  <div className="ml-3">
-                    <h3 className="font-semibold text-gray-900">{agent.name}</h3>
-                    <p className="text-sm text-gray-500">{agent.provider} • {agent.model}</p>
+                  <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+                    <p className="text-xs font-medium text-gray-900">{step.title}</p>
                   </div>
                 </div>
+                {index < steps.length - 1 && (
+                  <div
+                    className={`flex-1 h-1 mx-4 ${
+                      currentStep > step.id ? 'bg-purple-600' : 'bg-gray-200'
+                    }`}
+                  />
+                )}
               </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Form Content */}
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 mt-12">
+          {currentStep === 1 && (
+            <div className="space-y-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('builder.step1Title')}</h3>
               
-              <div className="flex items-center text-sm text-gray-500 mb-4">
-                <ClockIcon className="h-4 w-4 mr-1" />
-                <span>{agent.createdAt}</span>
-                <span className="mx-2">•</span>
-                <span>{agent.duration}</span>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {t('builder.agentName')}
+                </label>
+                <input
+                  type="text"
+                  value={agentConfig.name}
+                  onChange={(e) => setAgentConfig({ ...agentConfig, name: e.target.value })}
+                  placeholder={t('builder.agentNamePlaceholder')}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                />
               </div>
 
-              <div className="flex items-center justify-between">
-                <Link href="/call" className="flex-1 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center">
-                  <PhoneIcon className="h-5 w-5 mr-2" />
-                  {t('common.call')}
-                </Link>
-                <div className="flex items-center space-x-2 ml-4">
-                  <button className="p-2 text-gray-500 hover:text-gray-700 transition-colors">
-                    <PencilIcon className="h-5 w-5" />
-                  </button>
-                  <button className="p-2 text-gray-500 hover:text-gray-700 transition-colors">
-                    <DocumentDuplicateIcon className="h-5 w-5" />
-                  </button>
-                  <button className="p-2 text-gray-500 hover:text-red-600 transition-colors">
-                    <TrashIcon className="h-5 w-5" />
-                  </button>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {t('builder.agentRole')}
+                </label>
+                <input
+                  type="text"
+                  value={agentConfig.role}
+                  onChange={(e) => setAgentConfig({ ...agentConfig, role: e.target.value })}
+                  placeholder={t('builder.agentRolePlaceholder')}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {t('builder.firstMessage')}
+                </label>
+                <textarea
+                  value={agentConfig.firstMessage}
+                  onChange={(e) => setAgentConfig({ ...agentConfig, firstMessage: e.target.value })}
+                  placeholder={t('builder.firstMessagePlaceholder')}
+                  rows={3}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                />
+              </div>
+            </div>
+          )}
+
+          {currentStep === 2 && (
+            <div className="space-y-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('builder.step2Title')}</h3>
+              
+              <div className="grid grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {t('builder.voiceProvider')}
+                  </label>
+                  <select
+                    value={agentConfig.voiceProvider}
+                    onChange={(e) => {
+                      const provider = VOICE_PROVIDERS.find(p => p.id === e.target.value);
+                      setAgentConfig({ 
+                        ...agentConfig, 
+                        voiceProvider: e.target.value,
+                        voiceModel: provider?.models[0] || ''
+                      });
+                    }}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  >
+                    {VOICE_PROVIDERS.map(provider => (
+                      <option key={provider.id} value={provider.id}>{provider.name}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {t('builder.voiceModel')}
+                  </label>
+                  <select
+                    value={agentConfig.voiceModel}
+                    onChange={(e) => setAgentConfig({ ...agentConfig, voiceModel: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  >
+                    {selectedVoiceProvider?.models.map(model => (
+                      <option key={model} value={model}>{model}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {t('builder.aiProvider')}
+                  </label>
+                  <select
+                    value={agentConfig.aiProvider}
+                    onChange={(e) => {
+                      const provider = AI_PROVIDERS.find(p => p.id === e.target.value);
+                      setAgentConfig({ 
+                        ...agentConfig, 
+                        aiProvider: e.target.value,
+                        aiModel: provider?.models[0] || ''
+                      });
+                    }}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  >
+                    {AI_PROVIDERS.map(provider => (
+                      <option key={provider.id} value={provider.id}>{provider.name}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {t('builder.aiModel')}
+                  </label>
+                  <select
+                    value={agentConfig.aiModel}
+                    onChange={(e) => setAgentConfig({ ...agentConfig, aiModel: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  >
+                    {selectedAIProvider?.models.map(model => (
+                      <option key={model} value={model}>{model}</option>
+                    ))}
+                  </select>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
 
-        {/* Features Section */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center">
-            <div className="bg-purple-100 w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <CubeIcon className="h-8 w-8 text-purple-600" />
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {t('builder.temperature')} ({agentConfig.temperature})
+                </label>
+                <p className="text-xs text-gray-500 mb-2">{t('builder.temperatureDesc')}</p>
+                <input
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value={agentConfig.temperature}
+                  onChange={(e) => setAgentConfig({ ...agentConfig, temperature: parseFloat(e.target.value) })}
+                  className="w-full"
+                />
+              </div>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('home.customAgentsTitle')}</h3>
-            <p className="text-gray-600 text-sm">{t('home.customAgentsDesc')}</p>
-          </div>
-          
-          <div className="text-center">
-            <div className="bg-blue-100 w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <CogIcon className="h-8 w-8 text-blue-600" />
+          )}
+
+          {currentStep === 3 && (
+            <div className="space-y-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('builder.step3Title')}</h3>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {t('builder.systemPrompt')}
+                </label>
+                <textarea
+                  value={agentConfig.systemPrompt}
+                  onChange={(e) => setAgentConfig({ ...agentConfig, systemPrompt: e.target.value })}
+                  placeholder={t('builder.systemPromptPlaceholder')}
+                  rows={6}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {t('builder.interruptionThreshold')} ({agentConfig.interruptionThreshold}%)
+                </label>
+                <p className="text-xs text-gray-500 mb-2">{t('builder.interruptionDesc')}</p>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="10"
+                  value={agentConfig.interruptionThreshold}
+                  onChange={(e) => setAgentConfig({ ...agentConfig, interruptionThreshold: parseInt(e.target.value) })}
+                  className="w-full"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {t('builder.endCallPhrases')}
+                </label>
+                <input
+                  type="text"
+                  value={agentConfig.endCallPhrases}
+                  onChange={(e) => setAgentConfig({ ...agentConfig, endCallPhrases: e.target.value })}
+                  placeholder={t('builder.endCallPhrasesPlaceholder')}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {t('builder.maxDuration')}
+                </label>
+                <input
+                  type="number"
+                  value={agentConfig.maxDuration}
+                  onChange={(e) => setAgentConfig({ ...agentConfig, maxDuration: parseInt(e.target.value) })}
+                  min="60"
+                  max="3600"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                />
+              </div>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('home.fullControlTitle')}</h3>
-            <p className="text-gray-600 text-sm">{t('home.fullControlDesc')}</p>
-          </div>
-          
-          <div className="text-center">
-            <div className="bg-green-100 w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <PhoneArrowUpRightIcon className="h-8 w-8 text-green-600" />
+          )}
+
+          {currentStep === 4 && (
+            <div className="space-y-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('builder.step4Title')}</h3>
+              
+              <div className="bg-gray-50 rounded-lg p-6 space-y-4">
+                <h4 className="font-medium text-gray-900">Agent Configuration Summary</h4>
+                
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <span className="text-gray-500">Name:</span>
+                    <p className="font-medium">{agentConfig.name || 'Not set'}</p>
+                  </div>
+                  <div>
+                    <span className="text-gray-500">Role:</span>
+                    <p className="font-medium">{agentConfig.role || 'Not set'}</p>
+                  </div>
+                  <div>
+                    <span className="text-gray-500">Voice:</span>
+                    <p className="font-medium">{agentConfig.voiceProvider} - {agentConfig.voiceModel}</p>
+                  </div>
+                  <div>
+                    <span className="text-gray-500">AI Model:</span>
+                    <p className="font-medium">{agentConfig.aiProvider} - {agentConfig.aiModel}</p>
+                  </div>
+                  <div className="col-span-2">
+                    <span className="text-gray-500">First Message:</span>
+                    <p className="font-medium">{agentConfig.firstMessage || 'Not set'}</p>
+                  </div>
+                  <div className="col-span-2">
+                    <span className="text-gray-500">System Prompt:</span>
+                    <p className="font-medium">{agentConfig.systemPrompt || 'Not set'}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex justify-center space-x-4">
+                <button
+                  onClick={handleCreateAgent}
+                  disabled={isCreating}
+                  className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors disabled:bg-gray-400 flex items-center"
+                >
+                  {isCreating ? 'Creating...' : t('common.save')}
+                </button>
+                <Link
+                  href="/call"
+                  className="px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors flex items-center"
+                >
+                  <PhoneIcon className="h-5 w-5 mr-2" />
+                  {t('common.testCall')}
+                </Link>
+              </div>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('home.instantDeploymentTitle')}</h3>
-            <p className="text-gray-600 text-sm">{t('home.instantDeploymentDesc')}</p>
+          )}
+
+          {/* Navigation Buttons */}
+          <div className="flex justify-between mt-8">
+            <button
+              onClick={handleBack}
+              disabled={currentStep === 1}
+              className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
+            >
+              <ChevronLeftIcon className="h-5 w-5 mr-2" />
+              {t('common.back')}
+            </button>
+            
+            {currentStep < 4 ? (
+              <button
+                onClick={handleNext}
+                className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors flex items-center"
+              >
+                {t('common.next')}
+                <ChevronRightIcon className="h-5 w-5 ml-2" />
+              </button>
+            ) : (
+              <Link
+                href="/agents"
+                className="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors flex items-center"
+              >
+                {t('common.viewAgents')}
+                <ChevronRightIcon className="h-5 w-5 ml-2" />
+              </Link>
+            )}
           </div>
         </div>
       </main>
