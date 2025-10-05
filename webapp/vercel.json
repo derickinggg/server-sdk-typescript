@@ -3,10 +3,5 @@
   "outputDirectory": ".next",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
-  "framework": "nextjs",
-  "env": {
-    "VAPI_API_KEY": "@vapi-api-key",
-    "VERCEL_API_KEY": "@vercel-api-key",
-    "NEXT_PUBLIC_VAPI_PUBLIC_KEY": "@vapi-public-key"
-  }
+  "framework": "nextjs"
 }
