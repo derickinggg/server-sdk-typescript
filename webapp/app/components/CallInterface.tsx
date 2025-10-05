@@ -34,30 +34,42 @@ export function CallInterface() {
 
   // Initialize VAPI client
   useEffect(() => {
-    const vapiInstance = new Vapi(process.env.NEXT_PUBLIC_VAPI_PUBLIC_KEY || '');
+    const publicKey = process.env.NEXT_PUBLIC_VAPI_PUBLIC_KEY;
+    console.log('Initializing VAPI with public key:', publicKey ? `${publicKey.substring(0, 8)}...` : 'NOT FOUND');
+    
+    if (!publicKey) {
+      console.error('NEXT_PUBLIC_VAPI_PUBLIC_KEY is not set!');
+      setPhoneError('VAPI public key is not configured. Please contact administrator.');
+      return;
+    }
+    
+    const vapiInstance = new Vapi(publicKey);
     setVapi(vapiInstance);
 
     // Set up event listeners
     vapiInstance.on('call-start', () => {
+      console.log('VAPI Event: call-start');
       setCallStatus('connected');
       setIsCallActive(true);
     });
 
     vapiInstance.on('call-end', () => {
+      console.log('VAPI Event: call-end');
       setCallStatus('ended');
       setIsCallActive(false);
       setTimeout(() => setCallStatus('idle'), 3000);
     });
 
     vapiInstance.on('speech-start', () => {
-      console.log('User started speaking');
+      console.log('VAPI Event: speech-start');
     });
 
     vapiInstance.on('speech-end', () => {
-      console.log('User stopped speaking');
+      console.log('VAPI Event: speech-end');
     });
 
     vapiInstance.on('message', (message: any) => {
+      console.log('VAPI Event: message', message);
       if (message.type === 'transcript' && message.transcript) {
         const newMessage: Message = {
           id: Date.now().toString(),
@@ -70,9 +82,10 @@ export function CallInterface() {
     });
 
     vapiInstance.on('error', (error: any) => {
-      console.error('VAPI Error:', error);
+      console.error('VAPI Event: error', error);
       setCallStatus('ended');
       setIsCallActive(false);
+      setPhoneError(error.message || 'An error occurred during the call');
     });
 
     return () => {
@@ -83,6 +96,7 @@ export function CallInterface() {
   // Create assistant on component mount
   useEffect(() => {
     const createAssistant = async () => {
+      console.log('Creating VAPI assistant...');
       try {
         const response = await fetch('/api/vapi/create-assistant', {
           method: 'POST',
@@ -92,12 +106,23 @@ export function CallInterface() {
             firstMessage: 'Hello! I am your AI assistant. How can I help you today?',
           }),
         });
+        
         const data = await response.json();
+        console.log('Create assistant response:', data);
+        
+        if (!response.ok) {
+          throw new Error(data.error || 'Failed to create assistant');
+        }
+        
         if (data.assistant) {
           setAssistantId(data.assistant.id);
+          console.log('Assistant created successfully with ID:', data.assistant.id);
+        } else {
+          throw new Error('No assistant returned from API');
         }
-      } catch (error) {
+      } catch (error: any) {
         console.error('Error creating assistant:', error);
+        setPhoneError(`Failed to create assistant: ${error.message}`);
       }
     };
     createAssistant();
@@ -188,7 +213,17 @@ export function CallInterface() {
   };
 
   const handleCallToggle = async () => {
-    if (!vapi || !assistantId) return;
+    console.log('handleCallToggle called', { vapi: !!vapi, assistantId, callType });
+    
+    if (!vapi) {
+      setPhoneError('VAPI client not initialized. Please refresh the page.');
+      return;
+    }
+    
+    if (!assistantId) {
+      setPhoneError('Assistant not created. Please wait or refresh the page.');
+      return;
+    }
 
     // Validate phone number if phone call type is selected
     if (callType === 'phone') {
@@ -206,6 +241,7 @@ export function CallInterface() {
     setIsLoading(true);
     try {
       if (isCallActive) {
+        console.log('Ending call...');
         if (callType === 'web') {
           await vapi.stop();
         } else {
@@ -220,13 +256,22 @@ export function CallInterface() {
           }]);
         }
       } else {
+        console.log('Starting call...', { callType, assistantId });
         setCallStatus('connecting');
         setMessages([]);
         setDuration('00:00');
         
         if (callType === 'web') {
           // Web-based call (browser to browser)
-          await vapi.start(assistantId);
+          console.log('Starting web call with assistant:', assistantId);
+          try {
+            // VAPI Web SDK expects the start method to be called with the assistant ID
+            const result = await vapi.start(assistantId);
+            console.log('Web call started successfully', result);
+          } catch (startError: any) {
+            console.error('Failed to start web call:', startError);
+            throw new Error(`Failed to start call: ${startError.message || 'Unknown error'}`);
+          }
         } else {
           // Phone call to actual phone number
           const cleanNumber = phoneNumber.replace(/\D/g, '');
@@ -466,6 +511,33 @@ export function CallInterface() {
                   <p>The AI assistant will call the specified number.</p>
                 </>
               )}
+            </div>
+
+            {/* Debug Section */}
+            <div className="mt-8 p-4 bg-gray-100 rounded-lg">
+              <h4 className="text-sm font-medium text-gray-700 mb-2">Debug Information</h4>
+              <div className="text-xs text-gray-600 space-y-1">
+                <p>VAPI Client: {vapi ? '✅ Initialized' : '❌ Not initialized'}</p>
+                <p>Assistant ID: {assistantId || 'Not created'}</p>
+                <p>Public Key: {process.env.NEXT_PUBLIC_VAPI_PUBLIC_KEY ? '✅ Present' : '❌ Missing'}</p>
+              </div>
+              <button
+                onClick={async () => {
+                  console.log('Testing VAPI connection...');
+                  try {
+                    const response = await fetch('/api/vapi/test');
+                    const data = await response.json();
+                    console.log('VAPI test results:', data);
+                    alert(`VAPI Test Results:\n${JSON.stringify(data, null, 2)}`);
+                  } catch (error) {
+                    console.error('Test failed:', error);
+                    alert('Failed to test VAPI connection');
+                  }
+                }}
+                className="mt-2 px-3 py-1 bg-blue-500 text-white text-xs rounded hover:bg-blue-600"
+              >
+                Test VAPI Connection
+              </button>
             </div>
           </div>
         </div>
